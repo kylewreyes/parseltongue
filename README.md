@@ -44,6 +44,8 @@ Challenges
 - Data analysis and developing a useful fraud metric
 - Visualization of Data
 
+Rejected - Not enough "good" data and if there were enough data we could just throw an ML or CV algorithm at this
+
 ### Idea 2 - Automated Travel Planner
 The Problem
 - Planning a fun and interesting trip within a certain budget effectively can be difficult in a busy lifestyle. Moreover, many of the parts of booking are tedious and difficult to keep track of.
@@ -62,6 +64,8 @@ Challenges
 - Dealing with each restriction given by the user
 - Scraping data to match with user inputs
 
+Approved - algorithm for computing "score" of trip and ranking should be the main component. 
+
 ### Idea 3 - Parseltongue (Efficient Academic Paper Parsing)
 The Problem
 - Research is difficult, and having to read through pages of repetitive content is a waste of time and resources. Especially considering that the most “useful” part of any given paper is generally buried amidst a mass of context and other unrelated content, it would be helpful to be able to parse and filter papers for their most salient content.
@@ -76,6 +80,10 @@ Challenges
 - Natural Language Processing?
 - Dealing with non-parsable documents.
 - Creating an intuitive and beautiful UI.
+
+Approved - lots of interesting parsing algorithms. Should avoid just throwing an ML algorithm at a large dataset
+
+Note: You do not need to resubmit your final project ideas.
 
 
 **Mentor TA:** _Put your mentor TA's name and email here once you're assigned one!_
