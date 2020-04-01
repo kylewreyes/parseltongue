@@ -49,35 +49,19 @@ Most users will mostly have the same experience as this program focuses on a sin
 
 ### Mockup [https://www.figma.com/file/kWwoXekP2h4ryIho9cW2kM/ParselTongue?node-id=0%3A1]
 
-Non-working demonstration that shows the expected features, screens, and functionalities of your program.
-
-Every aspect of your specifications should be included in your mockup, and vice-versa, to demonstrate what you are trying to create.
-
 ### Design Presentation [https://docs.google.com/presentation/d/1M9Zc7NcSX_NgOGlvQR2Yc7F1edQ-uUV4i0p1ZvVz0Og/edit#slide=id.p]
-
-Your design document should cleanly break the project into independent components that can be tackled by individual team members. You would be wise to divide-and-conquer your design document by having individual members design the components for which they are responsible.
-
-Design documents should minimally contain diagrams and/or code contracts for each package, specifications for interfaces between packages, and a descriptions of major methods and data structures.
-
-As with all of your other projects, we expect a comprehensive testing plan. This is a sequence of tests that will exercise every aspect of your project. If you’ve thoroughly tested your own code before you try to integrate it with the rest of the program, everyone’s life will be much easier. We require automated unit testing.
-
-You should arrange a complete draft of your design and a short series of slides to present to your TA. The slides can optionally take the following form:
-
-- Project name, group structure, division of labor, and a project description
-- A fairly detailed timeline of individual schedule, in more detail than deadlines, emphasizing internal integration deadlines
-- A design snapshot; summarizes overall design
-- A list of expected problems/issues
 
 ## Design Document
 
 ### Individual Components
 
 There are a few components that we can break the program into. These components will be individually tackled by the team members so that they can be completed in parallel. The components are as follows:
-Front end: Nick
-User Experience Design: Derick
-PDF parser including sectioning and tagging various parts of the PDFs to be passed into the interpreter: Kyle
-Page Rank Algorithm: Shalin
-Closeness Metric for Passages: Derick
+
+- Front end: Nick
+- User Experience Design: Derick
+- PDF parser including sectioning and tagging various parts of the PDFs to be passed into the interpreter: Kyle
+- Page Rank Algorithm: Shalin
+- Closeness Metric for Passages: Derick
 
 The front end entails creating the entirety of the website and understanding how to grab data from the Java backend and push it to the frontend using ajax and other packages. In addition, the front end will require design and implementation in HTML and CSS.
 
