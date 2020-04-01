@@ -57,11 +57,10 @@ Most users will mostly have the same experience as this program focuses on a sin
 
 There are a few components that we can break the program into. These components will be individually tackled by the team members so that they can be completed in parallel. The components are as follows:
 
-- Front end: Nick
-- User Experience Design: Derick
+- Front end and UX design: Nick
 - PDF parser including sectioning and tagging various parts of the PDFs to be passed into the interpreter: Kyle
-- Page Rank Algorithm: Shalin
-- Closeness Metric for Passages: Derick
+- Page Rank Algorithm and Difference Metrics: Shalin [https://www.geeksforgeeks.org/page-rank-algorithm-implementation/]
+- Closeness Metrics for Passages: Derick
 
 The front end entails creating the entirety of the website and understanding how to grab data from the Java backend and push it to the frontend using ajax and other packages. In addition, the front end will require design and implementation in HTML and CSS.
 
