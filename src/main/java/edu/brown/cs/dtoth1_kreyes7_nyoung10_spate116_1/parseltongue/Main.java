@@ -1,4 +1,4 @@
-package edu.brown.cs.ilee26_nyoung10.maps;
+package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,21 +6,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import edu.brown.cs.ilee26_nyoung10.maps.Routes.ActorHandler;
-import edu.brown.cs.ilee26_nyoung10.maps.Routes.ConnectHandler;
-import edu.brown.cs.ilee26_nyoung10.maps.Routes.FrontHandler;
-import edu.brown.cs.ilee26_nyoung10.maps.Routes.MovieHandler;
-import edu.brown.cs.ilee26_nyoung10.maps.Routes.NeighborsCoordsHandler;
-import edu.brown.cs.ilee26_nyoung10.maps.Routes.NeighborsNameHandler;
-import edu.brown.cs.ilee26_nyoung10.maps.Routes.RadiusCoordsHandler;
-import edu.brown.cs.ilee26_nyoung10.maps.Routes.RadiusNameHandler;
-import edu.brown.cs.ilee26_nyoung10.maps.Routes.StarsHandler;
-import edu.brown.cs.ilee26_nyoung10.maps.Routes.TimdbHandler;
-import edu.brown.cs.ilee26_nyoung10.maps.maps.Maps;
-import edu.brown.cs.ilee26_nyoung10.maps.stars.Stars;
-import edu.brown.cs.ilee26_nyoung10.maps.timdb.Timdb;
-import edu.brown.cs.ilee26_nyoung10.maps.utils.Command;
-import edu.brown.cs.ilee26_nyoung10.maps.utils.REPL;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import spark.ExceptionHandler;
@@ -36,10 +21,6 @@ import freemarker.template.Configuration;
  */
 public final class Main {
   private static final int DEFAULT_PORT = 4567;
-  private static Stars starsProgram = new Stars();
-  private static Timdb timdbProgram = new Timdb();
-  private static Maps mapsProgram = new Maps();
-
   /**
    * The initial method called when execution begins.
    *
@@ -71,33 +52,7 @@ public final class Main {
     }
 
     // REPL Handling.
-    REPL repl = new REPL(new InputStreamReader(System.in));
-    repl.addCommand("stars", new Command(starsProgram::starsCommand));
-    repl.addCommand("neighbors", new Command(starsProgram::neighborsCommand));
-    repl.addCommand("radius", new Command(starsProgram::radiusCommand));
-    repl.addCommand("mdb", new Command(timdbProgram::mdbCommand));
-    repl.addCommand("connect", new Command(timdbProgram::connectCommand));
-    repl.addCommand("map", new Command(mapsProgram::mapCommand));
-    repl.addCommand("ways", new Command(mapsProgram::waysCommand));
-    repl.addCommand("nearest", new Command(mapsProgram::nearestCommand));
-    repl.addCommand("route", new Command(mapsProgram::routeCommand));
-    repl.begin();
-  }
-
-  /**
-   * Accessor method for the Stars program.
-   * @return  The Stars program.
-   */
-  public static Stars getStarsProgram() {
-    return starsProgram;
-  }
-
-  /**
-   * Accessor method for the Timdb program.
-   * @return  The Timdb program.
-   */
-  public static Timdb getTimdbProgram() {
-    return timdbProgram;
+    // TODO: Implement REPL
   }
 
   /**
@@ -126,18 +81,8 @@ public final class Main {
 
     FreeMarkerEngine freeMarker = createEngine();
 
-    // Setup Spark Routes for Stars
-    Spark.get("/stars", new FrontHandler(), freeMarker);
-    Spark.post("/stars", new StarsHandler(), freeMarker);
-    Spark.post("/neighborsName", new NeighborsNameHandler(), freeMarker);
-    Spark.post("/neighborsCoords", new NeighborsCoordsHandler(), freeMarker);
-    Spark.post("/radiusName", new RadiusNameHandler(), freeMarker);
-    Spark.post("/radiusCoords", new RadiusCoordsHandler(), freeMarker);
-    // Setup Spark Routes for tIMDb
-    Spark.get("/timdb", new TimdbHandler(), freeMarker);
-    Spark.get("/timdb/results", new ConnectHandler(), freeMarker);
-    Spark.get("/timdb/actor/:id", new ActorHandler(), freeMarker);
-    Spark.get("/timdb/movie/:id", new MovieHandler(), freeMarker);
+    // Setup Spark Routes
+    // TODO: Setup routing
   }
 
   /**
