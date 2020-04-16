@@ -82,6 +82,8 @@ public final class Main {
 
     // Setup Spark Routes
     Spark.get("/", new Routes.MainHandler(), freeMarker);
+    Spark.get("/dashboard", new Routes.DashHandler(), freeMarker);
+//    Spark.get("/upload", new Routes.DashHandler(), freeMarker);
   }
 
   /**

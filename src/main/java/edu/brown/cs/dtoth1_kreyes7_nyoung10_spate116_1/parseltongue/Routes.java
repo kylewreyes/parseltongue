@@ -31,12 +31,11 @@ public class Routes {
   /**
    *
    */
-  public static class StarsHandler implements TemplateViewRoute {
+  public static class DashHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      QueryParamsMap qm = req.queryMap();
-      Map<String, Object> variables = ImmutableMap.of("stars", "");
-      return new ModelAndView(variables, "query.ftl");
+      Map<String, Object> variables = ImmutableMap.of();
+      return new ModelAndView(variables, "dashboard.ftl");
     }
   }
 }
