@@ -74,7 +74,7 @@ public final class Main {
 
   /**
    * Gets Heroku Port.
-   * @return
+   * @return  port.
    */
   static int getHerokuAssignedPort() {
     ProcessBuilder processBuilder = new ProcessBuilder();
