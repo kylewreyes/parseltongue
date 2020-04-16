@@ -143,6 +143,12 @@ a:hover:before {
   margin-right: 20px;
 }
 
+@media only screen and (max-width: 600px) {
+  #jumbotronText {
+    display: none;
+  }
+}
+
 #jumbotronImage {
   font-weight: 200;
   font-size: 3rem;
@@ -162,6 +168,7 @@ a:hover:before {
   padding: 10px;
   margin: 5px 30px;
   width: 300px;
+  max-width: 
   border: 0 solid black;
   border-radius: 50px;
   background-color: #45ab42;
@@ -207,9 +214,8 @@ input {
 #view {
   position: fixed;
   width: 100%;
-  top: 0;
+  top: 85px;
   bottom: 0;
-  padding-top: 113px;
   display: flex;
   flex-direction: row;
   align-items: stretch;
