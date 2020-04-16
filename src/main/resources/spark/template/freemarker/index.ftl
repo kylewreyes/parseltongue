@@ -1,7 +1,7 @@
 <#assign content>
+<div id="app">
     <div id="jumbotron">
         <div id="jumbotronImage">
-            <#--  TODO: Make our own image  -->
             <img src="img/front.png"/>
         </div>
         <div id="jumbotronText">
@@ -31,5 +31,11 @@
             ParselTongue is built with a PankRank algorithm.
         </p>
     </div>
+</div>
+<footer>
+        This project was made by Shalin Patel, Derick Toth, Kyle Reyes, and Nick Young as a final project for CSCI 0320 - Software Engineering at Brown University.
+        <br/>
+        The source code for this project can be found here.
+    </footer>
 </#assign>
 <#include "main.ftl">

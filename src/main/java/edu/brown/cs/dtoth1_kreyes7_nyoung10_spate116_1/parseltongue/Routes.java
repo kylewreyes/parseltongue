@@ -20,7 +20,7 @@ public class Routes {
   /**
    * Handle GET requests to the landing page.
    */
-  public static class MainHandler implements TemplateViewRoute {
+  public static class GETMainHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
       Map<String, Object> variables = ImmutableMap.of();
@@ -29,13 +29,36 @@ public class Routes {
   }
 
   /**
-   *
+   *  Handles GET requests to the /upload route.
    */
-  public static class DashHandler implements TemplateViewRoute {
+  public static class GETUploadHandler implements TemplateViewRoute {
+    @Override
+    public ModelAndView handle(Request req, Response res) {
+      Map<String, Object> variables = ImmutableMap.of();
+      return new ModelAndView(variables, "upload.ftl");
+    }
+  }
+
+  /**
+   *  Handles GET requests to the /dashboard route.
+   */
+  public static class GETDashHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
       Map<String, Object> variables = ImmutableMap.of();
       return new ModelAndView(variables, "dashboard.ftl");
+    }
+  }
+
+  /**
+   *  Handles GET requests to the /view route.
+   * TODO: parse data.
+   */
+  public static class GETViewHandler implements TemplateViewRoute {
+    @Override
+    public ModelAndView handle(Request req, Response res) {
+      Map<String, Object> variables = ImmutableMap.of();
+      return new ModelAndView(variables, "view.ftl");
     }
   }
 }

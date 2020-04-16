@@ -1,19 +1,32 @@
+/* =================================== */
+/* General */
+/* =================================== */
+
 body,
 html {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
   font-weight: 200;
+  min-height: 100vh;
 }
 
 h1 {
   font-size: 3rem;
   font-weight: 200;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 200;
+  margin: 0;
 }
 
 p {
   font-size: 1.2rem;
   font-weight: 200;
+  margin-bottom: 50px;
 }
 
 a {
@@ -27,7 +40,7 @@ hr {
 #app {
   width: 100%;
   max-width: 992px;
-  margin: 50px auto;
+  margin: 75px auto;
 }
 
 /* =================================== */
@@ -36,6 +49,7 @@ hr {
 
 nav {
   position: sticky;
+  z-index: 1;
   top: 0;
   margin: 0;
   padding: 0;
@@ -97,24 +111,9 @@ a:hover:before {
 }
 
 #navRight > a {
-  /* TODO: Make these animated */
   font-size: 1rem;
   color: black;
   margin-left: 30px;
-}
-
-/* =================================== */
-/* Footer */
-/* =================================== */
-
-footer {
-  display: flex;
-  align-items: flex-end;
-  margin: 50px 0 0 0;
-  padding: 50px;
-  background-color: #1e1e1e;
-  color: white;
-  height: 100px;
 }
 
 /* =================================== */
@@ -165,3 +164,80 @@ footer {
 .button:hover {
   background-color: #50c44c;
 }
+
+footer {
+  display: flex;
+  align-items: flex-end;
+  margin: 50px 0 0 0;
+  padding: 50px;
+  background-color: #1e1e1e;
+  color: white;
+  height: 100px;
+}
+
+/* =================================== */
+/* Upload */
+/* =================================== */
+
+#uploadForm {
+  margin: 50px auto;
+  padding: 40px;
+  border-radius: 40px;
+  background-color: #eee;
+  text-align: center;
+}
+
+input {
+  margin: 20px 5px;
+}
+
+/* =================================== */
+/* View */
+/* =================================== */
+
+#view {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  padding-top: 113px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+#sidepanel {
+  margin: 0;
+  padding: 25px;
+  text-align: center;
+  width: 20%;
+  background-color: #eee;
+}
+
+input[type="checkbox"] {
+  margin: 10px 0;
+  padding: 0;
+}
+
+#snippets {
+  margin: 0;
+  padding: 50px;
+  width: 80%;
+  background-color: white;
+  text-align: center;
+  overflow-y: scroll;
+  max-height: 100%;
+}
+
+.snippet {
+  margin: 50px auto;
+  padding: 40px;
+  border-radius: 40px;
+  background-color: #eee;
+  text-align: center;
+}
+
+/* =================================== */
+/* Dashboard */
+/* =================================== */

@@ -81,9 +81,10 @@ public final class Main {
     FreeMarkerEngine freeMarker = createEngine();
 
     // Setup Spark Routes
-    Spark.get("/", new Routes.MainHandler(), freeMarker);
-    Spark.get("/dashboard", new Routes.DashHandler(), freeMarker);
-//    Spark.get("/upload", new Routes.DashHandler(), freeMarker);
+    Spark.get("/", new Routes.GETMainHandler(), freeMarker);
+    Spark.get("/upload", new Routes.GETUploadHandler(), freeMarker);
+    Spark.get("/view", new Routes.GETViewHandler(), freeMarker);
+    Spark.get("/dashboard", new Routes.GETDashHandler(), freeMarker);
   }
 
   /**

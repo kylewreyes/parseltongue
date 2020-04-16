@@ -20,19 +20,13 @@
         </a>
         <div id="navRight">
             <a href="/dashboard">Dashboard</a>
-            <a href="/dashboard">Upload</a>
+            <a href="/upload">Upload</a>
             <a href="/signup">Sign Up</a>
+            <a href="/view">View (TEMP)</a>
         </div>
     </div>
 </nav>
-<div id="app">
-    ${content}
-</div>
-<footer>
-        This project was made by Shalin Patel, Derick Toth, Kyle Reyes, and Nick Young as a final project for CSCI 0320 - Software Engineering at Brown University.
-        <br/>
-        The source code for this project can be found here.
-</footer>
+${content}
 <script src="js/jquery-2.1.1.js"></script>
 </body>
 </html>
