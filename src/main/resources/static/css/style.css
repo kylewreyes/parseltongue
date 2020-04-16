@@ -38,9 +38,11 @@ hr {
 }
 
 #app {
+  box-sizing: border-box;
   width: 100%;
   max-width: 992px;
   margin: 75px auto;
+  padding: 5px;
 }
 
 /* =================================== */
@@ -48,11 +50,13 @@ hr {
 /* =================================== */
 
 nav {
+  box-sizing: border-box;
+  width: 100%;
   position: sticky;
   z-index: 1;
   top: 0;
   margin: 0;
-  padding: 0;
+  padding: 15px 25px;
   box-shadow: 0px 5px 10px #45ab42;
   background-color: white;
 }
@@ -64,7 +68,6 @@ nav {
   width: 100%;
   max-width: 992px;
   margin: auto;
-  padding: 15px 25px;
 }
 
 a:before {
@@ -91,11 +94,11 @@ a:hover:before {
 }
 
 #navLogo {
-  width: 75px;
+  width: 50px;
 }
 
 #navHeader {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: black;
   text-decoration: none;
   margin: 0 20px;
@@ -114,6 +117,12 @@ a:hover:before {
   font-size: 1rem;
   color: black;
   margin-left: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  #navRight {
+    display: none;
+  }
 }
 
 /* =================================== */
@@ -146,12 +155,12 @@ a:hover:before {
 
 #buttons {
   text-align: center;
-  margin: 50px;
+  margin: 50px 0;
 }
 
 .button {
   padding: 10px;
-  margin: 0 30px;
+  margin: 5px 30px;
   width: 300px;
   border: 0 solid black;
   border-radius: 50px;
