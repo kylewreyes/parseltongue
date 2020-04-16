@@ -108,6 +108,12 @@ a:hover:before {
   text-decoration: none;
 }
 
+@media only screen and (max-width: 400px) {
+  #navHeader {
+    display: none;
+  }
+}
+
 #navRight {
   display: flex;
   align-items: center;
@@ -141,12 +147,6 @@ a:hover:before {
   font-weight: 200;
   font-size: 4rem;
   margin-right: 20px;
-}
-
-@media only screen and (max-width: 600px) {
-  #jumbotronText {
-    display: none;
-  }
 }
 
 #jumbotronImage {
