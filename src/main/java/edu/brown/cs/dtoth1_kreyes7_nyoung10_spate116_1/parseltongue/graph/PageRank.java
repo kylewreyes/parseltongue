@@ -56,6 +56,7 @@ public class PageRank<G extends Graph<V, E, T>, V extends Vertex<E, T>, E extend
           / edge.getSource().totalWeight();
     }
     return (1 - dampener) / n + dampener * contribution;
+
   }
 
   private boolean isConverged(List<Double> dist1, List<Double> dist2, double epsilon) {
