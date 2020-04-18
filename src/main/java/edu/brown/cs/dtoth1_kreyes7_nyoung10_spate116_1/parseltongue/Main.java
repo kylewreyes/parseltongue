@@ -2,7 +2,6 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
@@ -47,9 +46,11 @@ public final class Main {
         .defaultsTo(DEFAULT_PORT);
     OptionSet options = parser.parse(args);
 
-    if (options.has("gui")) {
-      runSparkServer((int) options.valueOf("port"));
-    }
+    // TODO: Uncomment
+//    if (options.has("gui")) {
+        runSparkServer();
+//      runSparkServer((int) options.valueOf("port"));
+//    }
 
     // REPL Handling.
     // TODO: Implement REPL
@@ -72,17 +73,32 @@ public final class Main {
   }
 
   /**
+   * Gets Heroku Port.
+   * @return  port.
+   */
+  static int getHerokuAssignedPort() {
+    ProcessBuilder processBuilder = new ProcessBuilder();
+    if (processBuilder.environment().get("PORT") != null) {
+      return Integer.parseInt(processBuilder.environment().get("PORT"));
+    }
+    return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+  }
+
+  /**
    * Runs the Spark Server.
    */
-  private void runSparkServer(int port) {
-    Spark.port(port);
+  private void runSparkServer() {
+    Spark.port(getHerokuAssignedPort());
     Spark.externalStaticFileLocation("src/main/resources/static");
     Spark.exception(Exception.class, new ExceptionPrinter());
 
     FreeMarkerEngine freeMarker = createEngine();
 
     // Setup Spark Routes
-    // TODO: Setup routing
+    Spark.get("/", new Routes.GETMainHandler(), freeMarker);
+    Spark.get("/upload", new Routes.GETUploadHandler(), freeMarker);
+    Spark.get("/view", new Routes.GETViewHandler(), freeMarker);
+    Spark.get("/dashboard", new Routes.GETDashHandler(), freeMarker);
   }
 
   /**
