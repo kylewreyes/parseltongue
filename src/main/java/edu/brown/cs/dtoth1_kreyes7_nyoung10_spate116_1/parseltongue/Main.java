@@ -40,7 +40,6 @@ public final class Main {
    * Runs the program and adds commands to REPL.
    */
   private void run() {
-    PDFParser.getSnippets("data/BP-Event-in-the-Mediterranean.pdf");
     // Parse command line arguments
     OptionParser parser = new OptionParser();
     parser.accepts("gui");
