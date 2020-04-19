@@ -1,10 +1,6 @@
 package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PageRank<G extends Graph<V, E, T>, V extends Vertex<E, T>, E extends Edge<V>,
     T extends VertexMetadata> {
@@ -38,9 +34,11 @@ public class PageRank<G extends Graph<V, E, T>, V extends Vertex<E, T>, E extend
     for (int i = 0; i < n; i++) {
       indices.add(i);
     }
-    Comparator<Integer> extractTopNodes = Comparator.comparing(updatedDistribution::get);
+    Comparator<Integer> extractTopNodes = Comparator.comparing(key ->
+        updatedDistribution.get(nodes.get(key)));
 
     indices.sort(extractTopNodes);
+    Collections.reverse(indices);
 
     List<V> finalList = new ArrayList<>();
     for (Integer idx : indices) {
