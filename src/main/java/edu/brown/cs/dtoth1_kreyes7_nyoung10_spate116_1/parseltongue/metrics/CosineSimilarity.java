@@ -1,5 +1,6 @@
 package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics;
-import static edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.vectorOperators.VectorOperations.*;
+import static edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.vectorOperators.VectorOperations.dot;
+import static edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.vectorOperators.VectorOperations.norm2;
 
 /**
  * Relevance metric based on cosine similarity for calculating the similarity of two
