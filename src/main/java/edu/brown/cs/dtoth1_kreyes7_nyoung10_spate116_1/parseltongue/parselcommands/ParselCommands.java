@@ -2,14 +2,14 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parselcomma
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parselgraph.RankGraph;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.repl.REPL;
-import jdk.jshell.Snippet;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ParselCommands {
-  public static final String ParseArgumentPattern = "([\\S]*\\.pdf)( [\\S]*\\.pdf)* \\\"[^\\\"]*\\\"";
-  public REPL.Command parse = new REPL.Command() {
+  public static final String PARSE_ARGUMENT_PATTERN =
+          "([\\S]*\\.pdf)( [\\S]*\\.pdf)* \\\"[^\\\"]*\\\"";
+  private static REPL.Command parse = new REPL.Command() {
     @Override
     public String execute(String[] args) {
       List<List<String>> coreTexts = new ArrayList<>();
@@ -21,10 +21,10 @@ public class ParselCommands {
       return "TODO TODO TODO,TODO,TODOTODOOO DOO DODODO";
     }
   };
-  public REPL.Command getParseCommand() {
+  public static REPL.Command getParseCommand() {
     return parse;
   }
-  public List<String> extractCorePDFText(String filePath) {
+  public static List<String> extractCorePDFText(String filePath) {
     return null;
   }
 }

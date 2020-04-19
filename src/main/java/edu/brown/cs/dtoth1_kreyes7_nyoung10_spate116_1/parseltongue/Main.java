@@ -56,7 +56,7 @@ public final class Main {
 
     // REPL Handling.
     REPL repl = new REPL();
-    repl.addCommand("parse", ParselCommands.ParseArgumentPattern, ParselCommands.getParseCommand());
+    repl.addCommand("parse", ParselCommands.PARSE_ARGUMENT_PATTERN, ParselCommands.getParseCommand());
   }
 
   /**

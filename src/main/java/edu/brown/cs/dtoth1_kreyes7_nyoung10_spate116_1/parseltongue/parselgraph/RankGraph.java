@@ -8,10 +8,10 @@ import java.util.Map;
 import java.util.Set;
 
 public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata> {
-  Map<String, Double> keywords;
+  private Map<String, Double> keywords;
   public RankGraph(List<List<String>> rawCoreText, String rawQuery) {
 
-    keywords = KeywordExtractor.extractKeywords();
+    keywords = KeywordExtractor.extractKeywords(null, null);
   }
   @Override
   public RankVertex getVertex(String id) {

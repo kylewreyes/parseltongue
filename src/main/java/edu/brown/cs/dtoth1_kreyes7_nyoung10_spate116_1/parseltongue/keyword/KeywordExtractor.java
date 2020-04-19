@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class KeywordExtractor {
   /**
-   * Function which extracts keywords from a set of input
+   * Function which extracts keywords from a set of input.
    * @param keywords input keywords from query
    * @param textDistributions set of snippets with words mapped to occurance
    * @return a set of useful keywords linked with their weight
