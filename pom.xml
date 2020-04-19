@@ -21,6 +21,12 @@
     <!-- Dependencies section for libraries put all of your libraries in here -->
     <dependencies>
 
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>2.0.19</version>
+        </dependency>
+
         <!--
             jopt-simple is a command line parser.
             https://pholser.github.io/jopt-simple/.

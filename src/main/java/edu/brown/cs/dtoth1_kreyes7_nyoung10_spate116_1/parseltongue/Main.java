@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.PDFParser;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import spark.ExceptionHandler;
@@ -39,6 +40,7 @@ public final class Main {
    * Runs the program and adds commands to REPL.
    */
   private void run() {
+    PDFParser.getSnippets("data/BP-Event-in-the-Mediterranean.pdf");
     // Parse command line arguments
     OptionParser parser = new OptionParser();
     parser.accepts("gui");
