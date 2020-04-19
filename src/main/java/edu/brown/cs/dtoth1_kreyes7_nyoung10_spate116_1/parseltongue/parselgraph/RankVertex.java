@@ -14,4 +14,9 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
   public Set<RankEdge> getEdges() {
     return null;
   }
+
+  @Override
+  public Double totalWeight() {
+    return null;
+  }
 }
