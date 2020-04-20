@@ -17,7 +17,8 @@ public class ParselCommands {
           coreTexts.add(extractCorePDFText(args[i]));
       }
       String query = args[args.length - 1];
-      RankGraph g = new RankGraph(coreTexts, query);
+      // TODO: Fix this
+//      RankGraph g = new RankGraph(coreTexts, query);
       return "TODO TODO TODO,TODO,TODOTODOOO DOO DODODO";
     }
   };
