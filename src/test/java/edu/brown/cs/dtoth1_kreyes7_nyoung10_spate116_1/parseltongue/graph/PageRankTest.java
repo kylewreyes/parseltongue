@@ -1,12 +1,11 @@
-package parseltongue.graph;
+package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph;
 
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.PageRank;
 import org.junit.After;
 import org.junit.Test;
-import parseltongue.graph.testgraph.TestEdge;
-import parseltongue.graph.testgraph.TestGraph;
-import parseltongue.graph.testgraph.TestVertex;
-import parseltongue.graph.testgraph.TestVertexMetadata;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.testgraph.TestEdge;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.testgraph.TestGraph;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.testgraph.TestVertex;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.testgraph.TestVertexMetadata;
 
 import java.util.List;
 import java.util.Set;
