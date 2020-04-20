@@ -15,14 +15,15 @@ import java.util.List;
 
 public class PDFParser {
 
-  public String getSnippets(String path) {
+  public String getText(String path) {
     File file = new File(path);
-    return getSnippets(file);
+    return getText(file);
   }
 
-  public String getSnippets(File file) {
+  public String getText(File file) {
     final double WID_MARGIN = 36; // 0.5" in pts
     final double HT_MARGIN = 72; // 1" in pts
+    StringBuilder text = new StringBuilder();
 
     try (PDDocument document = PDDocument.load(file)) {
       PDRectangle docSize = document.getPage(0).getMediaBox();
@@ -34,15 +35,14 @@ public class PDFParser {
       pdfStripper.addRegion("core text area", boundingBox);
       for (PDPage p : document.getPages()) {
         pdfStripper.extractRegions(p);
-        String s = pdfStripper.getTextForRegion("core text area");
-        System.out.println(s);
+        text.append(pdfStripper.getTextForRegion("core text area"));
+        text.append(System.lineSeparator());
       }
+      // Remove the last line separator
+      text.setLength(text.length() - 1);
+      return text.toString();
     } catch (IOException e) {
       throw new IllegalArgumentException("Invalid file");
     }
-  }
-
-  public static void main(String[] args) throws IOException {
-
   }
 }

@@ -6,12 +6,13 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.Set;
 
 /**
  * An object containing chunks of text to be used for
- * {@link edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.PageRank}
+ * {@link edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph}
  */
 public class Snippet {
   private String plainText, originalText;
@@ -29,7 +30,6 @@ public class Snippet {
    * @return the filtered text
    */
   public String getPlainText() {
-    //TODO: Deal with words that get cut off with dashes!
     if (plainText == null) {
       String[] splitText = originalText.split("[^\\p{Alnum}]]*");
       StringBuilder builder = new StringBuilder();
@@ -57,6 +57,12 @@ public class Snippet {
     return originalText;
   }
 
+  /**
+   * Filters text for relevant content and converts text into Snippets, separated by paragraphs
+   *
+   * @param text Text acquired from a PDF
+   * @return a {@link List<Snippet>}s, each one containing a paragraph
+   */
   public static List<Snippet> parseText(String text) {
     List<Snippet> snippets = new ArrayList<>();
     try (BufferedReader textReader = new BufferedReader(new StringReader(text))) {
@@ -81,6 +87,9 @@ public class Snippet {
       CONTENT_ENDINGS.add("REFERENCES CITED");
 
       while ((nextLine = textReader.readLine()) != null) {
+        // Apache OpenPDF uses non-breaking spaces, so this replaces it w/ normal whitespaces
+        nextLine.replace(" ", " ");
+
         // Not all documents contain an abstract. But if they do, only everything starting from
         // the abstract is wanted. So, if an abstract is found, everything before it is removed.
         if (!foundStartOfContent && nextLine.length() >= ABSTRACT.length()) {
@@ -88,16 +97,22 @@ public class Snippet {
           if (initialString.equals(ABSTRACT) || initialString.equals(ABSTRACT_2)) {
             foundStartOfContent = true;
             snippets = new ArrayList<>();
+            currentSnippet.setLength(0);
           }
         }
+        // TODO: Fix this!
         // Most but not all the documents contain their references, so if one is found,
         // everything after it will be ignored
-        if (CONTENT_ENDINGS.contains(nextLine) || CONTENT_ENDINGS.contains(nextLine + ".") ||
-            CONTENT_ENDINGS.contains(nextLine + ":")) {
+//        boolean foundEnding = false;
+//        for (String s : CONTENT_ENDINGS) {
+//
+//        }
+        if (CONTENT_ENDINGS.contains(nextLine + " ") || CONTENT_ENDINGS.contains(nextLine + ". ") ||
+            CONTENT_ENDINGS.contains(nextLine + ": ")) {
           break;
         }
 
-        if (nextLine != "") {
+        if (nextLine != "" && !nextLine.matches("\\p{javaWhitespace}*")) {
           currentSnippet.append(nextLine);
           String lastChar = nextLine.substring(nextLine.length() - 1);
           // Check if we have reached the end of a paragraph.
@@ -109,16 +124,41 @@ public class Snippet {
           } else {
             currentSnippet.append(System.lineSeparator());
           }
+        } else if (currentSnippet.length() != 0) { // Line is empty or just contains spaces
+          Snippet paragraph = new Snippet(currentSnippet.toString());
+          snippets.add(paragraph);
+          // Clear out the StringBuilder for the next paragraph
+          currentSnippet.setLength(0);
         }
       }
+      return snippets;
     } catch (IOException e) {
       throw new IllegalArgumentException("Invalid text input");
     }
-    return snippets;
   }
 
-  public static void main(String[] args) {
-    PDFParser parser = new PDFParser();
-    String text = parser.getSnippets("data/BP-Event-in-the-Mediterranean.pdf");
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof Snippet)) {
+      return false;
+    }
+    Snippet snippet = (Snippet) o;
+    return originalText.equals(snippet.originalText);
   }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(originalText);
+  }
+
+//  public static void main(String[] args) {
+//    PDFParser parser = new PDFParser();
+//    for (Snippet s : Snippet.parseText(parser.getText("data/BP-Event-in-the-Mediterranean.pdf"))) {
+//      System.out.println(s.getoriginalText());
+//      System.out.println();
+//    }
+//  }
 }
