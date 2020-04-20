@@ -1,8 +1,8 @@
 package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics;
 import java.util.List;
 
-import static edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.vectorOperators.VectorOperations.dot;
-import static edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.vectorOperators.VectorOperations.norm2;
+import static edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.VectorOperations.dot;
+import static edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.VectorOperations.norm2;
 
 /**
  * Relevance metric based on cosine similarity for calculating the similarity of two

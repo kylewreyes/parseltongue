@@ -1,6 +1,6 @@
-package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parselcommands;
+package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue;
 
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.repl.REPL;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.REPL;
 
 import java.util.ArrayList;
 import java.util.List;

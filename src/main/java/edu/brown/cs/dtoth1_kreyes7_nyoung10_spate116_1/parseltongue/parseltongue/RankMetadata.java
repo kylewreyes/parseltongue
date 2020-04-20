@@ -1,7 +1,7 @@
-package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parselgraph;
+package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue;
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.VertexMetadata;
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.Snippet;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.Snippet;
 
 public class RankMetadata implements VertexMetadata {
   private String id;
