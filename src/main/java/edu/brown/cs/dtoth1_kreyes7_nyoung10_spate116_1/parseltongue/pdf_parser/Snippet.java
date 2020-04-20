@@ -100,18 +100,30 @@ public class Snippet {
             currentSnippet.setLength(0);
           }
         }
-        // TODO: Fix this!
+
         // Most but not all the documents contain their references, so if one is found,
         // everything after it will be ignored
-//        boolean foundEnding = false;
-//        for (String s : CONTENT_ENDINGS) {
-//
-//        }
-        if (CONTENT_ENDINGS.contains(nextLine + " ") || CONTENT_ENDINGS.contains(nextLine + ". ") ||
+        boolean foundEnding = false;
+        if (CONTENT_ENDINGS.contains(nextLine) || CONTENT_ENDINGS.contains(nextLine + " ") ||
+            CONTENT_ENDINGS.contains(nextLine + ". ") ||
             CONTENT_ENDINGS.contains(nextLine + ": ")) {
-          break;
+          foundEnding = true;
+        } else {
+          for (String s : CONTENT_ENDINGS) {
+            String s1 = s + ". ";
+            String s2 = s + ": ";
+            if (nextLine.length() >= s1.length() ) {
+              String nextLine2 = nextLine.substring(0, s1.length());
+              if (nextLine2.equals(s1) || nextLine2.equals(s2)) {
+                foundEnding = true;
+                break;
+              }
+            }
+          }
         }
+        if (foundEnding) break;
 
+        // Checks if next line is either empty or just whitespace
         if (nextLine != "" && !nextLine.matches("\\p{javaWhitespace}*")) {
           currentSnippet.append(nextLine);
           String lastChar = nextLine.substring(nextLine.length() - 1);
@@ -154,11 +166,11 @@ public class Snippet {
     return Objects.hash(originalText);
   }
 
-//  public static void main(String[] args) {
-//    PDFParser parser = new PDFParser();
-//    for (Snippet s : Snippet.parseText(parser.getText("data/BP-Event-in-the-Mediterranean.pdf"))) {
-//      System.out.println(s.getoriginalText());
-//      System.out.println();
-//    }
-//  }
+  public static void main(String[] args) {
+    PDFParser parser = new PDFParser();
+    for (Snippet s : Snippet.parseText(parser.getText("data/Crime_1_Col.pdf"))) {
+      System.out.println(s.getoriginalText());
+      System.out.println();
+    }
+  }
 }
