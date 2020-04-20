@@ -6,6 +6,8 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.PDFParser;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselCommands;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.REPL;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import spark.ExceptionHandler;
@@ -54,7 +56,8 @@ public final class Main {
 //    }
 
     // REPL Handling.
-    // TODO: Implement REPL
+    REPL repl = new REPL();
+    repl.addCommand("parse", ParselCommands.PARSE_ARGUMENT_PATTERN, ParselCommands.getParseCommand());
   }
 
   /**
