@@ -9,9 +9,9 @@ public class SnippetTest {
   private String complexString = "However, does this really work?" + System.lineSeparator() + "Oh well...";
   @Test
   public void getOriginalTextTest() {
-    assertEquals("", new Snippet("").getoriginalText());
-    assertEquals("test", new Snippet("test").getoriginalText());
-    assertEquals(complexString, new Snippet(complexString).getoriginalText());
+    assertEquals("", new Snippet("").getOriginalText());
+    assertEquals("test", new Snippet("test").getOriginalText());
+    assertEquals(complexString, new Snippet(complexString).getOriginalText());
   }
 
   @Test
