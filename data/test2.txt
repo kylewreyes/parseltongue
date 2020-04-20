@@ -1,0 +1,1097 @@
+Journal of Anthropological Archaeology 54 (2019) 31–47
+Contents lists available at ScienceDirect
+Journal of Anthropological Archaeology
+journal homepage: www.elsevier.com/locate/jaa
+Navigating the ancient Tigris – insights into water management in an early
+T
+state
+Stephanie Rost
+Institute for the Study of the Ancient World, New York University, 15 E 84th Street, New York, NY 10028, United States
+ARTICLE INFO ABSTRACT
+Keywords: Thispaperoffersthefirstdetailedinvestigationofwatermanagementinpre-classicalantiquitybasedonprimary
+Southern Mesopotamia
+sources. The importance of water management for ancient societies can hardly be overstated, as many of the
+Ancient Tigris
+earliestcivilizationsemergedinlargerivervalleys(Nile,EuphratesandTigris,Indus,YellowandYangtzeriver).
+Ancient water management
+More importantly many of those early civilizations occupied the reach of the river, which was located in the
+Ancient river navigation
+arid/semi-aridzone,bywhichriversvitalsourcesofwater,inparticularforirrigation.Manystudiesonancient
+Reed barrages
+water management have focused on irrigation, often failing to recognize the full extent to which rivers were
+managedandutilized.Thewatermanagementschemeoflate3rdmillenniumSouthernMesopotamia,described
+inthispaper,wasdesignedtonotonlyserveirrigation,butequallynavigationandfloodcontrol.Itcombinedthe
+manipulation of water levels with the diligent observation and maneuvering of water masses of the ancient
+Tigris, by which the otherwise conflicting demands of irrigation, navigation and flood control could be re-
+conciled.Thewrittensourcesusedinthisstudyallowedtodescribethiswatercontrolsystemingreatdetailand
+is a testimony to remarkable ancient hydraulic engineering as early as the 3rd Millennium BC.
+1. Introduction demonstration that river navigation was of prime importance in the
+system of water management. We will show how navigability was en-
+The history of ancient water management has not yet been written suredthroughthe useofbarrages.Ourdiscovery oftheadministration
+on the basis of empirical evidence. Researchers have largely been de- ofnavigabilitysupportsanimportanttheoryputforwardbyGuillermo
+pendent onvery scant archaeologicalevidence, whichis limited inthe Algaze (2001), according to which navigation was not only important
+detail it can provide with regards to how water management was rea- in ancient Sumer, but gave the region an advantage over its neighbors
+lized on a technical but more importantly on a social level. This is all and supported the growth of social and political complexity at a much
+the more important, since many of the societies concerned – Egypt, earlier point than in other parts of Southwest Asia.
+Mesopotamia,theIndusValley,andChina–werehugelydependenton WiththeexceptionofAlgaze’stheoreticalmodel,scholarshavesofar
+the management of water. A blurry picture of their practices in this takenlittlenoticeoftheriversinancientSumerbeingactivelymanaged
+respect, therefore, obscures the very basis on which they subsisted. for navigation. One reason for this is that many scholars are not fully
+This paper will show that water management can be studied for aware that navigation in that region confronts severe challenges (with
+AncientMesopotamiaonthebasisofprimarywrittensourcesinscribed the exception of Adams, 2006: 139). We will therefore review these
+bytheveryadministratorswhoranthewatermanagementsystem.This challenges, before outlining the means by which they were overcome.
+transforms our understanding of how the system worked, making it The challenges to river navigation in ancient Sumer spring in the first
+possible to provide detailed insights into hydrological engineering of instance from the water regime of the Euphrates and Tigris river. These
+5000years ago. In addition,the written sources alsoallow usto assess were and still are characterized by strong, often very unpredictable,
+thedegreeofstateinvolvementinthemanagementofthewatercontrol seasonal fluctuations, that affect the river’s water volume, flow velocity
+system, a question that has been of great interest in particular with aswellaswaterlevels.UnliketheNile,annualfloodingofEuphratesand
+regardstoearlystateformation.Hence,thepaper’sresultsalsoprovide Tigris does not coincide with the crop cycle of winter grain (barley and
+a large-scale case study relevant to scholars specializing in other riv- wheat). The water level is low during the sowing of winter grain in
+erine societies. We will concentrate on the ‘Ur-III’ period (2012–2004 October/November and peaks just prior to the harvest in April/May
+BC) in Sumer (southern Iraq). One of paper’s main results is the (Postgate, 1992: 181–183; Verhoeven, 1998: 199, 201–203, see Fig. 1).
+E-mail addresses: stephanie.rost@gmail.com, stephanie.rost@nyu.edu.
+https://doi.org/10.1016/j.jaa.2019.01.005
+Received 12 July 2018; Received in revised form 29 January 2019
+0278-4165/ © 2019 Elsevier Inc. All rights reserved.
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+3
+Fig.1. Monthlymeansinm /sattheTigrisbelowAmara1919–1923.Greenbox:sowingperiod,redbox:harvestingperiod.(Forinterpretationofthereferencesto
+colour in this figure legend, the reader is referred to the web version of this article.)
+Source: Ionides (1937: 45).
+Withinthislarge-scalepicture,muchattentionhasbeenpaidtothe ofsedimentswithinitsbed.Overtimetheriverchannelsthussiltedup,
+problemsofhighwaterlevelscoincidingwiththeharvestinApril/May, greatly diminishing navigability. In a worst case scenario, the silt de-
+howevermuchlessthoughthasbeengiventotheproblemoflowwater positsinducedbythebarragescouldevencausetherivertoabandonits
+levels(Adams,1981:6;Civil,1994:109–110,134–135;Postgate,1992: course, depriving an entire region of water (Fernea, 1970: 28).
+181–182). While high water levels pose a considerable risk of losing a Finally, irrigation and navigation could be in competition for phy-
+year’s worth of food supply, low water levels are equally problematic sical space. As emerges both from ancient records and from ethno-
+for irrigation, but more so for waterborne transportation. The water graphic accounts, much of the water born transportation on the Tigris
+levels in Euphrates and Tigris start to drop at the end of May to the entailed towing boats upstream (Steinkeller, 2001, see Fig. 2). The
+beginning of June, reaching their lowest point in September/October, towpaths were usually located along the river’s bank, intermitted with
+which greatly impact the river’s navigability. inlets to primary canals, which, if left open, would have considerably
+Travel accounts from late 19th century ADreport that a voyage on interfered with the towing operation (Steinkeller, 2001, also Adams,
+theTigrisdownstreamfromDiyarbakirinsoutheasternTurkeytoMosul 2006).
+innorthernIraq(476km)onlargeraftsmadeof200–300inflatedskins
+took only 3–4days during the flood season but nearly 15days during
+2. Thepresent case study
+thetimeoflowwater.Inaddition,boatscouldnotdrawmorethan1m
+of water between August and November, considerable limiting the
+Given all these obstacles, navigation of the Euphrates and Tigris
+cargo that could be transported during the summer months (Chesney,
+couldhaveonlyreachitsfullpotentialwithacomprehensivesystemof
+1850: 32, 38–39).
+water control that allowed for reconciling the demands of irrigation
+The impact of low waters levels on the river’s navigability would
+with the requirements of flood control and water born transportation.
+havebeenmoreseverefurtherdownstreamwheretheriver’sgradientis
+Thecase study I am going to present is just sucha systemthat was
+even lower. Hence, for at least a quarter of the solar year the river’s
+designed to comprehensively manage the water levels of the ancient
+navigability would have been greatly diminished, – if left unmanaged.
+Inadditiontotherivers’naturalfluctuations,anotherfactor,which
+posed a challenge to navigation, was the demand for irrigation water.
+One reason for this is that diverting water for irrigation can con-
+siderably reduce the amount of water in the river downstream, low-
+ering the water table to a point at which river navigation becomes
+impossible.
+Intherecentpast,afurtherobstacletonavigationhasbeentheuse
+ofbarrages,whichareemployedtoraisethewaterlevelforpurposesof
+irrigation. Since water levels are low at the onset of the agricultural
+seasoninAugust/September,andtheinletsofprimarycanalstendtobe
+located above the water level, in order to force irrigation water into
+primary canals, the river’s level needs to be raised artificially. Prior to
+the widespread use of water pumps, barrages were used for this. Iraqi
+farmers constructed them of reeds, brushwood, and earth (for details
+see below), placed perpendicular to the river’s current.
+Inthesameperiodoftherecentpast(wewillseethatthesituation
+Fig.2. “NearMajaralKabir:aboat beingtowedagainstthecurrent uponeof
+inancienttimeswasdifferent),barragesbothposedaphysicalobstacle
+thebranchstreamsthatflowdownfromthemainchanneloftheTigrisintothe
+to navigation and considerably reduced the river’s flow velocity.
+Marshes.” (Thesiger, 1979: 193), Pitt Rivers Museum, University of Oxford.
+Moreover,theycausedtherivertoprematurelydepositlargeramounts
+32
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+Tigris(oramajorchannelthereof).AsIhopetoshow,itisanexample It is thus not only the quantity of Ur-III sources about water man-
+of remarkable ancient hydraulic engineering and the careful co- agementwhichisexceptional,butthedetailtheyprovideonlaborand
+ordinationofwatermassesasearlyasthe3rdMillenniumBC.Whilefor construction materials for waterworks is unmatched in history. It even
+mostancientsocieties,adetaileddescriptionofthewatermanagement surpasses more recent ethnographic accounts of the organization of
+system remains very difficult due to the lack of empirical data, in the irrigation.
+case of Mesopotamia, we are in the fortunate position of having an Despite the abundance of detailed information these records pro-
+extraordinary abundance of written sources on ancient water control. vide,theirinterpretationisnotwithoutproblems.Themainproblemis
+Thisstudyconductsthefirstcomprehensiveanalysisoftheserecords.In thatmuchoftheSumerianvocabularypertainingtowatermanagement
+particular,Iundertakeasystematicstudyofthearchiveofthe“Umma is poorly understood. For example, the term kun-zi-da (super-literally
+province”, which constitutes the oldest and so far also the most com- ‘truetail’)hasbeentranslatedas‘reservoir’,‘basin’(Falkenstein,1956:
+prehensive record on ancient water control of the river Tigris. 301, fn 2; Nissen, 1975: 26, fn 91; Oppenheim, 1948: 39, fn 59),
+TheUmmaprovincebelongedtothekingdomoftheThirdDynasty ‘catchment basin at the inlet of a canal’ (Kraus, 1955: 53; Salonen,
+of Ur (2012–2004 BC) (Jacobsen, 1939). This dynasty ruled over 1970:30,198;Sauren,1966:50-51,fn122)nexttothemoreaccurate
+SouthernMesopotamiaforaperiodofalittleoveracenturyattheend suggestion of it describing a barrage/weir (Carroué, 1993: 60, 62-64;
+of the late 3rd millennium BC. The core of this kingdom embraced an Civil, 1994: 130; Kang, 1973: 437-438; Maeda, 1983: 75; Steinkeller,
+area roughly equivalent to modern-day southern Iraq and unified a 2001: 35, 37). Obviously it is crucial to understand what the term
+former patchwork of cities-states that became name giving for the in- means, if the system is to be properly reconstructed.
+dividual provinces (Sharlach, 2004: 80, see Map 1). The periphery of Another problem is that textual records very rarely specify the di-
+theUrIIIstateextendedallthewaytoIranintheeastandtomodern- mensionsofwatercontroldevices,makingitdifficulttodeterminetheir
+day Syria in the north (Dahl, 2007: 1). This paper will concentrate on size and construction design to understand their exact function within
+the region of Umma (see Map 2), in ancient Sumer (Southern Iraq). the larger hydraulic context.
+The Ur III period is one of the best-documented eras in antiquity In principle, these obstacles could be overcome by matching the
+since the state was governed by means of a highly complex adminis- written sources with archaeological remains. However, with the ex-
+trativesystemthatwasbasedonextensiverecordkeepinginSumerian ception of the “water regulator” found near the ancient city of Girsu,
+language (Garfinkle, 2008: 55; Steinkeller, 1987: 20–21). To date, the there is hardly any archaeological evidence for water control that can
+corpusofUrIIItextshousedinmuseumsandprivatecollectionsallover bematchedwithwrittensources(Huh,2008:202–216;Jacobsen,1969:
+theworldamountstoabout120,000cuneiformtabletsinSumerian,of 103–109;Parrot,1948:216;Pembertonetal.,1988:220).Indeed,thus
+which around75,000 are published (Molina, 2008: 20). Myanalysisis far,onlythelocationsoftheformercoursesoftheEuphratesandTigris
+based primarily on documents that derived from the archive of the andsomeprimarycanalshavebeendetectedarchaeologically,andnot
+governor of the province of Umma, who managed an estate of about always with total confidence (Adams, 1981; Adams and Nissen, 1972;
+14,000haoflandwithastaffofemployedlaborersandadministrators. Gasche and Tanret, 1998; Hritz, 2005; Jacobsen, 1969, 1960).
+The total Umma corpus consists of approximately 30,000 cuneiform Intheabsenceofusablearchaeologicalevidence,thesystemandits
+tablets,mostlydatingtoaperiodofthirty-eightyears(2062–2025BC) nomenclature has to be reconstructed through large-scale analysis,
+which kept record of many aspects of economic life, including that of where the study of the terms and the study of the phenomena they
+water management (Molina, 2008; Steinkeller, 2003: 40, see Map 2). represent becomes inter-dependent, with one supporting the other.
+Thenumberoftabletsdealingwithwatermanagementisc.3000.Allof Such is the approach underlying this paper, which forms part of a
+them were studied for the present investigation. holistic study of Ur-III water-management, and several of the findings
+The following is a representative example of one of our sources: reported here were discovered in relation to other findings which are
+not discussed here. Nonetheless, the present paper forms a self-con-
+1
+AOS 32 I 49 tained and self-standing investigation.
+7 workmen for one day cleaned the Kun-Nagar-canal. For the larger, holistic, project I studied the twenty-two most
+Supervisor (was) Insasa, common and most important Sumerian terms describing water man-
+(tablet was) sealed by Akala, the inspector of the plow oxen. agement(Rost,2015).Alltabletscontainingoneormoreofthetwenty-
+In the month of gleaning (=August). two terms were analyzed, amounting to a total of 3690 occurrences
+2
+In the year: “Enunugal was installed as en-priest of Inanna”. with an additional1260 attestations of related geographic places. This
+large-scale,systematicanalysisclarifiedthemeaningofmanySumerian
+The tablet also bears a seal impression, which has a cuneiform in- terms. The comprehensive nature of the enquiry, relying on detailed
+scriptionofitsown,inthiscaseidentifyingtheofficialwhoauthorized examinationofthousandsofsources,hasmadeitpossibletogobeyond
+the project: the many studies which examined Sumerian words in isolation (e.g.
+Civil,1994;Kang,1973;Liverani,1996,1990;Pembertonetal.,1988;
+Akala, scribe, son of Ur-nigar, the chief livestock manager Renger,1990;Steinkeller,1988;Waetzoldt,1990).Overall,Iamableto
+resolve most of the confusion surrounding Sumerian water-manage-
+As can be seen from this example, our sources provide detailed in- ment terminology, and to provide more accurate translations of the
+formation on work projects, such as (a) the number of workmen in- relevant sources.
+volved, (b) the duration of the project, (c) the types of activities in- The improved understanding of the twenty-two terms made it pos-
+volved (e.g.,cleaning a canal or irrigating a field) and/or the amounts sible to reconstruct a clear picture of the Ur III watercourse manage-
+of construction materials deployed (e.g. number of reed bundles, vo- ment systems. One of the main discoveries to emerge from the overall
+lume or earth or adobe) (d) the project’s location, (e) the supervisor’s project was that the system actively managed the river not only for
+nameandthenameoftheofficialwhoauthorizedtheexecutionofthe irrigation,butalsofornavigation.Itisthisaspect,whichisreportedin
+project, and (f) the date (year and/or month). the present paper.
+3. Questions of method
+1
+Abbreviations for labelling the individual cuneiform texts follows the list
+Crucial to my analysis of the Ur III records is the use of modern
+published on the Cuneiform Digital Library Initiative (CDLI http://cdli.ox.ac.
+environmentalandethnographic/historicaldataontraditionalmethods
+uk/wiki/abbreviations_for_assyriology).
+2
+On the Ur-III dating system (which uses ‘year names’) see Table 2. of crop cultivation, irrigationand flood control,and in particulartheir
+33
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+place in the grain cultivation calendar. shall see that the water levelwas raised as needed with large barrages
+While in principle one might hesitate to use ethnographic data to ofreedandmud.Wewillthereforefirstintroduceethnographicdataon
+reconstructpractices five millenniaago, in the particular case of Ur-III barrages, before moving to the Ur III evidence.
+water management this proves not to be problematic. The key point is Ethnographic accounts describe Iraqi farmers using barrages to
+that,asIwasabletoshow,theUr-IIIagriculturalcyclewasverysimilar force water into primary canals. The most detailed description of such
+tothemodernone.Inbothcases,theclimateleadstoafocusongrains barrages in the recent past comes from letters of the British colonial
+planted in winter (barley and wheat) rather than crops planted in the officerJamesSaumarezMann(1921:235,279).Mannwasinchargeof
+summer (e.g. vegetables): the Iraqi climate is characterized by moist theagriculturaldevelopmentofthedistrictEasternShamiyahalongthe
+and cool winter months, but extremely hot (as high as 50°C) and vir- Euphrates near Kifl and Shinafiyah in the Diwaniyah District from
+tually dry summer month (Adams, 1981: 11-12; Food and Agriculture August 1919 to July 1920, when he was killed during tribal upheaval
+Organization of the United Nations, 1997: 103; Nützel, 2004: 5). By against the British Occupation. Despite the fact that the major crop
+sowing barley and wheat in late fall (mid-October/November) and cultivated in the area was rice. (sown in March/May and harvested in
+harvestingitinearlyspring(March/April),thecultivatorisabletotake November),hisweekly,andattimesdaily,reportsonhissupervisionof
+advantage of cooler and moister conditions of the winter months the construction of irrigation and flood control devices provides very
+(Charles,1988:4-5).Duringthehotsummermonths(May–September), detailedinsightintowatercoursemanagementthatisofgreatrelevance
+evaporationratesdoubleswithevery10°Cincreaseintemperature,and to the interpretation of the Ur III records about water control.
+evapotranspiration rates reach 10mm per day, whereby the crop’s In a letter from June 5, 1920, Mann states:
+water demands quadruples. Given these climate conditions, the culti-
+“As the water falls in the river, which is from now onward till it
+vation of crops planted in summer has always played a minor role in
+reachesitslowestinOctoberorthereaboutsisasteadyprocess,my
+Iraq’s agricultural production. In the year 1952/53, for example, 88%
+tribeshavetoputdamstokeepupthelevels;andwearejustgoing
+of the total agricultural area was cultivated with winter grains, while
+to start work on them. They are very wonderful things, made ac-
+only7%wascultivatedwithsummercrops(Wirth,1962:47-48).There
+cordingtothewisdomoftimeimmemorial,ofreedandearthonly;a
+is very strong evidence that the same pattern holds for ancient times:
+gap of only a few yards [3–4m] in the middle to let the water
+the record of an ancient survey of agricultural land from the Ur-III
+through, and when you reflect that the river is about the width of
+province of Girsu/Lagaš shows that 99.65% of the 24,266ha recorded
+3
+the Thames at Kingston [approx. 60m] and has a depth of 10–12
+area was cultivated with winter grains (barley, emmer and wheat).
+feet [3–4m] a stream of 5–6 miles an hour [2.2–2.7m/s], you will
+Only 0.35%of the area wasreserved for summercrops (pulses, spices,
+see that to construct such a dam with absolutely no appliances
+onion, and garlic) (Maekawa, 1985: 97-101).
+whatever takes a bit of doing. In each of the larger tribes there are
+This has two implications for the present study: first, it is metho-
+oneortwofamilieswhohavetheknowledgeofthearthandeddown
+dologically sound to suppose that the ancient cultivation calendar is
+from father to son, and they take charge of the operation (Mann,
+more or less the same as the modern one; secondly, ancient adminis-
+1921: 279, fn 1).”
+trative records about irrigation are overwhelmingly likely to be about
+grain irrigation, as this was by far the dominant sector. Both these Calling the barrages “dams”, Mann indicates they are used to keep
+pointsareveryimportant,becausemanyoftheancientsourcesdealing up river levels, made of reed and earth, and a construction requiring
+with water management are dated by month. Knowing which periods specialized expertise. In a letter to his father on June 26th 1920, he
+were associated with which agricultural activities means that, for any provides further details:
+given dated source, one can infer whether it records irrigation work
+“Theideaisreallytoplaitaropeofreedstwentytothirtyfeetbroad
+(whichisoverwhelminglylikelytobeforgraincultivation),orworkfor
+[6.1–9.2m] and as deep as the river may require, and then load it
+otherpurposes(esp.floodcontrolandnavigation). Thusfor examplea
+down with earth until it becomes stable. Anything up to 100,000
+record of construction work on a canal dated to August will almost
+bundles of reeds may be needed, and every single bundle passes
+certainlyrefertomaintenanceworkinpreparationforthestartofgrain
+through the hands of the expert, who lays it in position. His skill is
+irrigation in October. By contrast, a record dated to March is much
+transmittedfromfathertoson,andis,Isuppose,asoldasBabylon.”
+morelikelytorefertofloodcontrol,becausetheriversfloodinMarch.
+In addition to providing a proxy for the ancient agricultural ca- Here we get a sense of the scale involved, and also learn how the
+lendar, ethnographic accounts of traditional irrigation and cultivation reed and earth are put together.
+methods are also useful in that they describe the technology used to As slightly earlier images show (Figs. 3a–3c), these barrages were
+mitigate the environmental constraints to meet the crops demands. very effective and could even block the entire Euphrates river, as was
+Knowledge of these traditional methods proved a valuable framework done in the course of the construction of the Hindiyah barrage by the
+in making sense of the ancient evidence. Ottomanempireinthe early1900s(imagespublishedby GreatBritain
+Further uses of the ethnographic data are that it highlights the en- andNavalIntelligenceDivision,1944,seeFigs.3a–3c).Ascanbeseen
+vironmental challenges that southern Mesopotamians faced in their in Figs. 3a and 3b, this barrage consisted of gigantic reed mat rolls,
+effortstocontrolwatercoursesforirrigation,floodcontrolbutalso,asit close to 30m long and 2.5m high, which, were weighed down with
+turnedout,fornavigation;andhelpstoanticipatewhattextspertaining mud(GreatBritainandNavalIntelligenceDivision,1944:436).Amore
+to watercourse management are most likely to record. detailed description of these reed rolls is provided by Ionides (1937:
+Despite the many continuities between the Ur III situation and 71), a hydrologist who studied the Euphrates and Tigris before World
+ethnographic evidence, which make the analysis of the two together War II:
+useful, we will also meet major differences between ancient and
+“The breach was closed by an interesting method which has been
+moderncontroloftheriver’swaterlevel.Itisinthisconnectionthatthe
+used for centuries in the lower Euphrates area. Huge mats of
+mind-boggling scale to which the ancient river was actively managed
+brushwood and reeds are rolled round a central rope made of date
+for waterborne transportation became apparent.
+palm fronds, to form a sausage-like mass called a ‘badkha’. The
+central rope may be as large as 40 centimeters in diameter and the
+4. Barrages described in ethnographicaccounts
+finished badkha 3 or 4 meters in diameter and 40 meters long. A
+My analysis of the ancient written sources shows that a key com-
+ponent of the water management system in the Ur III Umma province
+3
+was manipulating the rivers’ seasonally fluctuating water levels. We ThewidthoftheThamesbyKingstonisbasedonGoogleEarth,Oct.5,2012.
+34
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+Fig. 3a. Reed dam to block the Euphrates (Great Britain and Naval Intelligence Division, 1944: 436).
+Fig. 3b. Reed dam from south-north perspective (Great Britain and Naval Intelligence Division, 1944: 436).
+Fig. 3c. Materials used in the construction of the reed dam (© Royal Geographical Society [IMB]).
+35
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+deeptrench is now dugalong the bank ofthe river nearthe breach primarily concerned with the barrages located in the Tigris River.
+andaheavyrope,sometimesasmuchas60centimetersindiameter, The Ur III texts show that barrages, like their modern analogues,
+isburiedinitasananchor.Tothefreeendofthisisattachedanend were placed in the river and posed an obstacle for river navigation.
+of the core rope of the badkha whose other extremity is held by a Therearemanyreferencestothemovementofboatsand/orcargoover
+smaller rope. The badkha, now lying along the bank parallel to the these barrages (Foxvog, 1986: 66; Steinkeller, 2001: 35, fn 46). An
+lineofflowofthewaterthroughthebreach,isrolledintothewater, example is documented in text MVN 13 28.
+partially closing off the opening and itself restrained from being
+swept downstream by the anchored rope, while the smaller rope at MVN 13282
+theotherendkeepsitstailintheshore.Ifthewaterisdeepenough Eight workers for 2days (first) towed and (then) floated the boat
+itfloats,andiscoveredwithtreebranchesrestingontheshoreand from the harbor to Gudena
+onthebadkhaitself.Ontopofthesebranches,camelthornandearth (then) for 3days loaded barley into the boat
+arepiledupuntilthebadkhasinkstothebottom,whenasecondone (andthen)towedtheboatfromGudenatothebarrageofthetown
+is rolled in on top of it. This process is continued from both banks of Maškan
+until the breach is entirely closed.” (and) for 2days passed the boat over the barrage
+(and) for 3days towed the boat from thebarrage to the harbor (of
+ThebarragedescribedbyIonidesisverysimilartotheonedescribed
+Umma)
+byMann,eventhoughtheywereusedfordifferentproposes:raisingthe
+(then) unloaded the boat in the harbor
+water level for rice irrigation (Mann) versus repairing a breach
+(and) transferred the grain and cased the grain silo with clay.
+(Ionides). It is also striking that both authors envisioned considerable
+Supervisor (was) Agu
+longevitytothetechniquestheywitnessed,andwewillseebelowthat
+(tablets was) sealed by Lu-TUG.AN
+theywereevenolderthan“Babylon”.Asforthedifferenceinmaterials
+In the year: “Simanum was destroyed”
+(Mann’s reeds vs Ionides’ palm fronds), these could presumably vary
+Seal: Lu-Šara-AN.DUL, scribe, son of Lu-Šara, the land surveyor
+withlocaltraditionandavailability.ThebadkhadescribedbyRostand
+Hamdani(2011:214)couldalsocontainpalmtreetrunksatitscenter.
+The similarities between the Sumerian barrage and those docu-
+Figs. 3b and 3c also depict the huge amounts of construction mate-
+mented ethnographically become striking when looking at texts that
+rials piled up all along the bank of the Euphrates as well as the large
+document the kind of materials used in its construction.
+amount of human labor that was required. Even though this barrage
+Ancient barrages were made primarily of large quantities of reeds
+might havebeenlargerthan most,reed-earth-brushwood barrageswere
+gi
+(gi) (or products of reed, such as reed mats [ kid] and reed ropes
+still widely in use during the 1940s before the British Mandate govern-
+[gilim]), but also earth (sahar), and plant material (u ). The use of
+2
+ment gradually replaced them with more permanent structures made of
+5
+timber is attested for three barrages, all of which were most likely
+metal and concrete. The Diyala weir, built in 1927–1928, for example,
+located on the Tigris.
+replacedatemporarybarragemadeofbrushwoodandearththatwould
+Considering sources, which list the materials used to build it, it
+force water into six main canals (Great Britain and Naval Intelligence
+transpires that there is a very strong correlation between size and no-
+Division,1944:439).TheEuphrateswastappedinasimilarfashionfrom
+menclature. The correlations are clear and so well documented that
+NasiriyaheastwardstotheHammarLake,aswasthelowerTigrisbelow
+ancient terminology (‘kin u sahar-ba’ vs ‘sahar’ and ‘u ’; presence or
+2 2
+KutalAmarra.Thesebarrageswouldfrequentlybewashedawayduring
+absence of reeds) can be used to infer the size of an obstruction (i.e.
+the flood season and had to be rebuilt every year (Britain and Naval
+barrage or weir) when a document does not specify it.
+Intelligence Division, 1944: 439; see also Mann, 1921: 235 above).
+The term ‘kin u sahar-ba’ (‘work with plant and earth’) primarily
+2
+appearsintheconstructionandrepairofweirswithinirrigationcanals.
+5. The Sumerian Barrage (kun-zi-da) Conversely, documents about barrages feature the two terms sahar
+(earth) and u (plant matter), which rarely appear for weirs (see
+2
+My systematic study of the Ur III texts provides convincing evidence
+Table 1).
+thatthewaterlevelsintheancientTigriswerecontrolledbydevicesvery Though kin u sahar-ba looks very similar to ‘sahar’ and ‘u ’, in-
+2 2
+similar to the barrages documented for the early twentieth century AD,
+asmuch as it using the same Sumerian words, the above distribution
+discussedabove.Thesedeviceswerecalledkun-zi-da(superliterally“right showsthatthetwoexpressionsrefertodifferentthings,whichareused
+tail”) and were located at key points of the river and its tributaries and
+in different contexts of production. The co-occurrence of ‘earth’ and
+majorcanals.Thesedevicesareattested444timesinmycorpus,foratotal ‘plant’ in the expression ‘kin u sahar-ba’ suggests that this refers to
+2
+of113locationsintheUmmaprovince.Thefullcatalogueofattestationsis
+adobe.
+accessible through proQuest (Rost, 2015: 90–107, appendix A). Asforreeds,significantamountsofthemareonlyattestedforlarge
+Asweshallsee,thetermkun-zi-dareferstowaterblockagesinrivers obstructions, most of which were located either at the Tigris or within
+as well as in canals. Despite the ancient term’s inclusive meaning, it is major tributaries (Rost, 2015: 97). The amount of bundles for a single
+useful to distinguish these two cases, and I shall do so with the terms repaireffortintheUmmaprovincewasalmostalwaysabove1000.For
+‘barrage’ (blockages of a large watercourse) and ‘weir’ (blockage of a the major Tigris barrages it can even stretch into five digits. The in-
+small water course). Barrages were constructed differently from weirs. dividual instances can be seen from the following table:
+Also, they serveddifferent functions:barrages servedto raisethe river’s
+Thus,forexample,21,000bundlesareattestedoftheTigrisbarrage,
+waterheadforirrigationandnavigation;weirsservedtoraisethewater indicating that we are dealing with quite massive structures. It is
+4
+head for diverting water into fields or smaller canals. This paper is
+thereforenotsurprisingthatthereconstructionoftheTigrisbarragein
+the34thyearofKingŠulgireignwascommemoratedinayearname–
+6
+“Year: the barrage of the Tigris was restored”.
+4
+Thefunction of abarrage is definedby theMultilingualTechnicalDictionary
+The materials we meet in Ur III sources are thus very similar to
+onIrrigationandDrainage(MTDID)(InternationalCommissiononIrrigationand
+Drainage 1996: 2724, emphasis added), “a barrier, provided with a series of
+gates,acrosstherivertoregulatewatersurfacelevelandflowupstreamandtodivert
+5
+water supplies into a canal…” A“weir” on the other hand is defined as “a con- See text Hom. Lenoble no. 44, o.6 – r.1, r.6, which records 100 pieces of
+tinuous solid, not necessarily fixed, barrier across a stream for diverting, for lumber for the barrage of the Sisa-canal and 60 for the barrage of the Ubada-
+control or for measuring the flow” (MTDID 1996: 1465; 2719; 594, emphasis canal, authorized by Ur-E’e.
+6
+added). Text BPOA 2, 2477: r. 3 mu-ba i -da kun-zi-da i -gi -am
+7 3 4 3.
+36
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+Table 1 would have expected them to be strengthened/restored at the onset of
+Difference in construction materials for different types of obstructions.
+the agricultural cycle, in August/September.
+12
+Moreover,asisshowninFig.6 ,workwasdoneonthesebarrages
+Type of obstruction Number of attestations
+year round as the timing of when work duty was performed at the
+‘kin u sahar-ba’ ‘sahar’ ‘u ’ (plant ‘gi’ (reed)
+2 2 barrage.
+(adobe) (earth) matter)
+ThesedatasuggestthatUrIIIbarrageswerekeptpermanentlyinthe
+1 river,whichprovidesa firstindicationthattheywereusednotonlyto
+Large (barrage) 2 11 16 17
+raise the rivers’ water level for irrigation but also for navigation.
+Small (weir) 12 3 9 2
+Given the significance of waterborne transportation during the Ur
+1
+The difference between ‘large’ and ‘small’ obstructions is very clear, with
+IIIperiod(seebelow),butalsoearlierandlaterperiods,keepingwater
+3
+‘large’ involving on average 1047m of earth (sahar) and on average 3314
+levels raised year round was important to maintain the navigability of
+3
+bundlesofreed,and‘small’only470m ofearthandplantmatter(kinu sahar-
+2
+the river. It is therefore not surprising that the barrages along the an-
+ba) and only two attestations of 30 and 60 reed bundles.
+cient Tigris were the largest.
+those documented ethnographically. Are they being used in the same
+way? An indication, which leads us towards a positive answer is that
+7. Contextand function of barrages
+reedsaremadeintomatsandropes.The13,223reedbundlesrecorded
+7
+13
+fortherepairofthebarrageattheTigristributaryUdaga wereplaited
+One of the biggest barrages we know of was located at Apisal to
+2 8
+into reed mats of 3m each. Further, text BPOA 1 0905 attests to the
+controlthebulkwateroftheTigrisupstream(seeMap2).Judgingfrom
+use of reed ropes of considerable length:
+the recorded amounts of reed bundles, the barrage at Apisal appears
+smaller than, for example, the Tigris barrage or the barrages of the Iš-
+BPOA 1 0905
+taran-SisaandUdagawatercourses(seeTable2).However,intermsof
+30bundlesofreedfor5reedropesof72mlengthforthe…barrage
+the amount of labor invested in the course of one year, the quantity
+d
+at the fields Šara, Latur, and Engabara.
+recordedfortheApisalbarragewasbyfarthegreatest(seeRost,2015,
+(Tablet was sealed) by Namlu-idu
+appendixA,tableA.18).Inaddition,thebarrageofApisalbelongedto
+Intheyear:“SecondyearaftertheyeartheAmurruwallwasbuilt”
+asubsetofeightbarragesthatwerelargeenoughtoposeanobstaclefor
+d
+Seal: Ur-emah, priest of Šara, the servant of Nam-lu-idu
+boat traffic that needed to be surmounted (ma bala-ak=transferring
+2
+boat over an obstacle, e.g., barrage, see Table 4).
+Thissuggeststhatthemajorconstructioncomponentsofthebarrage
+TheplacementofalargebarrageatApisal,thatisatthelowerend
+were large reed ropes, as described by Mann and Ionides.
+of the Tigris river, would have made a lot of sense, as it would have
+effectively raised the head of the water level further upstream. Rivers
+andcanalswithinaterrainasflatassouthernMesopotamiahaveavery
+6. Difference between ancient and modernbarrages
+low bed gradient. A barrage would have had an effect on the river’s
+water levels upstream for a much longer stretch than in a river with a
+Contrasting the information deriving from the ancient text records
+steeper gradient. In turn, long stretches of the river could have been
+with the modern data highlights important differences between the
+keptfreeofbarragesthatwouldhaveobstructedboattraffic(Ertsenp.c.
+ancientbarragesandtheirmodernanalogues.Thesedifferencesbecome
+2012/2013).Moreover,managingthewaterlevelsinariverwithgreat
+very apparent when one considers the interrelation of two variables:
+seasonalfluctuationswillbebeneficialforirrigationaswellasforriver
+which works were carried out, and when they were carried out.
+9
+transportation, as it alleviates diverting water into primary canals.
+The different types of work are listed in Table 3 :
+There is also evidence that the ancient barrages, just like their
+Tasks ranged from covering the barrage with earth, coating it with
+modernanalogues,didnotblockanentirewidthoftheriverbuthada
+‘kinu sahar-ba’(adobe?),restoringit,orsimplybeingstationedatthe
+2
+gap allowing water to pass further downstream. The 60m long brush-
+barragetoperformanyoftheabove-mentionedtasks.Intheaccountby
+wood barrages across the Euphrates River described by Mann (1921:
+Mann (1921), barrages were apparently only used to raise water for
+279) had openings 3–4m wide.
+irrigation – June/July for Mann’s rice, which would correspond to
+Thereisevidencethatthiswasalsothecasefortheancientbarrages
+August/September for grain. However, the Ur III evidence reveals a
+as this text shows:
+verydifferentpictureforthe past.Eventhoughthepercentageoftexts
+dated by month is usually low (20% or less), clear and statistically
+BPOA 1 0763: o. 1–r. 2
+robustpatternscanbediscernedwhenthedataareexaminedindetail.
+10
+Blocking (the opening) in the barrage of Apisal from July 18 until
+An example is provided by Fig. 4 , which shows that barrages were
+October 10 … tenth …
+restored (gi -a) right after the flood season.
+4
+Thisdistributionmakesnosenseinamodelwherebarragesareonly
+This text clearly shows that the opening of the Tigris barrage at
+used for irrigation. What must be happening is that barrages were re-
+Apisal wasblockedfor closeto threemonths, whichwasan additional
+stored (gi -a) right after the flood season (March/April), when the de-
+4
+measure to raise the water level during the time when the river was
+vices would have suffered the most damage. This coheres with the
+11
+naturally at its lowest.
+timing of the delivery of construction materials (see Fig. 5 ).
+The water levels in the ancient Tigris River would have had to be
+These data suggest that Ur III barrages served functions beyond ir-
+controlled again further upstream, where the damming effect of the
+rigation: since barrages left in the river will tend to decay over time,
+barragesatApisalwouldhaveceased.Givenourpoorknowledgeofthe
+had they only been used to raise water levels for grain irrigation, one
+geography of the Umma province, it is not possible to determine the
+exact location of these barrages to determine the interval at which the
+7
+ThereareindicationsthatthewatercoursenamedUdagawasinfactamajor
+tributary of the ancient Tigris (see discussion Rost, 2015: 135, fn 111).
+8 12
+Text MVN 16 1593: r. 1–7. For details see Rost, 2015: Appendix A, Table A.18.
+9 13
+For details see Rost, 2015: 99–108, Table 4.3, 4.4, Appendix A, Table Apisal has not been archaeologically identified, but there is sufficient
+A.17–20. evidencetosuggestthatitwaslocatedinthenortheasterncorneroftheUmma
+10
+For details see Rost, 2015: Appendix A, Table A.17. province, and it has been tentatively identified by Steinkeller (2001: 34–35)
+11
+For details see Rost, 2015: Appendix A, A.20. with the site of Tell Muhallaqiyah (see Map 2).
+37
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+Fig. 4. Monthly distribution of the task ‘restoring (gi -a) the barrage’. Sample size is 16 out of 55 text references (29%).
+4
+Fig. 5. Monthly distribution of construction materials. Sample size is 12 out of 40 text references (30%).
+Tigris had to be dammed in order to keep the water level sufficiently documented in modern times. There are 34 texts from the Umma ar-
+raised to accommodate both: the demands for irrigation water and the chive, which document the different tasks associated with the con-
+requirements for navigation. My ongoing settlement survey project in struction or the repair of a dam, that was placed into the inlet of the
+the Ummaregion isdesigned to locatethehamlets, villagesand towns Amar-Suen-kegara-canal, which was one of the major irrigation canals
+mentioned in the texts and will provide the necessary data to answer intheUmmaprovince(seeRost,2015,appendixB).Thereisevenatext
+this questions in the near future (Rost, 2018). (MVN 16 1016) recording the delivery of vessels to be installed at the
+Controllingtherivers’waterlevelwithbarrageswasonlyeffectiveif verybottomoftheinletdamtofacilitatewaterintake.Thefullevidence
+water was contained within the river system, which required pre- oftheconstructionofthisancientinletdamwould,cannotbepresented
+venting water to escape through tributaries and the inlets of primary inthispaperandwillbediscussedseparatelyinadifferentpublication
+canals.Myanalysisshowedthattheschemeofmanipulatingtherivers (Rost, in prep.)
+water level was combined with closing off the inlets of canals and tri- It’s important, however, to note, that by closing off inlets of canals
+butarieswithdams,apracticethatisstillfoundtodayinsouthernIraq another very important challenge concerning river navigation is met.
+(Rost and Hamdani, 2011). In modern times, these dams inserted into Priortothemotorizationofwaterborntransportation,rivernavigation
+mouthofthecanalconsistsofeithersandbagsorareconstructedfrom on the Tigris, as mentioned earlier, entailed towing boats upstream,
+earth, plant materials, tree trunks, and reed bundles as well as reed with towpath usually running along the river bank. Open inlets would
+mats. Water intake is regulated by built-in clay pipes at the bottom of have considerable interfered with such towing operations (Steinkeller,
+the dam (for detailed description see Rost and Hamdani, 2011: 2001, see also Adams, 2006). Thus, the inlet dams fulfilled two func-
+209–214, Fig. 4). tion,preventingwaterescapingfromthemainriverchannel,whilealso
+The ancient sources show that inlets of irrigation and major tribu- functioning as ‘bridges’ across canals, which facilitated easy passage
+taries canals had been closed off in a very similar fashion as along the river.
+38
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+Fig. 6. Monthly distribution of the task ‘stationed (gub) at the barrage/weir (kun-zi-da)’. Sample size is 51 out of 204 text references (25%).
+Table 2
+Amount of reed bundles used in the construction/repair of barrages (kun-zi-da).
+1 2
+Location District Date Publication Reference # Reed bundles
+Gibil-canal ? SS01-00-00 UTI 4 2443 o. 1–4 180
+Gizi[a] ? SS03-00-00 Princeton 2 184 r. 9–11 1230
+Lamma Temple Apisal SS02-00-00 BPOA 6 0198 o.1–2 1400
+Šara-pada-canal Apisal SH41-00-00 SAT 2 0292 o. ii 6′–8′ 1500
+giš
+[village] of the Manu-field Da-Umma / Apisal SH41-00-00 SAT 2 0292 o. ii 2′ 1720
+Magur-canal Apisal/Gu’edena AS08-01-00 BPOA 7 2277 o. 1–3 1720
+Il6-[…]-? ? SH41-XX-XX SAT 2 0292 o. ii 9′–14′ 1800
+SUHgibildu’a-canal Da-Umma SH41-XX-XX SAT 2 0292 o.i 22–o. ii 1′ 2010
+Ubada-canal Apisal? AS09-00-00 UTI 4 2789 o. 6 – r. 2 2460
+A (?)-canal ? IS01?]-00-00 Nisaba 24 10 r.vi 1–8 3075
+Sisa-canal Apisal AS09-00-00 UTI 5, 3499 r. 16–17 3600
+Apisal Apisal AS03-00-00 UTI 5, 3421 o. 1–4 7200
+Ištaran-Sisa-canal opposite of the village Luduga Apisal IS01?]-00-00 Nisaba 24 10 r.v 22–30 13,825
+Udaga-canal Apisal AS09-00-00 UTI 5, 3499 r. 7–8, r. 15 19,435
+Idigna (Tigris) Apisal? AS04-06-00 SAT 2 0323 o. 1–2 21,633
+1
+Barrages as well as weirs are named after rivers and canals, adjacent fields, or nearby places such as towns (e.g., Apisal), villages/hamlets, and temples (e.g.
+Lamma-temple)(Rost,2015,appendixA,TableA.1–A.16).Thenamingofbarrages/weirsafterspecificplacesonlymarksthespecificlocationalongsideanaturalor
+man-made watercourse. The barrages of the town Apisal (see Map 2) and the village Eduru-Šulpa’e, for example, were both located on the Tigris.
+2
+NOTE.–DatesaregiveninabbreviatedformAS01-02-20.Thefirsttwolettersstandfortheabbreviationoftheruler’sname(Amar-Sueninthiscase),whichis
+followedbythenumberoftheregnalyear.Thisisfollowedbythemonthnameandtheday.ThereadershouldbeawarethattheUrIIIcalendarwasverydifferent
+fromourGregoriancalendar.Forone, April(monthI)wasconsideredthe beginningoftheyear andtheSumerianmonth consistedof30daysandtherefor shifted
+annuallysomewhatwithinthesolaryear.Sumerianbureaucratswereawareofthisdiscrepancyandinsertedanintercalarymonth(itidiri,or“thirteenthmonth”)ata
+frequency which is so far not well understood, as it was done irregularly and varied from city to city (Cohen, 1993: 5; Lehoux, 2000: 172–174; Sallaberger, 1999:
+233–236).Englund(1988:123)suggeststhatanintercalarymonthwasaddedeverythreeyears.InUmmatheintercalarymonthwasalwaysinsertedafterthetwelfth
+month.
+8. Barrages and flood prevention the late third millennium BC and was distributed among several tri-
+butaries (Gasche and Tanret, 1998: 32-35; Hritz, 2010; Verhoeven,
+Having permanent barrages in the river obviously poses the ques- 1998: 160). This would have made both the flood and the difference
+tionastowhathappensduringtheflood.Thebarragesmusthaveposed between high and low water levels less severe than on the main Tigris
+a considerablerisk, as the riverwasmore pronetoovertopits leveeat channeltoday.OnthemainTigrischannelatBaghdad,forexample,the
+these locations. Geomorphological research suggests that the ancient difference between high and low water amounted to 2–5m. But even
+Tigris had a more anastomosing configuration in the area of Umma in forthemodernTigris,atAmara,whereitsplitsintotwomainbranches
+39
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+Table 3
+Tasks performed at barrages.
+English Sumerian # of Reference in texts
+● restoring the barrage gi 45
+4
+giš
+● provisioning of construction material (lit. “carrying reed, plant matter and baskets of earth” to the barrage) gi /u / il ga -ga 57
+2 2 6 2
+● “to be assigned to do work” at the barrage gub 210
+● (coating) the barrage with adobe kin u sahar-ba 14
+2
+● dismantling the barrage (lit. “cutting/incising”) ku 15
+5
+● covering the barrage with earth sahar si-ga 15
+● blocking the barrage uš 4
+2
+Total 360
+Table 4 MVN 21101
+Locationofbarrages(kun-zi-da)thatrequiredthetransferboats(ma balakak). 12 workmen for×days leveling the ‘intentional breach’ of the
+2
+Tigris (and) diverting the rising water.
+Location Publication Line Date
+Supervisor (was) Lugal-itida
+Barrage of/at (the)
+(tablet was) sealed by Lugal-nesag(e)
+Amar-Suen-nitum canal BPOA 1 1045 o. 1–r. 2 SS03-00-00
+In the year: “Year after the year the Amurru wall was built”
+TCL 5 5676 r. iv. 11–17 SS02-1-12-00
+Seal: Lugal-nesag(e), scribe, son of Lubanda
+UTI 4 2896 o. 11–r. 1 SS02-00-00
+UTI 5, 3455 o. 9–r. 3 SS02-12-00
+While the exact translation of Sumerian term ‘intentional breach’
+Apisal (town) BPOA 6 1402 o. 1–r. 4 SH46-12-02
+14 15
+Bad-Tibira (town) SAT 2 0844 o. 1–4 AS05-00-00
+(U ) issomewhatdebated,twotexts locatethreeofthose‘breaches’
+3
+[Eduru]-e’amara (village) BPOA 7 2239 o. 6–r. 1 AS05-00-00 d
+inthevicinityofthevillageEduru- Šulpa’e.Thefactthatthisisalsothe
+Kamari (large village) Babyl. 8 Pupil 10 o. 1–5 AS07-00-00
+locationofoneofthemajorTigrisbarragessuggeststhatU describesa
+3
+BPOA 6 1014 o. 1–6 AS02-10-00
+managed(intentional)breachintheriverlevee,whichallowedwaterto
+UTI 3 1643 o. 1–. 1 SS01-00-00
+UTI 5 3416 r. 6–7 SS03-00-00
+be diverted into nearby depressions or wetlands as a flood protection
+Maškan (town) BPOA 6 1144 o. 3–r. 2 AS02-00-00
+measure.
+MVN 13 282 o. 1, o. 5–r. 2 SS03-00-00
+The ancient records indicate, that this “in-built” flood prevention
+RIAA 124 o. 1–2 SS04-00-00
+measures were not the only one in use. There is an indication that so-
+SAT 3 1396 o. 1–r. 2 SS03-08-00
+calledinundationcanals,whichwereinuseinIraquntilveryrecently,
+Nanatum (hamlet) MVN 16 0753 o. 1–r. 6 ????-11-00
+Nik. 2 141 o. 1, r. 1–2 SS03-12-00
+werealsousedinancienttimes.Examplesofsuchcanalscanbeseenon
+SAT 3 1349 o. 1–6 SS03-00-00
+Fig. 8.
+UCP 9-2-2 104 o. 1–6 SS03-00-00
+1 Inundationcanalshaveaveryshallowandverywidecross-section,
+Usur canal Princeton 2 476 o. 1–8 SS04-10-00
+and are designed to fill up with water once the river level rises to a
+1
+The Usur canal (i -U -sur) is most likely located in the Girsu/Lagaš pro- specificthreshold.Excesswaterisremovedfromtheriverautomatically
+7 3
+vince, since most text references derive from its archive. There are five text andtransportedtodepressionsandwetlandsawayfromthesettlements
+referencestoitsbarrageintheUmmarecords,whichmightindicatethatpartof
+and agricultural areas.
+thecanalwaslocatedintheUmmaprovince,possiblyborderingGirsu/Lagaš,as
+A set of nine texts (see Table 5), which record the construction of
+the component sur=border might indicate, accessed Nov. 10, 2013).
+the so-called Engabara-canal, suggests that we are dealing with an in-
+undation canal.
+For one, the dimensions of the canal, as recorded in text MVN 21
+215, indicates that it was a wide (6m) but very shallow canal of only
+(main Tigris branch and Shat al-Gharraf), the difference between high
+0.3mindepth–aconstructiondesignthatistypicalforaninundation
+and low water levels varies only from 1.4 to 1.66m and showed con-
+canals.
+siderable consistency in these fluctuations over a period of 15years
+(1918–1932) (Ionides, 1937: 180, see Fig. 7).
+MVN 21 215
+Thus, assuming that the ancient Tigris in the area of Umma con-
+3
+8mlength–thevolumeofexcavatedearthwas16m (responsible)
+sisted of multiple channels, the fluctuation of the water levels would
+foreman was Lu-dingira
+havebeenfarlesssevereandmoremanageable.Thiswouldhavemade
+3
+12m length – the volume of excavated earth was 24m
+keeping permanent structures in the river more feasible. Still, my
+analysisshowed,thatone-fourthofthe3690textattestationspertainto
+flood control, indicating that it was a major concern in late third-mil-
+14
+lenniumBCsouthernMesopotamia.Themethodswhicharerecordedin
+Studevent-Hickman(2011)suggeststhatU describesthespoilbank/levee
+3
+the ancient sources were very similar to those documented ethno-
+of a canal or river that is also used as a causeway (see also Steinkeller, 2011:
+graphically (Fernea, 1970: 158–59; Mann, 1921: 170–171, 181, 386–387). However, the evidence presented here suggests that it is a specific
+186–187,207–208,RostandHamdani,2011:213–214).Thesemethods location in/at the Tigris levee that allowed for diverting water as a flood pre-
+vention measure.
+consisted of containing the river’s water on the one hand by con-
+15
+UTI 4 2926: 1–9, UTI 3 1807: 1–8, discussed by Steinkeller (2011: 387),
+structing flood dikes (eg -zi-DU) along the Tigris or surrounding agri-
+2
+whofollowsStudevent-Hickman’ssuggestedtranslation.Thetwotextsdescribe
+cultural fields (eg a-ša field name) and reducing the river’s water
+2 3
+workers driving a herd of cattle on a path, back and forth between the village
+volumetopreventfloodingdownstream.Reducingtheamountofwater
+d
+Eduru- Šulpa’eandthehamletAšag-Lamah.Thepathmostlikelyranalongthe
+in the river was achieved by either flooding fallow fields (a–de ), also
+2
+Tigris as both locations are known to have abutted the Tigris. The crossing of
+called haphazard irrigation in modern time (Poyck, 1962: 52), or di- d
+the three installations (U ) near the village Eduru- Šulpa’e is specifically
+3
+verting the rising water (a zi-ga dib) via intentional breaches in the
+mentioned,asitinvolvedsomedoingtogetthecattleacross.Inthelightofthe
+rivers levee. An example of such practice is described in the following
+evidencepresentedabove,IarguethatU doesdescribeintentionalbreachesin
+3
+text example:
+the Tigris levee that would cut through roads running alongside the river’s
+levee.
+40
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+Fig. 7. Difference in water levels of the Tigris at Baghdad (1906–1932) and at Amarah (1918–1932).
+Source: Ionides, 1937: 45, 153, 180, table 96, 98, 191.
+Fig. 8. Inundation canals near the Euphrates River, Iraq (Encyclopædia Britannica Online).
+(responsible) foremen was Lugal-itida canal.
+3
+9m length – the volume of excavated earth 18m (responsible) In the month of Dumuzi (XII=March)
+foreman was Šeš-kala In the year: “Simanum was destroyed”
+3
+6mlength–thevolumeofexcavatedearthwas12m (responsible)
+foreman was Lugal-kuzu There are no further attestations of this canal in the Umma record,
+In total: 36mlength, 6mwidth,and 0.33mdepth and the total which suggests that we are not dealing with an irrigation canal, as
+3
+volume of excavated earth was 70m – the outlet of the Engabara maintenancewouldhaveeventuallybecomenecessaryandwouldhave
+41
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+Table 5 Table 6
+The construction (ba-al) of the Engabara canal. Size and time frame of work crews stationed at the raising water of the Tigris.
+3
+Publication Line Date Total volume in m Date Publication Line # Work # Men # Days
+days
+BPOA 1 0855 o. 1–5 SS03-00-00 39.75
+SAT 3 1350 o. 1–3 SS03-00-00 18 AS06-12-00 Princeton 1 384 o. 1–3 30 15 2
+BPOA 6 1283 o. 2–4 SS03-00-00 16.5 AS06-12d- BPOA 1 1322 o. 1–4 287 13 6
+BPOA 7 1790 o. 1–3 SS03-00-00 27 09?
+MVN 16 0832 o. 3–4 SS03-00-00 69 AS06-13-00 CBCY 3, NBC 00 o. 1–4 157.5 13 4
+UTI 5, 3136 o. 1–2 SS03-00-00 2.25 530
+UTI 4, 27 551 o. 1–4 SS03-00-00 114.75
+AS08-00-00 UTI 6 3810 o. i. 21 – o. ii. 168 2/3 7 2/3 22
+MVN 21 215 o. 1 – r. 7 SS03-12-00 70
+1–3
+BPOA 7 1889 o. 1–4 SS04-00-00 13.5
+SS01-00-00 MVN 21 148 o. 1–8 393 15 26.2
+Total 370.75
+SS02-00-00 UTI 3 1694 o. 5 – r. 2 160 16 10
+1
+This texts describes the excavation of another hydraulic device called barla
+SS03-00-00 Princeton 1 500 o. 1–3 150 10 15
+whosefunctionremainsunclearevenaftersystematicstudyofalltheavailable
+SS04-00-00 UTI 6 3811 o. 1–3 168 12 14
+references (Rost, 2015: 167).
+SS05-00-00 SA 078 (Pl. 081) o. 1–3 150 10 15
+SS06-00-00 MVN 20 210 o. 1–3 1568 49 32
+thusbeenrecorded.Afurtherindicationthatwearenotdealingwithan
+SS06-00-00 MVN 21 111 o. 1–2 180 12 15
+irrigation canal is the timing when the construction took place. The SS06-00-00 SAT 3 1699 o. 1–3 180 12 15
+SS06-01-00 BPOA 6 0495 o. 1–3 150 10 15
+canal was constructed in March/April at the end of the third and the
+SS06-12-00 Nik. 2 104 o. 1–4 120 6 20
+beginning of the fourth year of King Šu-Sin’s reign. The timing of this
+SS06-XX-XX SAT 3 1689 o. 1–2 180 12 15
+workis,however,atoddswiththeoveralltightlaborbottleneckduring
+SS07-00-00 MVN 21 123 o. 1–2 300 20 15
+that time of the year, as harvest and flood protection works had to be
+SS07-01-00 MVN 21 118 o. 1–2 420 28 15
+carried out simultaneously. In addition, construction work on the irri-
+SS07-12-00 UCP 9-2-2 091 o. 210 14 15
+gation system is usually done during the agricultural off-season in
+SS09-01-00 BPOA 1 0950 o. 1–2 300 20 15
+early/late fall. Constructing a canal during March/April would only
+make sense if it served the purpose of flood control.
+Average 277.5 15.5 15
+In addition, the name “Engabara-canal” suggests that it drained ex- Median 30 6 2
+Mode 150 49 15
+cess water into the large wetland Engabara, which was located east or
+Max 1568 12 15
+southeast of the city Umma, from which most of the reed supply docu-
+Min 30 13 15
+mented in the texts derived (see Map 2). The Engabara had an approx-
+Stdev. 326.6 9.5 7
+2
+imatesizeof0.92km orevenlarger(Sallaberger,1992:123;Steinkeller,
+2001:37,fn55).ItcanbeassumedthattheEngabaracanalwasnotthe
+only inundation canal in the Umma province. Unfortunately, text MVN
+21215isoneoftheveryfewtextsthatdoesprovideexactdimensionsof In areas, where flooding is a problem, monitoring the river’s water
+acanal,allowingforsuchdistinctionstobemade.Itmightbethatsuch levelatkeypointsofthesystemisnecessarytoencounteranyproblems
+inundation canals were installed next to the big barrages and provided before they become major disasters. This was also the case in ancient
+the much-needed mechanism that allowed for the control of the rivers’ Mesopotamia. The flood watch entailed monitoring the rising water
+waterlevelyearround,whileattheatthesametimemitigatingtherisk levelatthebankoftheTigris(azi-gagu Idigna)overaperiodofoneto
+2
+of flood damage at these key points in the system. twomonths(Rost,2015:169–177).Twentyonepercentofthe28texts
+Fig.9. Monthlydistributionofthetaskof‘beingstationedattherisingwateroftheriver/canal’(azi-gagubgu i ).Samplesizeis16outof38textreferences(42%).
+2 7
+42
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+references to monitoring the water levels in the Tigris are dated by
+16
+month and fall into March/April (see Fig. 9 ).
+Thisfloodwatchconsistedofworkgangswithanaveragesizeof15
+workers(seeTable6).TheworkcrewswerestationedattheTigrislevee
+and other locations for about two weeks. At times, as was the case in
+KingŠu-Suen’s(SS)sixthandseventhyearofreign,thefloodwatchwas
+in place for one or two months with a fairly large number of people
+(e.g., 49 in SS06). Different work crews were placedsimultaneously at
+various high-risk points, while others alternated in patrolling the river
+levee to cover a period of 1–2months (see Rost, 2015, Appendix D.,
+Table D.1).
+These work gangs would also be the ones who would intervene
+when the river was threating to overtop its banks. As can be seen in
+Table 7, the flood must have been particularly severe in the third and
+fourth regnal years of King Šu-Suen reign, calling for the partial or
+entire demolition (ku ) of some of the major Tigris barrages at Apisal
+5
+d
+and Eduru- Šulpa’e and the Sisa-canal. These two years are the only
+timethatanintervention,whichentailedthedemolitionofmajorTigris
+barrages was necessary to cope with major flood events. There are no
+other records within the Umma corpus that document the dismantling
+(ku ) of barrages on that scale. The records in question are sealed by
+5
+threehighlevelagriculturaladministratorsLugalemah(e),Lugal-hegal,
+and Lugal-nesag (see Table 7) and allowed for reconstructing the
+events. The various work gangs and their supervisors were first sta-
+tionedattheTigrisleveetomonitortherisingwater(azi-gagu Idigna
+2
+17
+gub-ba) for a period up to two months. As the river threatened to
+overtop its levee, the same group of workers and their supervisors
+dismantled the big Tigris barragesin orderto remove the blockages in
+the river. It is clear, that the combination of monitoring the river’s
+water levels and the occasional demolition was a vital measure to
+counterbalance the strategicplacement of barragesand waskey to the
+smooth functioning of the system that was designed to accommodate
+the demands for irrigation as well as navigation with that of flood
+control.
+9. Thewater management scheme in its wider political context
+Managing the river as comprehensively as can be gleaned from the
+ancient texts required not only the technical and hydraulic knowhow,
+but also a huge investment in man-hours and construction materials.
+Furthermore,thelogisticsinvolvedintherecruitmentandmanagement
+ofadministratorsandworkersaswellastheacquisition,transportation
+anddeploymentofthevastamountofconstructionmaterialsrequireda
+sophisticatedsystemofcoordination.Suchcoordinationwasrealizedin
+the Ur III Period with a highly sophisticated system of accounting.
+Moreover, as any manipulation of the river will affect both – it’s up-
+stream and downstream behavior, there is a need for a coordinated
+approach on a regional level to assure the smooth functioning of the
+water management scheme. The question one might ask is why the
+provincial government of Umma went to such great length to control
+theriverascomprehensivelyandatsuchagreatexpenseasthesources
+suggest.Iarguethat,thespecificdemandsoftheorganizationoftheUr
+III economy required such comprehensive management of the river.
+Thatis,waterbornetransportwasessentialforthefunctioningoftheUr
+III economy.
+The economy of the Ur III state rested upon a region-wide taxation
+system, called bala in Sumerian, which means “rotation” or “transfer”
+in the broadest sense (Sharlach, 2004). This system had elements of a
+16
+For detail Rost, 2015: Appendix V.
+17
+UTI 6 3810: o.i 17–o.i 20 “6 a -1/2 14 a -1/3 u -55-še a -bi u -421 [2/
+2 2 4 3 2 4
+ki
+3]-/kam [a]-da gub-ba kun-zi-[da] / [i] Idigna A-pi -sal ” “6 (workers em-
+7 4 4
+ployed)half-time,14(workersemployedonlyforone-thirdtime),amountingto
+421.33 labor days stationed at the water at the Tigris barrage at Apisal,” See
+also BPOA 6 0253; BPOA 7 2225: o.3–o.6.
+43
+Table 7
+Work crews under the official Lugalemah(e), Lugal-hegal and Lugal-nesag.
+Date Text Line Translation Work crew supervisors Authorizing and sealing official
+3rd year of King Šu-Šuen’s reign BPOA 7 2362 o. 8–9 62 workdays: stationed at the rising water of the river Tigris Šarakam Lugalemah(e)
+d
+UTI 4 2728 o. 1–3 50 workdays: dismantling the Tigris barrage at the Šulpa’e [village] Lugal-Ištaran
+d
+BPOA 1 0894 o. 1–2 25 workdays: dismantling the Tigris barrage at the Šulpa’e [village] Lugal-ezem
+BPOA 1 0484 o. 5– r.2 9 workers for 18days dismantled the Tigris barrage at the Sisa-canal Arad Lugal-hegal
+4th year of King Šu-Šuen’s reign BPOA 7 2253 r. 1–2 4 workers for 2days dismantled the [Tigris] barrage at Šulpa’e village Ipa’e Lugalemah(e)
+RB 92 571 o. 1–3 x workers for 8days were stationed at the rising water at the bank of the Tigris Lugal-ezem Lugal-hegal
+RB 92 571 r. 2–3 x workers for 5days dismantled the Tigris barrage at Apisal Lugal-ezem
+MVN 16 0775 o. 1–2 18 workers for 5days dismantled the Tigris barrage at Apisal Lugal-kugani
+UTI 5, 3077 o. 5–r. 1 17 workers for 5days dismantled the Tigris barrage at Apisal Lu-Šara
+UTI 6 3811 o. 1–3 12 workers for 14days levelled the U (?) of the Tigris to divert the rising water Lugal-itida Lugal-nesag(e)
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+Fig. 10. Dated records of shipment of grain (ma še) within and from the Umma province. Sample size is 28 out of 70 text references (40%).
+2
+Map 1. The territorial extent of the Ur III State (based on Dahl, 2007: 6 and Steinkeller, 1987: 23, 31).
+redistributive system, in particular for livestock (Sallaberger and Wes- 2004:30).Whilesomeofthebaladeliveriesremainedinstorehousesof
+tenholz, 1999: 195–196; Sharlach, 2004: 20–21; Steinkeller, 1987: the provinces themselves to support state employees, most of the bala
+28–30)butitsprimaryfunction,accordingtoSharlach(2004:21),was deliveries, were transported out of the province, primarily on boats
+“theforcedcontributionoftheprovince’swealthtosupportthecentral (Sallaberger and Westenholz, 1999: 191–196; Steinkeller, 2007:
+government.” The provinces were obliged to supply the central gov- 191–195, 1999: 293–294, 1987b: 23–30). Texts recording boat itiner-
+ernment with a quota of goods per year, consisting mainly of barley, ariesdocumentthetransportoflargeamountsofgrainsallthewayup
+livestock,andothergoods(e.g.,reed, timber,commodities),aswellas to Nippur on regular basis.
+corvée labor, particularly for “national building projects” (Sharlach, Thewide-rangingmovementofgoods,inparticulargrain,wasmade
+2004:29;Steinkeller,2013).ThesizeofthebalapaymentforUmmais possible by efficient and low-cost waterborne transportation (Algaze,
+difficult to estimate due to the lack of summary accounts. However, 2008:50–62;Sharlach,2004:86–90).AsisshownbyFig.10grainwas
+there is evidence from the neighboring Lagaš province that shows that shippedallyearroundwithinandfromUmmaduringtheUrIIIperiod.
+itsbalacontributionamountedto48%oftheentiregrainproduction.It Noticeably is the larger number of shipments in September, which
+is very likely that Umma had to contribute similar amounts (Sharlach, mightberelatedtotheoveralldemandforseedsatthebeginningofthe
+44
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+Map2. Ummaprovince.Inred:hypotheticalbordersoftheprovinceanditsdistricts.Inblue:suggestedlocationofancientwatercourse(afterSteinkeller,2001:50;
+Adams and Nissen,1972:36, Fig.17). (Forinterpretationofthe referencesto colourinthis figurelegend,the reader isreferredto the webversion ofthisarticle.)
+agriculturalcycle.TheaveragecapacityofcargoboatsduringtheUrIII government headed by the governor was intimately involved in that
+periodvariedbetween30and40tons(Sharlach,2004:86–90;seealso managementofwatercourses.Theworkrelatedtothemanagementof
+Adams,2006:140–141)and,whenfullyloaded,wouldhaverequireda watercourses and irrigation in the province Umma was primarily ad-
+water depth that was lacking during the summer months. ministered by the agricultural bureau of the governor-run sector. The
+Thus, it is very clear that a mechanism to kept water levels high agricultural sectors of each of the four districts of Umma (Da-Umma,
+enough to allow for the shipment of grain at this time of the year was Apisal,Gu’edena,andMušbiana,seeMap2)wasrunbyahierarchyof
+required, which I argue was provided by the placement of large bar- officials, which consisted of scribes, agricultural administrators, and
+rages in the Tigris discussed above. supervisorsofworkcrewsandemployedlaborers(Vanderroost,2012).
+Many of the high-level administrators that appear in the records as
+overseeing and authorizing work projects related to water control as
+10. The provincial administration of the water management
+well as grain cultivation were members of the gubernatorial family,
+scheme some of whom (e.g., Akala, Dadaga) became governors of the Umma
+province.Thisshowsthatthelocalrulingelitewasintimatelyengaged
+Given the importance of water born transportation for the func-
+in the management of water control and cultivation as they were
+tioningoftheeconomicsystem,itisnotthatsurprisingthatprovincial
+45
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+involved in many other import sectors of the local economy (Dahl, shiftedthroughavulsion,leavingentiretractsoflandwithoutwater.It
+2007; Vanderroost, 2012). is possible that Sumerians understood this danger and adopted a more
+The adopted labor management system was highly complex, ex- centralized management scheme in order to avoid this pitfall.
+hibitedahighdegreeoflabordivisionandwasorganizedinadecidedly Moreover,thecentralizedmodeadoptedintheUrIIIperiodseemsto
+centralized, top-down fashion. Officials at the upper level of the ad- have been the result of the socio-political and economic complexity of
+ministrativehierarchyconductedsurveysinordertoassesstheamount the Ur III state that mediated how the riverine environment was man-
+of work to be done, which was then divided up and assigned to in- aged. River navigation had always been an important aspect of the
+dividualworkcrewswhocarriedouttheworkunderthesupervisionof economy of Mesopotamian communities and states (Algaze, 2001), but
+a foreman. The workflow was realized by means of centralized, multi- was particularly crucial for the functioning of the Ur III economy. The
+level bureaucracies, extensive record keeping and archiving, and com- balataxationsystemwasbasedonkind,whichentailedthetransportof
+plex computational procedures (Rost, in press). goods on a massive scale and formed the financial foundation of the Ur
+III state (Sharlach, 2004: 159–161). This foundation could only be
+11. The role of the centralgovernment maintainedbyasteadyflowofgoodsfromtheprovinces,whichentailed
+avoidingmajorlossesinoutputofagriculturalgoodsasaresultofflood
+The role of the central government in local affairs as well as in the damage. Most importantly, however, turning these contributions into a
+management of watercourse on the regional level is much harder to as- financial asset of the state was dependent on a low-cost transportation
+sess due to the lack of documents. The majority of the available docu- infrastructure within the state as well as into other regions of potential
+ments come from the archives of the provincial capitals, Umma and trade partners. Thus, the results suggest that the centralized control in
+Girsu/Lagaš, and from one state administrative center Puzriš-Dagan the management of water courses in Southern Mesopotamia was the
+(Molina, 2008:52).Thus far,no “national archive”hasbeen foundthat resultofhowessentialwatersupply,floodcontrolaswellaswaterborn
+would allow for determining the role of the central government in the transportation was to the health of the economy of the Ur III state.
+managementofwatercoursesonthelocalornationallevelwithanykind The findings of this paper suggest that the management of ancient
+ofprecision.Theonlyevidencesofarofdirectinterferencebythecentral irrigationneedstobeanalyzedwithinthelargerhydrauliccontext.When
+government in provincial water affairs, appears to have been the re- focusing on irrigation alone, as many earlier studies have done, the
+solution of high-profile water conflicts (e.g., between towns). Reserving complexityofthewatercontrolschemeofwhichirrigationisanintegral
+conflict resolution for the central government might have also been part,mighteasilybeoverlooked.Inturn,theroleofthestatecannotbe
+partially economically and politically motivated. Unresolved conflict adequately assessed when focusing only on the management of irriga-
+could have seriously crippled the watercourse management system and tion.Whiletheroleofthecentralgovernmentinthiscasestudyremains
+slowed agricultural production, which was to be avoided at all costs, somewhatelusive,theevidenceshowsthatthestatedidprovidethelegal
+given the importance of both for the functioning of the Ur III economy. framework,whichallowedthesystemtooperatesmoothly.Furthermore,
+In addition, Ur III kings, first and foremost king Urnamma, the assessing the role of the state and its institutions in the management of
+founder of the Third Dynasty of Ur do claim patronage over the con- water need to take the larger political and economic context into con-
+struction of canals or water-control devices (Rost, 2015: 246–250). sideration.Thiscasestudyshowed,thatitwasneithertheenvironmental
+However, such claims come from literary sources, such as royal hymns, conditions nor the size of the system itself that warranted centralized
+whichdonotprovideanyconcretedetailsonthemagnitudenorthelevel control.Rather,thechoiceineconomicsystem,whichwasdevelopedto
+of actual involvement of the central government in such work projects. support the state apparatus, required a complex water management
+Rather,thethemeofhavinginitiatedtheconstructionofoverlandcanals schemethatwascapableofcoordinatingthedemandsofirrigationwith
+is employed to portray the king as the provider of agricultural abun- the requirements of flood control and navigation.
+dance,whichisaverycommonthemeinroyalrhetoricusedtolegitimize
+the power yielded by Mesopotamian rulers (Winter, 2007, see also Acknowledgement
+Harrower, 2016). However, given that the water course management
+system rested on a diligent coordination of water masses upstream and I would like to thank my former PhD advisors, Elizabeth Stone,
+downstream,itcanbeassumedthattherehadtobesomearrangementat Robert Hunt and Piotr Steinkeller for their exceptional support – a
+thenationallevel–inparticularbetweenprovincesrelyingonthesame supportfromwhichthispaperalsoprofits.IalsowanttothankMaurits
+water source. The evidence suggests, for this system of water control to Ertsen for his genuine interest in my research on ancient water man-
+function smoothly (on the national level or better the lower Tigris wa- agement in southern Mesopotamia, but more importantly sharing his
+tershed)thecentralgovernmenthadtobeinvolvedifnotonlytoenforce expertise in hydrological engineering, which was key for my under-
+the compliance of all the water users involved. standingofthewatercontrolsystematUmma.IamindebtedtoMartin
+Worthington for being so generous with his time and reading several
+12. Conclusion draftsofthispaperaswellasprovidinghandsonedits,whichgavethis
+paper a much better structure and flow.
+Adoptingacentralizedmodeattheprovinciallevelappearstohave
+been necessary to implement the watercourse management system de- Funding
+scribed in this paper. Coordinating the requirements of river naviga-
+tion,irrigation,andfloodcontrolrequiredplanningontheprovincial,if ThisresearchwassupportedbytheWenner-GrenDissertationField
+notnationallevel.Blockingtheflowoftheriverascomprehensivelyas Work Grant Nr. 8429.
+the texts suggest needed to be coordinated with the water users
+downstream as, for example, the neighboring province Lagaš to the Appendix A. Supplementary material
+south of Umma. For this system to be effective, all inlets of canals and
+watercourses needed to be closed off, which in turn allowed for water Supplementary data to this article can be found online at https://
+withdrawalthatdidnotinterferewithwaterbornetransportation.Flood doi.org/10.1016/j.jaa.2019.01.005.
+control had to be coordinated, as localized protection measures could
+seriously interfere with the overall success of the system. References
+Uncoordinated damming, as has also been discussed by Fernea (1970:
+28) for the western branch of the Euphrates with multiple temporary Adams,R.M.,2006.ShepherdsatUmmaintheThirdDynastyofUr:interlocutorswitha
+world beyond the scribal field of ordered vision. J. Econ. Soc. Hist. Orient 49,
+barrages,ledtothesiltingupofanaturalcanal.Eventuallythechannel
+46
+S. Rost Journal of Anthropological Archaeology 54 (2019) 31–47
+133–169. ofThorkildJacobsenonHisSeventiethBirthday,June7,1974,AssyriologicalStudies
+Adams, R.M., 1981. Heartland of Cities. Surveys of Ancient Settlement and Land Use on 20. University of Chicago Press, Chicago, pp. 9–61.
+the Central Floodplain of the Euphrates. University of Chicago Press, Chicago. Nützel, W., 2004. Einführung in die Geo-Archäologie des Vorderen Orients. Reichert,
+Adams, R.M., Nissen, H.J., 1972. The Uruk Countryside. The Natural Setting of Urban Wiesbaden.
+Societies. University of Chicago Press, Chicago. Oppenheim, A.L., 1948. Catalogue of the Cuneiform Tablets of the Wilberforce Eames
+Algaze, G.,2008.Ancient Mesopotamiaatthe Dawnof Civilization:TheEvolution ofan BabylonianCollectionintheNewYorkPublicLibrary.TabletsofthetimeoftheThird
+Urban Landscape. University of Chicago Press, Chicago. DynastyofUr,AmericanOrientalSeries32.AmericanOrientalSociety,NewHaven.
+Algaze, G., 2001. Initial social complexity in Southwestern Asia: the Mesopotamian ad- Parrot, A., 1948. Tello: Vingt Campagnes de Fouilles: 1877–1933. Albin-Michel, Paris.
+vantage. Curr. Anthropol. 42, 199–233. https://doi.org/10.1086/320005. Pemberton,W.,Postgate,J.N.,Smyth,R.F.,1988.Canalsandbunds,ancientandmodern.
+Carroué,F.,1993.EtudesdegéographieetdetopographieSumériennesIII.L’Iturungalet Bull. Sumer. Agric. 4, 207–221.
+le Sud Sumérien. Acta Sumerologica 15, 11–70. Postgate, J.N., 1992. Early Mesopotamia. Society and Economy at the Dawn of History.
+Charles, M.P., 1988. Irrigation in lowland Mesopotamia. Bull. Sumer. Agric. 4, 1–39. Routledge, London and New York.
+Chesney, F.R., 1850. The Expedition for the Survey of the Rivers Euphrates and Tigris, Poyck,A.P.G.,1962.FarmStudiesinIraq.AanAgro-economicStudyoftheAgriculturein
+Carried on by Order of the British government, in the years 1835, 1836, and 1837; the Hilla-Diwaniya Area in Iraq. Veenman & Zonen, Wageningen.
+PrecededbyGeographicalandHistoricalNoticesoftheRegionsSituatedbetweenthe Renger, J., 1990. Rivers, watercourses and irrigation ditches. Bull. Sumer. Agric. 5,
+Rivers Nile and Indus 2 vol. Greenwood Press, New York. 31–46.
+Civil, M., 1994. The farmer’s instructions: a Sumerian agricultural manual, Aula Rost, S., 2018. Report from the field: The Umma Survey Project. Inst. Study Anc. World
+Orientalis – Supplementa 5. Editorial AUSA, Barcelona. News Blog.
+Cohen, M.E., 1993. The Cultic Calendars of the Ancient Near East. CDL Press, Bethesda. Rost,S.,2015.WaterCourseManagementandPoliticalCentralizationin3rdMillennium
+Dahl,J.L.,2007.TherulingfamilyofUrIIIUmma.Aprosopographicalanalysisofanelite B.C. Southern Mesopotamia. A Case Study of the Umma Province During the Ur III
+family in southern Iraq 4000 years ago, Publications de l’Institut historique- Period (2112–2004 B.C.) (Ph.D.). State University of New York at Stony Brook,
+archéologique néerlandaise de Stamboul 108. Nederlands Historisch-Archaeologisch Department of Anthropology.
+Instituut, Leiden. Rost, S., in press. Insights into the administration of ancient irrigation systems in 3rd
+Englund, R.K., 1988. Administrative timekeeping in ancient Mesopotamia. J. Econ. Soc. millenniumBCEMesopotamia.In:Chemla,K.,Keller,A.,Proust,C.(Eds.),Culturesof
+Hist. Orient 31, 121–185. https://doi.org/10.2307/3632096. Computation and Quantification in the Ancient World.
+Falkenstein, A., 1956. Die neusumerischen Gerichtsurkunden, Abhandlungen der Rost, S., Hamdani, A., 2011. Traditional dam construction in modern Iraq. A possible
+Bayerischen Akademie der Wissenschaften: Philosophisch-historische Klasse, Hefte analogy for ancient Mesopotamian irrigation practices. Iraq 73, 201–220.
+39, 40, und 44. Verlag der Bayerischen Akademie der Wissenschaften, München. Sallaberger,W.,1992.ZumSchilfrohralsRohstoffinBabylonien.In:Scholz,B.(Ed.),Der
+Fernea, R.A., 1970. Shaykh and Effendi. Changing Patterns of Authority among the El Orientalische Mensch Und Seine Beziehung Zur Umwelt. vol. 2. Grazer
+Shabana of Southern Iraq. Harvard University Press, Cambridge. Morgenländische Studien. RM-Druck – und Verlagsgesellschaft, Graz, pp. 311–330.
+Food and Agriculture Organization of the United Nations, 1997. Irrigation in the Near Salonen, A., 1970. Die Fischerei im alten Mesopotamien nach sumerisch-akkadischen
+East Region in Figures. Food and Agriculture Organization of the United Nations, Quellen. Eine lexikalische und kulturgeschichtliche Untersuchung, Annales
+Rome. AcademiaeScientiarumFennicae,Ser.B.166.SnomalainenTiedeakatemia,Helsinki.
+Foxvog, D.A., 1986. A summary of non-sealed labor assignments from Umma. Acta Sauren, H., 1966. Topographie der Provinz Umma nach den Urkunden der Zeit der III.
+Sumerologica 8, 59–75. Dynastie von Ur. Teil 1: Kanäle und Bewässerungsanlagen. Ruprecht-Karl-
+Garfinkle,S.J.,2008.WastheUrIIIstatebureaucratic?Patrimonialismandbureaucracy Universität, Heidelberg.
+in the Ur III Period. In: Garfinkle, S.J., Johnson, J.C. (Eds.), The Growth of an Early Sharlach,T.M.,2004.ProvincialTaxationandtheUrIIIState,CuneiformMonographs26.
+State in Mesopotamia. Studies in Ur III Administration., Biblioteca del Próximo Brill, Styx, Leiden; Groningen.
+Oriente Antiguo 5. Consejo Superior de Investigaciones Científicas, Madrid, pp. Steinkeller, P., 2013. Corvée labor in Ur III Times. In: Garfinkel, S.J., Molina, M. (Eds.),
+55–61. From the 21st Century B.C. to the 21st Century A.D. Eisenbrauns, Winona Lake, pp.
+Gasche, H., Tanret, M. (Eds.), 1998. Towards a Reconstruction of the Ancient 347–424.
+EnvironmentinLowerMesopotamia,MesopotamianHistoryandEnvironment.Series Steinkeller,P.,2011.OnthelocationofthetownGARšanaandrelatedmatters.In:Owen,
+II: Memoirs 5. University of Ghent, Ghent. D.I.(Ed.),GaršanaStudies,CornellUniversityStudiesinAssyriologyandSumerology
+Great Britain, Naval Intelligence Division, 1944. Iraq and the Persian Gulf. Routledge, 6. CDL Press, Bethesda, pp. 373–390.
+London. Steinkeller, P., 2007. City and countryside in third-millennium southern Babylonia. In:
+Harrower, M.J., 2016. Water Histories and Spatial Archaeology. Ancient Yemen and the Stone, E.C. (Ed.), Settlement and Society. Essays Dedicated to Robert McCormick
+American West. Cambridge University Press, New York. Adams.CotsenInstituteofArchaeology,UniversityofCalifornia;OrientalInstituteof
+Hritz, C., 2010. Tracing settlement patterns and channel systems in southern the University of Chicago, Los Angeles; Chicago, pp. 185–212.
+Mesopotamia using remote sensing. J. Field Archaeol. 35, 184–203. Steinkeller,P.,2003.ArchivalpracticesatBabyloniaintheThirdMillennium.In:Brosius,
+Hritz, C.A., 2005. Landscape and Settlement in Southern Mesopotamia. A Geo-archae- M. (Ed.), Ancient Archives and Archival Traditions. Concepts of Record-Keeping in
+ological Analysis. (Ph.D.). University of Chicago, Department of Near Eastern the Ancient World. Oxford University Press, Oxford, pp. 37–58.
+Languages and Civilizations. Steinkeller,P.,2001.NewLightonthehydrologyandtopographyofSouthernBabylonia
+Huh, S.K.,2008. Studien zur Region Lagašvon derUbaid- bis zur altbabylonischenZeit. in the third millennium. Z. Für Assyrologie Vorderasiat. Archäol. 91, 22–84.
+Ugarit-Verlag, Münster. Steinkeller, P., 1999. Land-Tenure conditions in third-millennium Babylonia. The pro-
+Ionides, M.G., 1937. The Régime of the Rivers, Euphrates and Tigris. E. & F.N. Spon; blemofregionalvariation.In:Hudson,M.,Levine,B.A.(Eds.),UrbanizationandLand
+Chemical Pub. Co. of N.Y., London, New York. Ownership in the Ancient Near East. Peabody Museum of Archaeology and
+Jacobsen, T., 1969. A survey of the Girsu (Telloh) region. Sumer 25, 102–111. Ethnology. Harvard University, Cambridge, pp. 289–329.
+Jacobsen, T., 1960. The waters of Ur. Iraq 22, 174–185. https://doi.org/10.2307/ Steinkeller, P., 1988. Notes on the irrigation system in third millenium Southern
+4199683. Babylonia. Bull. Sumer. Agric. 4, 73–92.
+Jacobsen, T., 1939. The Sumerian King List, Assyriological Studies 11. Univ. of Chicago Steinkeller, P., 1987. The administrative and economic organization of the Ur III state.
+Press, Chicago. The core and the periphery. In: Gibson, M., Biggs, R.D. (Eds.), The Organization of
+Kang, S.T., 1973. Sumerian and Akkadian cuneiform textsin the collection of the World Power. Aspects of Bureaucracy in the Ancient Near East. Oriental Institute of the.
+Heritage Museum of the University of Illinois. Sumerian economic texts from the University of Chicago, Chicago, pp. 15–34.
+Umma archive. University of Illinois Press, Urbana, Chicago, London. Studevent-Hickman,B.,2011.NewgroundsfortheÙ.J.Cuneif.Stud.63,35–49.https://
+Kraus, F.R., 1955. Provinzen des neusumerischen Reiches von Ur. Z. Für Assyriol. doi.org/10.5615/jcunestud.63.0035.
+Vorderasiat. Archäol. 51, 45–75. Thesiger, W., 1979. Desert, Marsh and Mountain. The World of a Nomad. Motivate,
+Lehoux, D.R., 2000. Parapegmata, or, Astrology, Weather, and Calendars in the Ancient London.
+World. (Ph.D.). University of Toronto, Institute for the History and Philosophy of Vanderroost,N.,2012.Organisationadministrativedubureaudel’agricultured’Ummaà
+Science and Technology. l’époquedelaTroisièmeDynastied’Ur(Ph.D.).UniversitélibredeBruxelles,Faculté
+Liverani,M.,1996.ReconstructingtherurallandscapeoftheAncientNearEast.J.Econ. de Philosophie et Lettres – Langues et Littératures.
+Soc. Hist. Orient 39, 1–41. Verhoeven, K., 1998. Geomorphological research in the Mesopotamian flood plain, in:
+Liverani, M., 1990. The shape of Neo-Sumerian fields. Bull. Sumer. Agric. 5, 147–186. Gasche, H., Michael, T. (Eds.), Changing Watercourses in Babylonia. Towards a
+Maeda, T., 1983. Subgroups of lu2-KUR6-dab5-ba (II) – ses-gub-ba and ses-tus-a. Acta Reconstruction of the Ancient Environment in Lower Mesopotamia, Mesopotamian
+Sumerologica 5, 67–80. HistoryandEnvironment,SeriesII,Memoirs5.OrientalInstituteoftheUniversityof
+Maekawa, K., 1985. Cultivation of legumes and mun-gazi plants in Ur III Girsu. Bull. Chicago, Chicago, pp. 159–240.
+Sumer. Agric. 2, 97–118. Waetzoldt, H., 1990. Zu den Bewässerungseinrichtungen in der Provinz Umma. Bull.
+Mann, J.S., 1921. An Administrator in the Making, James Saumarez Mann, 1893–1920. Sumer. Agric. 5, 1–29.
+Longmans, Green and Co., London; New York. Winter,I.,2007.Representingabundance:thevisualdimensionoftheagrarianstate.In:
+Molina, M., 2008. The corpus of Neo-Sumerian tablets. An overview. In: Garfinkle, S.J., Stone, E.C. (Ed.), Settlement and Society: Essays Dedicated to Robert McCormick
+Johnson, J.C. (Eds.), The growth of an early state in Mesopotamia. Studies in Ur III Adams.CotsenInstituteofArchaeology,UniversityofCalifornia;OrientalInstituteof
+administration., Biblioteca del Próximo Oriente Antiguo 5. Consejo Superior de the University of Chicago, Los Angeles; Chicago, pp. 117–138.
+Investigaciones Científicas, Madrid, pp. 19–54. Wirth, E., 1962. Agrargeographie des Irak. Inst. für Geographie und
+Nissen,H.J.,1975.Geographie.In:Lieberman,S.J.(Ed.),SumerologicalStudiesinHonor Wirtschaftsgeographie der Univ. Hamburg, Hamburg.
+47

@@ -1,0 +1,1910 @@
+Clim. Past, 15, 555–577, 2019
+https://doi.org/10.5194/cp-15-555-2019
+© Author(s) 2019. This work is distributed under
+the Creative Commons Attribution 4.0 License.
+The 4.2 ka BP Event in the Mediterranean region: an overview
+Monica Bini1, Giovanni Zanchetta1, Aurel Perşoiu2, Rosine Cartier3, Albert Català4, Isabel Cacho4,
+Jonathan R. Dean5, Federico Di Rita6, Russell N. Drysdale7, Martin Finnè8,9, Ilaria Isola10, Bassem Jalali11,
+Fabrizio Lirer12, Donatella Magri6, Alessia Masi6, Leszek Marks13, Anna Maria Mercuri14, Odile Peyron15,
+Laura Sadori6, Marie-Alexandrine Sicre11, Fabian Welc16, Christoph Zielhofer17, and Elodie Brisset18,19
+1Dipartimento di Scienze della Terra, University of Pisa, Pisa, Italy
+2Emil Racoviţă Institute of Speleology, Romanian Academy, Cluj-Napoca, Romania
+3Quaternary Sciences, Department of Geology, Lund University, Lund, Sweden
+4GRC Geociències Marines, Departament de Dinàmica de la Terra i de l’Oceà, Facultat de Geologia,
+Universitat de Barcelona, Barcelona, Spain
+5School of Environmental Sciences, University of Hull, Hull, UK
+6Dipartimento di Biologia Ambientale, University of Rome “La Sapienza”, Rome, Italy
+7School of Geography, University of Melbourne, Melbourne, Australia
+8Department of Archaeology and Ancient History, Uppsala University, Uppsala, Sweden
+9Department of Physical Geography, Stockholm University, Stockholm, Sweden
+10Istituto Nazionale di Geofisica e Vulcanologia, Sezione di Pisa, Pisa, Italy
+11LOCEAN Laboratory, Sorbonne Universités (UPMC, Universitè de Paris 06)-CNRS-IRD-MNHN, Paris, France
+12Istituto di Scienze Marine (ISMAR)-CNR Napoli, Naples, Italy
+13Faculty of Geology, University of Warsaw, Warsaw, Poland
+14Dipartimento di Scienze della Vita, Università di Reggio Emilia e Modena, Modena, Italy
+15Institut des Sciences de l’Evolution (ISEM), Université de Montpellier, Montpellier, France
+16Institute of Archaeology, Cardinal Stefan Wyszynski University, Warsaw, Poland
+17Chair of Physical Geography, Leipzig University, Leipzig, Germany
+18IPHES, Institut Català de Paleoecologia Humana i Evolució Social, Tarragona, Spain
+19Àrea de Prehistòria, Universitat Rovira i Virgili, Tarragona, Spain
+Correspondence: Monica Bini (monica.bini@unipi.it)
+Received: 30 October 2018 – Discussion started: 15 November 2018
+Revised: 26 February 2019 – Accepted: 26 February 2019 – Published: 27 March 2019
+Abstract. The Mediterranean region and the Levant have re-
+turned some of the clearest evidence of a climatically dry
+period occurring around 4200 years ago. However, some re-
+gional evidence is controversial and contradictory, and is-
+sues remain regarding timing, progression, and regional ar-
+ticulation of this event. In this paper, we review the evi-
+dence from selected proxies (sea-surface temperature, pre-
+cipitation, and temperature reconstructed from pollen, δ18O
+on speleothems, and δ18O on lacustrine carbonate) over the
+Mediterranean Basin to infer possible regional climate pat-
+terns during the interval between 4.3 and 3.8 ka. The values
+and limitations of these proxies are discussed, and their po-
+tential for furnishing information on seasonality is also ex-
+plored. Despite the chronological uncertainties, which are the
+main limitations for disentangling details of the climatic con-
+ditions, the data suggest that winter over the Mediterranean
+involved drier conditions, in addition to already dry sum-
+mers. However, some exceptions to this prevail – where wet-
+ter conditions seem to have persisted – suggesting regional
+heterogeneity in climate patterns. Temperature data, even if
+sparse, also suggest a cooling anomaly, even if this is not
+uniform. The most common paradigm to interpret the pre-
+cipitation regime in the Mediterranean – a North Atlantic
+Oscillation-like pattern – is not completely satisfactory to in-
+terpret the selected data.
+Published by Copernicus Publications on behalf of the European Geosciences Union.
+556 M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region
+1 Introduction
+In recent years, it has become paradigmatic that the Holocene
+was a relatively stable climatic epoch when compared to
+the last glacial period (e.g., Dansgaard et al., 1993). How-
+ever, long-term, astronomically driven changes in insola-
+tion produced changes in temperature (Marcott et al., 2013,
+but see also Marsicek et al., 2018), associated with a pro-
+gressive southward shift of the Intertropical Convergence
+Zone (ITCZ) and a weakening of Northern Hemisphere sum-
+mer monsoon systems (e.g., Wright et al., 1993; Fleitmann
+et al., 2003; Braconnot et al., 2007). A number of short,
+multidecadal- to centennial-scale climatic events, the origin
+of which often remains unclear, are superimposed over this
+long-term trend (e.g., Denton, and Karlén, 1973; Bond et
+al., 1997; Mayewski et al., 2004; Wanner et al., 2011). At
+the regional-to-global scale, some events appear synchronous
+and linked to specific changes in circulation patterns (e.g.,
+Trouet et al., 2009; Dermody et al., 2012; Zanchetta et al.,
+2014). A good example is the Medieval Climate Anomaly
+in the Atlantic region, which has been explained in terms
+of an anomalously persistent positive mode of the North At-
+lantic Oscillation (NAO) (Trouet et al., 2009). However, the
+synchronicity and therefore the origin of many such events
+remain challenging. A major and much-discussed example
+of a multidecadal- to century-scale event is the so-called
+“4.2 ka BP Event”. The detection of this event over an exten-
+sive region, and its common expression as an interval of cool-
+ing and drying (e.g., Cullen et al., 2000; Drysdale et al., 2006;
+Dixit et al., 2014), points to a global “megadrought” (Weiss,
+2015, 2016). The significance of the climate event at 4.2 ka
+at the global scale has been accepted recently as the for-
+mal boundary of Late and Middle Holocene at 4250 ka b2k
+(http://www.stratigraphy.org/, last access: 11 March 2019).
+Despite its near-pervasive recognition, the timing, duration,
+and progression of this event have yet to be defined in de-
+tail, whilst its origin in terms of changes in ocean and at-
+mospheric circulation remains elusive (Booth et al., 2005;
+Zanchetta et al., 2016; Carter et al., 2018). Moreover, not all
+the palaeoclimate records preserve evidence of the 4.2 ka BP
+Event, at least as a prominent feature of the Late Holocene
+(e.g., Seppa et al., 2009; Göktürk et al., 2011; Roland et al.,
+2014) and not necessarily as a cold and dry event (e.g., Rails-
+back et al., 2018). Some researchers have suggested that this
+event is best described as a complex succession of dry/wet
+events, rather than a single long, dry event (Magny et al.,
+2009; Railsback et al., 2018), further complicating the matter.
+The Mediterranean region shows some of the most consis-
+tent evidence of the 4.2 ka BP Event. It is mostly recognized
+as a dry interval and is identified in pollen records (e.g., Ma-
+gri and Parra, 2002; Di Rita and Magri, 2009; Kaniewski et
+al., 2013), speleothems (Drysdale et al., 2006; Cheng et al.,
+2015; Zanchetta et al., 2016; Finné et al., 2017), lakes (e.g.,
+Zanchetta et al., 2012b), and marine sediments (e.g., Mar-
+garitelli et al., 2016). However, the chronology of the event
+is not precisely defined and, in many records, the event is not
+evident (Finné et al., 2011), challenging the view of a gener-
+alized period of significant drought. In this paper, we review
+the evidence, nature and chronology of the 4.2 ka BP Event
+in the Mediterranean region by comparing different marine
+and terrestrial proxy records. This will serve to identify gaps
+in the regional coverage, to expose aspects that should be ad-
+dressed in future research on this topic, and to determine if
+coherent regional/subregional climatic patterns are present,
+what their links are to regions further afield, and if such pat-
+terns can be plausibly explained in a coherent meteoclimatic
+framework.
+2 Methods and terminology
+In this paper, we use the term “4.2 ka BP Event” to indicate a
+period of time between approximately 4.3 and 3.8 ka cal BP
+(close to the definition of Weiss (2015, 2016), whilst be-
+ing mindful that this does not necessarily correspond to the
+true temporal evolution of the climatic event but the chrono-
+logical interval where often this event is recognized. We
+have considered a large set of records for this review. In
+the end, the records selected for inclusion are those possess-
+ing robust age models and high-resolution time series (i.e.,
+at least subcentennial). It has been recognized that chronol-
+ogy for some Mediterranean records could be problematic, as
+demonstrated, for instance, using tephra layers as chronolog-
+ical points (Zanchetta et al., 2011, 2016, 2018). However, in
+the absence of these chronological control points, the ques-
+tion of exclusion or inclusion of records involves a degree of
+subjectivity. For example, we argue that only records dated
+by radiocarbon using terrestrial remains should be selected.
+Marine records dated using radiocarbon on foraminifera can
+show millennial-scale change of the reservoir effect (Siani et
+al., 2001), and different degrees of bioturbation, which can
+complicate comparisons between different archives. Some
+speleothem records, dated in the past with uranium–thorium
+(U–Th) methods, have chronologies inconsistent with more
+recent accurate age determinations (e.g., Grotta di Ernesto;
+McDermott et al., 1999; Scholz et al., 2012). However, to
+have a wide regional coverage with proxy records, we have
+also included records with relatively low resolution and with
+age control that is not necessarily optimal. With this in mind,
+we are also aware that our selection of records could ap-
+pear incomplete for some archives/proxies. Among a copi-
+ous number of data showing, even if with different expres-
+sion, the 4.2 ka BP Event and its impact in the Mediterranean
+Basin (e.g., Magny et al., 2009; Margaritelli et al., 2016;
+Blanco-Gonzalez et al., 2018), we have decided to select
+only the proxies that can give, in our opinion, more com-
+plete information on the hydrological variability like oxygen
+isotope composition of continental carbonates (e.g., Roberts
+et al., 2010) and on the temperature conditions at regional
+scale, as reconstructed by pollen data and marine proxies
+Clim. Past, 15, 555–577, 2019 www.clim-past.net/15/555/2019/
+M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region 557
+Figure 1. Location of selected records discussed in the text. For the numbers and references, refer to Table 1. The dotted red line corresponds
+to the limit of the growth of olive trees, taken as a rough indication of Mediterranean climate.
+(Jalali et al., 2016; Kaniewski et al., 2018). It is obvious
+that many archives are suitable for a multiproxy approach,
+but some proxies can be related more to local processes
+and correlate with climatic variables less directly than oth-
+ers can. Moreover, it would be useful to use similar prox-
+ies in different environments, even if they do not necessar-
+ily have the same meaning (Roberts et al., 2010). We must
+also consider that the scale and longevity of human activ-
+ity around the Mediterranean may create locally serious dif-
+ficulties in distinguishing climate change from human im-
+pact (e.g., deforestation, erosion) in many proxy records of
+past environmental change (England et al., 2008; Roberts et
+al., 2004, 2010). The 4.2 ka BP Event in the Mediterranean
+(including the Levant) is strictly related to complex societal
+evolution and development at the basin scale (Weiss, 1993;
+Zanchetta et al., 2013), and care is necessary in interpreting
+proxy records where local factors override regional climate
+changes. Pollen records are surely one of the most important
+sources of information on past environment in the Mediter-
+ranean and they will be used in this review, but they are
+one of the proxies that have been suggested to be seriously
+compromised by human activity (e.g., Roberts et al., 2004;
+Fyfe et al., 2015, 2018). Given the importance of having es-
+timates of past temperature and precipitation reconstruction,
+we have selected pollen-based quantitative reconstructions
+(e.g., Peyron et al., 2017). In terrestrial archives, in addition
+to pollen data, we selected the oxygen isotope composition
+of lacustrine carbonates and speleothems as the main prox-
+ies of past climate due to their potential for preserving strong
+hydrological signals (Bar-Matthews et al., 1996; Roberts et
+al., 2008, 2010). For marine records, sea-surface tempera-
+ture (SST) reconstruction was preferred to oxygen isotope
+composition of planktonic foraminifera, for the unavoidable
+limitation of the latter to represent the mixing signal of tem-
+perature and changes in local seawater isotopic composition
+(i.e., salinity). These are the main proxies considered for our
+reconstruction: they show the largest coverage and the most
+complete, in our opinion, climate information. These proxies
+also permit, to some extent, the disentanglement of climate
+signals between the cooler and warmer seasons, as we will
+propose. We are aware that there are limitations in this, but
+it is necessary to understand more details about the 4.2 ka BP
+Event. There are other proxies which can give potentially fur-
+ther important information, like lake-level changes (Magny
+et al., 2007, 2011) and, although discontinuous, isotopes on
+paleosols (Zanchetta et al., 2000, 2017) or paleofloods (Ziel-
+hofer and Faust, 2008). Although rare, dust records appear
+of particular relevance in informing about past circulation
+patterns and hydrological conditions (e.g., Zielhofer et al.,
+2017b). However, these records still have low regional cov-
+erage and will only be referred to briefly in the discussion.
+2.1 Selected archives and proxies
+Table 1 and Fig. 1 show the complete list of selected records,
+including the original references and the proxies considered.
+2.1.1 Speleothems
+The number of speleothem records covering the Holocene
+with appropriate resolution has dramatically increased in re-
+cent years, although they are geographically unevenly dis-
+tributed (e.g., McDermott et al., 2011; Deininger et al.,
+2017). Multiple proxies obtained from speleothem calcite
+are often interpreted as hydrological indicators and, in par-
+ticular, the oxygen isotope composition (δ18O) is the most
+common proxy utilized (Lachniet, 2009). In the Mediter-
+ranean Basin, in many instances, the δ18O records are seen
+www.clim-past.net/15/555/2019/ Clim. Past, 15, 555–577, 2019
+558 M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region
+Table 1. Sites and proxy records selected in this paper for investigating the 4.2 ka BP Event. Resolution is reported only for selected proxies
+and is intended as the average during the Holocene.
+No. Site (archive) Proxy Resolution (years)∗ Region Reference
+Caves
+1 Soreq Cave δ18O 16 Israel Almogi-Labin et al. (2009);
+Bar-Matthews and Ayalon (2011)
+2 Jeita Cave δ18O 16 Lebanon Cheng et al. (2015)
+3 Solufar Cave δ18O 8 Turkey Göktürk et al. (2011)
+4 Skala Marion Cave δ18O 20 Greece Psomiadis et al. (2018)
+5 Mavri Trypa Cave δ18O 6 Greece Finné et al. (2017)
+6 Ascunsa Cave δ18O 55 Romania Drǎguşin et al. (2014)
+7 Poleva Cave δ18O 76 Romania Constantin et al. (2007)
+8 Corchia Cave δ18O, Mg/Ca 12 Italy Regattieri et al. (2014);
+Zanchetta et al. (2007)
+9 Renella Cave δ18O, Mg/Ca 9 Italy Drysdale et al. (2006);
+Zanchetta et al. (2016)
+10 Grotta di Ernesto δ18O – Italy Scholz et al. (2012)
+11 Kaite Cave δ18O 10 Spain Dominguez-Villar et al. (2017)
+12 Ejulve Cave δ18O, Mg/Ca 13 Spain Moreno et al. (2017)
+13 Molinos Cave δ18O, Mg/Ca 17 Spain Muñoz et al. (2015)
+14 Cueva de Asiul δ18O 15 Spain Smith et al. (2016)
+15 Grotte de Piste δ18O, Mg/Ca 15 Morocco Wassenburg et al. (2016)
+16 Gueldaman Cave δ18O 13 Algeria Ruan et al. (2016)
+Lakes
+17 Lake Mirabad δ18O end. calcite 258 Iran Stevens et al. (2006)
+18 Lake Zeribar δ18O end. calcite 188 Iran Stevens et al. (2001)
+19 Lake Van δ18O end. calcite 90 Turkey Wick et al. (2003)
+20 Lake Acıgöl δ18O end. calcite 88 Turkey Roberts et al. (2001)
+21 Nar Gölü δ18O end. calcite/
+aragonite
+19 Turkey Dean et al. (2015)
+22 Lake Gölhisar δ18O end. calcite 97 Turkey Eastwood et al. (2007)
+23 Lake Dojran δ18O end. calcite 89 Republic of
+Macedonia
+Francke et al. (2013)
+24 Ioannina (Lake Pamvotis) δ18O ostracod 149 Greece Frogley et al. (2001);
+Roberts et al. (2008)
+25 Lake Prespa δ18O end. calcite 157 Republic of
+Macedonia
+Leng et al. (2010)
+26 Lake Ohrid δ18O end. calcite 38 Republic of
+Macedonia
+Lacey et al. (2015)
+27 Lake Shkodra δ18O end. calcite 28 Albania/
+Montenegro
+Zanchetta et al. (2012)
+28 Lago del Frassino δ18O freshwater
+mollusk
+136 Italy Baroni et al. (2006)
+29 Lake Hula δ18O end. calcite 287 Israel Stiller and Hutchinson (1980)
+30 Laguna de Medina δ18O ostracod 130 Spain Roberts et al. (2008)
+31 Lake Sidi Ali δ18O ostracod;
+dust record
+144 Morocco Zielhofer et al. (2017a, b)
+32 Lake Tiguelmamine δ18O ostracod 278 Morocco Roberts et al. (2008)
+Clim. Past, 15, 555–577, 2019 www.clim-past.net/15/555/2019/
+M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region 559
+Table 1. Continued. “P” indicates precipitation and “T” indicates temperature.
+No. Site (archive) Proxy Resolution (years)∗ Region Reference
+Pollen
+33 Acre Pollen (P, T) 85 Israel Kaniewski et al. (2013)
+34 Maliq Pollen (P, T) 87 Albania Bordon et al. (2009);
+Peyron (this paper)
+35 Lake Pergusa Pollen (P, T) 154 Italy Sadori et al. (2013);
+Peyron et al. (2017)
+36 Lago Trifoglietti Pollen (P, T) 73 Italy Peyron et al. (2013)
+37 Lago dell’Accesa Pollen (P, T) 97 Italy Peyron et al. (2013)
+38 Ledro Pollen (P, T) 66 Italy Peyron et al. (2013)
+39 Burmarrad Pollen (P, T) 138 Aegean Sea Gambin et al. (2016);
+Peyron et al. (2017)
+40 SL152 Pollen (P) 76 Aegean Sea Dormoy et al. (2009);
+Peyron et al. (2017)
+41 MD95-2043 Pollen (P) 106 Alboran Sea Peyron et al. (2017)
+42 ODP-976 Pollen (P) 129 Alboran Sea Dormoy et al. (2009);
+Peyron et al. (2017)
+Marine
+41 MD95-2043 Alkenone SST 110 Alboran Sea Cacho et al. (2001)
+42 ODP-976 Alkenone SST,
+Mg/Ca SST
+34 Alboran Sea Martrat et al. (2014);
+Jimenez-Amat and Zahn (2015)
+43 KSGC-31 Alkenone SST 15 Gulf of Lion Jalali et al. (2016)
+44 BS79-38 Alkenone SST 59 Tyrrhenian Sea Cacho et al. (2001)
+45 M25/4-KL11 Alkenone SST 260 Ionian Sea Emeis et al. (2000)
+46 M40/4-SL78 Alkenone SST 160 Ionian Sea Emeis et al. (2000)
+47 MD90-917 Alkenone SST 40 Adriatic Sea Essallami et al., 2007
+48 AD91-17 Alkenone SST 190 Adriatic Sea Giunta et al. (2001)
+49 GeoB 7702-3 Alkenone SST 210 Levantine Basin Castaneda et al. (2010)
+50 ODP 160-967D Alkenone SST 94 Levantine Basin Emeis et al. (2000)
+51 MD04-2726 Alkenone SST 57 Nile prodelta Jalali et al. (2017)
+Other records
+52 Mohos Bog Dust record Romania Longman et al. (2017)
+53 Petit Lac Detrital fraction France Brisset et al. (2013)
+54 Scǎrişoara Ice Cave D excess in ice Romania Perşoiu et al. (2017)
+55 Alìmini Pìccolo Pollen Italy Di Rita and Magri (2009)
+56 Gemini Lake July T Italy Samartin et al. (2015)
+57 Lake Mezzano Pollen Italy Sadori (2018)
+58 Lakes Albano and Nemi Pollen Italy Mercuri et al. (2002)
+59 Calderone glacier Glacier record Italy Zanchetta et al. (2012b)
+60 Lake Qarun Lake level Egypt Marks et al. (2018)
+61 BP-06 Storminess record France Sabatier et al. (2012)
+62 Tunisia Flood record Tunis Zielhofer and Faust (2008)
+∗ Average resolution during the Holocene.
+as an indicator of the amount of precipitation recharging the
+cave (the so-called “amount effect”; Bar-Matthews et al.,
+1996; Bard et al., 2002; Zanchetta et al., 2014; Finné et al.,
+2017), with higher (lower) δ18O values of calcite indicat-
+ing drier (wetter) conditions. This is true only when con-
+sidered in terms of long-term changes in the isotopic com-
+position of seawater sources of the precipitation (“source
+effect”; e.g., Cheng et al., 2015). The interpretation of the
+δ18O record as an indicator of hydrological changes is sup-
+ported, in some instances, by other proxies like trace ele-
+ments (Drysdale et al., 2006; Regattieri et al., 2014; Wassen-
+burg et al., 2016) which should be more common in the fu-
+ture. More refined interpretations indicate that the δ18O com-
+position of cave recharge is in some cases related to NAO
+www.clim-past.net/15/555/2019/ Clim. Past, 15, 555–577, 2019
+560 M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region
+Figure 2. Selected speleothem δ18O records. For location, refer to
+Fig. 1 and for references to Table 1.
+(Smith et al., 2016; Wassenburg et al., 2016), even if investi-
+gations of δ18O composition of precipitation do not always
+reproduce a fidelity with NAO pressure patterns (Field, 2010;
+Baldini et al., 2008). Dominguez-Villar et al. (2017) suggest
+that most of the isotopic signal in Iberian speleothems is not
+principally related to the amount of precipitation but rather
+to changes in the ratio of recycled precipitation, and is corre-
+lated to pressure patterns over the North Atlantic. Therefore,
+some authors suggest that the δ18O of the speleothem cal-
+cite is a direct expression of the North Atlantic influence and
+state, especially in the western Mediterranean (e.g., Smith
+et al., 2016; Wassenburg et al., 2016) during winter months.
+However, a change in provenance of precipitation (Holmes et
+al., 2010) and precipitation amount during winter and sum-
+mer months can further complicate the interpretation of the
+δ18O records. Therefore, a unifying and completely satis-
+factory explanation for δ18O of calcite is probably not yet
+available throughout the Mediterranean area and surround-
+ing regions (Moreno et al., 2014). It is important also to re-
+member that the δ18O signal is skewed towards the period
+of calcite precipitation and its relation with cave recharge.
+As anticipated, the authors tend to assume that most of the
+cave recharge occurs during winter (or autumn–winter) and
+most of the δ18O signal should be related to this condition
+(Deininger et al., 2017). In some instances, the complex in-
+terpretation of δ18O as a direct climatic proxy has led dif-
+ferent authors to prefer δ13C of speleothem calcite as a bet-
+ter hydrological indicator of local conditions (e.g., Genty et
+al., 2006; Göktürk et al., 2011). The number of factors in-
+fluencing the final δ13C value of a speleothem (e.g., Müh-
+linghaus et al., 2009) make this proxy probably just as, if not
+more, complicated as δ18O, and in addition, for the strong
+influence of soil-CO2 production on the final 13C/12C ratio
+on speleothems, a change in land use and deforestation can
+have a particularly prominent effect, making it particularly
+sensitive to human impact above and within the cave. It is
+usually reported that speleothems possess a superior chronol-
+ogy compared to other archives thanks to the U–Th technique
+(e.g., Richards and Dorale, 2003). However, this assumption
+is strictly true for speleothems acting as a closed system for
+the uranium (Bajo et al., 2016) and with only minor clastic
+contamination (Hellstrom, 2006). For this review, we have
+selected 16 records (Fig. 2; Table 1). The main reason for ex-
+cluding some records is the presence of long hiatuses (thou-
+sands of years) over the 4.2 ka BP Event that may not nec-
+essarily relate to climatic conditions, e.g., Villars, Chauvet,
+and La Mine caves (Genty et al., 2006) and Carburangeli
+Cave (Frisia et al., 2006). Some records have been rejected
+for their U–Th chronologies, as shown in later studies (e.g.,
+Savi Cave; Frisia et al., 2005), with ages disputed in Belli et
+al. (2013). However, shorter hiatuses coherent with isotopic
+changes are considered here as evidence of particularly dry
+and potentially cooler climate conditions (i.e., Mavri Trypa
+Cave; Finné et al., 2017). In this regard, Stoll et al. (2013)
+interpreted the growth cessation of many speleothems at ap-
+Clim. Past, 15, 555–577, 2019 www.clim-past.net/15/555/2019/
+M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region 561
+proximately 4.1 ka in northwest Spain to be caused by in-
+creased aridity since this time. However, this is a general sig-
+nal and not specifically related to a short interval, suggesting
+that eventual increasing in aridity during the 4.2 ka BP Event
+is within a general frame of increasing aridification.
+2.1.2 Lacustrine settings
+The oxygen isotope composition of lacustrine carbonates in
+the Mediterranean region is usually interpreted as mainly be-
+ing controlled by changes in the isotopic composition of lake
+water (Roberts et al., 2008), which is controlled by differ-
+ent factors, including changes in the isotopic composition of
+precipitation and the degree of evaporation (Zanchetta et al.,
+2007b; Leng et al., 2010a). Each lacustrine setting has a dif-
+ferent set of responses and different water 18O enrichment
+(Roberts et al., 2008; Leng et al., 2010a, b) due to evapora-
+tive effects, which depend on several factors, namely tem-
+perature, relative humidity, wind fetch and strength, and res-
+idence time of body water (e.g., Craig et al., 1965). Different
+types of carbonates (e.g., ostracods, freshwater shells, bio-
+induced carbonates) may precipitate during different parts of
+the year, with bio-induced calcite (endogenic) often related
+to spring–summer algal bloom (Leng and Marshall, 2004).
+Therefore, the δ18O of endogenic carbonate will tend to be
+weighted towards the summer conditions, although care is
+necessary for their interpretation and more complex options
+have been proposed (e.g., Zielhofer et al., 2018). Endogenic
+carbonates can be contaminated by clastic carbonates (Leng
+et al., 2010b) and/or early diagenetic minerals (i.e., siderite;
+Lacey et al., 2016), which can degrade the paleoclimate sig-
+nal and must be carefully evaluated case by case. Despite
+these possible complications, trends toward higher (lower)
+δ18O values are generally explained as an indication of drier
+(wetter) conditions (Zanchetta et al., 1999, 2007b; Roberts
+et al., 2008; Leng et al., 2010a, 2013). Reduction in gen-
+eral lake recharge and particularly arid conditions during the
+warmer part of the year favor higher δ18O values of endo-
+genic carbonate. As is the case of speleothem records, lacus-
+trine δ18O records are unevenly distributed over the Mediter-
+ranean Basin (Fig. 1, Table 1) and this represents an impor-
+tant limitation to regional interpretations. Following the list
+proposed in the important review of Roberts et al. (2008),
+very few new lacustrine records have been added since, e.g.,
+Lake Ohrid (Lacey et al., 2015), Lake Prespa (Leng et al.,
+2010a, 2013), Lake Yammouneh (Develle et al., 2010), Lake
+Shkodra (Zanchetta et al., 2012b), and Sidi Ali (Zielhofer et
+al., 2017a). Some of the records reported in Roberts et al.
+(2008) and some new records that were too short or with too-
+low resolution or poor chronologic accuracy (e.g., Lake Per-
+gusa, Zanchetta et al., 2007b; Valle di Castiglione, Zanchetta
+et al., 1999; Lake Yammouneh, Develle et al., 2010) have
+been excluded from this review. We have to note that some
+records (particularly in the past) used different kinds of or-
+ganic matter and carbon (i.e., shells) for radiocarbon dating
+Figure 3. Selected lacustrine δ18O records. For location, refer to
+Fig. 1 and for references to Table 1.
+(e.g., Baroni et al., 2006), which can be affected by different
+reservoir and hard-water effects of unknown amount, lead-
+ing to significant offsets between records. Figure 3 shows the
+selected lacustrine records.
+2.1.3 Marine records
+For marine records, we selected SST. Figure 4 shows a com-
+pilation of 12 published SST records from coastal and deep-
+sea sites of the Mediterranean Sea. Apart from Fig. 4b, which
+is based on the Mg/Ca ratios in planktonic foraminifera Glo-
+bigerina bulloides, all the records are based on alkenone pa-
+leothermometry. As for other archives, the comparison of
+multiple proxies and site compilation require consideration
+of potential seasonal biases (Emile-Geay et al., 2017). Max-
+imum production of alkenones in the Ligurian, Alboran, and
+Adriatic seas would take place mainly in spring and autumn
+(Ternois et al., 1997; Totti et al., 2000; D’Ortenzio and Rib-
+era d’Alcalà, 2009), while in other sub-basins, such as the
+Balearic Sea and the Bannock Basin, primary production ex-
+hibits a less clear pattern, with maximum algal blooms during
+spring (D’Ortenzio and Ribera d’Alcalà, 2009; Ziveri et al.,
+2000). However, several high-resolution alkenone-derived
+www.clim-past.net/15/555/2019/ Clim. Past, 15, 555–577, 2019
+562 M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region
+Figure 4. Selected SSTs (◦C). For location, refer to Fig. 1 and for
+references to Table 1.
+SST records, which overlap with the post-industrial period
+and allow comparison with SST observations, highlight a
+consistent match between alkenone SST and average annual
+sea-surface temperature (Sicre et al., 2016; Jalali et al., 2018;
+Nieto-Moreno et al., 2013; Moreno et al., 2012; Cisneros et
+al., 2016). The single Mg/Ca SST record from the Alboran
+Sea is mainly believed to reflect spring SSTs (Jiménez-Amat
+and Zahn, 2015). Cisneros et al. (2016) observe that modern
+regional oceanographic data indicate that Globigerina bul-
+loides Mg/Ca is mainly controlled by SST of April–May re-
+lated to the primary bloom productivity.
+2.1.4 Pollen data
+The selection of pollen data is probably more complex con-
+sidering the elevated number of the sedimentary successions
+analyzed over the basin and in different settings (marine and
+lacustrine cores). Using only records with acceptable res-
+olution (i.e., resolution chronologically higher than the in-
+terval considered; Peyron et al., 2017), with the reconstruc-
+tion of precipitation and temperature, the number of records
+is, however, strongly reduced. The basic assumption in the
+pollen-based climate reconstructions (assemblage approach
+or transfer function) is that modern-day observations and re-
+lationships can be used as a model for past conditions and
+that the pollen–climate relationships have not changed with
+time (Birks, 2005). Among the main approaches available
+to quantitatively reconstruct past climate from pollen data,
+most of the selected records have been performed using the
+modern analogue technique (MAT) (Guiot, 1990), an “as-
+semblage approach” frequently used in climate reconstruc-
+tions. This method was successfully used for the Holocene
+climate reconstructions from terrestrial and marine records
+(e.g., Peyron et al., 2011, 2017; Mauri et al., 2014, 2015).
+MAT is based on a comparison of past assemblages to mod-
+ern pollen assemblages. An important requirement is the
+need for a high-quality training set of modern samples. The
+training set should be representative of the likely range of
+variables, of highest possible taxonomic detail, of compa-
+rable quality and from the same sedimentary environment
+(Brewer et al., 2013). It must cover a wide environmental
+range. Limitations of using MAT are the occurrence of no
+analogues or multiple analogues (Birks et al., 2010), and the
+potential problem of the spatial autocorrelation with MAT
+but also in the transfer functions (Telford and Birks, 2005).
+All these interpretations hold if minor human impact is con-
+sidered in vegetation and pollen production, which may be
+a major concern for some reconstructions (Fyfe et al., 2015,
+2018). Figure 5 shows the reconstructed temperatures (an-
+nual) and precipitation (annual, winter, and summer) through
+the 4.2 ka BP Event.
+3 Discussion
+3.1 Chronology: the Achilles heel of the problem
+The first general observation is that, for many of the records,
+chronological uncertainties and different, and sometimes
+poor, chronological resolution are the main obstacles in the
+precise identification of the event, its timing, duration, and
+progression. At this stage, both aspects seem to be an un-
+avoidable limitation for an in-depth understanding of this in-
+terval. For example, we show selected pollen records (ar-
+boreal pollen, AP %) containing the Avellino tephra plot-
+ted with their published age model (Fig. 6) in the cen-
+tral Mediterranean. Quite apparent are the century-scale dif-
+ferences in age models presented, considering the well-
+constrained ages of this tephra layer (approximately 3.8 ka;
+see discussion and references in Zanchetta et al. (2018). It
+is reasonable to assume that similar levels of uncertainties
+may be present in other records. We note that, in Fig. 6, the
+identification of the 4.2 ka BP Event appears problematic (at
+least using AP % signal), which is not in the case for other
+pollen records in Italy (Magri and Parra, 2002; Di Rita and
+Magri, 2009; Di Rita et al., 2018a), the Iberian Peninsula
+(e.g., Blanco-Gonzalez et al., 2018; Lillios et al., 2016), or
+the Levant (e.g., Kaniewski et al., 2013, 2018). Interestingly,
+some records may suggest that the 4.2 ka interval is charac-
+terized by several important oscillations rather than one sim-
+ple long interval of specific (usually drier) climatic condi-
+tions (see, for instance, Skala Marion and Solufar or GLD1
+in Fig. 2, or SST in the Gulf of Lion and Alboran Sea in
+Fig. 4), as it has been suggested for other parts of the world
+Clim. Past, 15, 555–577, 2019 www.clim-past.net/15/555/2019/
+M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region 563
+Figure 5. Selected temperature (T , ◦C) and precipitation (P ,
+mm year−1) records obtained from pollen records. Tma: mean an-
+nual temperature; Pma: mean annual precipitation; PS: average
+summer precipitation; PW: average winter precipitation. For loca-
+tion, refer to Fig. 1 and for references to Table 1.
+(Railsback et al., 2018) and in this issue (Kaniewski et al.,
+2018). However, there is no clear and coherent evidence of
+this in many of the different selected records. A good exam-
+ple of the complexity of the evidence and the link to chrono-
+logical accuracy is the lake-level record at Lago dell’Accesa.
+This was used as the archetypal example to demonstrate
+that, in reality, the event is “tripartite” (Magny et al., 2009),
+where a phase characterized by drier conditions at approxi-
+mately 4100–3950 cal BP appeared bracketed by two phases
+marked by wetter conditions and dated to approximately
+4300–4100 and 3950–3850 cal BP, respectively (Magny et
+al., 2009). Magny et al. (2009) reported a significant number
+of records over the Mediterranean showing reasonably the
+same climatic evidence. However, subsequent works using
+tephra layers (Avellino and other tephras are present in Lago
+dell’Accesa; Magny et al., 2007) showed the inconsistency
+of this detailed correlation, and the 4.2 ka BP Event should
+be dominated by lower lake level (Zanchetta et al., 2012a, b,
+2016), supporting the existence of a prominent drier phase.
+To circumvent some of the complex issues related to chrono-
+logical problems, the authors have used two different ap-
+proaches. The first, and the most common, is an accurate
+selection of records which show conspicuous and chronolog-
+ically consistent evidence of the event (e.g., Drysdale et al.,
+2006; Magny et al., 2009; Kaniewski et al., 2018). Records in
+which the expression of the event is equivocal are usually re-
+moved. A different approach is more “climatostratigraphic”,
+which is used instead of a simple chronological selection of
+a time window to correlate the event on the basis of similar-
+ity of the climatic curve. This has the obvious limitation that
+any regional articulation and/or timing progression will be
+lost. For instance, we can force the correlation of Skala Mar-
+ion δ18O record with those of the Renella, Mavri Trypa, and
+Solufar caves (Fig. 7; for instance, Psomiadis et al., 2018, im-
+plicitly followed this approach in their Fig. 6, for Skala Mar-
+ion, Renella, and Solufar cave records), to assume that the
+interval at approximately 3.9–3.4 ka characterized by higher
+δ18O values at Skala Marion corresponds to a similar interval
+at approximately 4.3–3.8 ka that is well identified in Renella
+and Mavri Trypa. Therefore, we are aware that the chrono-
+logical issue can heavily contaminate the following discus-
+sion. In the following sections, we separate proxies on the
+basis of their presumed meaning: annual average vs. seasonal
+component. Maps are produced (Fig. 8) specifying the lo-
+cal record condition (i.e., warmer/cooler and/or drier/wetter).
+For reasons that may depend on chronology, proxy sensitiv-
+ity, and/or local response to climatic change, it is not always
+obvious to define the specific environmental conditions of the
+considered interval. In some instances, changes lasted longer
+than the interval considered, or during the interval there is
+a clear change in conditions, or the interval is characterized
+by invariant conditions and/or by trends. Once again, some
+margin of subjectivity may have existed in the evaluation of
+a single record. Generally, for each site, if most of the inter-
+val is dominated by specific conditions (wetter, drier, colder,
+www.clim-past.net/15/555/2019/ Clim. Past, 15, 555–577, 2019
+564 M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region
+Figure 6. Compilation of pollen records containing the Avellino tephra layer (dated at approximately 3.8 ka; for review, see Zanchetta et
+al., 2018). All the records are plotted with their original age model: Lago dell’Accesa (Drescher-Schneider et al., 2007); Lago di Mezzano
+(Sadori, 2018); Lago Albano and Lago di Nemi (Mercuri et al., 2002); RF93-30 (Mercuri et al., 2012). For core RF93-30, the correlation
+with Avellino tephra is not certain (Lowe et al., 2007).
+and/or warmer), this is represented in the maps accordingly.
+If the environmental trend moves toward a specific state, the
+site is defined by this trend (e.g., if the trend during the in-
+terval is toward drier conditions, the site is deemed “drier”
+during the event). Ambiguities are still possible and are indi-
+cated where appropriate.
+3.2 The annual average conditions
+Based on SST and pollen reconstructions, it is possible
+to gain some insights on the average conditions during
+the 4.2 ka interval (Fig. 8a and b). As can be seen from
+Fig. 4, SST records from 8000 to 2000 BP show strong dif-
+ferences in their temporal resolution. Some poorly resolve
+the 4.2 ka BP Event (e.g., Fig. 4d, e). In the Alboran Sea
+cores, MD95-2043 and ODP-976 show substantially invari-
+ant alkenone temperatures, despite their rather high resolu-
+tion, whereas the Mg/Ca SSTs record from the Alboran Sea
+(ODP-976, Fig. 4b; Jiménez-Amat and Zahn, 2015) doc-
+uments a cooling during spring rather than the mean an-
+nual conditions. The cooling in the Alboran Sea has been
+confirmed by high-resolution Mg/Ca SST by Català et al.
+(2018). The alkenone SSTs from the Gulf of Lion (Jalali
+et al., 2016) (Fig. 4c) indicate several SST oscillations with
+some important cooling in the final part of the interval. BS79-
+38 in the Tyrrhenian Sea (Fig. 4d) shows essentially invari-
+ant SSTs, whereas in the Ionian Sea, cores M25/Kl11 and
+M40/4-SL78 (Fig. 4f), despite their low resolution, show
+an opposite trend. In the Adriatic Sea, an apparent mod-
+est warming is present only in core AD91-17 (Giunta et
+al., 2001). In the Levantine Basin, an apparent general ten-
+dency for cooling seems to be present in core GeoB7702-3
+(Fig. 4g) (Castaneda et al., 2010), after a phase of warm-
+ing even if the interval considered comprises the descend-
+ing part of a longer SST trend. In the Nile prodelta area,
+a warmer interval seems to be present in core MD04-2726
+(Fig. 4h) (Jalali et al., 2017), even if with some oscillations.
+Figure 5 shows reconstructed annual average temperatures
+in different parts of the basin using pollen records. Most of
+the central Mediterranean records (except Lago Trifoglietti,
+which shows some intermediate behavior, with a tendency
+of warming) show a cooling at this time. Lake Maliq shows
+a long-term cooling, rather a precise interval of cooling. In
+contrast, in the Acre record, there is first a period of warmer
+conditions, followed by a later period with a prominent cool-
+ing, and this trend, according to Kaniewski et al. (2018), is
+consistent with other sites in the eastern Mediterranean. Fig-
+ure 8a shows that the few records selected show generally
+lower average temperatures in the western–central Mediter-
+ranean, whereas towards the eastern part higher temperatures
+seem to prevail. Annual precipitation estimated from pollen
+shows several records with clear evidence of reduced precip-
+itation (Maliq, Lake Pergusa, Lago Trifoglietti, Acre), even if
+this signal is generally complex (Fig. 5), with part of the se-
+lected records not suggesting drier conditions (e.g., Malta,
+SL152, MD95-2043). Indeed, Fig. 8b highlights that poor
+data coverage for estimating past annual precipitation pre-
+vents any detailed considerations.
+3.3 Winter records
+In this reconstruction, we have included speleothems and
+pollen data, whilst being aware of the limitations discussed in
+Sect. 2.1.1 and 2.1.4. Most of the records indicate drier con-
+ditions in winter during the 4.2 ka BP Event. Speleothems are
+the most conspicuous record. Qualitatively, 6 out 15 records
+show that during the considered interval there is a clear in-
+crease in δ18O values (Fig. 2; Jeita, Ascunsa, Poleva, Mavri
+Trypa, Renella, and Gueldaman caves). Soreq and Corchia
+can be added to this group (stalagmite CC26), showing a
+modest increase of values at that time. Two caves (Grotte
+de Piste and Kaite) show a clear interval of decreasing δ18O
+values (Fig. 2). Solufar and Skala Marion show a similar pat-
+tern of oscillating behavior, with an important part of the
+Clim. Past, 15, 555–577, 2019 www.clim-past.net/15/555/2019/
+M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region 565
+Figure 7. Chronologic approach (green field) and climatostrati-
+graphic approach (yellow field) applied on speleothem records
+(based on Psomiadis et al., 2018): Renella Cave (after Zanchetta et
+al., 2016); Mavri Trypa Cave (after Finné et al., 2017); Skala Mar-
+ion Cave (after Psomiadis et al., 2018); Solufar Cave (after Göktürk
+et al., 2011).
+period characterized by a marked decrease in the δ18O val-
+ues. A similar, but not identical, pattern is present in the
+Iberian caves, Ejulve and Cueva de Asiul. Invariance defines
+the Grotta di Ernesto record. This apparently contradictory
+behavior is regionally well defined with the central Mediter-
+ranean (Algeria, central Italy, Romania, and western Greece)
+and part of the Levant, characterized by the most marked and
+significant interval characterized by higher δ18O values. In-
+stead, the north Iberian Peninsula and north Morocco show a
+tendency to lower or oscillating values, as does the opposite
+end of the basin with the records from the Solufar and Skala
+Marion caves. Accepting the fact that δ18O represents the
+amount of precipitation during the winter recharge period,
+we observe that the central part of the basin, with some exten-
+sion to the Balkans and Romania, shows decisively drier con-
+ditions compared to the other analyzed sectors, where they
+show wetter or at least more variable conditions. Winter pre-
+cipitation reconstructed from pollen shows clear indications
+of decreased precipitation at Ledro, Lake Pergusa, MD90-
+917, and MD95-2043 (even if modest). Drier conditions are
+evident for most of the interval at Lago Trifoglietti (with a
+late recovery toward wetter conditions), whereas in Malta
+most of the interval shows wetter conditions compared to the
+previous period. Lago dell’Accesa shows a strong oscillatory
+behavior, with the central part of the drier interval bracketed
+by two wetter intervals. However, the general trend of Lago
+dell’Accesa cannot be classified unambiguously as wetter or
+drier. Figure 8c shows the prevailing precipitation conditions
+(wetter/drier for the interval considered) during winter for the
+proxy in question. Geographically, it seems quite consistent
+that most of the Mediterranean records show drier conditions
+during winter. Despite the poor coverage, the possible excep-
+tions are Morocco and the Iberian Peninsula, as well as some
+sectors of the eastern Mediterranean, possibly indicating a
+regional articulation.
+3.4 Summer conditions
+As discussed in Sect. 2.1.2, endogenic lacustrine carbonates
+can be considered reasonably as a first-order hydrological
+(precipitation minus evaporation) signal of summer, even if
+influenced by the effect of recharge during previous periods.
+Some records (Sidi Ali, Ohrid, Hula) show no peculiar trends
+during the period considered, although for a very short inter-
+val centered at approximately 4.2 ka, Zielhofer et al. (2018)
+observe a minor oscillation in δ18O values interpreted as in-
+creased winter recharge (Fig. 3). Other records show a clear
+peak towards more positive values (Medina, Frassino, Shko-
+dra, Prespa, Dojran, Nar Gölü, Gölhisar), whereas others
+show a tendency to decrease values (e.g., Van) or a clear
+peak of lower δ18O values (i.e., Ioannina). Instead, Zeribar
+and Mirabad records show a trend towards lower δ18O val-
+ues, even if the resolution of the two records for this interval
+is rather poor. A number of records show a well-marked peak
+of increasing δ18O values within the considered interval but
+show a different duration, possibly due to differences in age
+models and resolution. It is surprising to note that the two
+sister lakes (Prespa and Ohrid) (Lacey et al., 2015; Leng et
+al., 2010a, b, 2013) exhibit, for this interval, significantly dif-
+ferent trends (Fig. 3). This can be explained by the effect of
+higher residence time and more dampened isotopic composi-
+tion of the lake water at Lake Ohrid due to its large recharge
+by karst springs (more than 50 %; Wagner et al., 2017) in
+comparison to Lake Prespa (Leng et al., 2010a). This renders
+the latter much more sensitive to hydrological changes, as
+demonstrated by its dramatic lowering of lake-level changes
+in recent years (van der Schriek and Giannakopoulos, 2017).
+Regional, and consistent with Lake Prespa, are the data from
+Lake Dojran and Shkodra (Fig. 3), which show drier condi-
+www.clim-past.net/15/555/2019/ Clim. Past, 15, 555–577, 2019
+566 M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region
+Figure 8. Maps of (a) annual average temperature, (b) annual average precipitation, (c) winter precipitation, and (d) summer precipitation.
+See Figs. 2–5 and Table 1 for data. Circles indicates data from pollens, lozenges indicate data from alkenones, squares indicate data from
+speleothems, and triangles indicate data from the lake. Meaning of filled symbols: blue indicates colder conditions, red indicates warmer
+conditions, yellow indicates drier conditions, green indicates wetter conditions, and grey indicates unchanged conditions; unfilled symbols:
+symbols with a red border indicate likely warmer conditions, those with a yellow border indicate likely drier conditions, and those with a
+green border indicate likely wetter conditions.
+Clim. Past, 15, 555–577, 2019 www.clim-past.net/15/555/2019/
+M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region 567
+tions. Interestingly, the Ioannina record shows a very marked
+phase of lower δ18O values in an almost perfect antiphase
+with the other nearby lakes. We note that Ioannina is a record
+obtained using ostracods; instead, the others were obtained
+by measuring the isotopic composition of endogenic cal-
+cite, which may integrate the isotopic signal of a number
+of years. Possibly, the Ioannina record intercepts a period
+of particularly pronounced snow melting in spring, while
+the other lakes record a significantly longer period of evap-
+orated waters during spring/summer. Progressive trends to-
+wards lower values shown by Zeribar and Mirabad are diffi-
+cult to interpret because of their relatively low resolution, al-
+though there is regional coherence. Some pollen reconstruc-
+tions show evidence of drier conditions (Fig. 5; Ledro, Lago
+Trifoglietti, SL152-PA, and MD95-2043, even if the last is
+within a longer period of summer-reduced precipitation), but
+others indicate a tendency towards increasing precipitation
+and/or are decisively wetter than the previous interval (Fig. 5;
+Maliq, Lago dell’Accesa, Lake Pergusa, and MD95-2043).
+Figure 8d shows the regional pattern of the considered sum-
+mer conditions. Despite the large gaps in record coverage,
+once again, most of the records indicate drier conditions,
+even if, in the central sector (Italian Peninsula and possibly
+some sectors of Greece) and in the eastern end, a tendency
+toward wetter conditions may exist.
+3.5 Is a synthesis possible?
+The Mediterranean Basin is located in a transitional zone
+between north Africa and the Arabian arid regions, domi-
+nated by the subtropical high-pressure system, and central
+and northern Europe where midlatitude westerly circulation
+dominates. The basin is also exposed to the indirect effect
+of the Asian and African monsoons in summer and to west-
+ern Russian/Siberian High systems in winter (e.g., Lionello
+et al., 2006, and references therein). Therefore, to look for
+a simple mechanism for explaining the 4.2 ka BP Event is
+not a simple task. The uneven distribution of many proxy
+records, and the previously discussed concerns on chronol-
+ogy, can make general conclusions and detailed regional ar-
+ticulation difficult. It is beyond the scope of this contribu-
+tion to discuss the detailed mechanism and forcing; however,
+considering the discussion made in previous sections regard-
+ing the limitations of proxies and our approach in their inter-
+pretation, some interesting points emerge. Based on Fig. 8a,
+the average annual temperature seems to show a tendency
+of cooling for most of the basin. Even when moving from
+west to east, there seems to be an increase in the number of
+records showing an increase in temperature, instead of cool-
+ing, suggesting a possible coherent trend. Data for average
+annual precipitation are sparse and make syntheses difficult
+(Fig. 8b). Figure 8c shows the situation regarding winter pre-
+cipitation inferred from speleothem δ18O records and pollen
+reconstructions. They are of particular relevance for most of
+the basin, which is strongly controlled by NAO, in particu-
+lar in the western and central parts of the basin (Lionello et
+al., 2006; López-Moreno et al., 2011), with winter precipita-
+tion being negatively correlated with NAO. On the contrary,
+areas of the southeastern Mediterranean show an anticorrela-
+tion with western Mediterranean precipitation, resulting in a
+seesaw pattern known as the Mediterranean Oscillation (MO;
+e.g., Conte et al., 1989). This clearly opens the possibility
+that seemingly complex patterns in precipitation are not just
+an artifact of the proxies and/or chronology but can be a real
+and robust climatic pattern.
+On the other hand, the present climatic configuration can
+have different past regional expressions due to a combina-
+tion of multiple factors. Indeed, antiphasing between differ-
+ent sectors of the Mediterranean Basin has been found dur-
+ing the Medieval Climate Anomaly and the Little Ice Age
+between the Iberian Peninsula and Turkey, with the latter
+not the present-day center of action of the MO (Roberts et
+al., 2012). This has also been suggested during several Late
+Holocene oscillations including the 4.2 ka BP Event, in an-
+tiphase in the southwestern and the south–central Mediter-
+ranean regions (Di Rita et al., 2018b). The pattern described
+in Fig. 8c, with the main distribution indicating pervasive
+drier conditions over most of the Mediterranean during win-
+ter, is consistent as a NAO-like positive mode, where west-
+erly sourced vapor masses shift northward due to a pro-
+nounced Azores High. NAO positive mode during this period
+is also supported by the concentration of terrestrial n-alkanes
+(TERR-alkanes) in the Gulf of Lion shelf sediment (Jalali et
+al., 2016). However, the presence of a pole of possibly wet-
+ter conditions over Morocco (as indicated by the Grotte de
+Piste; Figs. 6 and 8c, and partly also by Sidi Ali) and the
+northern Iberian Peninsula, and a less evident and question-
+able wetter area in the eastern sector (Solufar and Skala Mar-
+ion caves; Fig. 2), suggests a different configuration. Indeed,
+at Grotte de Piste, periods characterized by lower δ18O val-
+ues have been interpreted as a period of negative NAO-like
+conditions (Wassenburg et al., 2016), which is also suggested
+by other authors for this period (e.g., Di Rita et al., 2018a).
+However, this interpretation runs counter to the speleothem
+evidence from central Mediterranean indicating drier condi-
+tions (Renella, Corchia, and Mavri Trypa; Drysdale et al.,
+2006; Regattieri et al., 2014; Finné et al., 2017).
+This is further confirmed by new speleothem data (sta-
+ble isotopes and trace elements) reported by Isola et al.
+(2019), from Apuan Alps in central Italy. Figure 9 shows
+the NAO index inferred by Olsen et al. (2011); during the
+4.2 ka BP Event, the NAO is mostly positive, if not partic-
+ularly prominent, suggesting that NAO configuration alone
+would not be particularly useful to interpret this period of
+time. Moreover, Fig. 10 shows that a negative NAO-like con-
+figuration with a similar pattern of precipitation like today is
+unlikely considering the data of Fig. 8c. It is interesting to
+note that the distribution of Figs. 8c and 10 seems to find
+some similarity with the reconstruction proposed by Der-
+mody et al. (2012) during Roman time. According to Der-
+www.clim-past.net/15/555/2019/ Clim. Past, 15, 555–577, 2019
+568 M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region
+Figure 9. Selected additional records to illustrate the general sit-
+uation over the basin during the 4.2 ka BP Event. Summer insola-
+tion curve at 65◦ N (Berger and Loutre, 1991); NAO index (Olsen
+et al., 2011); storm activity in the Gulf of Lion (Sabatier et al.,
+2012); Renella Cave (Zanchetta et al., 2016); Mohos peat dust
+flux (Longman et al., 2017); Scărişoara Ice Cave, d excess in the
+ice cave (Perşoiu et al., 2017); probability flood frequency from
+north Tunisia (Zielhofer and Faust, 2008); Sidi Ali dust flux (Ziel-
+hofer et al., 2017b); clastic input at Petit Lac (Brisset et al., 2013);
+Gemini Lake July temperature (Northern Apennines) (Samartin et
+al., 2017); Alìmini Pìccolo arboreal pollen (AP %) record (Di Rita
+and Magri, 2009); Calderone glacier expansion (Zanchetta et al.,
+2012a); Qarun Lake (Marks et al., 2018).
+Figure 10. Correlation between the December–January–February
+NAO index (modified after Perşoiu et al. (2018)) and precipita-
+tion amount during negative NAO conditions. A negative corre-
+lation (brown) indicates that during negative conditions precipi-
+tation amounts are lower than usual, while a positive correlation
+(green) indicates that, during negative NAO conditions, precipita-
+tion is above average. Yellow circles: records indicating drier con-
+ditions during winter; blue circles: records indicating wetter condi-
+tions during winter (see Fig. 8c).
+mody et al. (2012), the dominant pattern of variability in hu-
+midity between 3.3 and 1.0 ka shows a seesaw pattern with
+Spain and Israel on one side and the central Mediterranean on
+the other. The patterns in climatic humidity are similar to pre-
+cipitation anomalies associated with the east Atlantic/west
+Russia pattern, which today represents a secondary mode of
+precipitation pattern during winter within the dominance of
+the NAO pattern (Xoplaki et al., 2004). It is clear that the cen-
+ter of action of the seesaw pattern may have changed in time
+with configuration not precisely similar to today. It is inter-
+esting to note that Perşoiu et al. (2018) suggested that part of
+the drier and cold conditions over the Mediterranean during
+the 4.2 ka BP Event was caused by the strengthening and ex-
+pansion of the Siberian High, which effectively blocked the
+moisture-carrying westerlies and enhanced outbreaks of cold
+and dry winds. Summer proxies (Fig. 8d) indicate a prolon-
+gation of drier conditions also during the warmer part of the
+years, suggesting a persistent Azores High during summer.
+However, in the central Mediterranean, some records in-
+dicate a possible increase of precipitation, possibly as incur-
+sions of North Atlantic perturbations, which suggests weak-
+ening of the Azores High for some areas, possibly as an effect
+of change in its positions (e.g., Di Rita et al., 2018b). Consid-
+ering that the position of the ITCZ exerts a control on sum-
+mer aridity and the temperature in the Mediterranean Basin
+(Eshel et al., 2002; Alpert et al., 2006; Gaetani et al., 2011),
+a southward shift of the ITCZ may have locally weakened
+Clim. Past, 15, 555–577, 2019 www.clim-past.net/15/555/2019/
+M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region 569
+the Azores High, favoring incursion of wetter air from North
+Atlantic. A southward shift of the ITCZ during the 4.2 ka BP
+Event is supported by several lines of evidence (e.g., Welc
+and Marks, 2014; Dixit et al., 2014), and this would have
+an effect on summer weather over the Mediterranean. Mar-
+riner et al. (2012) have shown a decrease in Nile Delta flood-
+driven accretion between approximately 4.4 and 4.1 ka in re-
+sponse to weakening of ITCZ, related to changes in El Niño–
+Southern Oscillation (ENSO)-type variability. This may indi-
+cate an indirect influence of ENSO variability on climate of
+the Mediterranean during 4.2 ka BP Event. Brayshaw et al.
+(2010) discussed the influence of the position of the midlati-
+tude westerly jet (MLWJ) over the winter precipitation in the
+Mediterranean. Their modeling indicates a southward shift
+of the MLWJ during the second part of the Holocene, with
+related changes in cyclogenesis over Mediterranean. The im-
+portance in the shift of the position of the MLWJ is also doc-
+umented in dust proxy records from the Middle East and east
+Asia (e.g., Nagashima al., 2011; Sharifi et al., 2015, 2018).
+According to Sharifi et al. (2018), evidence from the dust
+record from the Neor peat mire in Iran and climate model-
+ing shows that at approximately 4.2 ka there is a migration
+of the main axis of the MLWJ towards the Equator allowing
+the transport of higher fluxes of dust from west Asia as well
+as from the northeast Africa. This indicates a complex but
+possibly correlated interplay between the ITCZ, MLWJ, and
+Mediterranean precipitation. Despite evidence being weak,
+it is also reasonable to assume that conditions during sum-
+mer are also important in defining the final “feature” of the
+4.2 ka BP Event. Evidence of environmental and climatic de-
+terioration around or coincident with the 4.2 ka BP Event is
+apparent but chronologically compromised considering a dif-
+ferent selection of records (Fig. 9; see also Fig. 1 and Ta-
+ble 1). Reduced temperature (Fig. 8a) is also consistent with
+the start of the Neoglacial over the Apennines with the first
+appearance during the Holocene of the Calderone glacier
+(Zanchetta et al., 2012a). Interestingly, exposure ages in the
+western Alps also indicate a first “Neoglacial advance” at
+4.2 ka (Le Royet al., 2017). This is geographically consistent
+with lower temperatures during summer, as inferred from
+chironomids from central Italy (Fig. 9; Samartin et al., 2017).
+Also, on the French side of the Mediterranean Alps, lakes
+show evidence of high-frequency environmental instabilities
+during this period. Rapid alternation of drop and rise of the
+lake level are suggested by a switch in the benthic/planktonic
+diatom ratio at Lac d’Allos (Cartier et al., 2019), while at Pe-
+tit Lac, more frequent heavy rainfall triggered soil erosion
+(Fig. 9; Brisset et al., 2013) and ecosystem shift (Cartier et
+al., 2015). This complex pattern is well explained by oxy-
+gen isotope composition performed on diatom cells of Petit
+Lac that indicates that the period is marked by drier mean
+conditions (in terms of annual lake balance), associated with
+short-term heavy rainfall (Cartier et al., 2019) rather than just
+wetter conditions. This is in good agreement with the other
+records of the central Mediterranean.
+The pollen records from Alìmini Pìccolo (Fig. 9; Di Rita
+and Magri, 2009) and from the Gulf of Gaeta (Di Rita et al.,
+2018b) show a prominent decrease in AP, suggesting drier
+conditions. Drier conditions can be inferred also from a mul-
+tiproxy record from Qarun Lake in the Faiyum Oasis (Egypt;
+Figs. 1, 9). In Qarun, the interval between approximately 4.4
+and 4.0 ka shows an increase in aridity and dust supply, as
+shown by several proxies (Marks et al., 2018). In northeast-
+ern Africa, there is further evidence of climate change at
+about 4.2 ka associated with the collapse of the ancient Old
+Kingdom in Egypt (Welc and Marks, 2014, and references
+therein). Dust deposition increases in the Eastern Carpathi-
+ans, as documented by the Mohos peat succession (Long-
+man et al., 2017), although an increase of clastic material in
+a peat succession in a volcanic caldera can be explained also
+by an increase in local soil erosion. This phase is marked
+by a change in the d excess in the ice in the Scărişoara Ice
+Cave (Carpathian Mountains; Fig. 9; Perşoiu et al., 2017),
+suggesting a change in the arrival of cyclones sourced from
+the Mediterranean region. The dust record in Sidi Ali Lake
+(Fig. 9) suggests a measurable trans-Saharan aridity event,
+with increased dust transport at approximately 4.2 ka (Ziel-
+hofer et al., 2017b). Changes in circulation are also suggested
+by exotic pollen of cedar, arriving from north Africa, in some
+pollen successions of central Italy (e.g., Magri and Parra,
+2002). Between approximately 4.4 and 4.0 ka, there is ev-
+idence for an increase in storm activity, as documented by
+several records in the central Mediterranean (Sabatier et al.,
+2012; Kaniewski et al., 2016; Marriner et al., 2017), possibly
+suggesting an increase of occasional strong southward incur-
+sion of westerlies. This is not in contrast with a trend towards
+increased flooding in central Tunisia in this period correlated
+with a colder period in the North Atlantic (Fig. 9; Zielhofer
+and Faust, 2008).
+4 Final remarks and trajectories of future research
+The analyses of many records show that between 4.3 and
+3.8 ka climatic and environmental changes occurred in the
+Mediterranean Basin. In many records, it appears evident that
+an important change in the hydrological regime occurred,
+with more arid conditions, but locally this evidence is con-
+founded. Cooling can be inferred from different records, but
+this is not a common feature. Despite contradictions, which
+is not questioning the evidence of this event, there is the pos-
+sibility that it is regionally articulated as having a locally dif-
+ferent climatic expression. This expression would be also re-
+lated to different seasonal conditions. From the selected data,
+the possibility emerges that this event is in reality marked by
+some oscillations which cannot be resolved in an unequivo-
+cal way on the basis of available records. However, regional
+coverage is still low, even if our record selection is incom-
+plete. The emerging patterns need to be confirmed by future
+research, but well-positioned and well-resolved new records
+www.clim-past.net/15/555/2019/ Clim. Past, 15, 555–577, 2019
+570 M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region
+can also change our view. By comparing the distribution of
+the selected records with one of the most important climatic
+modes like NAO, which impact Mediterranean climate, in
+particular in winter, we did not find complete and satisfy-
+ing matches. We can agree that different working hypothe-
+ses investigating the role of potential climatic teleconnec-
+tions can be inferred from single records or regionally well-
+constrained groups of records, but none seem convincing to-
+day. However, this review indicates that many pieces of this
+complex puzzle are still lacking. Most urgently, new records
+at a higher resolution with a firm chronological basis are re-
+quired.
+Data availability. The paper is a review and all the data have been
+collected from previous publications either on an open database or
+by requesting data directly from the authors. In only one case have
+data been digitized. In any case, they have been organized in a series
+of *.xls files, which can be obtained by request to MB and GZ.
+Author contributions. MB, GZ, and AP conceived the
+manuscript. MB and GZ organized and wrote most of the
+manuscript. In particular MF, RD, and II contributed to the
+construction and writing of Sect. 2.1.1; JRD and RC contributed
+to the construction and writing of Sect. 2.1.2; BJ, M-AS, IC, and
+FL contributed to the construction and writing of Sect. 2.1.3;
+OP contributed to the construction and writing of Sect. 2.1.4;
+FDiR, OP, DM, AM, AMM, and LS contributed to the selection
+and interpretation of pollen records; LM, AP, MB, FW, and CZ
+contributed to the selection and interpretation of different proxy
+records throughout the manuscript. All the co-authors participated
+in sharing the data and contributed to the scientific discussion.
+Competing interests. The authors declare that they have no con-
+flict of interest.
+Special issue statement. This article is part of the special is-
+sue “The 4.2 ka BP climatic event”. It is a result of “The 4.2 ka BP
+Event: An International Workshop”, Pisa, Italy, 10–12 January
+2018.
+Acknowledgements. Monica Bini and Giovanni Zanchetta are
+indebted to the University of Pisa and Earth Science Department
+for the support in organizing the workshop “The 4.2 ka BP Event”.
+Monica Bini and Giovanni Zanchetta’s contribution have also been
+developed within the frame of the project “Climate and alluvial
+event in Versilia: integration of Geoarcheological, Geomorphologi-
+cal, Geochemical data and numerical simulations” awarded to Mon-
+ica Bini and funded by the Fondazione Cassa di Risparmio di Lucca.
+Leszek Marks and Fabian Welc were funded by the National Sci-
+ence Centre in Poland (decision no. DEC-2013/09/B/ST10/02040).
+Aurel Perşoiu was funded by UEFISCDI Romania, trough grant no.
+PN-III-P1-1.1-TE-2016-2210.
+Marie-Alexandrine Sicre and Bassem Jalali were financially
+supported by the MISTRALS/PaleoMex program. The research
+leading to this study has received funding from the French National
+Research Agency HAMOC project (ANR-13-BS06-0003).
+Edited by: Harvey Weiss
+Reviewed by: three anonymous referees
+References
+Almogi-Labin, A., Bar-Matthews, M., Shriki, D., Kolosovsky, E.,
+Paterne, M., Schilman, B., Ayalon, A., Aizenshtat, Z., and
+Matthews, A.: Climatic variability during the last 90 ka of the
+southern and northern Levantine Basin as evident from marine
+records and speleothems, Quaternary Sci. Rev., 28, 2882–2896,
+2009.
+Alpert, P., Baldi, M., Ilani, R., Krichak, S., Price, C., Rodo, X., Saa-
+roni, H., Ziv, B., Kishcha, P., Barkan, J., Mariotti, A., and Xo-
+plaki, E.: Relations between climate variability in the Mediter-
+ranean region and the tropics: ENSO, South Asian and African
+monsoons, hurricanes and Saharan dust, in: Developments in
+Earth and Environmental Sciences, Elsevier, 4, 149–177, 2006
+Bajo, P., Hellstrom, J., Frisia, S., Drysdale, R., Black, J., Wood-
+head, J., Borsato, A., Wallace, M. W., Regattieri, E., and Haese,
+R.: “Cryptic” diagenesis and its implications for speleothem
+geochronologies, Quaternary Sci. Rev., 148, 17–28, 2016.
+Baldini, L. M., McDermott, F., Foley, A. M., and Baldini, J. U.: Spa-
+tial variability in the European winter precipitation δ18O–NAO
+relationship: Implications for reconstructing NAO-mode climate
+variability in the Holocene, Geophys. Res. Lett., 35, L04709,
+https://doi.org/10.1029/2007GL032027, 2008.
+Bard, E., Delaygue, G., Rostek, F., Antonioli, F., Silenzi, S., and
+Schrag, D.: Hydrological conditions in the western Mediter-
+ranean basin during the deposition of Sapropel 6 (ca. 175 kyr),
+Earth Planet. Sc. Lett., 202, 481–494, 2002.
+Bar-Matthews, M. and Ayalon, A.: Mid-Holocene climate vari-
+ations revealed by high-resolution speleothems records from
+Soreq Cave, Israel and their correlation with cultural changes,
+Holocene, 21, 163–171, 2011.
+Bar-Matthews, M., Ayalon, A., Matthews, A., Sass, E., and Hal-
+icz, L.: Carbon and oxygen isotope study of the active water–
+carbonate system in a karstic Mediterranean cave: implications
+for paleoclimate research in semiarid regions, Geochim. Cos-
+mochim. Ac., 60, 337–347, 1996.
+Baroni, C., Zanchetta, G., Fallick, A. E., and Longinelli, A.: Mol-
+luscs stable isotope record of a core from Lake Frassino (northern
+Italy): hydrological and climatic changes during the last 14 ka,
+Holocene, 16, 827–837, 2006.
+Belli, R., Frisia, S., Borsato, A., Drysdale R., Hellstrom, J., Zhao J.-
+X., and Spötl, C.: Regional climate variability and ecosystem re-
+sponses to the last deglaciation in the northern hemisphere from
+stable isotope data and calcite fabrics in two northern Adriatic
+stalagmites, Quaternary Sci. Rev., 72, 146–158, 2013.
+Berger, A. and Loutre, M. F.: Insolation values for the climate of the
+last 10 million years, Quaternary Sci. Rev., 10, 297–317, 1991.
+Birks, J., Battarbee, R., Mackay, A., and Oldfield, F.: Global Change
+in the Holocene, Routledge, 544 pp., 2005.
+Clim. Past, 15, 555–577, 2019 www.clim-past.net/15/555/2019/
+M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region 571
+Birks, H. J. B., Heiri, O., Seppa, H., and Bjune, A.: Strengths and
+weaknesses of quantitative climate reconstructions based on late-
+Quaternary biological proxies, Open Ecol. J., 3, 68–110, 2010.
+Blanco-Gonzalez, A., Lillios, K. T., López-Sáez, J. A., and Drake,
+B. L.: Cultural, demographic and environmental dynamics of the
+Copper and Early Bronze Age in Iberia (3300–1500 BC): to-
+wards an interregional multiproxy comparison at the time of the
+4.2 ky BP event, J. World Prehist., 31, 1–79, 2018.
+Bond, G., Showers, W., Cheseby, M., Lotti, R., Almasi, P., de Meno-
+cal, P., Priore, P., Cullen, H., Hajdas, I., and Bonani, G.: A per-
+vasive millennial-scale cycle in the North Atlantic Holocene and
+glacial climates, Science, 294, 2130–2136, 1997.
+Booth, R. K., Jackson, S. T., Forman, S. L., Kutzbach, J. E., Bettis
+III, E. A., Kreig, J., and Wright, D. K.: A severe centennial-scale
+drought in midcontinental North America 4200 years ago and
+apparent global linkages, Holocene, 15, 321–328, 2005.
+Braconnot, P., Otto-Bliesner, B., Harrison, S., Joussaume, S., Pe-
+terchmitt, J.-Y., Abe-Ouchi, A., Crucifix, M., Driesschaert, E.,
+Fichefet, Th., Hewitt, C. D., Kageyama, M., Kitoh, A., Laîné,
+A., Loutre, M.-F., Marti, O., Merkel, U., Ramstein, G., Valdes,
+P., Weber, S. L., Yu, Y., and Zhao, Y.: Results of PMIP2 coupled
+simulations of the Mid-Holocene and Last Glacial Maximum –
+Part 1: experiments and large-scale features, Clim. Past, 3, 261–
+277, https://doi.org/10.5194/cp-3-261-2007, 2007.
+Brayshaw, D. J., Hoskins, B., and Black, E.: Some physical drivers
+of changes in the winter storm tracks over the North Atlantic
+and Mediterranean during the Holocene, Philos. Tr. R. Soc. S.-
+A, 368, 5185–5223, 2010.
+Brewer, S., Guiot J., and Barboni, D.: Pollen methods and stud-
+ies, Use of Pollen as Climate Proxies, Encyclopedia of Qua-
+ternary Science, 805–815, https://doi.org/10.1016/B978-0-444-
+53643-3.00180-1, 2013.
+Brisset, E., Miramont, C., Guiter, F., Anthony, E.J., Tachikawa,
+K., Poulenard, J., Arnaud, F., Delhon, C., Meunier, J.-D., Bard,
+E., and Suméra, F.: Non-reversible geosystem destabilisation
+at 4200 cal. BP: Sedimentological, geochemical and botanical
+markers of soil erosion recorded in a Mediterranean alpine lake,
+Holocene 23, 1863–1874, 2013.
+Cacho, I., Grimalt, J. O., Canals, M., Sbaffi, L., Shackleton, N.,
+Schönfeld, J., and Zahn, R.: Variability of the western Mediter-
+ranean Sea surface temperature during the last 25 000 years and
+its connection with the Northern Hemisphere climatic changes,
+Paleoceanography, 16, 40–52, 2001.
+Carter, V. A., Shinker, J. J., and Preece, J.: Drought and veg-
+etation change in the central Rocky Mountains and western
+Great Plains: potential climatic mechanisms associated with
+megadrought conditions at 4200 cal yr BP, Clim. Past, 14, 1195–
+1212, https://doi.org/10.5194/cp-14-1195-2018, 2018.
+Cartier, R., Brisset, E., Guiter, F., Sylvestre, F., Tachikawa, K.,
+Anthony, E. J., Paillès, C., Bruneton, H., Bard, E., and Mi-
+ramont, C.: Multiproxy analyses of Lake Allos reveal syn-
+chronicity and divergence in geosystem dynamics during the
+Lateglacial/Holocene in the Alps, Quaternary Sci. Rev., 186, 60–
+77, 2018.
+Cartier, R., Sylvestre, F., Paillès, C., Sonzogni, C., Couapel, M.,
+Alexandre, A., Mazur, J.-C., Brisset, E., Miramont, C., and
+Guiter, F.: Diatom-oxygen isotope record from high-altitude
+Lake Petit (2200 m a.s.l.) in the Mediterranean Alps: shedding
+light on a climatic pulse at 4.2 ka, Clim. Past, 15, 253–263,
+https://doi.org/10.5194/cp-15-253-2019, 2019.
+Cartier, R., Brisset, E., Paillès, C., Guiter, F., Sylvestre, F., Ru-
+audel, F., Anthony, E. J., and Miramont, C.: 5000 yr of la-
+custrine ecosystem changes from Lake Petit (Southern Alps,
+2200 m a.s.l.): Regime shift and resilience of algal communities,
+Holocene, 25, 1231–1245, 2015.
+Castaneda, I. S., Schefuß, E., Pätzold, J., Sinninghe Damsté, J.
+S., Weldeab, S., and Schouten, S.: Millennial-scale sea surface
+temperature changes in the eastern Mediterranean (Nile River
+Delta region) over the last 27 000 years, Paleoceanography, 25,
+PA1208, https://doi.org/10.1029/2009PA001740, 2010.
+Català, A., Cacho, I., Frigola, J., Pena, L. D., and Lirer,
+F.: Holocene hydrography evolution in the Alboran Sea: a
+multi-record and multiproxy comparison, Clim. Past Discuss.,
+https://doi.org/10.5194/cp-2018-163, in review, 2018.
+Cheng, H., Sinha, A., Verheyden, S., Nader, F. H., Li, X. L., Zhang,
+P. A., Yin, J. J., Yi, L., Peng, Y. B., Rao, Z. G., Ning, Y. F., and
+Edwards, R. L.: The climate variability in northern Levant over
+the past 20,000 years, Geophys. Res. Lett., 42, 8641–8650, 2015.
+Cisneros, M., Cacho, I., Frigola, J., Canals, M., Masqué, P., Mar-
+trat, B., Casado, M., Grimalt, J. O., Pena, L. D., Margaritelli,
+G., and Lirer, F.: Sea surface temperature variability in the
+central-western Mediterranean Sea during the last 2700 years: a
+multi-proxy and multi-record approach, Clim. Past, 12, 849–869,
+https://doi.org/10.5194/cp-12-849-2016, 2016.
+Constantin, S., Bojar, A.-V., Lauritzen, S.-E., and Lundberg, J.:
+Holocene and Late Pleistocene climate in the sub-Mediterranean
+continental environment: A speleothem record from Poleva Cave
+(Southern Carpathians, Romania), Palaeogeogr. Palaeocl., 243,
+322–338, 2007.
+Conte, M., Giuffrida, S., and Tedesco, S.: The Mediterranean Os-
+cillation: Impact on Precipitation and Hydrology in Italy, Con-
+ference on Climate and Water Academy of Finland, 121–137,
+1989.
+Craig, H. and Gordon, L. I.: Deuterium and oxygen 18 variations
+in the ocean and marine atmosphere, in: Proc. Stable Isotopes in
+Oceanographic Studies and Paleotemperatures, edited by: Ton-
+giogi, E., V. Lischi & F. Pisa, 9–130, 1965.
+Cullen, H. M., deMenocal, P., Hemming, S., Hemming, G., Brown,
+F. H., Guilderson, T., and Sirocko, F.: Climate change and the
+collapse of the Akkadian empire: Evidence from the deep sea,
+Geology, 28, 379–382, 2000.
+Dansgaard, W., Johnsen S. J., Clausen, H. B., Dahl-Jensen, D., Gun-
+derstrup, N. S., Hammer, C. U., Hvidberg, C. S., Steffensen, J.
+P., Sveinbjörnsdottir, A. E., Jouzel, J., and Bond G.: Evidence
+for general instability of past climate from a 250-kyr ice-core
+record, Nature, 364, 218–222, 1993.
+Dean, J. R., Jones, M. D., Leng, M. J., Noble, S. R., Metcalfe, S. E.,
+Sloane, H. J., Sahy, D., Warren, J., Eastwood, W. J., and Roberts,
+N.: Eastern Mediterranean hydroclimate over the late glacial and
+Holocene, reconstructed from the sediments of Nar lake, central
+Turkey, using stable isotopes and carbonate mineralogy, Quater-
+nary Sci. Rev., 124, 162–174, 2015.
+Deininger, M., McDermott, F., Mudelsee, M., Werner, M., Frank,
+N., and Mangini, A.: Coherency of late Holocene European
+speleothem δ18O records linked to North Atlantic Ocean circu-
+lation, Clim. Dynam., 49, 595–618, 2017.
+www.clim-past.net/15/555/2019/ Clim. Past, 15, 555–577, 2019
+572 M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region
+Denton, G. H. and Karlén, W.: Holocene climatic variations – Their
+pattern and possible cause, Quaternary Res., 3, 155–205, 1973.
+Dermody, B. J., de Boer, H. J., Bierkens, M. F. P., Weber, S. L.,
+Wassen, M. J., and Dekker, S. C.: A seesaw in Mediterranean
+precipitation during the Roman Period linked to millennial-
+scale changes in the North Atlantic, Clim. Past, 8, 637–651,
+https://doi.org/10.5194/cp-8-637-2012, 2012.
+Develle, A.-L., Herreros, J., Vidal, L., Sursock, A., and Gasse, F.:
+Controlling factors on a paleo-lake oxygen isotope record (Yam-
+mouneh, Lebanon) since the Last Glacial Maximum, Quaternary
+Sci. Rev., 29, 865–886, 2010.
+Di Rita, F. and Magri, D.: Holocene drought, deforestation and ev-
+ergreen vegetation development in the central Mediterranean: a
+5500 year record from Lago Alimini Piccolo, Apulia, southeast
+Italy, Holocene, 19, 295–306, 2009.
+Di Rita, F., Lirer, F., Bonomo, S., Cascella, A., Ferraro, L., Florindo,
+F., Insinga, D. D., Lurcock, P. C., Margaritelli, G., Petrosino, P.,
+Rettori, R., Vallefuoco, M., and Magri, D.: Late Holocene forest
+dynamics in the Gulf of Gaeta (central Mediterranean) in relation
+to NAO variability and human impact, Quaternary Sci. Rev., 179,
+137–152, 2018a.
+Di Rita, F., Fletcher, W. J., Aranbarri, J., Margaritelli, G., Lirer, F.,
+and Magri, D.: Holocene forest dynamics in central and western
+Mediterranean: periodicity, spatio-temporal patterns and climate
+influence, Sci. Rep., 8, 8929, https://doi.org/10.1038/s41598-
+018-27056-2, 2018b.
+Dixit, Y., Hodell, D. A., and Petrie, C. A.: Abrupt weakening of the
+summer monsoon in northwest India 4100 yr ago, Geology, 42,
+339–342, 2014.
+Dominguez-Villar, D., Wang, X., Krklec, K., Cheng, H., and Ed-
+wards, R. L.: The control of the tropical North Atlantic on
+Holocene millennial climate oscillations, Geology, 45, 303–306,
+2017.
+Dormoy, I., Peyron, O., Combourieu Nebout, N., Goring, S., Kot-
+thoff, U., Magny, M., and Pross, J.: Terrestrial climate variabil-
+ity and seasonality changes in the Mediterranean region between
+15 000 and 4000 years BP deduced from marine pollen records,
+Clim. Past, 5, 615–632, https://doi.org/10.5194/cp-5-615-2009,
+2009.
+D’Ortenzio, F. and Ribera d’Alcalà, M.: On the trophic regimes of
+the Mediterranean Sea: a satellite analysis, Biogeosciences, 6,
+139–148, https://doi.org/10.5194/bg-6-139-2009, 2009.
+Drǎguşin, V., Staubwasser, M., Hoffmann, D. L., Ersek, V., Onac, B.
+P., and Veres, D.: Constraining Holocene hydrological changes
+in the Carpathian–Balkan region using speleothem δ18O and
+pollen-based temperature reconstructions, Clim. Past, 10, 1363–
+1380, https://doi.org/10.5194/cp-10-1363-2014, 2014.
+Drescher-Schneider, R., De Beaulieu, J. L., Magny, M., Walter-
+Simonnet, A. V., Bossuet, G., Millet, L., and Drescher, A.: Veg-
+etation history, climate and human impact over the last 15,000
+years at Lago dell’Accesa (Tuscany, Central Italy), Veget. Hist.
+Archaeob., 16, 279–299, 2007.
+Drysdale, R. N., Zanchetta, G., Hellstrom, J. C., Maas, R., Fallick,
+A. E., Pickett, M., Cartwright, I., and Piccini, L.: Late Holocene
+drought responsible for the collapse of Old World civilizations
+is recorded in an Italian cave flowstone, Geology, 34, 101–104,
+2006.
+Duplessy, J. C., Bard, E., Arnold, M., Shackleton, N. J., Duprat, J.,
+and Labeyrie, L. D.: How fast did the ocean-atmosphere system
+run during the last deglaciation?, Earth Planet. Sc. Lett., 103, 41–
+54, 1991.
+Eastwood, W. J., Leng, M. J., Roberts, N., and Davis, B.: Holocene
+climate change in the eastern Mediterranean region: a compari-
+son of stable isotope and pollen data from Lake Gölhisar, South-
+west Turkey, J. Quat. Sci., 22, 327–341, 2007.
+Emeis, K.-C., Struck, U., Schulz, H.-M., Bernasconi, S., Sakamoto,
+T., and Martinez-Ruiz, F.: Temperature and salinity of Mediter-
+ranean Sea surface waters over the last 16 000 years: constraints
+on the physical environment of S1 sapropel formation based on
+stable oxygen isotopes and alkenone unsaturation ratios, Palaeo-
+geogr. Palaecol., 158, 259–280, 2000.
+Emile-Geay, J., McKay, N. P., Kaufman, D. S., Von Gunten, L.,
+Wang, J., Anchukaitis, K. J., and Henley, B. J.: A global multi-
+proxy database for temperature reconstructions of the Common
+Era, Sci. Data, 4, 170088, https://doi.org/10.1038/sdata.2017.88,
+2017.
+England, A., Eastwood, C. N., Roberts, C. N., Tuner, R., and Hal-
+don, J. F.: Historical landscape change in Cappadocia (central
+Turkey): a palaeoecological investigation of annually laminated
+sediments from Nar lake, Holocene, 18, 1229–1245, 2008
+Eshel, G.: Mediterranean climates, Israel J. Earth Sci., 51, 157–168,
+2002.
+Fairchild, I. J. and Treble, P.: Trace elements in speleothems as
+recorders of environmental change, Quaternary Sci. Rev., 28,
+449–468, 2009.
+Field, R. D.: Observed and modeled controls on precipita-
+tion δ18O over Europe: From local temperature to the
+Northern Annular Mode, J. Geophys. Res, 115, D12101,
+https://doi.org/10.1029/2009JD013370, 2010.
+Finné, M., Holmgren, K., Sundqvist, H. S., Weiberg, E., and Lind-
+blom, M.: Climate in the eastern Mediterranean, and adjacent
+regions, during the past 6000 years – a review, J. Archaeol. Sci.,
+38, 3153–3173, 2011.
+Finné, M., Holmgren, K., Shen, C. C., Hu, H.-M., Boyd, M., and
+Stocker, S.: Late Bronze Age climate change and descrution
+of the Mycenaean Palace of Nestor at Pylos, PLoS ONE, 12,
+e0189447, https://doi.org/10.1371/journal.pone.0189447, 2017.
+Fleitmann, D., Burns, S. J., Mudelsee, M., Neff, U., Kramers, J.,
+Mangini, A., and Matter A.: Holocene Forcing of the Indian
+Monsoon Recorded in a Stalagmite from Southern Oman, Sci-
+ence, 300, 1737–1739, 2003.
+Fohlmeister, J., Schröder-Ritzrau, A., Scholz, D., Spötl, C., Riechel-
+mann, D. F. C., Mudelsee, M., Wackerbarth, A., Gerdes, A.,
+Riechelmann, S., Immenhauser, A., Richter, D. K., and Mangini,
+A.: Bunker Cave stalagmites: an archive for central Euro-
+pean Holocene climate variability, Clim. Past, 8, 1751–1764,
+https://doi.org/10.5194/cp-8-1751-2012, 2012.
+Francke, A., Wagner, B., Leng, M. J., and Rethemeyer, J.: A
+Late Glacial to Holocene record of environmental change from
+Lake Dojran (Macedonia, Greece), Clim. Past, 9, 481–498,
+https://doi.org/10.5194/cp-9-481-2013, 2013.
+Frigola, J., Moreno, A., Cacho, I., Sierro, F. J., Flores, J. A.,
+Grimalt, J. O., Hodell, D. A., and Curtis, J. H.: Holocene
+climate variability in the western Mediterranean region from
+a deepwater sediment record, Paleoceanography, 22, PA2209,
+https://doi.org/10.1029/2006PA001307, 2007.
+Clim. Past, 15, 555–577, 2019 www.clim-past.net/15/555/2019/
+M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region 573
+Frisia, S., Borsato, A., Spötl, C., Villa, I. M., and Cucchi, F.: Climate
+variability in the SE Alps of Italy over the past 17000 years re-
+constructed from a stalagmite record, Boreas, 34, 445–455, 2005.
+Frisia, S., Borsato, A., Mangini, A., Spötl, C., and Madonna,
+G.: Holocene climate varibility from a discontinuous stalagmite
+record and the Mesolithic to Neolithic transition, Quaternary
+Res., 66, 388–400, 2006.
+Frogley, M. R., Griffiths, H. I., and Heaton, T. H. E.: Historical bio-
+geography and Late Quaternary environmental change of Lake
+Pamvotis, Ioannina (north-western Greece): evidence from os-
+tracods, J. Biogeogr., 28, 745–756, 2001.
+Fyfe, R. M., Woodbridge, J. E., and Roberts, N.: From forest to
+farmland: pollen-inferred land coverchange across Europe us-
+ing the pseudobiomization approach, Global Change Biol., 21,
+1197–1212, 2015.
+Fyfe, R. M., Woodbridge, J., and Roberts, C. N.: Trajectories of
+change in Mediterranean Holocene vegetation through classifica-
+tion of pollen data, Veg. Hist. Archaeobot., 27, 351–364, 2018.
+Gaetani, M., Pohl, B., Douville, H., and Fontaine, B.:
+West African Monsoon influence on the summer Euro-
+Atlantic circulation, Geophys. Res. Lett., 38, L09705,
+https://doi.org/10.1029/2011GL047150, 2011.
+Gambin, B., Andrieu-Ponel, V., Médail, F., Marriner, N., Peyron,
+O., Montade, V., Gambin, T., Morhange, C., Belkacem, D., and
+Djamali, M.: 7300 years of vegetation history and climate for
+NW Malta: a Holocene perspective, Clim. Past, 12, 273–297,
+https://doi.org/10.5194/cp-12-273-2016, 2016.
+Genty, D., Blamart, D., Ghaleb, B., Plagnes, V., Caussed, Ch.,
+Bakalowicz, M., Zouarif, K., Chkir, N., Hellstrom, J. C., K.
+Wainer, K., and Bourgesh, F.: 2006 Timing and dynamics of the
+last deglaciation from European and North African δ13C stalag-
+mite profiles comparison with Chinese and South Hemisphere
+stalagmites, Quaternary Sci. Rev., 25, 2118–2142, 2006.
+Giunta, S., Emeis, K. C., and Negri, A.: Sea-surface temperature re-
+construction of the last 16 000 years in the Eastern Mediterranean
+Sea, Riv. It. Paleont. Stratigr., 107, 463–476, 2001.
+Göktürk, O. M., Fleitmann, D., Badertscher, S., Cheng, H., Ed-
+wards, R. L., Leuenberger, M., Fankhauser, A., Tüysüz, O., and
+Kramers, J.: Climate on the southern Black Sea coast during the
+Holocene: implications from the Sofular Cave record, Quater-
+nary Sci. Rev., 30, 2433–2445, 2011.
+Guiot, J.: Methodology of the last climatic cycle reconstruction
+in France from pollen data, Palaeogeogr. Palaeocl., 80, 49–69,
+1990.
+Hellstrom, J. C.: U-Th dating of speleothems with high initial
+230Th using stratigraphical constraint, Quat. Geochronol., 1,
+289–295, 2006.
+Holmes, J., Arrowsmith, C., Austin, W., Boyle, J., Fisher, E.,
+Holme, R., Marshall, J., Oldfield, F., and van der Post, K.: Cli-
+mate and atmospheric circulation changes over the past 1000
+years reconstructed from oxygen isotopes in lake-sediment car-
+bonate from Ireland, The Holocene, 20, 1105–1111, 2010.
+Isola, I., Zanchetta, G., Drysdale, R. N., Regattieri, E., Bini, M.,
+Bajo, P., Hellstrom, J. C., Baneschi, I., Lionello, P., Wood-
+head, J., and Greig, A.: The 4.2 ka event in the central Mediter-
+ranean: new data from a Corchia speleothem (Apuan Alps, cen-
+tral Italy), Clim. Past, 15, 135–151, https://doi.org/10.5194/cp-
+15-135-2019, 2019.
+Jalali, B., Sicre, M.-A., Bassetti, M.-A., and Kallel, N.: Holocene
+climate variability in the North-Western Mediterranean Sea (Gulf
+of Lions), Clim. Past, 12, 91–101, https://doi.org/10.5194/cp-12-
+91-2016, 2016.
+Jalali, B., Sicre, M. A., Kallel, N., Azuara, J., Combourieu-Nebout,
+N., Bassetti, M. A., and Klein, V.: High-resolution Holocene cli-
+mate and hydrological variability from two major Mediterranean
+deltas (Nile and Rhone), Holocene, 27, 1158–1168, 2017.
+Jalali, B., Sicre, M. A., Klein, V., Schmidt, S., Maselli, V., Lirer,
+F., and Petrosino, P.: Deltaic and coastal sediments as recorders
+of Mediterranean regional climate and human impact over
+the past three millennia, Paleoceanogr. Paleocl., 33, 579–593,
+https://doi.org/10.1029/2017PA003298, 2018.
+Jiménez-Amat, P. and Zahn, R.: Offset timing of climate oscillations
+during the last two glacial-interglacial transitions connected with
+large-scale freshwater perturbation, Paleoceanography, 30, 768–
+788, 2015.
+Jones, M. D., Leng, M. J., Eastwood, W. J., Keen, D. H., and Tur-
+ney, C. S. M.: Interpreting stable isotope records from freshwater
+snail shell carbonate: a Holocene case study from Lake Gölhisar,
+Turkey, Holocene, 12, 629–634, 2002.
+Kaniewski, D., Van Campo, E., Morhange, C., Guiot, J., Zviely,
+D., Shaked, I., Otto, T., and Artzy, M.: Early urban impact
+on Mediterranean coastal environments, Sci. Rep., 3, 3540,
+https://doi.org/10.1038/srep03540, 2013.
+Kaniewski, D., Marriner, N., Morhange, C., Faivre, S., Otto, T., and
+Van Campo, E.: Solar pacing of storm surges, coastal flooding
+and agricultural losses in the Central Mediterranean, Sci. Rep.,
+6, 25197, https://doi.org/10.1038/srep25197, 2016.
+Kaniewski, D., Marriner, N., Cheddadi, R., Guiot, J., and Van
+Campo, E.: The 4.2 ka BP event in the Levant, Clim. Past, 14,
+1529–1542, https://doi.org/10.5194/cp-14-1529-2018, 2018.
+Lacey, J. H., Francke, A., Leng, M. J., Vane, G. H., and Wagner,
+B.: A high-resolution Late Glacial to Holocene record of envi-
+ronmental change in the Mediterranean from Lake Ohrid (Mace-
+donia/Albania), Int. J. Earth Sci., 104, 1623–1638, 2015.
+Lacey, J. H., Leng, M. J., Francke, A., Sloane, H. J., Milodowski,
+A., Vogel, H., Baumgarten, H., Zanchetta, G., and Wag-
+ner, B.: Northern Mediterranean climate since the Mid-
+dle Pleistocene: a 637 ka stable isotope record from Lake
+Ohrid (Albania/Macedonia), Biogeosciences, 13, 1801–1820,
+https://doi.org/10.5194/bg-13-1801-2016, 2016.
+Lachniet, M. S.: Climatic and environmental controls on
+speleothem oxygen-isotope values, Quaternary Sci. Rev., 28,
+412–432, 2009.
+Leng, M. J. and Marshall, J. D.: Palaeoclimate interpretation of sta-
+ble isotope data from lake sediment archives, Quaternary Sci.
+Rev., 23, 811–831, 2004.
+Leng, M. J., Baneschi, I., Zanchetta, G., Jex, C. N., Wagner,
+B., and Vogel, H.: Late Quaternary palaeoenvironmental re-
+construction from Lakes Ohrid and Prespa (Macedonia/Albania
+border) using stable isotopes, Biogeosciences, 7, 3109–3122,
+https://doi.org/10.5194/bg-7-3109-2010, 2010a.
+Leng, M. J., Jones, M. D., Frogley, M. R., Eastwood, W. J.,
+Kendrick, C. P., and Roberts, C. N.: Detrital carbonate influences
+on bulk oxygen and carbon isotope composition of lacustrine
+sediments from the Mediterranean, Global Planet. Change, 71,
+175–182, 2010b.
+www.clim-past.net/15/555/2019/ Clim. Past, 15, 555–577, 2019
+574 M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region
+Leng, M. J., Wagner, B., Boehm, A., Panagiotopoulos, K., Vane, C.
+H., Snelling, A., Haidon, C., Woodley, E., Vogel, H., Zanchetta,
+G., and Baneschi, I.: Understanding past climatic and hydrolog-
+ical variability in the Mediterranean from Lake Prespa sediment
+isotope and geochemical record over the Last Glacial cycle, Qua-
+ternary Sci. Rev., 66, 123–136, 2013.
+Le Roy, M., Deline, P., Carcaillet, J., Schimmelpfenning, I., Ermini,
+M., and ASTER Team: 10Be exposure dating of the timing of
+Neoglacial glacier advances in the Ecrins-Pelvoux massif, south-
+ern French Alps, Quaternary Sci. Rev., 178, 118–138, 2017.
+Lillios, K. T., Blanco González, A., Drake, B. L., and López-Sáez,
+J.A.: Mid-Late Holocene climate, demography, and cultural dy-
+namics in Iberia: a multi-proxy approach, Quaternary Sci. Rev.,
+135, 138–153, 2016.
+Lionello, P., Malanotte-Rizzoli, P., and Boscolo, R.: The Mediter-
+ranean Climate: An Overview of the Main Characteristics and
+Issues, Elsevier, the Netherlands, 2006.
+Longman, J., Veres, D., Ersek, V., Salzmann, U., Hubay, K., Bor-
+mann, M., Wennrich, V., and Schäbitz, F.: Periodic input of dust
+over the Eastern Carpathians during the Holocene linked with
+Saharan desertification and human impact, Clim. Past, 13, 897–
+917, https://doi.org/10.5194/cp-13-897-2017, 2017.
+López-Moreno, J. I., Vicente-Serrano, S. M., Morán- Tejeda, E.,
+Lorenzo-Lacruz, J., Kenawy, A., and Beniston M.: Effects of the
+North Atlantic Oscillation (NAO) on combined temperature and
+precipitation winter modes in the Mediterranean mountains: Ob-
+served relationships and projections for the 21st century, Global
+Planet. Change, 77, 62–76, 2011.
+Lowe, J. J., Blockley, S., Trincardi, F., Asioli, A., Cattaneo, A.,
+Matthews, I. P., Pollard, M., and Wulf, S.: Age modelling of late
+Quaternary marine sequences in the Adriatic: towards improved
+precision and accuracy using volcanic event stratigraphy, Cont.
+Shelf Res., 27, 560–582, 2007.
+Magny, M., de Beaulieu, J. L., Drescher-Schneider, R., Vannière,
+B., Walter-Simonnet, A. V., Miras, Y., Millet, L., Bossuet, G.,
+Peyron, O., Brugiapaglia, E., and Leroux, A.: Holocene climate
+changes in the central Mediterranean as recorded by lake-level
+fluctuations at Lake Accesa (Tuscany, Italy), Quaternary Sci.
+Rev., 26, 1736–1758, 2007.
+Magny, M., Vanniere, B., Zanchetta, G., Fouache, E., Touchias, G.,
+Petrika, L., Coussot, C., Walter-Simonnet, A.-V., and Arnoud,
+F.: Possible complexity of the climatic event around 4300–
+3800 cal. BP in the central and western Mediterranean, Holocene,
+19, 1–11, 2009.
+Magny, M., Vanniére, B., Calo, C., Millet, L., Leroux, A., Peyron,
+O., Zanchetta, G., La Mantia, T., and Tinner, W.: Holocene hy-
+drological changes in south-western Mediterranean as recorded
+by lake-level fluctuations at Lago Preola, a coastal lake in south-
+ern Sicily, Italy, Quaternary Sci. Rev., 30, 2459–2475, 2011.
+Magri, D. and Parra I.: Late Quaternary western Mediterranean
+pollen records and African winds, Earth Planet. Sc. Lett., 200,
+401–408, 2002.
+Marcott, S. A., Shakun, J. D., Clark, P. U., and Mix, A.: A Recon-
+struction of Regional and Global Temperature for the Past 11,300
+Years, Science, 339, 1198–2001, 2013.
+Margaritelli, G., Vallefuoco, M., Di Rita, F., Capotondi, L., Bel-
+lucci, L. G., Insinga, D. D., Petrosino, P., Bonomo, S., Cacho, I.,
+Cascella, A., Ferraro, L., Florindo, F., Lubritto, C., Lubritto C.,
+Lurcock, P. C., Magri, D., Pelosi, N., Rettori, R., and Lirer, F.:
+Marine response to climate changes during the last five millen-
+nia in the central Mediterranean Sea, Global Planet. Change 142,
+53–72, 2016.
+Marks, L., Salem, A., Welc, F., Nitychoruk, J., Chen, Z., Blaauw,
+M., Zalat, A., Majecka, A., Szymanek, M., Chodyka, M.,
+Tołoczko-Pasek, A., Sun, Q., Zhao, X., and Jiang, J.: Holocene
+lake sediments from the Faiyum Oasis in Egypt: a record of en-
+vironmental and climate change, Boreas, 47, 62–79, 2018.
+Marriner, N., Flaux, C., Kaniewski, D., Morhange, C., Leduc, G.,
+Moron, V., Chen, Z., Empereur, J.-Y., and Stanley, J.-D.: ITCZ
+and ENSO-like pacing of Nile delta hydro-geomorphology dur-
+ing the Holocene, Quaternary Sci. Rev., 45, 73–84, 2012.
+Marriner, N., Kaniewski, D., Morhange, C., Flaux, F., Giaime, M.,
+Vacchi, M., and Goff, J.: Tsunamis in the geological record:
+making waves with a cautionary tale from the Mediterranean,
+Sci. Adv., 3, e1700485, https://doi.org/10.1126/sciadv.1700485 ,
+2017.
+Marsicek, J., Shuman, B. N., Bartlein, P. J., Shafer, S., and Brewer,
+S.: Reconciling divergent trends and millennialvariations in
+Holocene temperatures, Nature, 554, 92–96, 2018.
+Martrat, B., Jimenez-Amat, P., Zahn, R., and Grimalt, J.-O.: Sim-
+ilarities and dissimilarities between the last two deglaciations
+and interglaciations in the North Atlantic region, Quaternary Sci.
+Rev., 99, 122–134, 2014.
+Mauri, A., Davis, B. A. S., Collins, P. M., and Kaplan, J. O.: The in-
+fluence of atmospheric circulation on the mid-Holocene climate
+of Europe: a data–model comparison, Clim. Past, 10, 1925–1938,
+https://doi.org/10.5194/cp-10-1925-2014, 2014.
+Mauri, A., Davis, B., Collins, P. M., and Kaplan, J.: The climate of
+Europe during the Holocene: A gridded pollen-based reconstruc-
+tion and its multi-proxy evaluation, Quaternary Sci. Rev., 112,
+109–127, 2015.
+Mayewski, P. A., Rohling, E. E., Stager, J. C., Karlen, W., Maasch,
+K. A., Meeker, L. D., Meyerson, E. A., Gasse, F., van Kreveld,
+S., Holmgren, K., Lee-Thorp, J., Rosqvist, G., Rack, F., Staub-
+wasser, M., Schneider, R. R., and Steig, E. J.: Holocene climate
+variability, Quaternary Res., 62, 243–255, 2004.
+McDermott, F., Frisia, S., Huang, Y., Longinelli, A., Spiro, B.,
+Heaton, T. H. E., Hawkesworth, C. J., Borsato, A, Keppens, E.,
+Fairchild, I. J., van der Borg, K., Verheyden, S., and Selmo, E.
+M.: Holocene climate variability in Europe: evidence from δ18O,
+textural and extension-rate variations in three speleothems, Qua-
+ternary Sci. Rev., 18, 1021–1038, 1999.
+McDermott, F., Atkinson, T. C., Fairchild, I. J., Baldini, L. M.,
+and Mattey, D. P.: A first evaluation of the spatial gradients
+in δ18O recorded by European Holocene speleothems, Global
+Planet. Change, 79, 275–287, 2011.
+Mercuri, A.M., Accorsi, C.A., and Mazzanti, M.B.: The long his-
+tory of Cannabis and its cultivation by the Romans in central
+Italy, shown by pollen records from Lago Albano and Lago di
+Nemi, Veget. Hist. Archaeob., 11, 263-276, 2002.
+Mercuri, A. M., Mazzanti, M. B., Torri, P., Vigliotti, L., Bosi, G.,
+Florenzano, A., and N’siala, I.M.: A marine/terrestrial integration
+for mid-late Holocene vegetation history and the development
+of the cultural landscape in the Po valley as a result of human
+impact and climate change. Veg. Hist. Archaeob., 21(4-5), 353-
+372, 2012.
+Moreno, A., Pérez, A., Frigola, J., Nieto-Moreno, V., Rodrigo-
+Gámiz, M., Martrat, B., and Belmonte, Á: The Medieval Climate
+Clim. Past, 15, 555–577, 2019 www.clim-past.net/15/555/2019/
+M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region 575
+Anomaly in the Iberian Peninsula reconstructed from marine and
+lake records, Quaternary Sci. Rev., 43, 16–32, 2012.
+Moreno, A., Svensson, A., Brooks, S., Engels, S., Fletcher, W.,
+Genty, D., Heiri, I., Labuhn, O., Persoiu, A., Sadori, L., Valero-
+Garcés, B., Wulf, S., Zanchetta, G., and data contributors: A
+compilation of Western European terrestrial records 60–8 ka BP:
+towards an understanding of latitudinal climatic gradients, Qua-
+ternary Sci. Rev., 106, 167–185, 2014.
+Moreno, A., Pérez-Mejías, C., Bartolomé, C., Cacho, I., Stoll, H.,
+Delgado-Huertas, A., Hellstrom, J., Edwards, R. L., and Cheng,
+H.: New speleothem data from Molinos and Ejulve caves reveal
+Holocene hydrological variability in northeast Iberia, Quaternary
+Res., 88, 223–233, 2017.
+Mühlinghaus, C., Scholz, D., and Mangini, A.: Modelling fraction-
+ation of stable isotopes in stalagmites, Geochim. Cosmochim.
+Ac., 73, 7275–7289, 2009.
+Muñoz, A., Bartolomé, M., Muñoz, A., Sancho, C., Moreno, A.,
+Hellstrom, J. C., Osàcar, M. C., and Chaco, I.: Solar influ-
+ence and hydrological variability during the Holocene from
+a speleothem annual record (Molinos Cave, NE Spain), Terra
+Nova, 27, 300–311, 2015.
+Nagashima, K., Tada, R., Tani, A., Sun, Y., Isozaki, Y., Toyoda, S.,
+and Hasegawa, H.: Millennial-scale oscillations of the westerly
+jet path during the last glacial period, J. Asian Earth Sci., 40,
+1214–1220, 2011.
+Nieto-Moreno, V., Martínez-Ruiz, F., Willmott, V., García-Orellana,
+J., Masqué, P., and Damsté, J. S.: Climate conditions in the west-
+ernmost Mediterranean over the last two millennia: An integrated
+biomarker approach, Org. Geochem., 55, 1–10, 2013.
+Olsen, J., Anderson, N. J., and Knudsen, M. F. Variability of the
+North Atlantic Oscillation over the past 5200 years, Nat. Geosci.,
+5, 808–812, 2012.
+Perşoiu, A., Onac, B. P., Wynn, J. G., Blaauw, M., Ionita,
+M., and Hansson, M.: Holocene winter climate variabil-
+ity in Central and Eastern Europe, Sci. Rep., 7, 1196,
+https://doi.org/10.1038/s41598-017-01397-w, 2017.
+Persoiu, A., Ionita, M., and Weiss, H.: Blocking induced by the
+strengthened Siberian High led to drying in west Asia dur-
+ing the 4.2 ka BP event – a hypothesis, Clim. Past Discuss.,
+https://doi.org/10.5194/cp-2018-161, in review, 2018.
+Peyron, O., Goring, S., Dormoy, I., Kotthoff, U., Pross, J., de
+Bealieu, J. L., Drescher-Schneider, R., and Magny, M.: Holocene
+seasonality changes in the central Mediterranean region recon-
+structed from the pollen sequences of Lake Accesa (Italy) and
+Tenaghi Philippon (Greece), Holocene, 21, 131–146, 2011.
+Peyron, O., Magny, M., Goring, S., Joannin, S., de Beaulieu, J.-
+L., Brugiapaglia, E., Sadori, L., Garfi, G., Kouli, K., Ioakim,
+C., and Combourieu-Nebout, N.: Contrasting patterns of cli-
+matic changes during the Holocene across the Italian Penin-
+sula reconstructed from pollen data, Clim. Past, 9, 1233–1252,
+https://doi.org/10.5194/cp-9-1233-2013, 2013.
+Peyron, O., Combourieu-Nebout, N., Brayshaw, D., Goring, S.,
+Andrieu-Ponel, V., Desprat, S., Fletcher, W., Gambin, B., Ioakim,
+C., Joannin, S., Kotthoff, U., Kouli, K., Montade, V., Pross, J.,
+Sadori, L., and Magny, M.: Precipitation changes in the Mediter-
+ranean basin during the Holocene from terrestrial and marine
+pollen records: a model–data comparison, Clim. Past, 13, 249–
+265, https://doi.org/10.5194/cp-13-249-2017, 2017.
+Piccini, L., Zanchetta, G., Drysdale, R. N., Hellstrom, J., Isola,
+I., Fallick, A. E., Leone, G., Doveri, M., Mussi, M., Mantelli,
+F., Molli, G., Lotti, L., Roncioni, A., Regattieri, E., Meccheri,
+M., and Vaselli, L.: The environmental features of the Monte
+Corchia cave system (Apuan Alps, central Italy) and their effects
+on speleothems growths, Int. J. Speleol., 37, 153–173, 2008.
+Psomiadis, D., Dotsika, E., Albanakisa, K., Ghaleb, B., and
+Hillaire-Marcel, C.: Speleothem record of climatic changes in
+the northern Aegean region (Greece) from the Bronze Age to
+the collapse of the Roman Empire, Palaeogeogr. Palaeocl., 489,
+272–283, 2018.
+Railsback, L. B., Liang, F., Brook, G. A., Riavo, N., Voarintsoa, G.,
+Sletten, H. R., Marais, E., Hardt, B., Cheng, H., and Edwards,
+R. L.: The timing, two-pulsed nature, and variable climatic ex-
+pression of the 4.2 ka event: A review and new high-resolution
+stalagmite data from Namibia, Quaternary Sci. Rev., 186, 78–90,
+2018.
+Regattieri, E., Zanchetta, G., Drysdale, R. N., Isola, I., Hellstrom, J.
+C., and Dallai, L.: Lateglacial to Holocene trace element record
+(Ba, Mg, Sr) from Corchia Cave (Apuan Alps, central Italy): pa-
+leoenvironmental implications, J. Quat. Sci., 29, 381–392, 2014.
+Richards, D. A. and Dorale, J. A.: Uranium-series chronology
+and environmental applications of speleothems, Rev. Mineral.
+Geochem., 52, 407–460, 2003.
+Roberts, N., Reed, J., Leng, M. J., Kuzucuoǧlu, C., Fontugne, M.,
+Bertaux, J., Woldring, H., Bottema, S., Black, S., Hunt, E., and
+Karabiyikoǧlu, M.: The tempo of Holocene climatic change in
+the eastern Mediterranean region: new high-resolution crater-
+lake sediment data from central Turkey, Holocene, 11, 721–736,
+2001.
+Roberts, N., Stevenson, A. C., Davis, B., Cheddadi, R., Brewer,
+S., Rosen, A. M., Battarbee, R. W., Gasse, F., and Stickey, C.
+E.: Holocene climate, environment and cultural change in the
+circum-Mediterranean region, in: Past climate variability through
+Europe and Africa, Battarbee, edited by: Battarbee, R. W., Gasse,
+F., and Stickley, C. E., Kluwer, Dordrecht, 343–362, 2004.
+Roberts, N., Jones, M. D., Benkaddur, A., Eastwood, W. J., Filippi,
+M. L., Frogley, M. R., Lamb, H. F., Leng, M. J., Reed, J. M.,
+Stein, M., Stevens, L., Valero- Garcè, B., and Zanchetta G.: Sta-
+ble isotope records of Late Quaternary climate and hydrology
+from Mediterranean lakes: the ISOMED synthesis, Quaternary
+Sci. Rev., 27, 2426–2441, 2008.
+Roberts, N., Zanchetta, G., and Jones, M. D.: Oxygen isotopes
+as tracers of Mediterranean climate variability: an introduction,
+Global Planet. Change, 71, 135–140, 2010.
+Roberts, N., Moreno, A., Valero-Garcés, B. L., Corella, J. P., Jones,
+M., Allcock, S., Woodbridge, J., Morellón, M., Luterbacher, J.,
+Xoplaki, E., and Türkeş, M.: Palaeolimnological evidence for an
+east–west climate see-saw in the Mediterranean since AD 900,
+Global Planet. Change, 84–85, 23–34, 2012.
+Roland, T. P., Caseldine, C. J., Charman, D. J., Turney, C. S. M.,
+and Amesbury, M. J.: Was there a “4.2 ka event” in Great Britain
+and Ireland? Evidence from the peatland record, Quaternary Sci.
+Rev., 83, 11–27, 2014.
+Ruan, J., Kherbouche, F., Genty, D., Blamart, D., Cheng, H.,
+Dewilde, F., Hachi, S., Edwards, R. L., Régnier, E., and Mich-
+elot, J.-L.: Evidence of a prolonged drought ca. 4200 yr BP cor-
+related with prehistoric settlement abandonment from the Guel-
+www.clim-past.net/15/555/2019/ Clim. Past, 15, 555–577, 2019
+576 M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region
+daman GLD1 Cave, Northern Algeria, Clim. Past, 12, 1–14,
+https://doi.org/10.5194/cp-12-1-2016, 2016.
+Sabatier, P., Dezileau, L., Colin, C., Briqueu, L., Bouchette, F., Mar-
+tinez, P., Siani, G., Raynal, O., and Von Grafenstein, U.: 7000
+years of paleostorm activity in the NW Mediterranean Sea in re-
+sponse to Holocene climate events, Quaternary Res., 77, 1–11,
+2012.
+Sadori, L., Ortu, E., Peyron, O., Zanchetta, G., Vannière, B.,
+Desmet, M., and Magny, M.: The last 7 millennia of vegeta-
+tion and climate changes at Lago di Pergusa (central Sicily,
+Italy), Clim. Past, 9, 1969–1984, https://doi.org/10.5194/cp-9-
+1969-2013, 2013.
+Sadori, L., Giardini, M., Gliozzi, E., Mazzini, I., Sulpizio, R., van
+Welden, A., and Zanchetta, G.: Vegetation, climate and envi-
+ronmental history of the last 4500 years at lake Shkodra (Alba-
+nia/Montenegro), Holocene, 25, 435–444, 2015.
+Sadori, L.: The Lateglacial and Holocene vegetation and climate
+history of Lago di Mezzano (central Italy), Quaternary Sci. Rev.,
+202, 30–44, https://doi.org/10.1016/j.quascirev.2018.09.004,
+2018.
+Samartin, S., Heiri, O., Joos, F., Renssen, H., Franke, J., Brönni-
+mann, S., and Tinner, W.: Warm Mediterranean mid-Holocene
+summers inferred from fossil midge assemblages, Nat. Geosci.,
+10, 207–212, 2017.
+Scholz, D., Frisia, S., Borsato, A., Spötl, C., Fohlmeister, J.,
+Mudelsee, M., Miorandi, R., and Mangini, A.: Holocene climate
+variability in north-eastern Italy: potential influence of the NAO
+and solar activity recorded by speleothem data, Clim. Past, 8,
+1367–1383, https://doi.org/10.5194/cp-8-1367-2012, 2012.
+Seppä, H., Bjune, A. E., Telford, R. J., Birks, H. J. B., and Veski,
+S.: Last nine-thousand years of temperature variability in North-
+ern Europe, Clim. Past, 5, 523–535, https://doi.org/10.5194/cp-
+5-523-2009, 2009.
+Sharifi, A., Pourmand, A., Canuel, E. A., Ferer-Tyler, E., Peter-
+son, L. C., Aichner, B., Feakins, S. J., Daryaee, T., Djamali, M.,
+Beni, A. N., Lahijani, H. A. K., and Swart, P. K.: Abrupt cli-
+mate variability since the last deglaciation based on a high res-
+olution, multi-proxy peat record from NW Iran: the hand that
+rocked the Cradle of Civilization?, Quaternary Sci. Rev., 123,
+215–230, 2015.
+Sharifi, A., Murphy, L. N., Pourmand, A., Clement, A. C., Canuel,
+E. A., Beni, A. N., Lahijani, H. A. K., Delanghe, D., and
+Ahmady-Birgani, H.: Early-Holocene greening of the Afro-
+Asian dust belt changed sources of mineral dust in West Asia,
+Earth Planet. Sc. Lett., 481, 30–40, 2018.
+Siani, G., Paterne, M., Michel, E., Sulpizio, R., Sbrana, A., Arnold,
+M., and Haddas, G.: Mediterranean Sea surface radiocarbon
+reservoir age changes since the Last Glacial Maximum, Science,
+294, 1917–1920, 2001.
+Siani, G., Magny, M., Paterne, M., Debret, M., and Fontugne,
+M.: Paleohydrology reconstruction and Holocene climate vari-
+ability in the South Adriatic Sea, Clim. Past, 9, 499–515,
+https://doi.org/10.5194/cp-9-499-2013, 2013.
+Sicre, M. A., Jalali, B., Martrat, B., Schmidt, S., Bassetti, M. A.,
+and Kallel, N.: Sea surface temperature variability in the North
+Western Mediterranean Sea (Gulf of Lion) during the Common
+Era, Earth Planet. Sc. Lett., 456, 124–133, 2016.
+Smith, A. C., Wynn, P. M., Barker, P. A., Leng, M. J., Stephen, R.,
+Noble, S. R., and Tych, W.: North Atlantic forcing of moisture
+delivery to Europe throughout the Holocene, Sci. Rep., 6, 24745,
+https://doi.org/10.1038/srep24745, 2016.
+Stevens, L. R., Wright Jr., H. E., and Ito, E.: Proposed changes in
+seasonality of climate during the late-glacial and Holocene at
+Lake Zeribar, Iran, Holocene, 11, 747–756, 2001.
+Stevens, L. R., Ito, E., Schwalb, A., and Wright Jr., H. E.: Timing of
+atmospheric precipitation in the Zagros Mountains inferred from
+a multi-proxy record from Lake Mirabad, Iran, Quaternary Res.,
+66, 494–500, 2006.
+Stiller, M. and Hutchinson, G. E.: The Waters of Merom: a study
+of Lake Huleh VI, Stable isotope composition of carbonates of
+a 54 m core: paleoclimatic and paleotrophic implications, Arc.
+Hydrobiol., 89, 275–302, 1980.
+Stoll, H. M., Moreno, A., Mendez-Vicente, A., Gonzalez-Lemos,
+S., Jimenez-Sanchez, M., Dominguez-Cuesta, M. J., Edwards, R.
+L., Cheng, H., and Wang, X.: Paleoclimate and growth rates of
+speleothems in the northwestern Iberian Peninsula over the last
+two glacial cycles, Quat, Res., 80, 284–290, 2013.
+Tǎmaş, T., Onac, B. P., and Bojar, A. V.: Lateglacial-Middle
+Holocene stable isotope records in two coeval stalagmites from
+the Bihor Mountains, NW Romania, Geol. Q., 49, 185–194,
+2005.
+Telford, R. J. and Birks, H. J. B.: The secret assumption of trans-
+fer functions: problems with spatial autocorrelation in evaluating
+model performance, Quaternary Sci. Rev., 24, 2173–2179, 2005.
+Ternois, Y., Sicre, M. A., Boireau, A., and Conte, M. H.: Evaluation
+of long-chain alkenones as paleo-temperature indicators in the
+Mediterranean Sea, Deep-Sea Res. Pt. I, 44, 271–286, 1997.
+Totti, C., Civitarese, G., Acri, F., Barletta, D., Candelari, G., Pas-
+chini, E., and Solazzi, A.: Seasonal variability of phytoplankton
+populations in the middle Adriatic sub-basin, J. Plankton Res.,
+22, 1735–1756, 2000.
+Trouet, V., Esper, J., Graham, N. E., Baker, A., Scourse, J. D., and
+Frank, D. C.: Persistent positive north Atlantic oscillation mode
+dominated the medieval climate anomaly, Science, 324, 78–80,
+2009.
+van der Schriek, T. and Giannakopoulos, C.: Determining the causes
+for the dramatic recent fall of Lake Prespa (southwest Balkans),
+Hydrol. Sci. J., 62, 1131–1148, 2017.
+Wagner, B., Wilke, T., Francke, A., Albrecht, C., Baum-
+garten, H., Bertini, A., Combourieu-Nebout, N., Cvetkoska, A.,
+D’Addabbo, M., Donders, T. H., Föller, K., Giaccio, B., Grazh-
+dani, A., Hauffe, T., Holtvoeth, J., Joannin, S., Jovanovska, E.,
+Just, J., Kouli, K., Koutsodendris, A., Krastel, S., Lacey, J. H.,
+Leicher, N., Leng, M. J., Levkov, Z., Lindhorst, K., Masi, A.,
+Mercuri, A. M., Nomade, S., Nowaczyk, N., Panagiotopoulos,
+K., Peyron, O., Reed, J. M., Regattieri, E., Sadori, L., Sagnotti,
+L., Stelbrink, B., Sulpizio, R., Tofilovska, S., Torri, P., Vogel,
+H., Wagner, T., Wagner-Cremer, F., Wolff, G. A., Wonik, T.,
+Zanchetta, G., and Zhang, X. S.: The environmental and evolu-
+tionary history of Lake Ohrid (FYROM/Albania): interim results
+from the SCOPSCO deep drilling project, Biogeosciences, 14,
+2033–2054, https://doi.org/10.5194/bg-14-2033-2017, 2017.
+Wanner, H., Solomina, O., Grosjean, M., Ritz, S. P., and Jetel, M.:
+Structure and origin of Holocene cold events, Quaternary Sci.
+Rev. 30, 3109–3123, 2011.
+Wassenburg, J. A., Dietrich, S., Fietzke, J., Fohlmeister, J., Jochum,
+K. P., Scholz, D., Richter, D. K., Sabaoui, A., Spötl, C.,
+Lohmann, G., Meinrat, O., Andreae, M. O., and Immenhauser,
+Clim. Past, 15, 555–577, 2019 www.clim-past.net/15/555/2019/
+M. Bini et al.: The 4.2 ka BP Event in the Mediterranean region 577
+A.: Reorganization of the North Atlantic Oscillation during early
+Holocene deglaciation, Nat. Geosci., 9, 602–605, 2016.
+Weiss, H.: Megadrought, collapse, and resilience in late 3rd mil-
+lennium BC Mesopotamia, in: 2200 BC – A Climatic Break-
+down as a Cause for the Collapse of the Old World?, edited by:
+Meller, H., Arz, H. W., Jung, R., and Risch, R., Landesmuseum
+fur Vorgeschichte, Halle, 35–52, 2015.
+Weiss, H.: Global megadrought, societal collapse and resilience at
+4.2–3.9 ka BP across the Mediterranean and west Asia, 24, 62–
+63, 2016.
+Weiss, H., Courty, M. A., Wetterstrom, W., Guichard, F., Senior,
+L., Meadow, R., and Curnow, A.: The genesis and collapse of
+third millennium North Mesopotamian civilization, Science, 261,
+995–1004, 1993.
+Welc, F. and Marks, L.: Climate change at the end of the Old King-
+dom in Egypt around 4200 BP: new geoarchaeological evidence,
+Quatern. Int., 324, 124–133, 2014.
+Wick, L., Lemcke, G., and Sturm, M.: Evidence of Late glacial and
+Holocene climatic change and human impact in eastern Ana-
+tolia: high-resolution pollen, charcoal, isotopic and geochemi-
+cal records from the laminated sediments of Lake Van, Turkey,
+Holocene 13, 665–675, 2003.
+Wright, H. E., Kutzbach, J. E., Webb III, T., Ruddiman, W. F.,
+Street-Perrott, F. A., and Bartlein, P. J. (Eds.): Global Climate
+since the Last Glacial Maximum, University of Minesota Press,
+Minneapolis, London, 569 pp., 1993.
+Xoplaki, E., González-Rouco, F., Luterbacher, J., and Wanner, H.:
+Wet season Mediterranean precipitation variability: influence of
+large-scale dynamics and trends, Clim. Dynam., 23, 63–78, 2004.
+Zanchetta, G., Bonadonna, F. P., and Leone G.: A 37-meter record
+of paleoclimatologica
