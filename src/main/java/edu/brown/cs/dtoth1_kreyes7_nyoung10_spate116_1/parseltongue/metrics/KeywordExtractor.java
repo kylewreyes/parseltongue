@@ -57,7 +57,7 @@ public final class KeywordExtractor {
         tf += doc.get(word);
       }
     }
-    double idf =  Math.max(Math.log(documents.size() / (1.0 + docFreq)), 0);
+    double idf =  Math.max(Math.log(documents.size() / (0.5 + docFreq)), 0);
     return tf * idf;
   }
   //tandem term frequency inverse document frequency
@@ -79,8 +79,8 @@ public final class KeywordExtractor {
       }
     }
     double ttf = Math.sqrt(independentFreq * dependantFreq)
-            / (Math.abs(independentFreq - dependantFreq) + 1);
-    double idf = Math.max(Math.log(documents.size() / (1.0 + docFreq)), 0);
+            / (Math.abs(independentFreq - dependantFreq) + 0.5);
+    double idf = Math.max(Math.log(documents.size() / (0.5 + docFreq)), 0);
     return ttf * idf;
   }
 }

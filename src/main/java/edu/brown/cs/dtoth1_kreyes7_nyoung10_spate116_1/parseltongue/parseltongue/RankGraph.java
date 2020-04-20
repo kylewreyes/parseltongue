@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class RankGraph<M extends RelevanceMetric> implements
+public class RankGraph implements
     Graph<RankVertex, RankEdge, RankMetadata> {
   private List<RankVertex> nodes = new ArrayList<>();
 
