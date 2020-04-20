@@ -1,5 +1,7 @@
 package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics;
 
+import java.util.List;
+
 /**
  * RelevanceMetric interface for calculating the relevance between two documents based
  * on the passed keyword vectors.
@@ -14,5 +16,5 @@ public interface RelevanceMetric {
    * @param doc2 vector representing keyword presence in second document
    * @return the relevance of the two documents to each other.
    */
-  double calculateRelevance(double[] doc1, double[] doc2);
+  double calculateRelevance(List<Double> doc1, List<Double> doc2);
 }

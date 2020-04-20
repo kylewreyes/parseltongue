@@ -1,7 +1,6 @@
-package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parselcommands;
+package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue;
 
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parselgraph.RankGraph;
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.repl.REPL;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.REPL;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,8 @@ public class ParselCommands {
           coreTexts.add(extractCorePDFText(args[i]));
       }
       String query = args[args.length - 1];
-      RankGraph g = new RankGraph(coreTexts, query);
+      // TODO: Fix this
+      // RankGraph g = new RankGraph(coreTexts, query);
       return "TODO TODO TODO,TODO,TODOTODOOO DOO DODODO";
     }
   };

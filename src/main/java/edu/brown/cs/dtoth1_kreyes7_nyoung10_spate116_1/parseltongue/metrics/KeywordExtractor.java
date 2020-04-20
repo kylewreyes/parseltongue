@@ -1,10 +1,12 @@
-package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.keyword;
+package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class KeywordExtractor {
+public final class KeywordExtractor {
+  private KeywordExtractor() { }
+
   /**
    * Function which extracts keywords from a set of input.
    * @param keywords input keywords from query
