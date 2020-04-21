@@ -60,4 +60,8 @@
 </#assign>
 <#assign footer>
 </#assign>
-<#include "main.ftl">
+<#if loggedIn == "0">
+    <#include "error.ftl">
+<#else>
+    <#include "mainLogged.ftl">
+</#if>
