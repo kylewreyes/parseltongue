@@ -94,6 +94,7 @@ public class Routes {
   public static class POSTRegisterHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
+      // TODO: Better password encryption
       String username = req.queryParams("username");
       String password = req.queryParams("password");
       // Check username hasn't been used yet

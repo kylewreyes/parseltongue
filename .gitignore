@@ -5,7 +5,6 @@ temp/
 .classpath
 .idea/
 **.DS_Store**
-maps.sqlite3
-timdb.sqlite3
+data/parseltongue.sqlite3
 .settings/*
 bin/*
