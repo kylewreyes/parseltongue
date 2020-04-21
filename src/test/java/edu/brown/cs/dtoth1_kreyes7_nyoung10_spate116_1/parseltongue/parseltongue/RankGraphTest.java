@@ -11,7 +11,8 @@ import java.util.List;
 public class RankGraphTest {
   @Test
   public void testMultipleParagraphs() {
-    RankGraph g = new RankGraph(Snippet.parseText(new PDFParser().getText("data/test_multiple_paragraphs.pdf")), List.of("rocks", "rock", "the"), new Jaccardish());
+    RankGraph g = new RankGraph(Snippet.parseText(new PDFParser().getText("data/test_multiple_paragraphs.pdf")),
+        List.of("rocks", "rock", "the"), new Jaccardish());
     PageRank ranker = new PageRank(g);
     List<Snippet> snippets = ranker.pageRank();
   }
