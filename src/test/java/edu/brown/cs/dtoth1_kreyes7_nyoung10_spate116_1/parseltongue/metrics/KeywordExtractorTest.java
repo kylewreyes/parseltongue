@@ -1,7 +1,6 @@
-package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.KeywordTest;
+package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics;
 
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.KeywordExtractor;
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.Snippet;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.Snippet;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
