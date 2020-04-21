@@ -132,10 +132,14 @@ public class Snippet {
       CONTENT_ENDINGS.add("Bibliography");
       CONTENT_ENDINGS.add("Works Cited");
       CONTENT_ENDINGS.add("References Cited");
+      CONTENT_ENDINGS.add("Acknowledgments");
+      CONTENT_ENDINGS.add("Acknowledgements");
       CONTENT_ENDINGS.add("REFERENCES");
       CONTENT_ENDINGS.add("BIBLIOGRAPHY");
       CONTENT_ENDINGS.add("WORKS CITED");
       CONTENT_ENDINGS.add("REFERENCES CITED");
+      CONTENT_ENDINGS.add("ACKNOWLEDGMENTS");
+      CONTENT_ENDINGS.add("ACKNOWLEDGEMENTS");
 
       while ((nextLine = textReader.readLine()) != null) {
         // Apache OpenPDF uses non-breaking spaces, so this replaces it w/ normal whitespaces
@@ -219,8 +223,8 @@ public class Snippet {
 
 //  public static void main(String[] args) {
 //    PDFParser parser = new PDFParser();
-//    for (Snippet s : Snippet.parseText(parser.getText("data/Crime_1_Col.pdf"))) {
-//      System.out.println(s.getoriginalText());
+//    for (Snippet s : Snippet.parseText(parser.getText("C:/Users/kwill/Desktop/Temp/BP-Event-in-the-Mediterranean.pdf"))) {
+//      System.out.println(s.getOriginalText());
 //      System.out.println();
 //    }
 //  }
