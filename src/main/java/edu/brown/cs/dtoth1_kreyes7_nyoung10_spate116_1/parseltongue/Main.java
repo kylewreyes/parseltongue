@@ -55,7 +55,7 @@ public final class Main {
     DBProxy.connect("data/parseltongue.sqlite3");
 
     // Start webserver.
-    runSparkServer();
+    //runSparkServer();
 
     // REPL Handling.
     REPL repl = new REPL();
