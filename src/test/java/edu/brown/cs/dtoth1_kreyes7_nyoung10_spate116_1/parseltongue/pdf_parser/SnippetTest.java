@@ -18,7 +18,7 @@ public class SnippetTest {
   public void getPlainTextTest() {
     String nonAlphaNums = "   $%.?';" + System.lineSeparator() + System.lineSeparator() + "[]";
     assertEquals("", new Snippet("").getPlainText());
-    assertEquals("However does this really work Oh well", new Snippet(complexString).getPlainText());
+    assertEquals("however does this really work oh well", new Snippet(complexString).getPlainText());
     assertEquals("", new Snippet(nonAlphaNums).getPlainText());
   }
 
