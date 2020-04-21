@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <title>ParselTongue</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="/img/logo.png" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <link rel="stylesheet" href="css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
@@ -21,13 +21,19 @@
           </div>
         </a>
         <div id="navRight">
-          <a onclick="document.getElementById('id01').style.display='block'"
+        <#if loggedIn == "0">
+            <a href="#" onclick="document.getElementById('id01').style.display='block'"
             >Login</a
           >
+        <#else>
+          <a href="/dashboard">Dashboard</a>
+          <a href="/upload">Upload</a>
+          <a href="/logout">Logout</a>
+        </#if>
         </div>
       </div>
     </nav>
-    <!-- Login Modal -->
+     <!-- Login Modal -->
     <div id="id01" class="modal">
       <form class="modal-content animate" action="/login" method="POST">
         <h1 style="text-decoration: underline;">Login</h1>

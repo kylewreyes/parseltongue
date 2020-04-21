@@ -18,8 +18,4 @@
     </div>
 </div>
 </#assign>
-<#if loggedIn == "0">
-    <#include "mainUnlogged.ftl">
-<#else>
-    <#include "error.ftl">
-</#if>
+<#include "main.ftl">

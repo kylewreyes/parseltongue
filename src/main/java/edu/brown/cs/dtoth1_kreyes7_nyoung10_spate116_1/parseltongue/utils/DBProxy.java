@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +19,6 @@ public class DBProxy {
    * Connects to the database.
    *
    * @param filename File to connect DB to.
-   * @throws SQLException           Exception.
-   * @throws ClassNotFoundException Exception.
    */
   public static void connect(String filename) {
     try {

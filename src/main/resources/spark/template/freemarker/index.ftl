@@ -38,8 +38,4 @@
     The source code for this project can be found here.
 </footer>
 </#assign>
-<#if loggedIn == "0">
-    <#include "mainUnlogged.ftl">
- <#else>
-    <#include "mainLogged.ftl">
-</#if>
+<#include "main.ftl">

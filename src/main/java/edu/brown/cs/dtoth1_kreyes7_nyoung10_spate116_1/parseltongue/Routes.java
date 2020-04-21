@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableMap;
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.DBProxy;
 import spark.ModelAndView;
-import spark.QueryParamsMap;
 import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
@@ -28,12 +27,7 @@ public class Routes {
   public static class GETMainHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      String logged;
-      if (req.session().attribute("logged") == null) {
-        logged = "0";
-      } else {
-        logged = req.session().attribute("logged");
-      }
+      String logged = currentUser(req);
       Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
       return new ModelAndView(variables, "index.ftl");
     }
@@ -55,7 +49,7 @@ public class Routes {
       req.session().attribute("logged", username);
       res.redirect("/dashboard");
     } else {
-      System.out.println("ERROR: Invalid login.");
+      req.session().attribute("error", "Invalid Login.");
       res.redirect("/error");
     }
     return null;
@@ -65,7 +59,7 @@ public class Routes {
    * Login Callback
    */
   public static Object GETLogoutHandler(Request req, Response res) {
-    req.session().attribute("logged", null);
+    req.session().removeAttribute("logged");
     res.redirect("/");
     return null;
   }
@@ -76,13 +70,10 @@ public class Routes {
   public static class GETRegisterHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      String logged;
-      if (req.session().attribute("logged") == null) {
-        logged = "0";
-      } else {
-        logged = req.session().attribute("logged");
-        res.redirect("/");
+      if (isLogged(req)) {
+        res.redirect("/dashboard");
       }
+      String logged = currentUser(req);
       Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
       return new ModelAndView(variables, "register.ftl");
     }
@@ -101,16 +92,15 @@ public class Routes {
       List<List<String>> ret =
           DBProxy.executeQuery("SELECT * FROM user WHERE username='" + username + "';");
       if (ret == null || ret.size() > 0) {
-        System.err.println("ERROR: Email in use!");
-        // TODO: Better error messages
-        res.redirect("/register");
+        req.session().attribute("error", "Email is invalid or already in use.");
+        res.redirect("/error");
       } else {
         DBProxy.executeUpdate(
             String.format("INSERT INTO user ('username','password') VALUES ('%s','%s');",
                 username, password.hashCode()));
         System.out.println("New user created!");
-        // TODO: Indicate success
-        res.redirect("/");
+        Map<String, Object> variables = ImmutableMap.of("loggedIn", "0");
+        return new ModelAndView(variables, "success.ftl");
       }
       return null;
     }
@@ -122,12 +112,10 @@ public class Routes {
   public static class GETDashHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      String logged;
-      if (req.session().attribute("logged") == null) {
-        logged = "0";
-      } else {
-        logged = req.session().attribute("logged");
+      if (!isLogged(req)) {
+        res.redirect("/");
       }
+      String logged = currentUser(req);
       Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
       return new ModelAndView(variables, "dashboard.ftl");
     }
@@ -139,12 +127,10 @@ public class Routes {
   public static class GETUploadHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      String logged;
-      if (req.session().attribute("logged") == null) {
-        logged = "0";
-      } else {
-        logged = req.session().attribute("logged");
+      if (!isLogged(req)) {
+        res.redirect("/");
       }
+      String logged = currentUser(req);
       Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
       return new ModelAndView(variables, "upload.ftl");
     }
@@ -165,8 +151,8 @@ public class Routes {
         File targetFile = new File(String.format("temp/%s.pdf", filename.hashCode()));
         OutputStream outStream = new FileOutputStream(targetFile);
         outStream.write(buffer);
-        res.redirect("/");
-        // TODO: Save file to db, process snippets, redirect to view.
+        res.redirect("/dashboard");
+        // TODO: Save file to db, process snippets, redirect to /snippets, delete file.
       } catch (Exception e) {
         System.err.println("ERROR: Bad File Upload at /upload");
         res.redirect("/error");
@@ -177,31 +163,17 @@ public class Routes {
 
   /**
    * Handles GET requests to the /snippets route.
-   * TODO: parse data.
    */
   public static class GETSnippetsHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      String logged;
-      if (req.session().attribute("logged") == null) {
-        logged = "0";
-      } else {
-        logged = req.session().attribute("logged");
+      if (!isLogged(req)) {
+        res.redirect("/");
       }
+      String logged = currentUser(req);
+      // TODO: Populate with snippet parsing
       Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
       return new ModelAndView(variables, "view.ftl");
-    }
-  }
-
-  /**
-   * Handles GET requests to the /snippets route.
-   * TODO: parse data.
-   */
-  public static class GETViewHandler implements TemplateViewRoute {
-    @Override
-    public ModelAndView handle(Request req, Response res) {
-      res.redirect("/error");
-      return null;
     }
   }
 
@@ -211,9 +183,36 @@ public class Routes {
   public static class GETErrorHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      Map<String, Object> variables = ImmutableMap.of();
-      // TODO: Make a better error page.
+      String logged = currentUser(req);
+      String errorMessage = req.session().attribute("error");
+      req.session().removeAttribute("error");
+      Map<String, Object> variables =
+          ImmutableMap.of("errorMessage", errorMessage, "loggedIn", logged);
       return new ModelAndView(variables, "error.ftl");
+    }
+  }
+
+  /**
+   * Method to check if a user is logged in.
+   * @param req Request.
+   * @return  false if not logged in, true if they are.
+   */
+  private static boolean isLogged(Request req) {
+    String status = req.session().attribute("logged");
+    return status != null && !status.equals("0");
+  }
+
+  /**
+   * Method to check which user is logged in.
+   * // TODO: Fix this 0 issue
+   * @param req Request.
+   * @return  "0" if not logged in, the username if they are.
+   */
+  private static String currentUser(Request req) {
+    if (req.session().attribute("logged") == null) {
+      return "0";
+    } else {
+      return req.session().attribute("logged");
     }
   }
 }

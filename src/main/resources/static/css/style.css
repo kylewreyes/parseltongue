@@ -193,6 +193,17 @@ a:hover:before {
   background-color: #50c44c;
 }
 
+@media only screen and (max-width: 600px) {
+  #jumbotronText {
+    font-size: 3rem;
+  }
+
+  .button {
+    width: 200px;
+    font-size: 1.5rem;
+  }
+}
+
 footer {
   display: flex;
   align-items: flex-end;

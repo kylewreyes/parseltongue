@@ -127,9 +127,6 @@ public final class Main {
     // GET View Snippets - "/snippets"
     Spark.get("/snippets", new Routes.GETSnippetsHandler(), freeMarker);
 
-    // GET View PDF - "/snippets" TODO: Implement
-    Spark.get("/view", new Routes.GETViewHandler(), freeMarker);
-
     // GET Error page
     Spark.get("/error", new Routes.GETErrorHandler(), freeMarker);
   }
