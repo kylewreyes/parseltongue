@@ -102,7 +102,7 @@ public class Snippet {
    *
    * @return the original text
    */
-  public String getoriginalText() {
+  public String getOriginalText() {
     return originalText;
   }
 
