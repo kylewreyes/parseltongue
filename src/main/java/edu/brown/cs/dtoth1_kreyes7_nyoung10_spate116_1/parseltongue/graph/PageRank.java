@@ -16,6 +16,10 @@ public class PageRank<G extends Graph<V, E, T>, V extends Vertex<E, T>, E extend
     this.compGraph = compGraph;
   }
 
+  public List<V> pageRank() {
+    return pageRank(0.85, 0.001);
+  }
+
   public List<V> pageRank(double dampener, double epsilon) {
     List<V> nodes = compGraph.getVertices();
     n = nodes.size();
