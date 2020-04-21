@@ -1,6 +1,7 @@
 package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue;
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.CosineSimilarity;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.PDFParser;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.REPL;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.Snippet;
 
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParselCommands {
+  public static PDFParser parser = new PDFParser();
   public static final String PARSE_ARGUMENT_PATTERN =
           "([\\S]*\\.pdf)( [\\S]*\\.pdf)* \\\"[^\\\"]*\\\"";
   private static REPL.Command parse = new REPL.Command() {
@@ -39,7 +41,13 @@ public class ParselCommands {
   public static REPL.Command getParseCommand() {
     return parse;
   }
+
+  /**
+   * Extracts the necessary text from a PDF to be analyzed.
+   * @param filePath the location of the PDF
+   * @return a {@link List<Snippet>} of text from the PDF
+   */
   public static List<Snippet> extractCorePDFText(String filePath) {
-    return null;
+    return Snippet.parseText(parser.getText(filePath));
   }
 }
