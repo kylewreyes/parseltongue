@@ -3,23 +3,32 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
-import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.pdfbox.text.PDFTextStripperByArea;
 
 import java.awt.geom.Rectangle2D;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
+/**
+ * PDF Parser Class! TODO: Complete Docs.
+ */
 public class PDFParser {
 
+  /**
+   * Get Text. TODO: Complete Docs.
+   * @param path  Path to file.
+   * @return  Text.
+   */
   public String getText(String path) {
     File file = new File(path);
     return getText(file);
   }
 
+  /**
+   * Get Text. TODO: Complete Docs.
+   * @param file  Path to file.
+   * @return  Text.
+   */
   public String getText(File file) {
     final double WID_MARGIN = 36; // 0.5" in pts
     final double HT_MARGIN = 72; // 1" in pts

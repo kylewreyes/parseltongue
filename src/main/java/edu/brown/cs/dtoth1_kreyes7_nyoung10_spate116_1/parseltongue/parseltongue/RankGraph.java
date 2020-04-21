@@ -13,12 +13,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Rank Graph Class! TODO: Complete Docs.
+ */
 public class RankGraph implements
     Graph<RankVertex, RankEdge, RankMetadata> {
   private List<RankVertex> nodes = new ArrayList<>();
   private PageRank<RankGraph, RankVertex, RankEdge, RankMetadata> pRank = new PageRank<>(this);
   private Map<RankVertex, Set<RankEdge>> inboundMap = new HashMap<>();
 
+  /**
+   * Constructor TODO: Complete Docs.
+   *
+   * @param rawCoreText rawCoreText.
+   * @param keywords  keywords.
+   * @param metric  metric.
+   */
   public RankGraph(List<Snippet> rawCoreText, List<String> keywords, RelevanceMetric metric) {
     List<Map<String, Double>> dist = new ArrayList<>();
     for (Snippet s : rawCoreText) {
@@ -56,6 +66,11 @@ public class RankGraph implements
     }
   }
 
+  /**
+   * rank TODO: Complete Docs.
+   *
+   * @return  List of Snippets.
+   */
   public List<Snippet> rank() {
     List<RankVertex> metaDataRanked = pRank.pageRank();
     List<Snippet> returnList = new ArrayList<>();
@@ -65,6 +80,12 @@ public class RankGraph implements
     return returnList;
   }
 
+  /**
+   * Get Vertex. TODO: Complete Docs.
+   *
+   * @param id the unique ID
+   * @return  Vertex.
+   */
   @Override
   public RankVertex getVertex(String id) {
     for (RankVertex v : nodes) {
@@ -75,6 +96,12 @@ public class RankGraph implements
     return null;
   }
 
+  /**
+   * Contains Vertex. TODO: Complete Docs.
+   *
+   * @param id the unique ID
+   * @return  True if contains.
+   */
   @Override
   public boolean containsVertex(String id) {
     for (RankVertex v : nodes) {
@@ -85,16 +112,34 @@ public class RankGraph implements
     return false;
   }
 
+  /**
+   * Get Vertice. TODO: Complete Docs.
+   *
+   * @return  List of vertices.
+   */
   @Override
   public List<RankVertex> getVertices() {
     return nodes;
   }
 
+  /**
+   * Get Incoming. TODO: Complete Docs.
+   *
+   * @param target the target node
+   * @return  Set of rank edges.
+   */
   @Override
   public Set<RankEdge> getIncoming(RankVertex target) {
     return inboundMap.get(target);
   }
 
+  /**
+   * Run Imputation. TODO: Complete Docs.
+   *
+   * @param edges edges.
+   * @param zscore  zscore.
+   * @return  Imputed.
+   */
   private List<RankEdge> runImputation(List<RankEdge> edges, double zscore) {
     List<RankEdge> finalEdges = new ArrayList<>();
 

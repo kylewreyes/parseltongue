@@ -13,14 +13,13 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * An object containing chunks of text to be used for
- * {@link edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph}.
+ * An object containing chunks of text to be used for.
  */
 public class Snippet {
   private String plainText, originalText;
 
   /**
-   * @param text the original text from the document
+   * @param text the original text from the document.
    */
   public Snippet(String text) {
     originalText = text;
@@ -29,7 +28,7 @@ public class Snippet {
   /**
    * Filters through the original text for non-alphanumeric characters.
    *
-   * @return the filtered text
+   * @return the filtered text.
    */
   public String getPlainText() {
     if (plainText == null) {
@@ -52,7 +51,7 @@ public class Snippet {
   /**
    * Gets the distribution for words.
    *
-   * @return the distribution as a hashmap
+   * @return the distribution as a hashmap.
    */
   public Map<String, Double> distribution() {
     if (plainText == null) {
@@ -81,7 +80,7 @@ public class Snippet {
    *
    * @param scoring the map that determines how much each keyword is worth.
    * @return A list in order of the keywords given in scoring with the value being the points
-   *        accrued for that keyword
+   *        accrued for that keyword.
    */
   public List<Double> keywordScores(Map<String, Double> scoring) {
     Map<String, Double> pointsVec = new HashMap<>();
@@ -102,7 +101,7 @@ public class Snippet {
    * Gets the original text from the document. To be used to display the original text for
    * the user to read.
    *
-   * @return the original text
+   * @return the original text.
    */
   public String getOriginalText() {
     return originalText;
@@ -111,8 +110,8 @@ public class Snippet {
   /**
    * Filters text for relevant content and converts text into Snippets, separated by paragraphs.
    *
-   * @param text Text acquired from a PDF
-   * @return a {@link List<Snippet>}s, each one containing a paragraph
+   * @param text Text acquired from a PDF.
+   * @return a List of Snippets, each one containing a paragraph.
    */
   public static List<Snippet> parseText(String text) {
     List<Snippet> snippets = new ArrayList<>();
@@ -143,6 +142,7 @@ public class Snippet {
 
       while ((nextLine = textReader.readLine()) != null) {
         // Apache OpenPDF uses non-breaking spaces, so this replaces it w/ normal whitespaces
+        // TODO: This is immutable.
         nextLine.replace(" ", " ");
 
         // Not all documents contain an abstract. But if they do, only everything starting from
@@ -159,15 +159,15 @@ public class Snippet {
         // Most but not all the documents contain their references, so if one is found,
         // everything after it will be ignored
         boolean foundEnding = false;
-        if (CONTENT_ENDINGS.contains(nextLine) || CONTENT_ENDINGS.contains(nextLine + " ") ||
-            CONTENT_ENDINGS.contains(nextLine + ". ") ||
-            CONTENT_ENDINGS.contains(nextLine + ": ")) {
+        if (CONTENT_ENDINGS.contains(nextLine) || CONTENT_ENDINGS.contains(nextLine + " ")
+            || CONTENT_ENDINGS.contains(nextLine + ". ")
+            || CONTENT_ENDINGS.contains(nextLine + ": ")) {
           foundEnding = true;
         } else {
           for (String s : CONTENT_ENDINGS) {
             String s1 = s + ". ";
             String s2 = s + ": ";
-            if (nextLine.length() >= s1.length() ) {
+            if (nextLine.length() >= s1.length()) {
               String nextLine2 = nextLine.substring(0, s1.length());
               if (nextLine2.equals(s1) || nextLine2.equals(s2)) {
                 foundEnding = true;
@@ -176,7 +176,9 @@ public class Snippet {
             }
           }
         }
-        if (foundEnding) break;
+        if (foundEnding) {
+          break;
+        }
 
         // Checks if next line is either empty or just whitespace
         if (nextLine != "" && !nextLine.matches("\\p{javaWhitespace}*")) {
@@ -204,11 +206,20 @@ public class Snippet {
     }
   }
 
+  /**
+   * To String.
+   * @return  Original Text.
+   */
   @Override
   public String toString() {
     return "Snippet{\"" + originalText + "\"}";
   }
 
+  /**
+   * Equals.
+   * @param o Other object.
+   * @return  True if equal.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -221,6 +232,10 @@ public class Snippet {
     return originalText.equals(snippet.originalText);
   }
 
+  /**
+   * Hashcode.
+   * @return  Hashed Snippet.
+   */
   @Override
   public int hashCode() {
     return Objects.hash(originalText);
