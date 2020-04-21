@@ -100,8 +100,27 @@ public final class Main {
 
     // Setup Spark Routes
     Spark.get("/", new Routes.GETMainHandler(), freeMarker);
+
+    Spark.get("/login", (req, res) -> {
+      req.session().attribute("logged", req.queryParams("username"));
+      res.redirect("/dashboard");
+      return null;
+    });
+
+    Spark.get("/logout", (req, res) -> {
+      req.session().attribute("logged", null);
+      res.redirect("/");
+      return null;
+    });
+
+    Spark.get("/register", new Routes.GETRegisterHandler(), freeMarker);
+
+    Spark.post("/register", new Routes.POSTRegisterHandler(), freeMarker);
+
     Spark.get("/upload", new Routes.GETUploadHandler(), freeMarker);
+
     Spark.get("/view", new Routes.GETViewHandler(), freeMarker);
+
     Spark.get("/dashboard", new Routes.GETDashHandler(), freeMarker);
   }
 

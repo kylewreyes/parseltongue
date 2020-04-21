@@ -5,7 +5,7 @@
         <p>
             To parse a PDF, upload it using the form below, and enter your keywords. A keyword is a word or phrase that you are looking for. TODO: Make this better
         </p>
-        <div id="uploadForm">
+        <div class="fullpage-form" id="uploadForm">
             <form method="POST" action="/upload">
                 <h1>Upload PDF</h1>
                 <br/>
@@ -23,4 +23,8 @@
     </div>
 </div>
 </#assign>
-<#include "main.ftl">
+<#if loggedIn == "0">
+    <#include "error.ftl">
+<#else>
+    <#include "mainLogged.ftl">
+</#if>

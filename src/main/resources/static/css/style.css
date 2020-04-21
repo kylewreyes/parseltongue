@@ -37,12 +37,24 @@ hr {
   margin: 50px 0;
 }
 
+input {
+  margin: 10px 5px;
+}
+
 #app {
   box-sizing: border-box;
   width: 100%;
   max-width: 992px;
   margin: 75px auto;
   padding: 5px;
+}
+
+.fullpage-form {
+  margin: 50px auto;
+  padding: 40px;
+  border-radius: 40px;
+  background-color: #eee;
+  text-align: center;
 }
 
 /* =================================== */
@@ -192,19 +204,51 @@ footer {
 }
 
 /* =================================== */
-/* Upload */
+/* Login */
 /* =================================== */
 
-#uploadForm {
-  margin: 50px auto;
-  padding: 40px;
-  border-radius: 40px;
-  background-color: #eee;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 30vh auto;
+  border: 0 solid black;
+  border-radius: 20px;
+  padding: 10px;
+  width: 50%;
+  min-width: 320px;
   text-align: center;
 }
 
-input {
-  margin: 20px 5px;
+.animate {
+  animation: animatezoom 0.6s;
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* =================================== */
+/* Dashboard */
+/* =================================== */
+
+#dashboard {
 }
 
 /* =================================== */
@@ -252,7 +296,3 @@ input[type="checkbox"] {
   background-color: #eee;
   text-align: center;
 }
-
-/* =================================== */
-/* Dashboard */
-/* =================================== */

@@ -14,28 +14,52 @@ import java.util.Map;
  * Routes class! Holds and handles all web server routing.
  */
 public class Routes {
-  // =============================================================================================
-  // STARS ROUTES
-  // =============================================================================================
   /**
    * Handle GET requests to the landing page.
    */
   public static class GETMainHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      Map<String, Object> variables = ImmutableMap.of();
+      String logged;
+      if (req.session().attribute("logged") == null) {
+        logged = "0";
+      } else {
+        logged = req.session().attribute("logged");
+      }
+      Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
       return new ModelAndView(variables, "index.ftl");
     }
   }
 
   /**
-   *  Handles GET requests to the /upload route.
+   * Handle GET requests to the registration page.
    */
-  public static class GETUploadHandler implements TemplateViewRoute {
+  public static class GETRegisterHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      Map<String, Object> variables = ImmutableMap.of();
-      return new ModelAndView(variables, "upload.ftl");
+      String logged;
+      if (req.session().attribute("logged") == null) {
+        logged = "0";
+      } else {
+        logged = req.session().attribute("logged");
+        res.redirect("/");
+      }
+      Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
+      return new ModelAndView(variables, "register.ftl");
+    }
+  }
+
+  /**
+   * Handle GET requests to the registration page.
+   */
+  public static class POSTRegisterHandler implements TemplateViewRoute {
+    @Override
+    public ModelAndView handle(Request req, Response res) {
+      //TODO: Register Logic
+      System.out.println("New user created!");
+      res.redirect("/");
+      Map<String, Object> variables = ImmutableMap.of("loggedIn", "TODO: ");
+      return new ModelAndView(variables, "index.ftl");
     }
   }
 
@@ -45,8 +69,31 @@ public class Routes {
   public static class GETDashHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      Map<String, Object> variables = ImmutableMap.of();
+      String logged;
+      if (req.session().attribute("logged") == null) {
+        logged = "0";
+      } else {
+        logged = req.session().attribute("logged");
+      }
+      Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
       return new ModelAndView(variables, "dashboard.ftl");
+    }
+  }
+
+  /**
+   *  Handles GET requests to the /upload route.
+   */
+  public static class GETUploadHandler implements TemplateViewRoute {
+    @Override
+    public ModelAndView handle(Request req, Response res) {
+      String logged;
+      if (req.session().attribute("logged") == null) {
+        logged = "0";
+      } else {
+        logged = req.session().attribute("logged");
+      }
+      Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
+      return new ModelAndView(variables, "upload.ftl");
     }
   }
 
@@ -57,7 +104,13 @@ public class Routes {
   public static class GETViewHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      Map<String, Object> variables = ImmutableMap.of();
+      String logged;
+      if (req.session().attribute("logged") == null) {
+        logged = "0";
+      } else {
+        logged = req.session().attribute("logged");
+      }
+      Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
       return new ModelAndView(variables, "view.ftl");
     }
   }
