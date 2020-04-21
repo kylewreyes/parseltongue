@@ -28,7 +28,7 @@
         </p>
         <h1>How Does ParselTongue Work?</h1>
         <p>
-            ParselTongue is built with a PankRank algorithm.
+            ParselTongue is built with a PageRank algorithm.
         </p>
     </div>
 </div>

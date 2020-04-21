@@ -1,4 +1,6 @@
 target/
+temp/
+!temp/README.md
 .mvn-classpath
 .classpath
 .idea/

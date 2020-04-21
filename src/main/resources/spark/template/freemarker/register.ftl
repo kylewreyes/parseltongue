@@ -6,8 +6,8 @@
                 <h1>Register</h1>
                 <br/>
                 <br/>
-                <label for="username">Username:</label>
-                <input type="text" name="username">
+                <label for="username">Email:</label>
+                <input type="email" name="username">
                 <br/>
                 <label for="password">Password:</label>
                 <input type="password" name="password">

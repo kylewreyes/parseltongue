@@ -32,7 +32,7 @@
       <form class="modal-content animate" action="/login" method="GET">
         <h1 style="text-decoration: underline;">Login</h1>
         <div class="container">
-          <label for="username"><b>Username</b></label>
+          <label for="username"><b>Email</b></label>
           <input
             type="text"
             placeholder="Enter Username"
