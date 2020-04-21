@@ -22,6 +22,7 @@ public class ParselCommands {
       }
       String queryString = args[args.length - 1];
       List<Snippet> results = parsel(coreTexts, queryString);
+
       return "TODO TODO TODO,TODO,TODOTODOOO DOO DODODO";
     }
   };
