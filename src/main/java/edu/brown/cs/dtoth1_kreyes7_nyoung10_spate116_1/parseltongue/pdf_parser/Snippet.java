@@ -205,6 +205,11 @@ public class Snippet {
   }
 
   @Override
+  public String toString() {
+    return "Snippet{\"" + originalText + "\"}";
+  }
+
+  @Override
   public boolean equals(Object o) {
     if (this == o) {
       return true;
