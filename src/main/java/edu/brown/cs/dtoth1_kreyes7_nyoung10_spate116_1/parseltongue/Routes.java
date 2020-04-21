@@ -2,6 +2,7 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue;
 
 import com.google.common.collect.ImmutableMap;
 
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.DBProxy;
 import spark.ModelAndView;
 import spark.QueryParamsMap;
 import spark.Request;
@@ -13,12 +14,14 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 import java.util.Map;
 
 /**
  * Routes class! Holds and handles all web server routing.
  */
 public class Routes {
+
   /**
    * Handle GET requests to the landing page.
    */
@@ -34,6 +37,37 @@ public class Routes {
       Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
       return new ModelAndView(variables, "index.ftl");
     }
+  }
+
+  /**
+   * Login Callback
+   */
+  public static Object POSTLoginHandler(Request req, Response res) {
+    String username = req.queryParams("username");
+    String password = req.queryParams("password");
+    // Check if username-password combination is valid
+    List<List<String>> ret =
+        DBProxy.executeQuery("SELECT username,password FROM user WHERE username='" + username + "';");
+    if (ret != null
+        && ret.size() == 1
+        && ret.get(0).size() > 0
+        && ret.get(0).get(1).equals("" + password.hashCode())) {
+      req.session().attribute("logged", username);
+      res.redirect("/dashboard");
+    } else {
+      System.out.println("ERROR: Invalid login.");
+      res.redirect("/error");
+    }
+    return null;
+  }
+
+  /**
+   * Login Callback
+   */
+  public static Object GETLogoutHandler(Request req, Response res) {
+    req.session().attribute("logged", null);
+    res.redirect("/");
+    return null;
   }
 
   /**
@@ -60,9 +94,23 @@ public class Routes {
   public static class POSTRegisterHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      //TODO: Register Logic
-      System.out.println("New user created!");
-      res.redirect("/");
+      String username = req.queryParams("username");
+      String password = req.queryParams("password");
+      // Check username hasn't been used yet
+      List<List<String>> ret =
+          DBProxy.executeQuery("SELECT * FROM user WHERE username='" + username + "';");
+      if (ret == null || ret.size() > 0) {
+        System.err.println("ERROR: Email in use!");
+        // TODO: Better error messages
+        res.redirect("/register");
+      } else {
+        DBProxy.executeUpdate(
+            String.format("INSERT INTO user ('username','password') VALUES ('%s','%s');",
+                username, password.hashCode()));
+        System.out.println("New user created!");
+        // TODO: Indicate success
+        res.redirect("/");
+      }
       return null;
     }
   }

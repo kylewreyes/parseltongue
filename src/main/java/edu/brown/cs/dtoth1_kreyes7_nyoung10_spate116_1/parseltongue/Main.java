@@ -7,6 +7,7 @@ import java.io.StringWriter;
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.PDFParser;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselCommands;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.DBProxy;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.REPL;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -50,11 +51,11 @@ public final class Main {
         .defaultsTo(DEFAULT_PORT);
     OptionSet options = parser.parse(args);
 
-    // TODO: Uncomment
-//    if (options.has("gui")) {
+    // Connect to database.
+    DBProxy.connect("data/parseltongue.sqlite3");
+
+    // Start webserver.
     runSparkServer();
-//      runSparkServer((int) options.valueOf("port"));
-//    }
 
     // REPL Handling.
     REPL repl = new REPL();
@@ -101,35 +102,34 @@ public final class Main {
     FreeMarkerEngine freeMarker = createEngine();
     // GET Landing Page - "/"
     Spark.get("/", new Routes.GETMainHandler(), freeMarker);
+
     // GET Login Request - "/login"
-    Spark.get("/login", (req, res) -> {
-      String username = req.queryParams("username");
-      String password = req.queryParams("password");
-      // TODO: Login Logic
-      req.session().attribute("logged", username);
-      res.redirect("/dashboard");
-      return null;
-    });
+    Spark.post("/login", Routes::POSTLoginHandler);
+
     // GET Logout Request - "/logout"
-    Spark.get("/logout", (req, res) -> {
-      req.session().attribute("logged", null);
-      res.redirect("/");
-      return null;
-    });
+    Spark.get("/logout", Routes::GETLogoutHandler);
+
     // GET Registration Page - "/register"
     Spark.get("/register", new Routes.GETRegisterHandler(), freeMarker);
+
     // POST Registration - "/register"
     Spark.post("/register", new Routes.POSTRegisterHandler(), freeMarker);
+
     // GET Dashboard - "/dashboard"
     Spark.get("/dashboard", new Routes.GETDashHandler(), freeMarker);
+
     // GET Upload Page - "/upload"
     Spark.get("/upload", new Routes.GETUploadHandler(), freeMarker);
+
     // POST Upload - "/upload"
     Spark.post("/upload", new Routes.POSTUploadHandler(), freeMarker);
+
     // GET View Snippets - "/snippets"
     Spark.get("/snippets", new Routes.GETSnippetsHandler(), freeMarker);
+
     // GET View PDF - "/snippets" TODO: Implement
     Spark.get("/view", new Routes.GETViewHandler(), freeMarker);
+
     // GET Error page
     Spark.get("/error", new Routes.GETErrorHandler(), freeMarker);
   }

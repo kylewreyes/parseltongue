@@ -29,7 +29,7 @@
     </nav>
     <!-- Login Modal -->
     <div id="id01" class="modal">
-      <form class="modal-content animate" action="/login" method="GET">
+      <form class="modal-content animate" action="/login" method="POST">
         <h1 style="text-decoration: underline;">Login</h1>
         <div class="container">
           <label for="username"><b>Email</b></label>
