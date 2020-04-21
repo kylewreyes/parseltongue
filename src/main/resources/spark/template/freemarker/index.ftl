@@ -28,14 +28,14 @@
         </p>
         <h1>How Does ParselTongue Work?</h1>
         <p>
-            ParselTongue is built with a PankRank algorithm.
+            ParselTongue is built with a PageRank algorithm.
         </p>
     </div>
 </div>
 <footer>
-        This project was made by Shalin Patel, Derick Toth, Kyle Reyes, and Nick Young as a final project for CSCI 0320 - Software Engineering at Brown University.
-        <br/>
-        The source code for this project can be found here.
-    </footer>
+    This project was made by Shalin Patel, Derick Toth, Kyle Reyes, and Nick Young as a final project for CSCI 0320 - Software Engineering at Brown University.
+    <br/>
+    The source code for this project can be found here.
+</footer>
 </#assign>
 <#include "main.ftl">

@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.PDFParser;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselCommands;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.DBProxy;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.REPL;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -22,6 +24,7 @@ import freemarker.template.Configuration;
  */
 public final class Main {
   private static final int DEFAULT_PORT = 4567;
+
   /**
    * The initial method called when execution begins.
    *
@@ -48,11 +51,11 @@ public final class Main {
         .defaultsTo(DEFAULT_PORT);
     OptionSet options = parser.parse(args);
 
-    // TODO: Uncomment
-//    if (options.has("gui")) {
-        runSparkServer();
-//      runSparkServer((int) options.valueOf("port"));
-//    }
+    // Connect to database.
+    DBProxy.connect("data/parseltongue.sqlite3");
+
+    // Start webserver.
+    runSparkServer();
 
     // REPL Handling.
     REPL repl = new REPL();
@@ -77,7 +80,8 @@ public final class Main {
 
   /**
    * Gets Heroku Port.
-   * @return  port.
+   *
+   * @return port.
    */
   static int getHerokuAssignedPort() {
     ProcessBuilder processBuilder = new ProcessBuilder();
@@ -96,12 +100,35 @@ public final class Main {
     Spark.exception(Exception.class, new ExceptionPrinter());
 
     FreeMarkerEngine freeMarker = createEngine();
-
-    // Setup Spark Routes
+    // GET Landing Page - "/"
     Spark.get("/", new Routes.GETMainHandler(), freeMarker);
-    Spark.get("/upload", new Routes.GETUploadHandler(), freeMarker);
-    Spark.get("/view", new Routes.GETViewHandler(), freeMarker);
+
+    // GET Login Request - "/login"
+    Spark.post("/login", Routes::POSTLoginHandler);
+
+    // GET Logout Request - "/logout"
+    Spark.get("/logout", Routes::GETLogoutHandler);
+
+    // GET Registration Page - "/register"
+    Spark.get("/register", new Routes.GETRegisterHandler(), freeMarker);
+
+    // POST Registration - "/register"
+    Spark.post("/register", new Routes.POSTRegisterHandler(), freeMarker);
+
+    // GET Dashboard - "/dashboard"
     Spark.get("/dashboard", new Routes.GETDashHandler(), freeMarker);
+
+    // GET Upload Page - "/upload"
+    Spark.get("/upload", new Routes.GETUploadHandler(), freeMarker);
+
+    // POST Upload - "/upload"
+    Spark.post("/upload", new Routes.POSTUploadHandler(), freeMarker);
+
+    // GET View Snippets - "/snippets"
+    Spark.get("/snippets", new Routes.GETSnippetsHandler(), freeMarker);
+
+    // GET Error page
+    Spark.get("/error", new Routes.GETErrorHandler(), freeMarker);
   }
 
   /**
