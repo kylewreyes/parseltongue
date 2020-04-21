@@ -22,8 +22,7 @@ public class ParselCommands {
       }
       String queryString = args[args.length - 1];
       List<Snippet> results = parsel(coreTexts, queryString);
-
-      return "TODO TODO TODO,TODO,TODOTODOOO DOO DODODO";
+      return results.toString();
     }
   };
 
@@ -35,8 +34,13 @@ public class ParselCommands {
       coreTexts.addAll(temp);
     }
     Snippet query = new Snippet(queryString);
-    RankGraph g = new RankGraph(coreTexts, new ArrayList<>(query.distribution().keySet()), new CosineSimilarity());
-    return g.rank();
+    try {
+      RankGraph g = new RankGraph(coreTexts, new ArrayList<>(query.distribution().keySet()), new CosineSimilarity());
+      return g.rank();
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
   }
 
   public static REPL.Command getParseCommand() {
