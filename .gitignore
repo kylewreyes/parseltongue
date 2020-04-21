@@ -1,5 +1,4 @@
 target/
-temp/
 .mvn-classpath
 .classpath
 .idea/
