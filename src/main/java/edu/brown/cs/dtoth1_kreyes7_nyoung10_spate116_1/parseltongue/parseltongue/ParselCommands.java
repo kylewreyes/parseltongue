@@ -22,7 +22,12 @@ public class ParselCommands {
       }
       String queryString = args[args.length - 1];
       List<Snippet> results = parsel(coreTexts, queryString);
-      return results.toString();
+      StringBuilder sb = new StringBuilder();
+      for (Snippet s : results) {
+        sb.append(s.getOriginalText());
+        sb.append("\n");
+      }
+      return sb.toString();
     }
   };
 
