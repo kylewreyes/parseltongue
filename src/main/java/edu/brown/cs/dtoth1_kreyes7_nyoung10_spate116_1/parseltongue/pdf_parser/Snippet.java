@@ -33,7 +33,7 @@ public class Snippet {
    */
   public String getPlainText() {
     if (plainText == null) {
-      String[] splitText = originalText.split("[^\\p{Alnum}]]*");
+      String[] splitText = originalText.toLowerCase().split("[^\\p{Alnum}]]*");
       StringBuilder builder = new StringBuilder();
       for (String s : splitText) {
         if (!s.equals("")) {
@@ -55,6 +55,9 @@ public class Snippet {
    * @return the distribution as a hashmap
    */
   public Map<String, Double> distribution() {
+    if (plainText == null) {
+      getPlainText();
+    }
     Map<String, Double> dist = new HashMap<>();
     Set<String> uniqueWords = new HashSet<>(Arrays.asList(plainText.split(" ")));
     for (String key : uniqueWords) {

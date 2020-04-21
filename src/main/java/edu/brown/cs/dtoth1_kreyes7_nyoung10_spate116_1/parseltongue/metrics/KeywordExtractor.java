@@ -19,12 +19,14 @@ public final class KeywordExtractor {
     Map<String, Double> keywordHeuristics = new HashMap<>();
     double avgCounter = 0;
     for (String keyword : keywords) {
-      double keywordTfidf = tfidf(keyword, documents);
-      avgCounter += keywordTfidf;
-      keywordHeuristics.put(keyword, keywordTfidf);
+      double keywordIdf = primaryKeywordMetric(keyword, documents);
+      avgCounter += keywordIdf;
+      keywordHeuristics.put(keyword, keywordIdf);
     }
-    final double avgfKeywordTfidf = avgCounter / keywords.size();
-    keywordHeuristics.values().removeIf(tfidf -> tfidf < avgfKeywordTfidf);
+    final double avgfKeywordIdf = avgCounter / keywords.size();
+    //System.out.println(keywordHeuristics);
+    keywordHeuristics.values().removeIf(idf -> idf < avgfKeywordIdf);
+    //System.out.println(keywordHeuristics);
     for (Map<String, Double> doc : documents) {
       for (String word : doc.keySet()) {
         if (!allWords.keySet().contains(word)) {
@@ -44,11 +46,12 @@ public final class KeywordExtractor {
       avgCounter += (ttfidf - avgTandumFreq) * (ttfidf - avgTandumFreq);
     }
     final double ttidfStd = Math.sqrt(avgCounter / allWords.size());
-    allWords.values().removeIf(val -> val < avgTandumFreq + 2 * ttidfStd);
+    allWords.values().removeIf(val -> val < avgTandumFreq + 4 * ttidfStd);
+    //System.out.println(allWords);
     keywordHeuristics.putAll(allWords);
     return keywordHeuristics;
   }
-  private static double tfidf(String word, List<Map<String, Double>> documents) {
+  private static double primaryKeywordMetric(String word, List<Map<String, Double>> documents) {
     int docFreq = 0;
     double tf = 0;
     for (Map<String, Double> doc : documents) {
@@ -58,7 +61,7 @@ public final class KeywordExtractor {
       }
     }
     double idf =  Math.max(Math.log(documents.size() / (0.5 + docFreq)), 0);
-    return tf * idf;
+    return tf * idf * idf;
   }
   //tandem term frequency inverse document frequency
   private static double ttfidf(

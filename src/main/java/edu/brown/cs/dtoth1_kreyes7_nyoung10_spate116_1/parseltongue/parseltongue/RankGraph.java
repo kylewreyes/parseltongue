@@ -1,6 +1,7 @@
 package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue;
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.Graph;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.PageRank;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.KeywordExtractor;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.RelevanceMetric;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.Snippet;
@@ -13,6 +14,7 @@ import java.util.Set;
 public class RankGraph implements
     Graph<RankVertex, RankEdge, RankMetadata> {
   private List<RankVertex> nodes = new ArrayList<>();
+  private PageRank<RankGraph, RankVertex, RankEdge, RankMetadata> pRank = new PageRank<>(this);
 
   public RankGraph(List<Snippet> rawCoreText, List<String> keywords, RelevanceMetric metric) {
     List<Map<String, Double>> dist = new ArrayList<>();
@@ -41,6 +43,15 @@ public class RankGraph implements
     for (RankEdge e : edges) {
       e.getSource().addEdge(e);
     }
+  }
+
+  public List<Snippet> rank() {
+    List<RankVertex> metaDataRanked = pRank.pageRank();
+    List<Snippet> returnList = new ArrayList<>();
+    for (RankVertex v : metaDataRanked) {
+      returnList.add(v.getValue().getSnippet());
+    }
+    return returnList;
   }
 
   @Override

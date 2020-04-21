@@ -13,17 +13,29 @@ public class ParselCommands {
   private static REPL.Command parse = new REPL.Command() {
     @Override
     public String execute(String[] args) {
-      List<Snippet> coreTexts = new ArrayList<>();
+      List<String> coreTexts = new ArrayList<>();
       for (int i = 0; i < args.length - 1; i++) {
-        List<Snippet> temp = extractCorePDFText(args[i]);
-        assert temp != null;
-        coreTexts.addAll(temp);
+        String temp = args[i];
+        coreTexts.add(temp);
       }
-      Snippet query = new Snippet(args[args.length - 1]);
-      RankGraph g = new RankGraph(coreTexts, new ArrayList<>(query.distribution().keySet()), new CosineSimilarity());
+      String queryString = args[args.length - 1];
+      List<Snippet> results = parsel(coreTexts, queryString);
       return "TODO TODO TODO,TODO,TODOTODOOO DOO DODODO";
     }
   };
+
+  public static List<Snippet> parsel(List<String> pdfPaths, String queryString) {
+    List<Snippet> coreTexts = new ArrayList<>();
+    for (String path : pdfPaths) {
+      List<Snippet> temp = extractCorePDFText(path);
+      assert temp != null;
+      coreTexts.addAll(temp);
+    }
+    Snippet query = new Snippet(queryString);
+    RankGraph g = new RankGraph(coreTexts, new ArrayList<>(query.distribution().keySet()), new CosineSimilarity());
+    return g.rank();
+  }
+
   public static REPL.Command getParseCommand() {
     return parse;
   }
