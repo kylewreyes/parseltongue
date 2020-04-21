@@ -10,12 +10,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Scanner;
 import java.util.Set;
 
 /**
  * An object containing chunks of text to be used for
- * {@link edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph}
+ * {@link edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph}.
  */
 public class Snippet {
   private String plainText, originalText;
@@ -28,7 +27,7 @@ public class Snippet {
   }
 
   /**
-   * Filters through the original text for non-alphanumeric characters
+   * Filters through the original text for non-alphanumeric characters.
    *
    * @return the filtered text
    */
@@ -101,7 +100,7 @@ public class Snippet {
 
   /**
    * Gets the original text from the document. To be used to display the original text for
-   * the user to read
+   * the user to read.
    *
    * @return the original text
    */
@@ -110,7 +109,7 @@ public class Snippet {
   }
 
   /**
-   * Filters text for relevant content and converts text into Snippets, separated by paragraphs
+   * Filters text for relevant content and converts text into Snippets, separated by paragraphs.
    *
    * @param text Text acquired from a PDF
    * @return a {@link List<Snippet>}s, each one containing a paragraph
