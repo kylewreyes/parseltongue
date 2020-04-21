@@ -22,6 +22,13 @@ import java.util.Map;
 public class Routes {
 
   /**
+   * Private Constructor.
+   */
+  private Routes() {
+
+  }
+
+  /**
    * Handle GET requests to the landing page.
    */
   public static class GETMainHandler implements TemplateViewRoute {
@@ -34,7 +41,10 @@ public class Routes {
   }
 
   /**
-   * Login Callback
+   * Login Callback.
+   * @param req Req.
+   * @param res Res.
+   * @return  null.
    */
   public static Object POSTLoginHandler(Request req, Response res) {
     String username = req.queryParams("username");
@@ -56,7 +66,10 @@ public class Routes {
   }
 
   /**
-   * Login Callback
+   * Logout Callback.
+   * @param req Req.
+   * @param res Res.
+   * @return  null.
    */
   public static Object GETLogoutHandler(Request req, Response res) {
     req.session().removeAttribute("logged");

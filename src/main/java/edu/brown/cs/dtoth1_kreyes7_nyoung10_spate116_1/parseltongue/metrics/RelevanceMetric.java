@@ -12,6 +12,7 @@ public interface RelevanceMetric {
    * return a double which represents the relevance of the two documents to each other.
    * Assumes that the keyword vectors have the same mapping order. i.e. the keyword
    * for the first entry of the two vectors are the same.
+   *
    * @param doc1 vector representing keyword presence in first document
    * @param doc2 vector representing keyword presence in second document
    * @return the relevance of the two documents to each other.

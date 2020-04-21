@@ -14,6 +14,10 @@ public class RankGraphTest {
     RankGraph g = new RankGraph(Snippet.parseText(new PDFParser().getText("data/test_multiple_paragraphs.pdf")),
         List.of("rocks", "rock", "the"), new Jaccardish());
     PageRank ranker = new PageRank(g);
-    List<Snippet> snippets = ranker.pageRank();
+    List<RankVertex> snippets = ranker.pageRank();
+//    for (int i = 0; i < 5; i++) {
+//      System.out.println(snippets.get(i).getValue().getSnippet().getOriginalText());
+//      System.out.println();
+//    }
   }
 }

@@ -1,7 +1,19 @@
 package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils;
 
+/**
+ * Porter Stemming Class!  TODO: Complete Docs.
+ */
 final class PorterStemming {
+  /**
+   * Private Constructor.
+   */
   private PorterStemming() { }
+
+  /**
+   * Porter. TODO: Complete Docs.
+   * @param raw raw.
+   * @return  ret.
+   */
   public static String porter(String raw) {
     String word = raw.toLowerCase();
     //Step 1a
@@ -110,8 +122,10 @@ final class PorterStemming {
     }
     return word;
   }
-  /*
-   * Assorted helper methods for implementing porter stemming.
+  /**
+   * Assorted helper methods for implementing porter stemming. TODO: Complete Docs.
+   * @param word  word.
+   * @return  int.
    */
   private static int m(String word) {
     //eliminate leading consonants
@@ -135,12 +149,27 @@ final class PorterStemming {
     }
     return m;
   }
+
+  /**
+   *  TODO: Complete Docs.
+   * @param word  word.
+   * @param pred  pred.
+   * @param replace replace.
+   * @return  ret.
+   */
   private static String suffix(String word, String pred, String replace) {
     if (word.endsWith(pred)) {
       word = word.substring(0, word.length() - pred.length()) + replace;
     }
     return word;
   }
+
+  /**
+   *  TODO: Complete Docs.
+   * @param word  word.
+   * @param index index.
+   * @return  ret.
+   */
   private static boolean isVowel(String word, int index) {
     if (index < 0) {
       return true;
@@ -153,6 +182,12 @@ final class PorterStemming {
             || c.equals("u")
             || (c.equals("y") && !isVowel(word, index - 1));
   }
+
+  /**
+   *  TODO: Complete Docs.
+   * @param word  word.
+   * @return  ret.
+   */
   private static boolean v(String word) {
     for (int i = 0; i < word.length(); i++) {
       if (isVowel(word, i)) {
@@ -161,6 +196,12 @@ final class PorterStemming {
     }
     return false;
   }
+
+  /**
+   *  TODO: Complete Docs.
+   * @param word  word.
+   * @return  ret.
+   */
   private static boolean d(String word) {
     if (word.length() < 2) {
       return false;
@@ -168,6 +209,12 @@ final class PorterStemming {
       return !(isVowel(word, word.length() - 1) || isVowel(word, word.length() - 2));
     }
   }
+
+  /**
+   *  TODO: Complete Docs.
+   * @param word  word.
+   * @return  ret.
+   */
   private static boolean o(String word) {
     if (word.length() < 3) {
       return false;

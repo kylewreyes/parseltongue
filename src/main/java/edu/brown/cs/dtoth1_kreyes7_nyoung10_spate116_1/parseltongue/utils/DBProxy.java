@@ -12,8 +12,15 @@ import java.util.List;
  * A Generic database proxy class, which handles db connection, query execution,
  * and caching.
  */
-public class DBProxy {
+public final class DBProxy {
   private static Connection conn;
+
+  /**
+   * Private Constructor.
+   */
+  private DBProxy() {
+
+  }
 
   /**
    * Connects to the database.

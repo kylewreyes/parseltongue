@@ -6,6 +6,14 @@ import java.util.List;
  * Method for calculating Document similarity loosely based on the Jaccard index method.
  */
 public class Jaccardish implements RelevanceMetric {
+  /**
+   * Calculates relevance between two keywords. TODO: Complete Docs
+   *
+   * @param doc1 vector representing keyword presence in first document
+   * @param doc2 vector representing keyword presence in second document
+   * @return relevance.
+   * @throws IllegalArgumentException Exception.
+   */
   @Override
   public double calculateRelevance(List<Double> doc1, List<Double> doc2) throws IllegalArgumentException {
     if (doc1.size() != doc2.size()) {

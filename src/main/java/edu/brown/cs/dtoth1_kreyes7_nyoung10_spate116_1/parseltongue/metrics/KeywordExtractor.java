@@ -4,17 +4,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Keyword Extractor Class!
+ */
 public final class KeywordExtractor {
-  private KeywordExtractor() { }
+  private KeywordExtractor() {
+  }
 
   /**
    * Function which extracts keywords from a set of input.
-   * @param keywords input keywords from query
+   *
+   * @param keywords  input keywords from query
    * @param documents set of snippets with words mapped to occurance
    * @return a set of useful keywords linked with their weight
    */
   public static Map<String, Double> extractKeywords(
-          List<String> keywords, List<Map<String, Double>> documents) {
+      List<String> keywords, List<Map<String, Double>> documents) {
     Map<String, Double> allWords = new HashMap<>();
     Map<String, Double> keywordHeuristics = new HashMap<>();
     double avgCounter = 0;
@@ -51,6 +56,14 @@ public final class KeywordExtractor {
     keywordHeuristics.putAll(allWords);
     return keywordHeuristics;
   }
+
+  /**
+   * Primary keyword metric. TODO: Complete Docs.
+   *
+   * @param word      word.
+   * @param documents docs.
+   * @return ^.
+   */
   private static double primaryKeywordMetric(String word, List<Map<String, Double>> documents) {
     int docFreq = 0;
     double tf = 0;
@@ -60,12 +73,20 @@ public final class KeywordExtractor {
         tf += doc.get(word);
       }
     }
-    double idf =  Math.max(Math.log(documents.size() / (0.5 + docFreq)), 0);
+    double idf = Math.max(Math.log(documents.size() / (0.5 + docFreq)), 0);
     return tf * idf * idf;
   }
-  //tandem term frequency inverse document frequency
+
+  /**
+   * tandem term frequency inverse document frequency. TODO: Complete Docs.
+   *
+   * @param keywords  keywords.
+   * @param word      word.
+   * @param documents docs.
+   * @return ^.
+   */
   private static double ttfidf(
-          Map<String, Double> keywords, String word, List<Map<String, Double>> documents) {
+      Map<String, Double> keywords, String word, List<Map<String, Double>> documents) {
     double dependantFreq = 0;
     double independentFreq = 0;
     int docFreq = 0;
@@ -82,7 +103,7 @@ public final class KeywordExtractor {
       }
     }
     double ttf = Math.sqrt(independentFreq * dependantFreq)
-            / (Math.abs(independentFreq - dependantFreq) + 0.5);
+        / (Math.abs(independentFreq - dependantFreq) + 0.5);
     double idf = Math.max(Math.log(documents.size() / (0.5 + docFreq)), 0);
     return ttf * idf;
   }
