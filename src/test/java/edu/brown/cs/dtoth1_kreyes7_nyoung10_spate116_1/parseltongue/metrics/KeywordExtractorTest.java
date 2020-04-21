@@ -336,6 +336,6 @@ public class KeywordExtractorTest {
     lds.add(s18.distribution());
     lds.add(s19.distribution());
     lds.add(s20.distribution());
-    System.out.println(KeywordExtractor.extractKeywords(Arrays.asList("sheep", "populations","reduction"),lds));
+    System.out.println(KeywordExtractor.extractKeywords(Arrays.asList("sheep", "populations", "reduction"),lds));
   }
 }

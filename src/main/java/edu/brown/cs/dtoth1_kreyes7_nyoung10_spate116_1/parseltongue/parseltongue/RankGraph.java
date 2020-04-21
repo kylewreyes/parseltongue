@@ -7,6 +7,8 @@ import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.Rele
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.Snippet;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -15,6 +17,7 @@ public class RankGraph implements
     Graph<RankVertex, RankEdge, RankMetadata> {
   private List<RankVertex> nodes = new ArrayList<>();
   private PageRank<RankGraph, RankVertex, RankEdge, RankMetadata> pRank = new PageRank<>(this);
+  private Map<RankVertex, Set<RankEdge>> inboundMap = new HashMap<>();
 
   public RankGraph(List<Snippet> rawCoreText, List<String> keywords, RelevanceMetric metric) {
     List<Map<String, Double>> dist = new ArrayList<>();
@@ -27,7 +30,7 @@ public class RankGraph implements
 
     List<List<Double>> keywordScoring = new ArrayList<>(nodes.size());
     for (int i = 0; i < nodes.size(); i++) {
-      keywordScoring.set(i, rawCoreText.get(i).keywordScores(keywordDistribution));
+      keywordScoring.add(rawCoreText.get(i).keywordScores(keywordDistribution));
     }
 
     List<RankEdge> edges = new ArrayList<>();
@@ -43,6 +46,14 @@ public class RankGraph implements
     for (RankEdge e : edges) {
       e.getSource().addEdge(e);
     }
+
+    for (RankVertex v : nodes) {
+      inboundMap.put(v, new HashSet<>());
+    }
+
+    for (RankEdge e : edges) {
+      inboundMap.get(e.getDest()).add(e);
+    }
   }
 
   public List<Snippet> rank() {
@@ -56,22 +67,32 @@ public class RankGraph implements
 
   @Override
   public RankVertex getVertex(String id) {
+    for (RankVertex v : nodes) {
+      if (v.equals(id)) {
+        return v;
+      }
+    }
     return null;
   }
 
   @Override
   public boolean containsVertex(String id) {
+    for (RankVertex v : nodes) {
+      if (v.equals(id)) {
+        return true;
+      }
+    }
     return false;
   }
 
   @Override
   public List<RankVertex> getVertices() {
-    return null;
+    return nodes;
   }
 
   @Override
   public Set<RankEdge> getIncoming(RankVertex target) {
-    return null;
+    return inboundMap.get(target);
   }
 
   private List<RankEdge> runImputation(List<RankEdge> edges, double zscore) {
