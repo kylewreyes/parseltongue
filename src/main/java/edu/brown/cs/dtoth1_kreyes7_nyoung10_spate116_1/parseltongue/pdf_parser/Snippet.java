@@ -226,11 +226,11 @@ public class Snippet {
     return Objects.hash(originalText);
   }
 
-//  public static void main(String[] args) {
-//    PDFParser parser = new PDFParser();
-//    for (Snippet s : Snippet.parseText(parser.getText("C:/Users/kwill/Desktop/Temp/BP-Event-in-the-Mediterranean.pdf"))) {
-//      System.out.println(s.getOriginalText());
-//      System.out.println();
-//    }
-//  }
+  public static void main(String[] args) {
+    PDFParser parser = new PDFParser();
+    for (Snippet s : Snippet.parseText(parser.getText("C:/Users/kwill/Desktop/Temp/BP-Event-in-the-Mediterranean.pdf"))) {
+      System.out.println(s.getOriginalText());
+      System.out.println();
+    }
+  }
 }
