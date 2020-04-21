@@ -1,5 +1,9 @@
 package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics;
 
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.PageRank;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.RankEdge;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.RankGraph;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.RankVertex;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.Snippet;
 import org.junit.After;
 import org.junit.Before;
@@ -337,5 +341,13 @@ public class KeywordExtractorTest {
     lds.add(s19.distribution());
     lds.add(s20.distribution());
     System.out.println(KeywordExtractor.extractKeywords(Arrays.asList("sheep", "populations", "reduction"),lds));
+    List<Snippet> corpus = List.of(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20);
+    RankGraph rg = new RankGraph(corpus, List.of("sheep", "populations", "reduction"), new Jaccardish());
+    PageRank pr = new PageRank(rg);
+    List<RankVertex> ranked = pr.pageRank();
+    for (RankVertex rv : ranked) {
+      System.out.println('\n' + rv.getValue().getSnippet().getOriginalText());
+    }
+    assertEquals(true, true);
   }
 }
