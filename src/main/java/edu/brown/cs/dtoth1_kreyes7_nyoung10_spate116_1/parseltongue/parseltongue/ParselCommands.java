@@ -1,5 +1,6 @@
 package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue;
 
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.PageRank;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.CosineSimilarity;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.PDFParser;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.REPL;
@@ -38,7 +39,7 @@ public final class ParselCommands {
         coreTexts.add(temp);
       }
       String queryString = args[args.length - 1];
-      List<Snippet> results = parsel(coreTexts, queryString);
+      List<Snippet> results = parsel(coreTexts, queryString).rank();
       StringBuilder sb = new StringBuilder();
       for (Snippet s : results) {
         sb.append(s.getOriginalText());
@@ -55,7 +56,7 @@ public final class ParselCommands {
    * @param queryString Query string.
    * @return List of snippets.
    */
-  public static List<Snippet> parsel(List<String> pdfPaths, String queryString) {
+  public static RankGraph parsel(List<String> pdfPaths, String queryString) {
     List<Snippet> coreTexts = new ArrayList<>();
     for (String path : pdfPaths) {
       List<Snippet> temp = extractCorePDFText(path);
@@ -65,7 +66,9 @@ public final class ParselCommands {
     Snippet query = new Snippet(queryString);
     try {
       RankGraph g = new RankGraph(coreTexts, new ArrayList<>(query.distribution().keySet()), new CosineSimilarity());
-      return g.rank();
+      PageRank ranker = new PageRank<>(g);
+      ranker.pageRank();
+      return g;
     } catch (Exception e) {
       e.printStackTrace();
       return null;

@@ -7,10 +7,10 @@
                 <br/>
                 <br/>
                 <label for="username">Email:</label>
-                <input type="email" name="username">
+                <input type="email" name="username" required>
                 <br/>
                 <label for="password">Password:</label>
-                <input type="password" name="password">
+                <input type="password" name="password" required>
                 <br/>
                 <button type="submit" class="button">Register</button>
             </form>

@@ -161,13 +161,12 @@ public final class ParselDB {
 
   /**
    * Snippet Schema.
-   * TODO: Score datatype
    */
   public static class SnippetSchema {
     String pdf_id, content;
-    int score;
+    double score;
 
-    public SnippetSchema(String p, int s, String c) {
+    public SnippetSchema(String p, double s, String c) {
       pdf_id = p;
       score = s;
       content = c;

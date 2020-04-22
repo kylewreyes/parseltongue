@@ -6,6 +6,8 @@ import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselCommands;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselDB;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.RankGraph;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.RankVertex;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.Snippet;
 import spark.ModelAndView;
 import spark.Request;
@@ -30,7 +32,6 @@ public class Routes {
    * Private Constructor.
    */
   private Routes() {
-
   }
 
   /**
@@ -104,8 +105,6 @@ public class Routes {
       String password = req.queryParams("password");
       // Check username hasn't been used yet
       DBCursor ret = ParselDB.getUserByID(username);
-      System.out.println("COUNT: " + ret.count());
-      System.out.println(1 + ret.count());
       if (ret.count() >= 1) {
         req.session().attribute("error", "Email is invalid or already in use.");
         res.redirect("/error");
@@ -122,7 +121,7 @@ public class Routes {
 
   /**
    * Handles GET requests to the /dashboard route.
-   * TODO: Populate Dashboard.
+   * TODO: delete PDFs
    */
   public static class GETDashHandler implements TemplateViewRoute {
     @Override
@@ -140,6 +139,7 @@ public class Routes {
 
   /**
    * Handles GET requests to the /upload route.
+   * TODO: Multiple files.
    */
   public static class GETUploadHandler implements TemplateViewRoute {
     @Override
@@ -148,7 +148,6 @@ public class Routes {
         res.redirect("/");
       }
       String logged = currentUser(req);
-      // TODO: Make multiple files possible?
       Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
       return new ModelAndView(variables, "upload.ftl");
     }
@@ -176,6 +175,7 @@ public class Routes {
 
         // Save PDF to DB
         // TODO: Ensure unique ID.
+        // TODO: Save bytestream of PDF
         String pdf_id = req.session().attribute("logged") + ("_" + (int) (Math.random() * 9999999));
         ParselDB.PDFSchema newPDF =
             new ParselDB.PDFSchema(pdf_id, req.session().attribute("logged"), filename, query);
@@ -184,10 +184,12 @@ public class Routes {
         // Run parsel command
         List<String> paths = new ArrayList<>();
         paths.add(filePath);
-        List<Snippet> ret = ParselCommands.parsel(paths, req.queryParams("query"));
+        RankGraph graph = ParselCommands.parsel(paths, req.queryParams("query"));
+        List<RankVertex> vertices = graph.getVertices();
 
+        // TODO: Save Graph
         // Process snippets, head to view.
-        processSnippets(ret, pdf_id);
+        processSnippets(vertices, pdf_id);
         targetFile.delete();
         res.redirect("/snippets/" + pdf_id);
       } catch (Exception e) {
@@ -201,7 +203,7 @@ public class Routes {
 
   /**
    * Handles GET requests to the /snippets/:pdf_id route.
-   * TODO: Check that pdf belongs to the current user.s
+   * TODO: Check that pdf belongs to the current user.
    */
   public static class GETSnippetsHandler implements TemplateViewRoute {
     @Override
@@ -230,6 +232,9 @@ public class Routes {
     public ModelAndView handle(Request req, Response res) {
       String logged = currentUser(req);
       String errorMessage = req.session().attribute("error");
+      if (errorMessage == null) {
+        errorMessage = "No error.";
+      }
       req.session().removeAttribute("error");
       Map<String, Object> variables =
           ImmutableMap.of("errorMessage", errorMessage, "loggedIn", logged);
@@ -263,7 +268,7 @@ public class Routes {
 
   /**
    * Format snippets.
-   * TODO: Cap number.
+   * TODO: Cap number, Links, Delete
    * @param pdfs  List of pdfs.
    */
   private static String formatPDFs(DBCursor pdfs) {
@@ -281,11 +286,12 @@ public class Routes {
 
   /**
    * Format snippets.
-   * TODO: Cap number. Create links, metadata, ranked???.
+   * TODO: Cap number, Create links, metadata, ranked???.
    * @param snippets  List of snippets.
    */
   private static String formatSnippets(DBCursor snippets) {
     StringBuilder ret = new StringBuilder();
+    // TODO: Rank them
     while (snippets.hasNext()) {
       ret.append("<div class=\"snippet\">");
       DBObject snippet = snippets.next();
@@ -297,12 +303,12 @@ public class Routes {
 
   /**
    * Process snippets - upload them to DB and return a list of Strings
-   * TODO: score.
-   * @param snippets  snippets.
+   * @param vertices  snippets.
    */
-  private static void processSnippets(List<Snippet> snippets, String pdf_id) {
-    for (Snippet s : snippets) {
-      ParselDB.SnippetSchema newSnippet = new ParselDB.SnippetSchema(pdf_id, 0, s.getOriginalText());
+  private static void processSnippets(List<RankVertex> vertices, String pdf_id) {
+    for (RankVertex v : vertices) {
+      ParselDB.SnippetSchema newSnippet =
+          new ParselDB.SnippetSchema(pdf_id, v.getScore() * 1000.0, v.getValue().getSnippet().getOriginalText());
       ParselDB.updateSnippet(newSnippet);
     }
   }
