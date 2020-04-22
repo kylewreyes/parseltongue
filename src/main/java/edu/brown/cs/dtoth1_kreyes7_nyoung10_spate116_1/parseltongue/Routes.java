@@ -312,7 +312,7 @@ public class Routes {
 
     StringBuilder ret = new StringBuilder();
     // Capped at 100 TODO: Make this a variable
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < Math.min(100, snippets.size()); i++) {
       ret.append("<div class=\"snippet\"><div class=\"snippet-score\">");
       ret.append(snippets.get(i).getScore());
       ret.append("</div>");

@@ -8,10 +8,10 @@
             Research paper parsing done <strong>right</strong>.
         </div>
     </div>
-    <div id="buttons">
+    <#--  <div id="buttons">
         <button class="button">Learn More</button>
         <button class="button">Getting Started</button>
-    </div>
+    </div>  -->
 
     <hr>
 
