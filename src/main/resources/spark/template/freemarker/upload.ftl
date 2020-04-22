@@ -10,8 +10,8 @@
                 <h1>Upload PDF</h1>
                 <br/>
                 <br/>
-                <label for="keywords">Keywords:</label>
-                <input type="text" name="keywords">
+                <label for="query">Query:</label>
+                <input type="text" name="query">
                 <br/>
                 <label for="file">File:</label>
                 <input type="file" name="file" accept='.pdf' required>

@@ -7,13 +7,13 @@ example:
 `parse test_pdf.pdf anothertest.pdf this/that/then.pdf "I have a very interesting question, here it is!"`
 
 ## Database
-In order for this to work locally, copy the `parseltongueTemplate.sqlite3` file and rename it to `parseltongue.sqlite3`. You need a database of this form for it to work.
+The database is implemented in MongoDB.
 
-### Tables
-The DB in question has three tables.
+### Collections
+The DB in question has three collections.
 
-The `user` table has two columns: `username` and `password`.
+The `user` collection has two fields: `username` and `password`.
 
-The `pdf` table has five columns: `id`, `user`, `filename`, `query`, and `timestamp`.
+The `pdf` collection has five fields: `id`, `user`, `filename`, `query`, and `timestamp`.
 
-The `snippet` table has three columns: `pdf-id`, `score`, and `content`.
+The `snippet` collection has three fields: `pdf-id`, `score`, and `content`.

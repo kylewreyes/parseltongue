@@ -3,7 +3,9 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue;
 import com.google.common.collect.ImmutableMap;
 
 import com.mongodb.DBCursor;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselCommands;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselDB;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.Snippet;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -14,6 +16,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -117,6 +121,7 @@ public class Routes {
 
   /**
    * Handles GET requests to the /dashboard route.
+   * TODO: Populate Dashboard.
    */
   public static class GETDashHandler implements TemplateViewRoute {
     @Override
@@ -140,30 +145,42 @@ public class Routes {
         res.redirect("/");
       }
       String logged = currentUser(req);
+      // TODO: Make multiple files possible?
       Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
       return new ModelAndView(variables, "upload.ftl");
     }
   }
 
   /**
-   * Handles GET requests to the /upload route.
+   * Handles POST requests to the /upload route.
    */
   public static class POSTUploadHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      System.out.println("FILE: " + req.queryMap("file"));
+      // Set form datatype
       req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
+      // Get file input stream, convert to byte stream and write to temp folder.
       try (InputStream is = req.raw().getPart("file").getInputStream()) {
         String filename = req.raw().getPart("file").getSubmittedFileName();
         byte[] buffer = new byte[is.available()];
         is.read(buffer);
-        File targetFile = new File(String.format("temp/%s.pdf", filename.hashCode()));
+        String filePath = String.format("temp/%s.pdf", filename.hashCode());
+        File targetFile = new File(filePath);
         OutputStream outStream = new FileOutputStream(targetFile);
         outStream.write(buffer);
+        // Format query for parsel command.
+        List<String> paths = new ArrayList<>();
+        paths.add(filePath);
+        List<Snippet> ret = ParselCommands.parsel(paths, req.queryParams("query"));
+        // TODO: Figure out PDF-ids
+        // Process snippets, head to view.
+        processSnippets(ret, Math.random()*9999999 + "");
+//        targetFile.delete();
+        // TODO: redirect to view.
         res.redirect("/dashboard");
-        // TODO: Save file to db, process snippets, redirect to /snippets, delete file.
       } catch (Exception e) {
         System.err.println("ERROR: Bad File Upload at /upload");
+        req.session().attribute("error", "Bad File Upload at /upload");
         res.redirect("/error");
       }
       return null;
@@ -172,6 +189,7 @@ public class Routes {
 
   /**
    * Handles GET requests to the /snippets route.
+   * TODO: Make display, make url
    */
   public static class GETSnippetsHandler implements TemplateViewRoute {
     @Override
@@ -222,6 +240,18 @@ public class Routes {
       return "0";
     } else {
       return req.session().attribute("logged");
+    }
+  }
+
+  /**
+   * Process snippets - upload them to DB and return a list of Strings
+   * TODO: score.
+   * @param snippets  snippets.
+   */
+  private static void processSnippets(List<Snippet> snippets, String pdf_id) {
+    for (Snippet s : snippets) {
+      ParselDB.SnippetSchema newSnippet = new ParselDB.SnippetSchema(pdf_id, "0", s.getOriginalText());
+      ParselDB.updateSnippet(newSnippet);
     }
   }
 }

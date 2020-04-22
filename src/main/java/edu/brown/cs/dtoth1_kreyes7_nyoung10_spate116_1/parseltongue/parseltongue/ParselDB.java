@@ -142,27 +142,26 @@ public final class ParselDB {
    * PDF Schema.
    */
   public static class PDFSchema {
-    String _id, user, filename, query, timestamp;
+    String _id, user, filename, query;
 
     public PDFSchema(String i, String u, String f, String q, String ts) {
       _id = i;
       user = u;
       filename = f;
       query = q;
-      timestamp = ts;
     }
 
     public DBObject getDBObject() {
       return new BasicDBObject("_id", _id)
           .append("user", user)
           .append("filename", filename)
-          .append("query", query)
-          .append("timestamp", timestamp);
+          .append("query", query);
     }
   }
 
   /**
    * Snippet Schema.
+   * TODO: Score datatype
    */
   public static class SnippetSchema {
     String pdf_id, score, content;
