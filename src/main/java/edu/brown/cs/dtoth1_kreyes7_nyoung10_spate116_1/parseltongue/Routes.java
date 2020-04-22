@@ -175,7 +175,7 @@ public class Routes {
         // TODO: Figure out PDF-ids
         // Process snippets, head to view.
         processSnippets(ret, Math.random()*9999999 + "");
-//        targetFile.delete();
+        targetFile.delete();
         // TODO: redirect to view.
         res.redirect("/dashboard");
       } catch (Exception e) {

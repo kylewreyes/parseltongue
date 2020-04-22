@@ -38,7 +38,6 @@ public final class ParselCommands {
         coreTexts.add(temp);
       }
       String queryString = args[args.length - 1];
-      // TODO: unused.
       List<Snippet> results = parsel(coreTexts, queryString);
       StringBuilder sb = new StringBuilder();
       for (Snippet s : results) {
@@ -59,12 +58,9 @@ public final class ParselCommands {
   public static List<Snippet> parsel(List<String> pdfPaths, String queryString) {
     List<Snippet> coreTexts = new ArrayList<>();
     for (String path : pdfPaths) {
-      System.out.println("CHECKPOINT A");
       List<Snippet> temp = extractCorePDFText(path);
-      System.out.println("CHECKPOINT B");
       assert temp != null;
       coreTexts.addAll(temp);
-      System.out.println("CHECKPOINT C");
     }
     Snippet query = new Snippet(queryString);
     try {
