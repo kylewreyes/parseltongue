@@ -2,7 +2,8 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue;
 
 import com.google.common.collect.ImmutableMap;
 
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.DBProxy;
+import com.mongodb.DBCursor;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselDB;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -13,7 +14,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -50,12 +50,8 @@ public class Routes {
     String username = req.queryParams("username");
     String password = req.queryParams("password");
     // Check if username-password combination is valid
-    List<List<String>> ret =
-        DBProxy.executeQuery("SELECT username,password FROM user WHERE username='" + username + "';");
-    if (ret != null
-        && ret.size() == 1
-        && ret.get(0).size() > 0
-        && ret.get(0).get(1).equals("" + password.hashCode())) {
+    DBCursor ret = ParselDB.getUserByIDPW(username, password);
+    if (ret.count() == 1) {
       req.session().attribute("logged", username);
       res.redirect("/dashboard");
     } else {
@@ -102,15 +98,15 @@ public class Routes {
       String username = req.queryParams("username");
       String password = req.queryParams("password");
       // Check username hasn't been used yet
-      List<List<String>> ret =
-          DBProxy.executeQuery("SELECT * FROM user WHERE username='" + username + "';");
-      if (ret == null || ret.size() > 0) {
+      DBCursor ret = ParselDB.getUserByID(username);
+      System.out.println("COUNT: " + ret.count());
+      System.out.println(1 + ret.count());
+      if (ret.count() >= 1) {
         req.session().attribute("error", "Email is invalid or already in use.");
         res.redirect("/error");
       } else {
-        DBProxy.executeUpdate(
-            String.format("INSERT INTO user ('username','password') VALUES ('%s','%s');",
-                username, password.hashCode()));
+        ParselDB.UserSchema newUser = new ParselDB.UserSchema(username, password);
+        ParselDB.updateUser(newUser);
         System.out.println("New user created!");
         Map<String, Object> variables = ImmutableMap.of("loggedIn", "0");
         return new ModelAndView(variables, "success.ftl");

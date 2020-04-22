@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselCommands;
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.DBProxy;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselDB;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.REPL;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -52,10 +52,12 @@ public final class Main {
     OptionSet options = parser.parse(args);
 
     // Connect to database.
-    DBProxy.connect("data/parseltongue.sqlite3");
+    // TODO: Make this secure!
+    String uri = "mongodb+srv://n-young:IL5hkmuVnDfwsjqk@cluster0-dgi6r.mongodb.net/test?retryWrites=true&w=majority";
+    ParselDB.connect(uri);
 
     // Start webserver.
-    //runSparkServer();
+    runSparkServer();
 
     // REPL Handling.
     REPL repl = new REPL();

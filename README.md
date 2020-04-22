@@ -14,6 +14,6 @@ The DB in question has three tables.
 
 The `user` table has two columns: `username` and `password`.
 
-The `pdf` table has five columns: `id`, `user`, `filename`, `keywords`, and `timestamp`.
+The `pdf` table has five columns: `id`, `user`, `filename`, `query`, and `timestamp`.
 
 The `snippet` table has three columns: `pdf-id`, `score`, and `content`.
