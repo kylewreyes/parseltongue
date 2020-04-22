@@ -2,11 +2,8 @@
 <div id="app">
     <div id="dashboard">
         <h1>Welcome Back, ${loggedIn}!</h1>
-        <h2>View saved snippets:</h2>
-        <p>
-            Some Snippets
-        </p>
-        
+        <h2>PDFs:</h2>
+        ${pdfs}
     </div>
 </div>
 </#assign>

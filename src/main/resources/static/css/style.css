@@ -265,6 +265,17 @@ footer {
   background-color: #eee;
 }
 
+.pdf {
+  margin: 10px auto;
+  border-radius: 40px;
+  background-color: #eee;
+}
+
+.pdf > a {
+  color: black;
+  text-decoration: underline;
+}
+
 /* =================================== */
 /* View */
 /* =================================== */

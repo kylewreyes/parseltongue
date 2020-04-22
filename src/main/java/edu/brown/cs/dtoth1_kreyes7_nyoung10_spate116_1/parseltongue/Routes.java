@@ -131,7 +131,9 @@ public class Routes {
         res.redirect("/");
       }
       String logged = currentUser(req);
-      Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
+      DBCursor ret = ParselDB.getPDFByUser(logged);
+      String pdfs = formatPDFs(ret);
+      Map<String, Object> variables = ImmutableMap.of("loggedIn", logged, "pdfs", pdfs);
       return new ModelAndView(variables, "dashboard.ftl");
     }
   }
@@ -198,7 +200,8 @@ public class Routes {
   }
 
   /**
-   * Handles GET requests to the /snippets route.
+   * Handles GET requests to the /snippets/:pdf_id route.
+   * TODO: Check that pdf belongs to the current user.s
    */
   public static class GETSnippetsHandler implements TemplateViewRoute {
     @Override
@@ -209,7 +212,7 @@ public class Routes {
       String logged = currentUser(req);
       String pdf_id = req.params(":pdf_id");
       DBCursor ret = ParselDB.getSnippetsByPDF(pdf_id);
-      if (ret.count() == 0 || !ret.curr().get("user").equals(logged)) {
+      if (ret.count() == 0) {
         req.session().attribute("error", "PDF doesn't exist.");
         res.redirect("/error");
       }
@@ -261,6 +264,24 @@ public class Routes {
   /**
    * Format snippets.
    * TODO: Cap number.
+   * @param pdfs  List of pdfs.
+   */
+  private static String formatPDFs(DBCursor pdfs) {
+    StringBuilder ret = new StringBuilder();
+    while (pdfs.hasNext()) {
+      ret.append("<div class=\"pdf\">");
+      DBObject pdf = pdfs.next();
+      ret.append(String.format("<a href=\"/snippets/%s\">", pdf.get("_id")));
+      ret.append(pdf.get("filename"));
+      ret.append("</a></div>");
+    }
+    return ret.toString();
+  }
+
+
+  /**
+   * Format snippets.
+   * TODO: Cap number. Create links, metadata, ranked???.
    * @param snippets  List of snippets.
    */
   private static String formatSnippets(DBCursor snippets) {
