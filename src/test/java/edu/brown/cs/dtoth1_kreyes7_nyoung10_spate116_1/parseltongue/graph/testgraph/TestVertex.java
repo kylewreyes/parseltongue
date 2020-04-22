@@ -8,6 +8,7 @@ import java.util.Set;
 public class TestVertex implements Vertex<TestEdge, TestVertexMetadata> {
   TestVertexMetadata meta;
   Set<TestEdge> adj;
+  double score;
 
   public TestVertex(TestVertexMetadata meta) {
     this.meta = meta;
@@ -34,6 +35,16 @@ public class TestVertex implements Vertex<TestEdge, TestVertexMetadata> {
       sum += e.getWeight();
     }
     return sum;
+  }
+
+  @Override
+  public void setScore(double score) {
+    this.score = score;
+  }
+
+  @Override
+  public Double getScore() {
+    return score;
   }
 
   @Override

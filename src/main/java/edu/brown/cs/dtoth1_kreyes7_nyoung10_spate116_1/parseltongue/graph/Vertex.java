@@ -29,4 +29,18 @@ public interface Vertex<E extends Edge<? extends Vertex>, T extends VertexMetada
    * @return a double with the total weight.
    */
   Double totalWeight();
+
+  /**
+   * Sets the pageRank score.
+   *
+   * @param score a double with the pageRank score
+   */
+  void setScore(double score);
+
+  /**
+   * Gets the pageRank score.
+   *
+   * @return score a double with the pageRank score
+   */
+  Double getScore();
 }

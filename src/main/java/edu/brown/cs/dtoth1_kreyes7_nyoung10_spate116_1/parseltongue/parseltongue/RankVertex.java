@@ -12,6 +12,7 @@ import java.util.Set;
 public class RankVertex implements Vertex<RankEdge, RankMetadata> {
   private RankMetadata meta;
   private Set<RankEdge> adj = new HashSet<>();
+  private double score = 0;
 
   /**
    * Construcor. TODO: Complete Docs.
@@ -58,6 +59,16 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
       sum += e.getWeight();
     }
     return sum;
+  }
+
+  @Override
+  public void setScore(double score) {
+    this.score = score;
+  }
+
+  @Override
+  public Double getScore() {
+    return score;
   }
 
   /**

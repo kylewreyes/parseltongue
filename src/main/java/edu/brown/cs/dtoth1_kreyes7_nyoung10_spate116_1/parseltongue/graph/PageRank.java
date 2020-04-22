@@ -77,6 +77,7 @@ public class PageRank<G extends Graph<V, E, T>, V extends Vertex<E, T>, E extend
     List<V> finalList = new ArrayList<>();
     for (Integer idx : indices) {
       finalList.add(nodes.get(idx));
+      nodes.get(idx).setScore(updatedDistribution.get(nodes.get(idx)));
     }
     return finalList;
   }
