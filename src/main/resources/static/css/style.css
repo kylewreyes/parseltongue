@@ -291,33 +291,20 @@ footer {
   justify-content: stretch;
 }
 
-#sidepanel {
-  margin: 0;
-  padding: 25px;
-  text-align: center;
-  width: 20%;
-  background-color: #eee;
-}
-
-input[type="checkbox"] {
-  margin: 10px 0;
-  padding: 0;
-}
-
 #snippets {
-  margin: 0;
-  padding: 50px;
-  width: 80%;
+  margin: auto;
   background-color: white;
   text-align: center;
-  overflow-y: scroll;
-  max-height: 100%;
 }
 
 .snippet {
-  margin: 50px auto;
-  padding: 40px;
+  margin: 20px auto;
+  padding: 20px 40px;
   border-radius: 40px;
   background-color: #eee;
-  text-align: center;
+  text-align: left;
+}
+
+.snippet-score {
+  color: red;
 }

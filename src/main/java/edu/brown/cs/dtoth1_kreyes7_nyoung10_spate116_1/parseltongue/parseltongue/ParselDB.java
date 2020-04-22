@@ -178,6 +178,14 @@ public final class ParselDB {
           .append("score", score)
           .append("content", content);
     }
+
+    public String getContent() {
+      return content;
+    }
+
+    public double getScore() {
+      return score;
+    }
   }
 
 

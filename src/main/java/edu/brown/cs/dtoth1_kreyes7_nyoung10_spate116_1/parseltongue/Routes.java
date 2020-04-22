@@ -20,6 +20,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -121,7 +122,7 @@ public class Routes {
 
   /**
    * Handles GET requests to the /dashboard route.
-   * TODO: delete PDFs
+   * TODO: delete PDFs, show pdf query
    */
   public static class GETDashHandler implements TemplateViewRoute {
     @Override
@@ -175,7 +176,7 @@ public class Routes {
 
         // Save PDF to DB
         // TODO: Ensure unique ID.
-        // TODO: Save bytestream of PDF
+        // TODO: Save PDF bytestream
         String pdf_id = req.session().attribute("logged") + ("_" + (int) (Math.random() * 9999999));
         ParselDB.PDFSchema newPDF =
             new ParselDB.PDFSchema(pdf_id, req.session().attribute("logged"), filename, query);
@@ -187,7 +188,7 @@ public class Routes {
         RankGraph graph = ParselCommands.parsel(paths, req.queryParams("query"));
         List<RankVertex> vertices = graph.getVertices();
 
-        // TODO: Save Graph
+        // TODO: Save Graph bytestream
         // Process snippets, head to view.
         processSnippets(vertices, pdf_id);
         targetFile.delete();
@@ -204,6 +205,9 @@ public class Routes {
   /**
    * Handles GET requests to the /snippets/:pdf_id route.
    * TODO: Check that pdf belongs to the current user.
+   * TODO: limit # per page
+   * TODO: get similar
+   * TODO: find other things that pagerank gives for free
    */
   public static class GETSnippetsHandler implements TemplateViewRoute {
     @Override
@@ -213,13 +217,19 @@ public class Routes {
       }
       String logged = currentUser(req);
       String pdf_id = req.params(":pdf_id");
-      DBCursor ret = ParselDB.getSnippetsByPDF(pdf_id);
-      if (ret.count() == 0) {
-        req.session().attribute("error", "PDF doesn't exist.");
+      DBCursor pdf = ParselDB.getPDFByID(pdf_id);
+      DBCursor snippets = ParselDB.getSnippetsByPDF(pdf_id);
+      if (snippets.count() == 0 || !pdf.hasNext()) {
+        req.session().attribute("error", "PDF doesn't exist or malformed PDF.");
         res.redirect("/error");
       }
-      String snippets = formatSnippets(ret);
-      Map<String, Object> variables = ImmutableMap.of("loggedIn", logged, "snippets", snippets);
+      String formattedSnippets = formatSnippets(snippets);
+      pdf.next();
+      Map<String, Object> variables =
+          ImmutableMap.of("loggedIn", logged,
+              "snippets", formattedSnippets,
+              "filename", pdf.curr().get("filename").toString(),
+              "query", pdf.curr().get("query").toString());
       return new ModelAndView(variables, "view.ftl");
     }
   }
@@ -268,7 +278,7 @@ public class Routes {
 
   /**
    * Format snippets.
-   * TODO: Cap number, Links, Delete
+   * TODO: Links, Delete
    * @param pdfs  List of pdfs.
    */
   private static String formatPDFs(DBCursor pdfs) {
@@ -286,16 +296,27 @@ public class Routes {
 
   /**
    * Format snippets.
-   * TODO: Cap number, Create links, metadata, ranked???.
-   * @param snippets  List of snippets.
+   * @param cursor  List of snippets.
    */
-  private static String formatSnippets(DBCursor snippets) {
+  private static String formatSnippets(DBCursor cursor) {
+    List<ParselDB.SnippetSchema> snippets = new ArrayList<>();
+    while (cursor.hasNext()) {
+      DBObject curr = cursor.next();
+      snippets.add(new ParselDB.SnippetSchema(
+          curr.get("pdf_id").toString(),
+          Double.parseDouble(curr.get("score").toString()) * 1000.0,
+          curr.get("content").toString()));
+    }
+
+    snippets.sort(Comparator.comparingDouble(ParselDB.SnippetSchema::getScore).reversed());
+
     StringBuilder ret = new StringBuilder();
-    // TODO: Rank them
-    while (snippets.hasNext()) {
-      ret.append("<div class=\"snippet\">");
-      DBObject snippet = snippets.next();
-      ret.append(snippet.get("content"));
+    // Capped at 100 TODO: Make this a variable
+    for (int i = 0; i < 100; i++) {
+      ret.append("<div class=\"snippet\"><div class=\"snippet-score\">");
+      ret.append(snippets.get(i).getScore());
+      ret.append("</div>");
+      ret.append(snippets.get(i).getContent());
       ret.append("</div>");
     }
     return ret.toString();
@@ -308,7 +329,7 @@ public class Routes {
   private static void processSnippets(List<RankVertex> vertices, String pdf_id) {
     for (RankVertex v : vertices) {
       ParselDB.SnippetSchema newSnippet =
-          new ParselDB.SnippetSchema(pdf_id, v.getScore() * 1000.0, v.getValue().getSnippet().getOriginalText());
+          new ParselDB.SnippetSchema(pdf_id, v.getScore(), v.getValue().getSnippet().getOriginalText());
       ParselDB.updateSnippet(newSnippet);
     }
   }
