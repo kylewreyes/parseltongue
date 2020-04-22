@@ -128,7 +128,7 @@ public final class Main {
     Spark.post("/upload", new Routes.POSTUploadHandler(), freeMarker);
 
     // GET View Snippets - "/snippets"
-    Spark.get("/snippets", new Routes.GETSnippetsHandler(), freeMarker);
+    Spark.get("/snippets/:pdf_id", new Routes.GETSnippetsHandler(), freeMarker);
 
     // GET Error page
     Spark.get("/error", new Routes.GETErrorHandler(), freeMarker);

@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <title>ParselTongue</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="img/logo.png" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" href="/img/logo.png" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
@@ -16,7 +16,7 @@
       <div class="navHolder">
         <a href="/">
           <div id="navLeft">
-            <img src="img/logo.png" id="navLogo" />
+            <img src="/img/logo.png" id="navLogo" />
             <span id="navHeader">Parsel<strong>Tongue</strong></span>
           </div>
         </a>
@@ -69,6 +69,6 @@
         }
       };
     </script>
-    <script src="js/jquery-2.1.1.js"></script>
+    <script src="/js/jquery-2.1.1.js"></script>
   </body>
 </html>

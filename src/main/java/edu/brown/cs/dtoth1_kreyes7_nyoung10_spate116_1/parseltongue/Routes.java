@@ -3,6 +3,7 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue;
 import com.google.common.collect.ImmutableMap;
 
 import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselCommands;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselDB;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.Snippet;
@@ -153,6 +154,7 @@ public class Routes {
 
   /**
    * Handles POST requests to the /upload route.
+   * TODO: Make loading screen.
    */
   public static class POSTUploadHandler implements TemplateViewRoute {
     @Override
@@ -162,22 +164,30 @@ public class Routes {
       // Get file input stream, convert to byte stream and write to temp folder.
       try (InputStream is = req.raw().getPart("file").getInputStream()) {
         String filename = req.raw().getPart("file").getSubmittedFileName();
+        String query = req.queryParams("query");
         byte[] buffer = new byte[is.available()];
         is.read(buffer);
         String filePath = String.format("temp/%s.pdf", filename.hashCode());
         File targetFile = new File(filePath);
         OutputStream outStream = new FileOutputStream(targetFile);
         outStream.write(buffer);
-        // Format query for parsel command.
+
+        // Save PDF to DB
+        // TODO: Ensure unique ID.
+        String pdf_id = req.session().attribute("logged") + ("_" + (int) (Math.random() * 9999999));
+        ParselDB.PDFSchema newPDF =
+            new ParselDB.PDFSchema(pdf_id, req.session().attribute("logged"), filename, query);
+        ParselDB.updatePDF(newPDF);
+
+        // Run parsel command
         List<String> paths = new ArrayList<>();
         paths.add(filePath);
         List<Snippet> ret = ParselCommands.parsel(paths, req.queryParams("query"));
-        // TODO: Figure out PDF-ids
+
         // Process snippets, head to view.
-        processSnippets(ret, Math.random()*9999999 + "");
+        processSnippets(ret, pdf_id);
         targetFile.delete();
-        // TODO: redirect to view.
-        res.redirect("/dashboard");
+        res.redirect("/snippets/" + pdf_id);
       } catch (Exception e) {
         System.err.println("ERROR: Bad File Upload at /upload");
         req.session().attribute("error", "Bad File Upload at /upload");
@@ -189,7 +199,6 @@ public class Routes {
 
   /**
    * Handles GET requests to the /snippets route.
-   * TODO: Make display, make url
    */
   public static class GETSnippetsHandler implements TemplateViewRoute {
     @Override
@@ -198,8 +207,14 @@ public class Routes {
         res.redirect("/");
       }
       String logged = currentUser(req);
-      // TODO: Populate with snippet parsing
-      Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
+      String pdf_id = req.params(":pdf_id");
+      DBCursor ret = ParselDB.getSnippetsByPDF(pdf_id);
+      if (ret.count() == 0 || !ret.curr().get("user").equals(logged)) {
+        req.session().attribute("error", "PDF doesn't exist.");
+        res.redirect("/error");
+      }
+      String snippets = formatSnippets(ret);
+      Map<String, Object> variables = ImmutableMap.of("loggedIn", logged, "snippets", snippets);
       return new ModelAndView(variables, "view.ftl");
     }
   }
@@ -244,13 +259,29 @@ public class Routes {
   }
 
   /**
+   * Format snippets.
+   * TODO: Cap number.
+   * @param snippets  List of snippets.
+   */
+  private static String formatSnippets(DBCursor snippets) {
+    StringBuilder ret = new StringBuilder();
+    while (snippets.hasNext()) {
+      ret.append("<div class=\"snippet\">");
+      DBObject snippet = snippets.next();
+      ret.append(snippet.get("content"));
+      ret.append("</div>");
+    }
+    return ret.toString();
+  }
+
+  /**
    * Process snippets - upload them to DB and return a list of Strings
    * TODO: score.
    * @param snippets  snippets.
    */
   private static void processSnippets(List<Snippet> snippets, String pdf_id) {
     for (Snippet s : snippets) {
-      ParselDB.SnippetSchema newSnippet = new ParselDB.SnippetSchema(pdf_id, "0", s.getOriginalText());
+      ParselDB.SnippetSchema newSnippet = new ParselDB.SnippetSchema(pdf_id, 0, s.getOriginalText());
       ParselDB.updateSnippet(newSnippet);
     }
   }

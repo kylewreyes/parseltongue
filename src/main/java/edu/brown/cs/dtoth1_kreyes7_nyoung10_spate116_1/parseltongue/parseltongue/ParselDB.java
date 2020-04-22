@@ -69,7 +69,7 @@ public final class ParselDB {
    * @param pdf_id  pdf_id.
    */
   public static DBCursor getSnippetsByPDF(String pdf_id) {
-    return userCollection.find(new BasicDBObject("pdf_id", pdf_id));
+    return snippetCollection.find(new BasicDBObject("pdf_id", pdf_id));
   }
 
   /**
@@ -109,7 +109,7 @@ public final class ParselDB {
    * @param pdf
    */
   public static void removePDF(PDFSchema pdf) {
-    userCollection.remove(pdf.getDBObject());
+    pdfCollection.remove(pdf.getDBObject());
   }
 
   /**
@@ -117,7 +117,7 @@ public final class ParselDB {
    * @param snippet
    */
   public static void removeSnippet(SnippetSchema snippet) {
-    userCollection.remove(snippet.getDBObject());
+    snippetCollection.remove(snippet.getDBObject());
   }
 
   /**
@@ -144,7 +144,7 @@ public final class ParselDB {
   public static class PDFSchema {
     String _id, user, filename, query;
 
-    public PDFSchema(String i, String u, String f, String q, String ts) {
+    public PDFSchema(String i, String u, String f, String q) {
       _id = i;
       user = u;
       filename = f;
@@ -164,9 +164,10 @@ public final class ParselDB {
    * TODO: Score datatype
    */
   public static class SnippetSchema {
-    String pdf_id, score, content;
+    String pdf_id, content;
+    int score;
 
-    public SnippetSchema(String p, String s, String c) {
+    public SnippetSchema(String p, int s, String c) {
       pdf_id = p;
       score = s;
       content = c;
