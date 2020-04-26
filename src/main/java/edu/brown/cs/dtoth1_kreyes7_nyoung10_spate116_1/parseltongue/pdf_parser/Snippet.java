@@ -51,7 +51,7 @@ public class Snippet {
   /**
    * Gets the distribution for words.
    *
-   * @return the distribution as a hashmap.
+   * @return the distribution as a {@link HashMap}.
    */
   public Map<String, Double> distribution() {
     if (plainText == null) {
@@ -125,7 +125,6 @@ public class Snippet {
       PARAGRAPH_ENDS.add("!");
       PARAGRAPH_ENDS.add("?");
       PARAGRAPH_ENDS.add("\"");
-      PARAGRAPH_ENDS.add(":");
       final Set<String> CONTENT_ENDINGS = new HashSet<>();
       CONTENT_ENDINGS.add("References");
       CONTENT_ENDINGS.add("Bibliography");
@@ -143,7 +142,7 @@ public class Snippet {
       while ((nextLine = textReader.readLine()) != null) {
         // Apache OpenPDF uses non-breaking spaces, so this replaces it w/ normal whitespaces
         // TODO: This is immutable.
-        nextLine.replace(" ", " ");
+        nextLine.replaceAll("\\h", " ");
 
         // Not all documents contain an abstract. But if they do, only everything starting from
         // the abstract is wanted. So, if an abstract is found, everything before it is removed.
@@ -232,6 +231,7 @@ public class Snippet {
     return originalText.equals(snippet.originalText);
   }
 
+
   /**
    * Hashcode.
    * @return  Hashed Snippet.
@@ -242,6 +242,7 @@ public class Snippet {
   }
 
   public static void main(String[] args) {
+    System.out.println(" ".equals(" "));
     PDFParser parser = new PDFParser();
     for (Snippet s : Snippet.parseText(parser.getText("C:/Users/kwill/Desktop/Temp/BP-Event-in-the-Mediterranean.pdf"))) {
       System.out.println(s.getOriginalText());
