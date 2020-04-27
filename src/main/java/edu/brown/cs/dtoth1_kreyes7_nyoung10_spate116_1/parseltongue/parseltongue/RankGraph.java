@@ -146,7 +146,6 @@ public class RankGraph implements
 
     double mean = 0.0;
     for (RankEdge e : edges) {
-      double w = e.getWeight();
       mean += e.getWeight();
     }
     mean /= edges.size();
