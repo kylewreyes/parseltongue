@@ -342,7 +342,8 @@ public class KeywordExtractorTest {
     lds.add(s20.distribution());
     System.out.println(KeywordExtractor.extractKeywords(Arrays.asList("sheep", "populations", "reduction"),lds));
     List<Snippet> corpus = List.of(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20);
-    RankGraph rg = new RankGraph(corpus, List.of("sheep", "populations", "reduction"), new Jaccardish());
+    RankGraph rg = new RankGraph(corpus, new Jaccardish());
+    rg.populateEdges(List.of("sheep", "populations", "reduction"));
     PageRank pr = new PageRank(rg);
     List<RankVertex> ranked = pr.pageRank();
     for (RankVertex rv : ranked) {

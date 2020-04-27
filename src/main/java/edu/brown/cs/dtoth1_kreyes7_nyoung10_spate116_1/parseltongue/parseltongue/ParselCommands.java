@@ -14,7 +14,7 @@ import java.util.List;
  */
 public final class ParselCommands {
   // TODO: Make these private.
-  public static PDFParser parser = new PDFParser();
+  private static PDFParser parser = new PDFParser();
   public static final String PARSE_ARGUMENT_PATTERN =
       "([\\S]*\\.pdf)( [\\S]*\\.pdf)* \\\"[^\\\"]*\\\"";
 
@@ -65,7 +65,8 @@ public final class ParselCommands {
     }
     Snippet query = new Snippet(queryString);
     try {
-      RankGraph g = new RankGraph(coreTexts, new ArrayList<>(query.distribution().keySet()), new CosineSimilarity());
+      RankGraph g = new RankGraph(coreTexts, new CosineSimilarity());
+      g.populateEdges(new ArrayList<>(query.distribution().keySet()));
       PageRank ranker = new PageRank<>(g);
       ranker.pageRank();
       return g;

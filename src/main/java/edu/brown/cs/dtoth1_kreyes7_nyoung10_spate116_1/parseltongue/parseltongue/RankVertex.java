@@ -31,6 +31,13 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
   }
 
   /**
+   * Clears the adjacency list of the RankVertex.
+   */
+  public void clearEdges() {
+    adj.clear();
+  }
+
+  /**
    * Get Value. TODO: Complete Docs.
    * @return  Metadata.
    */

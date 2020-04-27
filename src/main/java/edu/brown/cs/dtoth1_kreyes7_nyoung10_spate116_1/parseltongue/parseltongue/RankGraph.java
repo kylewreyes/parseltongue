@@ -19,25 +19,37 @@ import java.util.Set;
  */
 public class RankGraph implements
     Graph<RankVertex, RankEdge, RankMetadata> {
-  private List<RankVertex> nodes = new ArrayList<>();
+  private List<RankVertex> nodes;
   private PageRank<RankGraph, RankVertex, RankEdge, RankMetadata> pRank = new PageRank<>(this);
   private Map<RankVertex, Set<RankEdge>> inboundMap = new HashMap<>();
+  private RelevanceMetric metric;
+  private List<Map<String, Double>> dist;
+  private List<Snippet> rawCoreText;
+  private Map<String, Double> keywordDistribution = new HashMap<>();
 
   /**
    * Constructor TODO: Complete Docs.
    *
    * @param rawCoreText rawCoreText.
-   * @param keywords  keywords.
-   * @param metric  metric.
+   * @param newMetric  metric.
    */
-  public RankGraph(List<Snippet> rawCoreText, List<String> keywords, RelevanceMetric metric) {
-    List<Map<String, Double>> dist = new ArrayList<>();
+  public RankGraph(List<Snippet> rawCoreText, RelevanceMetric newMetric) {
+    dist = new ArrayList<>();
+    nodes = new ArrayList<>();
     for (Snippet s : rawCoreText) {
       nodes.add(new RankVertex(new RankMetadata(s)));
       dist.add(s.distribution());
     }
+    this.metric = newMetric;
+    this.rawCoreText = rawCoreText;
+  }
 
-    Map<String, Double> keywordDistribution = KeywordExtractor.extractKeywords(keywords, dist);
+  public void populateEdges(List<String> keywords) {
+    for (RankVertex v : nodes) {
+      v.clearEdges();
+    }
+
+    keywordDistribution = KeywordExtractor.extractKeywords(keywords, dist);
 
     List<List<Double>> keywordScoring = new ArrayList<>(nodes.size());
     for (int i = 0; i < nodes.size(); i++) {
@@ -65,6 +77,15 @@ public class RankGraph implements
     for (RankEdge e : edges) {
       inboundMap.get(e.getDest()).add(e);
     }
+  }
+
+  /**
+   * Getter method for current internal keyword distribution.
+   * @return Map of string indicating keyword content to number
+   *         representing relative importance of that keyword
+   */
+  public Map<String, Double> getCurrentKeywords() {
+    return keywordDistribution;
   }
 
   /**
