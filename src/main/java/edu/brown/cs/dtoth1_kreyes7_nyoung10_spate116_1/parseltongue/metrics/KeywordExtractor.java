@@ -51,7 +51,8 @@ public final class KeywordExtractor {
       avgCounter += (ttfidf - avgTandumFreq) * (ttfidf - avgTandumFreq);
     }
     final double ttidfStd = Math.sqrt(avgCounter / allWords.size());
-    allWords.values().removeIf(val -> val < avgTandumFreq + 4 * ttidfStd);
+    allWords.values().removeIf(val -> val < avgTandumFreq + 5 * ttidfStd);
+    allWords.keySet().removeIf(word -> word.length() < 4);
     //System.out.println(allWords);
     keywordHeuristics.putAll(allWords);
     return keywordHeuristics;
