@@ -168,6 +168,6 @@ public class RankGraph implements
 
   public List<RankVertex> getTop(int n) {
     nodes.sort(Comparator.comparing(RankVertex::getScore));
-    return nodes.subList(0, n);
+    return nodes.subList(nodes.size() - n, nodes.size());
   }
 }
