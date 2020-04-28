@@ -12,10 +12,8 @@ import java.util.List;
 public class RankGraphTest {
   @Test
   public void testMultipleParagraphs() {
-    // TODO: Activate.
     RankGraph g = new RankGraph(Snippet.parseText(new PDFParser().getText("data/test.pdf")), new CosineSimilarity());
     g.populateEdges(List.of("rocks", "rock", "the"));
-    //TODO: Need to make sure PageRank doesnt get into infinite loop when all things are 0;
     PageRank ranker = new PageRank(g);
     List<RankVertex> snippets = ranker.pageRank();
     for (int i = 0; i < 5; i++) {
