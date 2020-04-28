@@ -179,7 +179,7 @@ public class RankGraph implements
     stdev = Math.sqrt(stdev);
 
     for (RankEdge e : edges) {
-      if (e.getWeight() >= mean + stdev * zscore) {
+      if (e.getWeight() > mean + stdev * zscore) {
         finalEdges.add(e);
       }
     }
