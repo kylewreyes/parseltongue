@@ -28,10 +28,10 @@ public class RankGraph implements
   private Map<String, Double> keywordDistribution = new HashMap<>();
 
   /**
-   * Constructor TODO: Complete Docs.
+   * Constructor for rank graph which initializes internal data of the graph.
    *
-   * @param rawCoreText rawCoreText.
-   * @param newMetric  metric.
+   * @param rawCoreText raw snippets to be used as the node data for this graph
+   * @param newMetric  a metric for determining similarity between two snippets
    */
   public RankGraph(List<Snippet> rawCoreText, RelevanceMetric newMetric) {
     dist = new ArrayList<>();
@@ -44,6 +44,10 @@ public class RankGraph implements
     this.rawCoreText = rawCoreText;
   }
 
+  /**
+   * Function which takes new keywords and reweighs all the edges between nodes.
+   * @param keywords the list of new keywords to be used.
+   */
   public void populateEdges(List<String> keywords) {
     for (RankVertex v : nodes) {
       v.clearEdges();
@@ -89,8 +93,7 @@ public class RankGraph implements
   }
 
   /**
-   * rank TODO: Complete Docs.
-   *
+   * Function which runs Pagerank and returns the snippets in order.
    * @return  List of Snippets.
    */
   public List<Snippet> rank() {
@@ -103,7 +106,7 @@ public class RankGraph implements
   }
 
   /**
-   * Get Vertex. TODO: Complete Docs.
+   * Returns a vertex in the graph based on the vertex ID.
    *
    * @param id the unique ID
    * @return  Vertex.
@@ -119,7 +122,7 @@ public class RankGraph implements
   }
 
   /**
-   * Contains Vertex. TODO: Complete Docs.
+   * Checks a if a given vertex is contained in the graph by id.
    *
    * @param id the unique ID
    * @return  True if contains.
@@ -135,7 +138,7 @@ public class RankGraph implements
   }
 
   /**
-   * Get Vertice. TODO: Complete Docs.
+   * Returns the list of nodes contained within this graph.
    *
    * @return  List of vertices.
    */
@@ -145,7 +148,7 @@ public class RankGraph implements
   }
 
   /**
-   * Get Incoming. TODO: Complete Docs.
+   * Returns all the edges pointing to a specified node.
    *
    * @param target the target node
    * @return  Set of rank edges.
@@ -156,11 +159,12 @@ public class RankGraph implements
   }
 
   /**
-   * Run Imputation. TODO: Complete Docs.
+   * Run Imputation. Takes in a list of edges and a zscore value and returns a list of edges
+   * culled so that only those with an edge weight above one zscore of the mean remain.
    *
-   * @param edges edges.
-   * @param zscore  zscore.
-   * @return  Imputed.
+   * @param edges edges to be imputed
+   * @param zscore zscore threshold to be returned
+   * @return  Imputed edges
    */
   private List<RankEdge> runImputation(List<RankEdge> edges, double zscore) {
     List<RankEdge> finalEdges = new ArrayList<>();
@@ -187,6 +191,13 @@ public class RankGraph implements
     return finalEdges;
   }
 
+  /**
+   * Returns the top n nodes with according to their score.
+   * Note that if pagerank has not been run on this graph then the
+   * returned results will not have a score to be sorted on.
+   * @param n number of nodes to return
+   * @return the top n nodes with the highest score
+   */
   public List<RankVertex> getTop(int n) {
     nodes.sort(Comparator.comparing(RankVertex::getScore));
     return nodes.subList(nodes.size() - n, nodes.size());

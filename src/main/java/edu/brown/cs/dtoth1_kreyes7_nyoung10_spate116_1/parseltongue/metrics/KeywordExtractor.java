@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Keyword Extractor Class!
+ * Keyword Extractor Class for generating a set of useful keywords from a set of documents and
+ * some predetermined primary keywords.
  */
 public final class KeywordExtractor {
   private KeywordExtractor() {
@@ -59,11 +60,12 @@ public final class KeywordExtractor {
   }
 
   /**
-   * Primary keyword metric. TODO: Complete Docs.
+   * Primary keyword metric. Scores a keyword based on its term frequency inverse document
+   * frequency value. Words are more important are given a higher score.
    *
-   * @param word      word.
-   * @param documents docs.
-   * @return ^.
+   * @param word      word to score
+   * @param documents documents to base score from
+   * @return a double score of the keyword in the list of documents
    */
   private static double primaryKeywordMetric(String word, List<Map<String, Double>> documents) {
     int docFreq = 0;
@@ -79,11 +81,13 @@ public final class KeywordExtractor {
   }
 
   /**
-   * tandem term frequency inverse document frequency. TODO: Complete Docs.
+   * Calculates the tandem term frequency inverse document frequency of a words based on
+   * a list of primary keywords and a set of document data. Words that are semi-covariant
+   * with the keywords are given a higher score.
    *
-   * @param keywords  keywords.
-   * @param word      word.
-   * @param documents docs.
+   * @param keywords  list of keywords to use
+   * @param word      word to score
+   * @param documents documents to score from
    * @return ^.
    */
   private static double ttfidf(
