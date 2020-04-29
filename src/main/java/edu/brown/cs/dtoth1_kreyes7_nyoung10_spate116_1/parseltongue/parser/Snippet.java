@@ -1,6 +1,7 @@
 package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
@@ -166,8 +167,7 @@ public class Snippet {
     abstractTags.add("ABSTRACT");
 
     if (line.length() >= abstractLength) {
-      String initString = line.substring(0, abstractLength);
-      return matchesHeading(initString, abstractTags);
+      return matchesHeading(line, abstractTags);
     }
     return false;
   }
@@ -188,8 +188,7 @@ public class Snippet {
     documentEndings.add("ACKNOWLEDGMENTS");
     documentEndings.add("ACKNOWLEDGEMENTS");
     if (line.length() >= endingTagLength) {
-      String initString = line.substring(0, endingTagLength);
-      return matchesHeading(initString, documentEndings);
+      return matchesHeading(line, documentEndings);
     }
     return false;
   }
@@ -205,6 +204,7 @@ public class Snippet {
    */
   public static List<Snippet> parseText(String text, String file, Optional<Integer> pageNum) {
     //TODO: Check for change in font sizes or bars at the bottom.
+    //TODO: Check for when the abstract if at the beginning of the page (NEED GLOBAL FOUNDSTART AND END)
     final Set<String> paragraphEnds = new HashSet<>();
     paragraphEnds.add(".");
     paragraphEnds.add("!");
@@ -239,11 +239,12 @@ public class Snippet {
             } else {
               paragraph = new Snippet(currentSnippet.toString(), file, pageNum.get());
             }
+            snippets.add(paragraph);
           }
           break;
         }
 
-        // Checks if next line is either empty or just whitespace
+        // Checks if next line contains actual characters
         if (nextLine != "" && !nextLine.matches("\\p{javaWhitespace}*")) {
           currentSnippet.append(nextLine);
           String lastChar = nextLine.substring(nextLine.length() - 1);
@@ -306,5 +307,18 @@ public class Snippet {
   @Override
   public int hashCode() {
     return Objects.hash(getOriginalText(), file, getPageNum());
+  }
+
+  public static void main(String[] args) {
+    File f = new File("C:/Users/kwill/Desktop/Temp/Report Number.pdf");
+    try (PDFParser parser = new PDFParser(f)) {
+      List<Snippet> l = Snippet.parseText(parser.getText(), f.getName(), Optional.empty());
+      for (Snippet s : l) {
+        System.out.println(s.getOriginalText());
+        System.out.println(System.lineSeparator());
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 }
