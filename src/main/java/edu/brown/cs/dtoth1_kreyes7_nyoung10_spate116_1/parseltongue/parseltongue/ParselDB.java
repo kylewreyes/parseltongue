@@ -199,10 +199,10 @@ public final class ParselDB {
 
   /**
    * Removes PDF by ID.
-   * @param _id pdf id.
+   * @param query_id query id.
    */
-  public static void removeSnippetByID(String _id) {
-    snippetCollection.remove(new BasicDBObject("_id", _id));
+  public static void removeSnippetsByQuery(String query_id) {
+    snippetCollection.remove(new BasicDBObject("query_id", query_id));
   }
 
   /**

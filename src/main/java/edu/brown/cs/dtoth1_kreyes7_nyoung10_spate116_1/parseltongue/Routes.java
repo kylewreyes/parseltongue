@@ -345,6 +345,7 @@ public class Routes {
       ParselDB.QuerySchema query = ParselDB.getQueryByID(query_id);
       if (query != null && query.getUser().equals(logged)) {
         ParselDB.removeQueryByID(query_id);
+        ParselDB.removeSnippetsByQuery(query_id);
         res.redirect("/dashboard");
       } else {
         req.session().attribute("error", "Query doesn't exist or malformed Query.");
@@ -426,8 +427,8 @@ public class Routes {
       ret.append("<br/>");
       ret.append(pdf.getFilename());
       ret.append("</a>");
-      ret.append("<br/>");
-      ret.append(String.format("<a class=\"delete\" href=\"/query/delete/%s\">", pdf.getId()));
+      ret.append("<br/><br/>");
+      ret.append(String.format("<a class=\"delete\" href=\"/delete/%s\">", pdf.getId()));
       ret.append("delete");
       ret.append("</a></div>");
     }

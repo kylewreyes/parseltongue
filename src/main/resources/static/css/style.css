@@ -268,9 +268,23 @@ footer {
 }
 
 #queries {
+  max-width: 640px;
+  margin: auto;
+  text-align: left;
 }
 
 .query {
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: 1px solid grey;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.query > a {
+  color: black;
+  text-decoration: underline;
 }
 
 #pdfs {
@@ -300,6 +314,7 @@ footer {
   border-radius: 40px;
   background-color: #eee;
   text-align: center;
+  word-wrap: break-word;
 }
 
 .pdf > a {
@@ -308,7 +323,6 @@ footer {
 }
 
 .delete {
-  line-height: 2rem;
   color: red !important;
 }
 
