@@ -2,13 +2,16 @@
 <div id="app">
     <div id="upload">
         <div class="fullpage-form" id="uploadForm">
-            <form method="POST" action="/upload" enctype='multipart/form-data' onsubmit='loading()'>
-                <h1>Upload PDFs</h1>
+            <form method="POST" action="/query" onsubmit='loading()'>
+                <h1>Query</h1>
                 <br/>
-                <label for="file">File:</label>
-                <input type="file" name="file" accept='.pdf' required>
+                <label for="file">Keywords:</label>
+                <input type="text" name="keywords" required>
                 <br/>
-                <button class="button">Upload</button>
+                <label for="file">Files:</label>
+                <br/>
+                ${pdfs}
+                <button class="button">Query</button>
             </form>
         </div>
     </div>

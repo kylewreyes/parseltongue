@@ -26,7 +26,6 @@ h1 {
 p {
   font-size: 1.2rem;
   font-weight: 200;
-  margin-bottom: 50px;
 }
 
 a {
@@ -39,6 +38,9 @@ hr {
 
 input {
   margin: 10px 5px;
+  border: 1px solid grey;
+  border-radius: 20px;
+  padding: 5px 15px;
 }
 
 #app {
@@ -82,7 +84,7 @@ nav {
   margin: auto;
 }
 
-a:before {
+#navRight > a:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -95,7 +97,7 @@ a:before {
   transition: all 0.3s ease-in-out 0s;
 }
 
-a:hover:before {
+#navRight > a:hover:before {
   visibility: visible;
   transform: scaleX(1);
 }
@@ -157,8 +159,7 @@ a:hover:before {
 
 #jumbotronText {
   font-weight: 200;
-  font-size: 4rem;
-  margin-right: 20px;
+  font-size: 3.5rem;
 }
 
 #jumbotronImage {
@@ -260,20 +261,55 @@ footer {
 /* =================================== */
 
 #dashboard {
-  padding: 40px 80px;
+  padding: 40px 0;
   border-radius: 40px;
   background-color: #eee;
+  text-align: center;
+}
+
+#queries {
+}
+
+.query {
+}
+
+#pdfs {
+  max-width: 780px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media only screen and (max-width: 780px) {
+  #pdfs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #pdfs {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .pdf {
   margin: 10px auto;
+  padding: 10px;
+  width: 150px;
+  border: 1px solid grey;
   border-radius: 40px;
   background-color: #eee;
+  text-align: center;
 }
 
 .pdf > a {
   color: black;
   text-decoration: underline;
+}
+
+.delete {
+  line-height: 2rem;
+  color: red !important;
 }
 
 /* =================================== */
@@ -307,4 +343,42 @@ footer {
 
 .snippet-score {
   color: red;
+  margin-bottom: 10px;
+}
+
+/* =================================== */
+/* Loading */
+/* =================================== */
+
+#loading {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #45ab42; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

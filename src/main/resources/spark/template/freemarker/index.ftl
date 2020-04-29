@@ -8,27 +8,27 @@
             Research paper parsing done <strong>right</strong>.
         </div>
     </div>
-    <#--  <div id="buttons">
-        <button class="button">Learn More</button>
-        <button class="button">Getting Started</button>
-    </div>  -->
+    <div id="buttons">
+        <#if loggedIn == "0">
+        <button href="#" onclick="document.getElementById('id01').style.display='block'" class="button">Get Started</button>
+        <#else>
+        <a href="/dashboard"><button class="button">Dashboard</button></a>
+        </#if>
+    </div>
 
     <hr>
 
     <div id="about">
         <h1>What is ParselTongue?</h1>
         <p>
-            ParselTongues essential function is to make your research process as easy as possible, eliminating long hours spent parsing though long documents just to find the specific sections relevant to your inquiry.
-
-            Here’s some more info on ParselTongue. Its super cool. This is filler text and shouldn’t be kept in the final document. Also this text is too clumped. Not easy to read.
+            Across all research disciplines, huge amounts of time and money are spent reading. While much of this reading is constructive, a good amount of it is also repetitive, becoming a huge sink for both energy and resources.
         </p>
-        <h1>How To Use ParselTongue</h1>
         <p>
-            ParselTongue is engineered to be as easy to use as possible. Just provide us a link to your document on the upload page and we’ll do the heavy lifting. 
+            ParselTongue was designed to vastly expedite the research process, eliminating long hours spent reading though long documents just to find the specific sections relevant to you. We've engineered the perfect solution to skimming articles - just tell us what you're looking to learn from the paper, and we'll show you the parts that are most relevant to you!
         </p>
         <h1>How Does ParselTongue Work?</h1>
         <p>
-            ParselTongue is built with a PageRank algorithm.
+            First, we take your PDF and split it into paragraphs. Then, we apply the PageRank algorithm on these paragraphs to return the paragraphs most relevant to your query. We store the PDF and "snippets" for your perusal later, so that you can manage your research with us.
         </p>
     </div>
 </div>

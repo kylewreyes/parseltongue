@@ -27,7 +27,6 @@
           >
         <#else>
           <a href="/dashboard">Dashboard</a>
-          <a href="/upload">Upload</a>
           <a href="/logout">Logout</a>
         </#if>
         </div>
@@ -36,7 +35,7 @@
      <!-- Login Modal -->
     <div id="id01" class="modal">
       <form class="modal-content animate" action="/login" method="POST">
-        <h1 style="text-decoration: underline;">Login</h1>
+        <h1 style="text-decoration: underline; margin-bottom: 20px">Login</h1>
         <div class="container">
           <label for="username"><b>Email</b></label>
           <input
@@ -45,7 +44,7 @@
             name="username"
             required
           />
-        </br>
+        <br/>
           <label for="password"><b>Password</b></label>
           <input
             type="password"
@@ -53,9 +52,9 @@
             name="password"
             required
           />
-        </br>
+        <br/>
           <button class="button" type="submit" >Login</button>
-        </br>
+        <br/>
           <a href="/register">Create an Account</a>
         </div>
       </form>
