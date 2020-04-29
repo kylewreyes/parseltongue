@@ -67,7 +67,7 @@ nav {
   box-sizing: border-box;
   width: 100%;
   position: sticky;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   margin: 0;
   padding: 15px 25px;
@@ -150,11 +150,11 @@ nav {
 /* =================================== */
 
 #jumbotron {
+  width: 100%;
+  height: 90vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin: auto;
-  text-align: center;
+  justify-content: center;
 }
 
 #jumbotronText {
@@ -222,7 +222,7 @@ footer {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   left: 0;
   top: 0;
   width: 100%;
