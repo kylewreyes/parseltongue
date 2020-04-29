@@ -1,12 +1,6 @@
-package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser;
+package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser;
 
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.PDFParser;
-import org.junit.Before;
 import org.junit.Test;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.StringReader;
 
 import static org.junit.Assert.*;
 

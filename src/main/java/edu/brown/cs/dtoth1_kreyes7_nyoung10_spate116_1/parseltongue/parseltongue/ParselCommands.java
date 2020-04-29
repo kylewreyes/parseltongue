@@ -2,20 +2,22 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongu
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.PageRank;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.CosineSimilarity;
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.PDFParser;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.PDFParser;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.SourceParser;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.TextFileParser;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.REPL;
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.pdf_parser.Snippet;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.Snippet;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
- * Parsel Commands Class!
+ * A utility class that contains all the necessary commands for ParselTongue to run.
  */
 public final class ParselCommands {
-  // TODO: Make these private.
-  private static PDFParser parser = new PDFParser();
-  public static final String PARSE_ARGUMENT_PATTERN =
+  private static final String PARSE_ARGUMENT_PATTERN =
       "([\\S]*\\.pdf)( [\\S]*\\.pdf)* \\\"[^\\\"]*\\\"";
 
   /**
@@ -92,6 +94,25 @@ public final class ParselCommands {
    * @return a List of Snippets of text from the PDF
    */
   public static List<Snippet> extractCorePDFText(String filePath) {
-    return Snippet.parseText(parser.getText(filePath));
+    File file = new File(filePath);
+    if (filePath.length() > 4) {
+      String fileEnding = filePath.substring(filePath.length() - 4);
+      if (fileEnding.equals(".pdf")) {
+        PDFParser parser = new PDFParser(file);
+        List<Snippet> snippetList = new ArrayList<>();
+        for (int i = 1; i <= parser.getPageCount(); i++) {
+          snippetList.addAll(Snippet.parseText(parser.getTextFromPage(i), file.getName(),
+              Optional.of(i)));
+        }
+        return snippetList;
+      } else if (fileEnding.equals(".txt")) {
+        SourceParser parser = new TextFileParser(file);
+        return Snippet.parseText(parser.getText(), file.getName(), Optional.empty());
+      } else {
+        throw new IllegalArgumentException("ERROR: Invalid file path");
+      }
+    } else {
+      throw new IllegalArgumentException("ERROR: Invalid file path");
+    }
   }
 }
