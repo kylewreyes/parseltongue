@@ -19,31 +19,6 @@ import java.util.Set;
 public class Snippet {
   private String plainText, originalText, file;
   private int pageNum;
-  private static final String ABSTRACT = "ABSTRACT", ABSTRACT_2 = "Abstract";
-  private static final Set<String> PARAGRAPH_ENDS = new HashSet<>();
-  private static final Set<String> CONTENT_ENDINGS = new HashSet<>();
-
-  /**
-   * Sets up PARAGRAPH_ENDS and CONTENT_ENDINGS.
-   */
-  private static void setUpConstants() {
-    PARAGRAPH_ENDS.add(".");
-    PARAGRAPH_ENDS.add("!");
-    PARAGRAPH_ENDS.add("?");
-    PARAGRAPH_ENDS.add("\"");
-    CONTENT_ENDINGS.add("References");
-    CONTENT_ENDINGS.add("Bibliography");
-    CONTENT_ENDINGS.add("Works Cited");
-    CONTENT_ENDINGS.add("References Cited");
-    CONTENT_ENDINGS.add("Acknowledgments");
-    CONTENT_ENDINGS.add("Acknowledgements");
-    CONTENT_ENDINGS.add("REFERENCES");
-    CONTENT_ENDINGS.add("BIBLIOGRAPHY");
-    CONTENT_ENDINGS.add("WORKS CITED");
-    CONTENT_ENDINGS.add("REFERENCES CITED");
-    CONTENT_ENDINGS.add("ACKNOWLEDGMENTS");
-    CONTENT_ENDINGS.add("ACKNOWLEDGEMENTS");
-  }
 
   /**
    * @param text the original text from the document.
@@ -171,14 +146,70 @@ public class Snippet {
     return originalText;
   }
 
+  private static boolean matchesHeading(String heading, Set<String> validHeadings) {
+    for (String s : validHeadings) {
+      // String followed by zero or more whitespaces
+      // String followed by whitespace then a capital letter (then any more characters)
+      // String followed by whitespace then a period/colon (then any more characters)
+      if (heading.matches(s + "\\s*") || heading.matches(s + " \\p{javaUpperCase}.*")
+          || heading.matches(s + "\\..*") || heading.matches(s + ":.*")) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private static boolean matchesAbstract(String line) {
+    final int abstractLength = "Abstract".length();
+    final Set<String> abstractTags = new HashSet<>();
+    abstractTags.add("Abstract");
+    abstractTags.add("ABSTRACT");
+
+    if (line.length() >= abstractLength) {
+      String initString = line.substring(0, abstractLength);
+      return matchesHeading(initString, abstractTags);
+    }
+    return false;
+  }
+
+  private static boolean matchesDocumentEnd(String line) {
+    final int endingTagLength = "References".length();
+    final Set<String> documentEndings = new HashSet<>();
+    documentEndings.add("References");
+    documentEndings.add("Bibliography");
+    documentEndings.add("Works Cited");
+    documentEndings.add("References Cited");
+    documentEndings.add("Acknowledgments");
+    documentEndings.add("Acknowledgements");
+    documentEndings.add("REFERENCES");
+    documentEndings.add("BIBLIOGRAPHY");
+    documentEndings.add("WORKS CITED");
+    documentEndings.add("REFERENCES CITED");
+    documentEndings.add("ACKNOWLEDGMENTS");
+    documentEndings.add("ACKNOWLEDGEMENTS");
+    if (line.length() >= endingTagLength) {
+      String initString = line.substring(0, endingTagLength);
+      return matchesHeading(initString, documentEndings);
+    }
+    return false;
+  }
+
   /**
    * Filters text for relevant content and converts text into Snippets, separated by paragraphs.
    *
-   * @param text Text acquired from a {@link SourceParser}.
-   * @param file The name of the file that this Snippet is acquired from
+   * @param text    Text acquired from a {@link SourceParser}.
+   * @param file    The name of the file that this Snippet is acquired from
+   * @param pageNum an {@link Optional<Integer>} that may contain the page number of the page
+   *                this Snippet is from
    * @return a List of Snippets, each one containing a paragraph
    */
   public static List<Snippet> parseText(String text, String file, Optional<Integer> pageNum) {
+    //TODO: Check for change in font sizes or bar at the bottom.
+    final Set<String> paragraphEnds = new HashSet<>();
+    paragraphEnds.add(".");
+    paragraphEnds.add("!");
+    paragraphEnds.add("?");
+    paragraphEnds.add("\"");
     List<Snippet> snippets = new ArrayList<>();
     try (BufferedReader textReader = new BufferedReader(new StringReader(text))) {
       String nextLine;
@@ -191,36 +222,24 @@ public class Snippet {
 
         // Not all documents contain an abstract. But if they do, only everything starting from
         // the abstract is wanted. So, if an abstract is found, everything before it is removed.
-        if (!foundStartOfContent && nextLine.length() >= ABSTRACT.length()) {
-          String initialString = nextLine.substring(0, ABSTRACT.length());
-          if (initialString.equals(ABSTRACT) || initialString.equals(ABSTRACT_2)) {
-            foundStartOfContent = true;
-            snippets = new ArrayList<>();
-            currentSnippet.setLength(0);
-          }
+        if (!foundStartOfContent && matchesAbstract(nextLine)) {
+          foundStartOfContent = true;
+          snippets = new ArrayList<>();
+          currentSnippet.setLength(0);
         }
 
         // Most but not all the documents contain their references, so if one is found,
         // everything after it will be ignored
-        boolean foundEnding = false;
-        if (CONTENT_ENDINGS.contains(nextLine) || CONTENT_ENDINGS.contains(nextLine + " ")
-            || CONTENT_ENDINGS.contains(nextLine + ". ")
-            || CONTENT_ENDINGS.contains(nextLine + ": ")) {
-          foundEnding = true;
-        } else {
-          for (String s : CONTENT_ENDINGS) {
-            String s1 = s + ". ";
-            String s2 = s + ": ";
-            if (nextLine.length() >= s1.length()) {
-              String nextLine2 = nextLine.substring(0, s1.length());
-              if (nextLine2.equals(s1) || nextLine2.equals(s2)) {
-                foundEnding = true;
-                break;
-              }
+        if (matchesDocumentEnd(nextLine)) {
+          // Check to see if currentSnippet contains anything
+          if (currentSnippet.length() != 0) {
+            Snippet paragraph;
+            if (pageNum.isEmpty()) {
+              paragraph = new Snippet(currentSnippet.toString(), file);
+            } else {
+              paragraph = new Snippet(currentSnippet.toString(), file, pageNum.get());
             }
           }
-        }
-        if (foundEnding) {
           break;
         }
 
@@ -229,7 +248,7 @@ public class Snippet {
           currentSnippet.append(nextLine);
           String lastChar = nextLine.substring(nextLine.length() - 1);
           // Check if we have reached the end of a paragraph.
-          if (PARAGRAPH_ENDS.contains(lastChar)) {
+          if (paragraphEnds.contains(lastChar)) {
             Snippet paragraph;
             if (pageNum.isEmpty()) {
               paragraph = new Snippet(currentSnippet.toString(), file);
