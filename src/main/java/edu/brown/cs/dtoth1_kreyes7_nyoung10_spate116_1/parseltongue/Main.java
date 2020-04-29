@@ -121,14 +121,29 @@ public final class Main {
     // GET Dashboard - "/dashboard"
     Spark.get("/dashboard", new Routes.GETDashHandler(), freeMarker);
 
+    // GET Delete - "/download/:pdf_id"
+    Spark.get("/download/:pdf_id", new Routes.GETDownloadHandler(), freeMarker);
+
+    // GET Delete - "/delete/:pdf_id"
+    Spark.get("/delete/:pdf_id", new Routes.GETDeleteHandler(), freeMarker);
+
     // GET Upload Page - "/upload"
     Spark.get("/upload", new Routes.GETUploadHandler(), freeMarker);
 
     // POST Upload - "/upload"
     Spark.post("/upload", new Routes.POSTUploadHandler(), freeMarker);
 
-    // GET View Snippets - "/snippets"
-    Spark.get("/snippets/:pdf_id", new Routes.GETSnippetsHandler(), freeMarker);
+    // GET Query Page - "/query"
+    Spark.get("/query", new Routes.GETQueryHandler(), freeMarker);
+
+    // POST Query - "/query"
+    Spark.post("/query", new Routes.POSTQueryHandler(), freeMarker);
+
+    // GET View query - "/query/:query_id"
+    Spark.get("/query/:query_id", new Routes.GETQueryViewHandler(), freeMarker);
+
+    // GET View query - "/query/delete/:query_id"
+    Spark.get("/query/delete/:query_id", new Routes.GETQueryDeleteHandler(), freeMarker);
 
     // GET Error page
     Spark.get("/error", new Routes.GETErrorHandler(), freeMarker);

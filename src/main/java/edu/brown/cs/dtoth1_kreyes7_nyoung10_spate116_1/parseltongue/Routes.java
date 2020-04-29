@@ -2,12 +2,17 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue;
 
 import com.google.common.collect.ImmutableMap;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselCommands;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselDB;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.RankGraph;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.RankVertex;
+<<<<<<< HEAD
+=======
+import org.apache.pdfbox.multipdf.PDFCloneUtility;
+>>>>>>> 4d31e2abee0e74de865595bd98035873d4a04de8
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -40,6 +45,9 @@ public class Routes {
   public static class GETMainHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
+      if (isLogged(req)) {
+        res.redirect("/dashboard");
+      }
       String logged = currentUser(req);
       Map<String, Object> variables = ImmutableMap.of("loggedIn", logged);
       return new ModelAndView(variables, "index.ftl");
@@ -56,8 +64,8 @@ public class Routes {
     String username = req.queryParams("username");
     String password = req.queryParams("password");
     // Check if username-password combination is valid
-    DBCursor ret = ParselDB.getUserByIDPW(username, password);
-    if (ret.count() == 1) {
+    ParselDB.UserSchema ret = ParselDB.getUserByID(username);
+    if (ret != null && ret.getPassword().equals("" + password.hashCode())) {
       req.session().attribute("logged", username);
       res.redirect("/dashboard");
     } else {
@@ -100,16 +108,16 @@ public class Routes {
   public static class POSTRegisterHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      // TODO: Better password encryption
       String username = req.queryParams("username");
       String password = req.queryParams("password");
       // Check username hasn't been used yet
-      DBCursor ret = ParselDB.getUserByID(username);
-      if (ret.count() >= 1) {
+      ParselDB.UserSchema ret = ParselDB.getUserByID(username);
+      if (ret != null) {
         req.session().attribute("error", "Email is invalid or already in use.");
         res.redirect("/error");
       } else {
-        ParselDB.UserSchema newUser = new ParselDB.UserSchema(username, password);
+        // TODO: Better password encryption
+        ParselDB.UserSchema newUser = new ParselDB.UserSchema(username, "" + password.hashCode());
         ParselDB.updateUser(newUser);
         System.out.println("New user created!");
         Map<String, Object> variables = ImmutableMap.of("loggedIn", "0");
@@ -121,7 +129,6 @@ public class Routes {
 
   /**
    * Handles GET requests to the /dashboard route.
-   * TODO: delete PDFs, show pdf query
    */
   public static class GETDashHandler implements TemplateViewRoute {
     @Override
@@ -130,16 +137,72 @@ public class Routes {
         res.redirect("/");
       }
       String logged = currentUser(req);
-      DBCursor ret = ParselDB.getPDFByUser(logged);
-      String pdfs = formatPDFs(ret);
-      Map<String, Object> variables = ImmutableMap.of("loggedIn", logged, "pdfs", pdfs);
+      List<ParselDB.QuerySchema> queryObjects = ParselDB.getQueriesByUser(logged);
+      String queries = formatQueries(queryObjects);
+      List<ParselDB.PDFSchema> pdfObjects = ParselDB.getPDFsByUser(logged);
+      String pdfs = formatPDFs(pdfObjects);
+      Map<String, Object> variables =
+          ImmutableMap.of("loggedIn", logged, "pdfs", pdfs, "queries", queries);
       return new ModelAndView(variables, "dashboard.ftl");
     }
   }
 
   /**
+   * Handles POST requests to the /download/:pdf_id route.
+   */
+  public static class GETDownloadHandler implements TemplateViewRoute {
+    @Override
+    public ModelAndView handle(Request req, Response res) {
+      if (!isLogged(req)) {
+        res.redirect("/");
+      }
+      String pdf_id = req.params("pdf_id");
+      String logged = currentUser(req);
+      ParselDB.PDFSchema pdf = ParselDB.getPDFByID(pdf_id);
+      if (pdf != null && pdf.getUser().equals(logged)) {
+        try {
+          res.header("Content-disposition",
+              String.format("attachment; filename=%s;", pdf.getFilename()));
+          OutputStream outputStream = res.raw().getOutputStream();
+          outputStream.write(pdf.getData());
+          outputStream.flush();
+        } catch (Exception e) {
+          System.err.println("ERROR: " + e.getMessage());
+        }
+        res.redirect("/dashboard");
+      } else {
+        req.session().attribute("error", "PDF doesn't exist or malformed PDF.");
+        res.redirect("/error");
+      }
+      return null;
+    }
+  }
+
+  /**
+   * Handles POST requests to the /delete/:pdf_id route.
+   */
+  public static class GETDeleteHandler implements TemplateViewRoute {
+    @Override
+    public ModelAndView handle(Request req, Response res) {
+      if (!isLogged(req)) {
+        res.redirect("/");
+      }
+      String pdf_id = req.params("pdf_id");
+      String logged = currentUser(req);
+      ParselDB.PDFSchema pdf = ParselDB.getPDFByID(pdf_id);
+      if (pdf != null && pdf.getUser().equals(logged)) {
+        ParselDB.removePDFByID(pdf_id);
+        res.redirect("/dashboard");
+      } else {
+        req.session().attribute("error", "PDF doesn't exist or malformed PDF.");
+        res.redirect("/error");
+      }
+      return null;
+    }
+  }
+
+  /**
    * Handles GET requests to the /upload route.
-   * TODO: Multiple files.
    */
   public static class GETUploadHandler implements TemplateViewRoute {
     @Override
@@ -155,43 +218,23 @@ public class Routes {
 
   /**
    * Handles POST requests to the /upload route.
-   * TODO: Make loading screen.
+   * TODO: Multiple files
    */
   public static class POSTUploadHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
       // Set form datatype
       req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
-      // Get file input stream, convert to byte stream and write to temp folder.
+      // Save PDF to database
       try (InputStream is = req.raw().getPart("file").getInputStream()) {
+        byte[] fileContent = is.readAllBytes();
+        // TODO: Better IDs.
+        String pdf_id = req.session().attribute("logged") + ("_f_" + (int) (Math.random() * 999999999));
         String filename = req.raw().getPart("file").getSubmittedFileName();
-        String query = req.queryParams("query");
-        byte[] buffer = new byte[is.available()];
-        is.read(buffer);
-        String filePath = String.format("temp/%s.pdf", filename.hashCode());
-        File targetFile = new File(filePath);
-        OutputStream outStream = new FileOutputStream(targetFile);
-        outStream.write(buffer);
-
-        // Save PDF to DB
-        // TODO: Ensure unique ID.
-        // TODO: Save PDF bytestream
-        String pdf_id = req.session().attribute("logged") + ("_" + (int) (Math.random() * 9999999));
         ParselDB.PDFSchema newPDF =
-            new ParselDB.PDFSchema(pdf_id, req.session().attribute("logged"), filename, query);
+            new ParselDB.PDFSchema(pdf_id, req.session().attribute("logged"), filename, fileContent);
         ParselDB.updatePDF(newPDF);
-
-        // Run parsel command
-        List<String> paths = new ArrayList<>();
-        paths.add(filePath);
-        RankGraph graph = ParselCommands.parsel(paths, req.queryParams("query"));
-        List<RankVertex> vertices = graph.getVertices();
-
-        // TODO: Save Graph bytestream
-        // Process snippets, head to view.
-        processSnippets(vertices, pdf_id);
-        targetFile.delete();
-        res.redirect("/snippets/" + pdf_id);
+        res.redirect("/dashboard");
       } catch (Exception e) {
         System.err.println("ERROR: Bad File Upload at /upload");
         req.session().attribute("error", "Bad File Upload at /upload");
@@ -202,34 +245,116 @@ public class Routes {
   }
 
   /**
-   * Handles GET requests to the /snippets/:pdf_id route.
-   * TODO: Check that pdf belongs to the current user.
-   * TODO: limit # per page
-   * TODO: get similar
-   * TODO: find other things that pagerank gives for free
+   * Handles GET requests to the /query route.
    */
-  public static class GETSnippetsHandler implements TemplateViewRoute {
+  public static class GETQueryHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
       if (!isLogged(req)) {
         res.redirect("/");
       }
       String logged = currentUser(req);
-      String pdf_id = req.params(":pdf_id");
-      DBCursor pdf = ParselDB.getPDFByID(pdf_id);
-      DBCursor snippets = ParselDB.getSnippetsByPDF(pdf_id);
-      if (snippets.count() == 0 || !pdf.hasNext()) {
+      List<ParselDB.PDFSchema> pdfObjects = ParselDB.getPDFsByUser(logged);
+      StringBuilder pdfs = new StringBuilder();
+      for (ParselDB.PDFSchema pdf : pdfObjects) {
+        pdfs.append(String.format(
+            "<input type=\"checkbox\" id=\"%s\" name=\"pdf\" value=\"%s\"><label for=\"%s\">%s</label><br/>",
+            pdf.getId(), pdf.getId(), pdf.getId(), pdf.getFilename()));
+      }
+      Map<String, Object> variables = ImmutableMap.of("loggedIn", logged, "pdfs", pdfs.toString());
+      return new ModelAndView(variables, "query.ftl");
+    }
+  }
+
+  /**
+   * Handles POST requests to the /query route.
+   * // TODO: Do this
+   */
+  public static class POSTQueryHandler implements TemplateViewRoute {
+    @Override
+    public ModelAndView handle(Request req, Response res) {
+      String queryString = req.queryParams("keywords");
+      String[] fileStrings = req.queryMap().toMap().get("pdf");
+      if (fileStrings == null) {
+        req.session().attribute("error", "Please select at least one PDF.");
+        res.redirect("/error");
+        return null;
+      }
+      List<String> files = new ArrayList<>();
+      for (String fileString : fileStrings) {
+        try {
+          byte[] pdfData = ParselDB.getPDFByID(fileString).getData();
+          String filePath = "temp/" + fileString + ".pdf";
+          FileOutputStream fileOutputStream = new FileOutputStream(filePath);
+          fileOutputStream.write(pdfData);
+          files.add(filePath);
+        } catch (Exception e) {
+          System.err.println("ERROR: " + e.getMessage());
+        }
+      }
+      RankGraph graph = ParselCommands.parsel(files, queryString);
+      // TODO: Better IDs.
+      String logged = req.session().attribute("logged");
+      String query_id = logged + ("_q_" + (int) (Math.random() * 999999999));
+      ParselDB.QuerySchema queryObject = new ParselDB.QuerySchema(query_id, logged, queryString, files);
+      ParselDB.updateQuery(queryObject);
+      processSnippets(graph.getVertices(), query_id);
+      res.redirect("/query/" + query_id);
+      return null;
+    }
+  }
+
+  /**
+   * Handles GET requests to the /query/:query_id route.
+   * TODO: Check that pdf belongs to the current user.
+   * TODO: limit # per page
+   * TODO: get similar
+   * TODO: find other things that pagerank gives for free
+   */
+  public static class GETQueryViewHandler implements TemplateViewRoute {
+    @Override
+    public ModelAndView handle(Request req, Response res) {
+      if (!isLogged(req)) {
+        res.redirect("/");
+      }
+      String logged = currentUser(req);
+      String query_id = req.params(":query_id");
+      ParselDB.QuerySchema query = ParselDB.getQueryByID(query_id);
+      List<ParselDB.SnippetSchema> snippets = ParselDB.getSnippetsByQuery(query_id);
+      if (snippets.size() == 0) {
         req.session().attribute("error", "PDF doesn't exist or malformed PDF.");
         res.redirect("/error");
       }
       String formattedSnippets = formatSnippets(snippets);
-      pdf.next();
       Map<String, Object> variables =
           ImmutableMap.of("loggedIn", logged,
               "snippets", formattedSnippets,
-              "filename", pdf.curr().get("filename").toString(),
-              "query", pdf.curr().get("query").toString());
+              "query", query.getQueryString());
       return new ModelAndView(variables, "view.ftl");
+    }
+  }
+
+  /**
+   * Handles POST requests to the /query/delete/:query_id route.
+   */
+  public static class GETQueryDeleteHandler implements TemplateViewRoute {
+    @Override
+    public ModelAndView handle(Request req, Response res) {
+      if (!isLogged(req)) {
+        res.redirect("/");
+      }
+      String query_id = req.params("query_id");
+      String logged = currentUser(req);
+      ParselDB.QuerySchema query = ParselDB.getQueryByID(query_id);
+      if (query != null && query.getUser().equals(logged)) {
+        ParselDB.removeQueryByID(query_id);
+        ParselDB.removeSnippetsByQuery(query_id);
+        res.redirect("/dashboard");
+      } else {
+        req.session().attribute("error", "Query doesn't exist or malformed Query.");
+        res.redirect("/error");
+      }
+      return null;
     }
   }
 
@@ -276,17 +401,38 @@ public class Routes {
   }
 
   /**
-   * Format snippets.
-   * TODO: Links, Delete
+   * Format queries.
+   * @param queries  List of pdfs.
+   */
+  private static String formatQueries(List<ParselDB.QuerySchema> queries) {
+    StringBuilder ret = new StringBuilder();
+    for (ParselDB.QuerySchema query : queries) {
+      ret.append("<div class=\"query\">");
+      ret.append(String.format("<a href=\"/query/%s\">", query.get_id()));
+      ret.append("\"" + query.getQueryString() + "\"");
+      ret.append(String.format("</a><a class=\"delete\" href=\"/query/delete/%s\">", query.get_id()));
+      ret.append("delete");
+      ret.append("</a></div>");
+    }
+    return ret.toString();
+  }
+
+  /**
+   * Format pdfs.
    * @param pdfs  List of pdfs.
    */
-  private static String formatPDFs(DBCursor pdfs) {
+  private static String formatPDFs(List<ParselDB.PDFSchema> pdfs) {
     StringBuilder ret = new StringBuilder();
-    while (pdfs.hasNext()) {
+    for (ParselDB.PDFSchema pdf : pdfs) {
       ret.append("<div class=\"pdf\">");
-      DBObject pdf = pdfs.next();
-      ret.append(String.format("<a href=\"/snippets/%s\">", pdf.get("_id")));
-      ret.append(pdf.get("filename"));
+      ret.append(String.format("<a href=\"/download/%s\">", pdf.getId()));
+      ret.append("<img src=\"https://img.icons8.com/dotty/80/000000/pdf-2.png\"/>");
+      ret.append("<br/>");
+      ret.append(pdf.getFilename());
+      ret.append("</a>");
+      ret.append("<br/><br/>");
+      ret.append(String.format("<a class=\"delete\" href=\"/delete/%s\">", pdf.getId()));
+      ret.append("delete");
       ret.append("</a></div>");
     }
     return ret.toString();
@@ -295,25 +441,25 @@ public class Routes {
 
   /**
    * Format snippets.
-   * @param cursor  List of snippets.
+   * @param snippets  List of snippets.
    */
-  private static String formatSnippets(DBCursor cursor) {
-    List<ParselDB.SnippetSchema> snippets = new ArrayList<>();
-    while (cursor.hasNext()) {
-      DBObject curr = cursor.next();
-      snippets.add(new ParselDB.SnippetSchema(
-          curr.get("pdf_id").toString(),
-          Double.parseDouble(curr.get("score").toString()) * 1000.0,
-          curr.get("content").toString()));
+  private static String formatSnippets(List<ParselDB.SnippetSchema> snippets) {
+    List<ParselDB.SnippetSchema> list = new ArrayList<>();
+    double maxScore = 0;
+    for (ParselDB.SnippetSchema snippet : snippets){
+      list.add(new ParselDB.SnippetSchema("", snippet.getScore(), snippet.getContent()));
+      maxScore = Math.max(maxScore, snippet.getScore());
     }
 
     snippets.sort(Comparator.comparingDouble(ParselDB.SnippetSchema::getScore).reversed());
 
     StringBuilder ret = new StringBuilder();
-    // Capped at 100 TODO: Make this a variable
+    // Capped at 100
+    // TODO: Make this a variable, make dynamic pageviews
+    // TODO: Remove/fix normalize
     for (int i = 0; i < Math.min(100, snippets.size()); i++) {
-      ret.append("<div class=\"snippet\"><div class=\"snippet-score\">");
-      ret.append(snippets.get(i).getScore());
+      ret.append("<div class=\"snippet\"><div class=\"snippet-score\">Score: ");
+      ret.append(snippets.get(i).getScore() / (maxScore / 100));
       ret.append("</div>");
       ret.append(snippets.get(i).getContent());
       ret.append("</div>");
@@ -325,10 +471,10 @@ public class Routes {
    * Process snippets - upload them to DB and return a list of Strings
    * @param vertices  snippets.
    */
-  private static void processSnippets(List<RankVertex> vertices, String pdf_id) {
+  private static void processSnippets(List<RankVertex> vertices, String query_id) {
     for (RankVertex v : vertices) {
-      ParselDB.SnippetSchema newSnippet =
-          new ParselDB.SnippetSchema(pdf_id, v.getScore(), v.getValue().getSnippet().getOriginalText());
+      ParselDB.SnippetSchema newSnippet = new ParselDB.SnippetSchema(
+          query_id, v.getScore(), v.getValue().getSnippet().getOriginalText());
       ParselDB.updateSnippet(newSnippet);
     }
   }
