@@ -2,32 +2,38 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser;
 
 import org.junit.Test;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.StringReader;
+
 import static org.junit.Assert.*;
 
 public class PDFParserTest {
-  PDFParser parser = new PDFParser();
+  //PDFParser parser = new PDFParser();
 
   // Apache OpenPDF uses non-breaking spaces and inserts extra spacing/line separators, so this
   // method is to filter thru those for testing purposes
   private String processRawInput(String expected, String raw) {
-//    StringBuilder sb = new StringBuilder();
-//    try (BufferedReader textReader = new BufferedReader(new StringReader(raw))) {
-//      String currentLine;
-//      while ((currentLine = textReader.readLine()) != null) {
-//
-//      }
-//    } catch (IOException e) {
-//      throw new IllegalArgumentException("Unexpected issue");
-//    }
-    return raw.replace(" ", " ").substring(0, expected.length());
+    StringBuilder sb = new StringBuilder();
+    try (BufferedReader textReader = new BufferedReader(new StringReader(raw))) {
+      String currentLine;
+      while ((currentLine = textReader.readLine()) != null) {
+
+      }
+    } catch (IOException e) {
+      throw new IllegalArgumentException("ERROR: Unexpected issue in JUnit Test");
+    }
+    return raw.replaceAll("\\u00A0", " ").substring(0, expected.length());
   }
 
   @Test
   public void getTextTest() {
     String marginTest = "This is a test to see whether or not this filters the margins ";
-    String raw1 = parser.getText("data/test_for_margins.pdf");
-    assertEquals(marginTest, processRawInput(marginTest, raw1));
-
+    try (PDFParser parser = new PDFParser("data/test_for_margins.pdf")) {
+      assertEquals(marginTest, processRawInput(marginTest, parser.getText()));
+    } catch (IOException e) {
+      throw new IllegalArgumentException("ERROR: Unexpected issue in JUnit Test");
+    }
     String multipleParagraphs = "Multiple paragraph test " + System.lineSeparator() +
         "Haha " + System.lineSeparator() + " " + System.lineSeparator() + " " +
         System.lineSeparator() +
@@ -89,7 +95,10 @@ public class PDFParserTest {
         "attached boulders. The ice sheet also plucked and rounded Burke Mountain into the shape " +
         "it possesses " + System.lineSeparator() +
         "today.";
-    String raw2 = parser.getText("data/test_multiple_paragraphs.pdf");
-    assertEquals(multipleParagraphs, processRawInput(multipleParagraphs, raw2));
+    try (PDFParser parser = new PDFParser("data/test_multiple_paragraphs.pdf")) {
+      assertEquals(multipleParagraphs, processRawInput(multipleParagraphs, parser.getText()));
+    } catch (IOException e) {
+      throw new IllegalArgumentException("ERROR: Unexpected issue in JUnit Test");
+    }
   }
 }

@@ -9,6 +9,7 @@ import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.REPL;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.Snippet;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -23,8 +24,13 @@ public final class ParselCommands {
   /**
    * Private Constructor.
    */
-  private ParselCommands() {
+  private ParselCommands() { }
 
+  /**
+   * @return the parsing argument pattern to be used for the REPL
+   */
+  public static String getParseArgumentPattern() {
+    return PARSE_ARGUMENT_PATTERN;
   }
 
   private static REPL.Command parse = new REPL.Command() {
@@ -98,13 +104,16 @@ public final class ParselCommands {
     if (filePath.length() > 4) {
       String fileEnding = filePath.substring(filePath.length() - 4);
       if (fileEnding.equals(".pdf")) {
-        PDFParser parser = new PDFParser(file);
-        List<Snippet> snippetList = new ArrayList<>();
-        for (int i = 1; i <= parser.getPageCount(); i++) {
-          snippetList.addAll(Snippet.parseText(parser.getTextFromPage(i), file.getName(),
-              Optional.of(i)));
+        try (PDFParser parser = new PDFParser(file)) {
+          List<Snippet> snippetList = new ArrayList<>();
+          for (int i = 1; i <= parser.getPageCount(); i++) {
+            snippetList.addAll(Snippet.parseText(parser.getTextFromPage(i), file.getName(),
+                Optional.of(i)));
+          }
+          return snippetList;
+        } catch (IOException e) {
+          throw new IllegalArgumentException("ERROR: Invalid PDF file");
         }
-        return snippetList;
       } else if (fileEnding.equals(".txt")) {
         SourceParser parser = new TextFileParser(file);
         return Snippet.parseText(parser.getText(), file.getName(), Optional.empty());

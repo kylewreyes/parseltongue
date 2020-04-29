@@ -204,7 +204,7 @@ public class Snippet {
    * @return a List of Snippets, each one containing a paragraph
    */
   public static List<Snippet> parseText(String text, String file, Optional<Integer> pageNum) {
-    //TODO: Check for change in font sizes or bar at the bottom.
+    //TODO: Check for change in font sizes or bars at the bottom.
     final Set<String> paragraphEnds = new HashSet<>();
     paragraphEnds.add(".");
     paragraphEnds.add("!");
@@ -218,7 +218,7 @@ public class Snippet {
 
       while ((nextLine = textReader.readLine()) != null) {
         // Apache OpenPDF uses non-breaking spaces, so this replaces it w/ normal whitespaces
-        nextLine = nextLine.replaceAll("\\h", " ");
+        nextLine = nextLine.replaceAll("\\u00A0", " ");
 
         // Not all documents contain an abstract. But if they do, only everything starting from
         // the abstract is wanted. So, if an abstract is found, everything before it is removed.

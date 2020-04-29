@@ -67,8 +67,8 @@ public class PDFParser implements SourceParser {
     final double widthMargin = 36; // 0.5" in pts
     final double htMargin = 72; // 1" in pts
 
-    if (pageNum < document.getNumberOfPages()) {
-      PDRectangle docSize = document.getPage(pageNum).getMediaBox();
+    if (pageNum <= document.getNumberOfPages()) {
+      PDRectangle docSize = document.getPage(pageNum - 1).getMediaBox();
       double newWidth = docSize.getWidth() - 2 * widthMargin;
       double newHeight = docSize.getHeight() - 2 * htMargin;
       Rectangle2D.Double boundingBox = new Rectangle2D.Double(widthMargin, htMargin, newWidth,

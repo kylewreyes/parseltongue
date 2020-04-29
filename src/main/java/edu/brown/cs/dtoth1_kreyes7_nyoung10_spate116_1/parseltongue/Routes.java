@@ -2,24 +2,17 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue;
 
 import com.google.common.collect.ImmutableMap;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselCommands;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselDB;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.RankGraph;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.RankVertex;
-<<<<<<< HEAD
-=======
-import org.apache.pdfbox.multipdf.PDFCloneUtility;
->>>>>>> 4d31e2abee0e74de865595bd98035873d4a04de8
+
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
 import javax.servlet.MultipartConfigElement;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -31,7 +24,7 @@ import java.util.Map;
 /**
  * Routes class! Holds and handles all web server routing.
  */
-public class Routes {
+public final class Routes {
 
   /**
    * Private Constructor.
@@ -60,7 +53,7 @@ public class Routes {
    * @param res Res.
    * @return  null.
    */
-  public static Object POSTLoginHandler(Request req, Response res) {
+  public static Object postLoginHandler(Request req, Response res) {
     String username = req.queryParams("username");
     String password = req.queryParams("password");
     // Check if username-password combination is valid
@@ -81,7 +74,7 @@ public class Routes {
    * @param res Res.
    * @return  null.
    */
-  public static Object GETLogoutHandler(Request req, Response res) {
+  public static Object getLoginHandler(Request req, Response res) {
     req.session().removeAttribute("logged");
     res.redirect("/");
     return null;

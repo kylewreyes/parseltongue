@@ -53,7 +53,9 @@ public final class Main {
 
     // Connect to database.
     // TODO: Make this secure!
-    String uri = "mongodb+srv://n-young:IL5hkmuVnDfwsjqk@cluster0-dgi6r.mongodb.net/test?retryWrites=true&w=majority";
+    String uri =
+        "mongodb+srv://n-young:IL5hkmuVnDfwsjqk@cluster0-dgi6r.mongodb"
+            + ".net/test?retryWrites=true&w=majority";
     ParselDB.connect(uri);
 
     // Start webserver.
@@ -61,7 +63,8 @@ public final class Main {
 
     // REPL Handling.
     REPL repl = new REPL();
-    repl.addCommand("parse", ParselCommands.PARSE_ARGUMENT_PATTERN, ParselCommands.getParseCommand());
+    repl.addCommand("parse", ParselCommands.getParseArgumentPattern(),
+        ParselCommands.getParseCommand());
     repl.process();
   }
 
@@ -107,10 +110,10 @@ public final class Main {
     Spark.get("/", new Routes.GETMainHandler(), freeMarker);
 
     // GET Login Request - "/login"
-    Spark.post("/login", Routes::POSTLoginHandler);
+    Spark.post("/login", Routes::postLoginHandler);
 
     // GET Logout Request - "/logout"
-    Spark.get("/logout", Routes::GETLogoutHandler);
+    Spark.get("/logout", Routes::getLoginHandler);
 
     // GET Registration Page - "/register"
     Spark.get("/register", new Routes.GETRegisterHandler(), freeMarker);
