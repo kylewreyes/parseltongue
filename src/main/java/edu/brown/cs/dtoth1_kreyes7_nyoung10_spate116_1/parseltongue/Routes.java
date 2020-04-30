@@ -7,6 +7,7 @@ import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.RankGraph;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.RankVertex;
 
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.Snippet;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -18,6 +19,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -485,6 +487,10 @@ public final class Routes {
     for (int i = 0; i < Math.min(100, snippets.size()); i++) {
       ret.append("<div class=\"snippet\"><div class=\"snippet-score\">Score: ");
       ret.append(snippets.get(i).getScore() / (maxScore / 100));
+      ret.append("</div><div class=\"snippet-score\">Source: ");
+      ret.append(snippets.get(i).getFile());
+      ret.append(", pg. ");
+      ret.append(snippets.get(i).getPage());
       ret.append("</div>");
       ret.append(snippets.get(i).getContent());
       ret.append("</div>");
@@ -500,8 +506,9 @@ public final class Routes {
   private static void processSnippets(List<RankVertex> vertices, String queryId) {
     // Add all snippets to DB.
     for (RankVertex v : vertices) {
+      Snippet curr = v.getValue().getSnippet();
       ParselDB.SnippetSchema newSnippet = new ParselDB.SnippetSchema(
-          queryId, v.getScore(), v.getValue().getSnippet().getOriginalText());
+          queryId, curr.getOriginalText(), curr.getFileName(), v.getScore(), curr.getPageNum());
       ParselDB.updateSnippet(newSnippet);
     }
   }

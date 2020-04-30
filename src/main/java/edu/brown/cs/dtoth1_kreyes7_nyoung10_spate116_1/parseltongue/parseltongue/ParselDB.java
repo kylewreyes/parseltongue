@@ -138,7 +138,7 @@ public final class ParselDB {
           res.curr().get("user").toString(),
           res.curr().get("queryString").toString(),
           new ArrayList<>());
-      ret.add(query);
+      ret.add(0, query);
     }
     return ret;
   }
@@ -155,8 +155,10 @@ public final class ParselDB {
     while (res.hasNext()) {
       res.next();
       SnippetSchema curr = new SnippetSchema(res.curr().get("query_id").toString(),
+          res.curr().get("content").toString(),
+          res.curr().get("file").toString(),
           Double.parseDouble(res.curr().get("score").toString()),
-          res.curr().get("content").toString());
+          Integer.parseInt(res.curr().get("page").toString()));
       ret.add(curr);
     }
     return ret;
@@ -427,20 +429,25 @@ public final class ParselDB {
    * Snippet Schema.
    */
   public static class SnippetSchema {
-    private final String queryId, content;
+    private final String queryId, content, file;
     private final double score;
+    private final int page;
 
     /**
      * Constructor.
      *
      * @param q Query id.
-     * @param s Score.
      * @param c Content.
+     * @param f File name.
+     * @param s Score.
+     * @param p Page.
      */
-    public SnippetSchema(String q, double s, String c) {
+    public SnippetSchema(String q, String c, String f, double s, int p) {
       queryId = q;
-      score = s;
       content = c;
+      file = f;
+      score = s;
+      page = p;
     }
 
     /**
@@ -451,26 +458,50 @@ public final class ParselDB {
     public DBObject getDBObject() {
       return new BasicDBObject()
           .append("query_id", queryId)
+          .append("content", content)
+          .append("file", file)
           .append("score", score)
-          .append("content", content);
+          .append("page", page);
+    }
+
+    /**
+     * Get query id.
+     * @return  Query id.
+     */
+    public String getQueryId() {
+      return queryId;
     }
 
     /**
      * Get content.
-     *
-     * @return Content.
+     * @return Snippet content.
      */
     public String getContent() {
       return content;
     }
 
     /**
+     * Get file.
+     * @return  Source file.
+     */
+    public String getFile() {
+      return file;
+    }
+
+    /**
      * Get score.
-     *
-     * @return Score.
+     * @return  Score.
      */
     public double getScore() {
       return score;
+    }
+
+    /**
+     * Get page.
+     * @return  Page num.
+     */
+    public int getPage() {
+      return page;
     }
   }
 }
