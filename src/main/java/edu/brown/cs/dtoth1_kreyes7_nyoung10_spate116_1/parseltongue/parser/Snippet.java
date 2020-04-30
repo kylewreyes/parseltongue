@@ -198,13 +198,14 @@ public class Snippet {
    *
    * @param text    Text acquired from a {@link SourceParser}.
    * @param file    The name of the file that this Snippet is acquired from
-   * @param pageNum an {@link Optional<Integer>} that may contain the page number of the page
+   * @param pageNum an Optional of Integer that may contain the page number of the page
    *                this Snippet is from
    * @return a List of Snippets, each one containing a paragraph
    */
   public static List<Snippet> parseText(String text, String file, Optional<Integer> pageNum) {
     //TODO: Check for change in font sizes or bars at the bottom.
-    //TODO: Check for when the abstract if at the beginning of the page (NEED GLOBAL FOUNDSTART AND END)
+    //TODO: Check for when the abstract if at the beginning of the page
+    // (NEED GLOBAL FOUNDSTART AND END)
     final Set<String> paragraphEnds = new HashSet<>();
     paragraphEnds.add(".");
     paragraphEnds.add("!");
@@ -304,11 +305,19 @@ public class Snippet {
         && Objects.equals(file, snippet.file);
   }
 
+  /**
+   * Hashcode.
+   * @return  Hashed snippet.
+   */
   @Override
   public int hashCode() {
     return Objects.hash(getOriginalText(), file, getPageNum());
   }
 
+  /**
+   * Main.
+   * @param args  args.
+   */
   public static void main(String[] args) {
     File f = new File("C:/Users/kwill/Desktop/Temp/Report Number.pdf");
     try (PDFParser parser = new PDFParser(f)) {

@@ -15,7 +15,8 @@ public class Jaccardish implements RelevanceMetric {
    * @throws IllegalArgumentException Exception.
    */
   @Override
-  public double calculateRelevance(List<Double> doc1, List<Double> doc2) throws IllegalArgumentException {
+  public double calculateRelevance(List<Double> doc1, List<Double> doc2)
+      throws IllegalArgumentException {
     if (doc1.size() != doc2.size()) {
       throw new IllegalArgumentException("Document keyword vectors not of same size");
     }

@@ -11,18 +11,27 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
+/**
+ * ParselTongue DB Class.
+ */
 public final class ParselDB {
-  private static MongoProxy proxy = new MongoProxy();
-  private static DB database;
+  private static final MongoProxy PROXY = new MongoProxy();
   private static DBCollection userCollection, pdfCollection, queryCollection, snippetCollection;
 
   /**
-   * Connect.
+   * Private constructor.
+   */
+  private ParselDB() {
+  }
+
+  /**
+   * Connect to MongoDB and set the collecctions.
+   *
    * @param connString Connection String.
    */
   public static void connect(String connString) {
-    proxy.connect(connString);
-    database = proxy.getClient().getDB("parseltongue");
+    PROXY.connect(connString);
+    DB database = PROXY.getClient().getDB("parseltongue");
     userCollection = database.getCollection("user");
     pdfCollection = database.getCollection("pdf");
     queryCollection = database.getCollection("query");
@@ -30,15 +39,17 @@ public final class ParselDB {
   }
 
   /**
-   * Disconnect.
+   * Disconnect from MongoDB.
    */
   public static void disconnect() {
-    proxy.disconnect();
+    PROXY.disconnect();
   }
 
   /**
-   * Gets user by ID.
-   * @param id  id.
+   * Gets a user by ID.
+   *
+   * @param id User id.
+   * @return User with the given ID.
    */
   public static UserSchema getUserByID(String id) {
     DBCursor res = userCollection.find(new BasicDBObject("_id", id));
@@ -52,8 +63,10 @@ public final class ParselDB {
   }
 
   /**
-   * Gets pdf by ID.
-   * @param id  id.
+   * Gets a PDF by ID.
+   *
+   * @param id PDF id.
+   * @return PDF with the given ID.
    */
   public static PDFSchema getPDFByID(String id) {
     DBCursor res = pdfCollection.find(new BasicDBObject("_id", id));
@@ -70,8 +83,10 @@ public final class ParselDB {
   }
 
   /**
-   * Gets user by ID.
-   * @param user  user id.
+   * Gets all PDFs that belong to the given user.
+   *
+   * @param user User id.
+   * @return List of PDFs belonging to the given user.
    */
   public static List<PDFSchema> getPDFsByUser(String user) {
     DBCursor res = pdfCollection.find(new BasicDBObject("user", user));
@@ -88,8 +103,11 @@ public final class ParselDB {
   }
 
   /**
-   * Gets pdf by ID.
-   * @param id  id.
+   * Gets a query by ID. NOTE: Doesn't return the files.
+   * TODO: Get files
+   *
+   * @param id Query id.
+   * @return Query with the given ID.
    */
   public static QuerySchema getQueryByID(String id) {
     DBCursor res = queryCollection.find(new BasicDBObject("_id", id));
@@ -99,22 +117,23 @@ public final class ParselDB {
           res.curr().get("user").toString(),
           res.curr().get("queryString").toString(),
           new ArrayList<>());
-      // TODO: Make files
     } else {
       return null;
     }
   }
 
   /**
-   * Gets user by ID.
-   * @param user  user id.
+   * Gets all queries that belong to the given user.
+   * TODO: Get files.
+   *
+   * @param user User id.
+   * @return Queries that belong to the given user.
    */
   public static List<QuerySchema> getQueriesByUser(String user) {
     DBCursor res = queryCollection.find(new BasicDBObject("user", user));
     List<QuerySchema> ret = new ArrayList<>();
     while (res.hasNext()) {
       res.next();
-      // TODO: Get files as List.
       QuerySchema query = new QuerySchema(res.curr().get("_id").toString(),
           res.curr().get("user").toString(),
           res.curr().get("queryString").toString(),
@@ -125,8 +144,10 @@ public final class ParselDB {
   }
 
   /**
-   * Gets pdf by ID.
-   * @param qid  query_id.
+   * Gets all snippets that belong to the given query.
+   *
+   * @param qid Query id.
+   * @return Snippets that belong to the given query.
    */
   public static List<SnippetSchema> getSnippetsByQuery(String qid) {
     DBCursor res = snippetCollection.find(new BasicDBObject("query_id", qid));
@@ -143,7 +164,8 @@ public final class ParselDB {
 
   /**
    * Updates or adds the given user to the DB.
-   * @param user  user schema.
+   *
+   * @param user user schema.
    */
   public static void updateUser(UserSchema user) {
     userCollection.insert(user.getDBObject());
@@ -151,6 +173,7 @@ public final class ParselDB {
 
   /**
    * Updates or adds the given pdf to the DB.
+   *
    * @param pdf pdf schema.
    */
   public static void updatePDF(PDFSchema pdf) {
@@ -158,7 +181,8 @@ public final class ParselDB {
   }
 
   /**
-   * Updates or adds the given pdf to the DB.
+   * Updates or adds the given query to the DB.
+   *
    * @param query query schema.
    */
   public static void updateQuery(QuerySchema query) {
@@ -166,7 +190,8 @@ public final class ParselDB {
   }
 
   /**
-   * Updates or adds the given user to the DB.
+   * Updates or adds the given snippet to the DB.
+   *
    * @param snippet snippet schema.
    */
   public static void updateSnippet(SnippetSchema snippet) {
@@ -174,58 +199,83 @@ public final class ParselDB {
   }
 
   /**
-   * Removed use by ID.
-   * @param _id user id.
+   * Removes user by ID.
+   *
+   * @param id user id.
    */
-  public static void removeUserByID(String _id) {
-    userCollection.remove(new BasicDBObject("_id", _id));
+  public static void removeUserByID(String id) {
+    userCollection.remove(new BasicDBObject("_id", id));
   }
 
   /**
    * Removes PDF by ID.
-   * @param _id pdf id.
+   *
+   * @param id pdf id.
    */
-  public static void removePDFByID(String _id) {
-    pdfCollection.remove(new BasicDBObject("_id", _id));
+  public static void removePDFByID(String id) {
+    pdfCollection.remove(new BasicDBObject("_id", id));
   }
 
   /**
    * Removes PDF by ID.
-   * @param _id pdf id.
+   *
+   * @param id pdf id.
    */
-  public static void removeQueryByID(String _id) {
-    queryCollection.remove(new BasicDBObject("_id", _id));
+  public static void removeQueryByID(String id) {
+    queryCollection.remove(new BasicDBObject("_id", id));
   }
 
   /**
    * Removes PDF by ID.
-   * @param query_id query id.
+   *
+   * @param queryId query id.
    */
-  public static void removeSnippetsByQuery(String query_id) {
-    snippetCollection.remove(new BasicDBObject("query_id", query_id));
+  public static void removeSnippetsByQuery(String queryId) {
+    snippetCollection.remove(new BasicDBObject("query_id", queryId));
   }
 
   /**
    * User Schema.
    */
   public static class UserSchema {
-    private String _id, password;
+    private final String id, password;
 
+    /**
+     * Constructor.
+     *
+     * @param u  User id.
+     * @param pw Password.
+     */
     public UserSchema(String u, String pw) {
-      _id = u;
+      id = u;
       //TODO: Make this more secure.
       password = "" + pw;
     }
 
+    /**
+     * Get the User DBObject.
+     *
+     * @return User DBObject.
+     */
     public DBObject getDBObject() {
-      return new BasicDBObject("_id", _id)
+      return new BasicDBObject("_id", id)
           .append("password", password);
     }
 
-    public String get_id() {
-      return _id;
+    /**
+     * Get id.
+     *
+     * @return ID.
+     */
+    public String getId() {
+      return id;
     }
 
+    /**
+     * Get PW.
+     *
+     * @return Password.
+     */
     public String getPassword() {
       return password;
     }
@@ -235,34 +285,67 @@ public final class ParselDB {
    * PDF Schema.
    */
   public static class PDFSchema {
-    private String _id, user, filename, data;
+    private final String id, user, filename, data;
 
+    /**
+     * Constructor.
+     *
+     * @param i PDF id.
+     * @param u User.
+     * @param f Filename.
+     * @param d Data.
+     */
     public PDFSchema(String i, String u, String f, byte[] d) {
-      _id = i;
+      id = i;
       user = u;
       filename = f;
       data = Base64.getEncoder().encodeToString(d);
     }
 
+    /**
+     * Get PDF DBObject.
+     *
+     * @return PDF DBObject.
+     */
     public DBObject getDBObject() {
-      return new BasicDBObject("_id", _id)
+      return new BasicDBObject("_id", id)
           .append("user", user)
           .append("filename", filename)
           .append("data", data);
     }
 
+    /**
+     * Get ID.
+     *
+     * @return ID.
+     */
     public String getId() {
-      return _id;
+      return id;
     }
 
+    /**
+     * Get filename.
+     *
+     * @return Filename.
+     */
     public String getFilename() {
       return filename;
     }
 
+    /**
+     * Get user.
+     *
+     * @return User.
+     */
     public String getUser() {
       return user;
     }
 
+    /**
+     * Get data.
+     *
+     * @return Data as a Base64 byte array.
+     */
     public byte[] getData() {
       return Base64.getDecoder().decode(data);
     }
@@ -272,36 +355,69 @@ public final class ParselDB {
    * Query Schema.
    */
   public static class QuerySchema {
-    private String _id, user, queryString;
-    private List<String> files;
+    private final String id, user, queryString;
+    private final List<String> files;
 
+    /**
+     * Constructor.
+     *
+     * @param i  Query ID.
+     * @param u  User.
+     * @param qs Query string.
+     * @param f  Files.
+     */
     public QuerySchema(String i, String u, String qs, List<String> f) {
-      _id = i;
+      id = i;
       user = u;
       queryString = qs;
       files = f;
     }
 
+    /**
+     * Return Query DBObject.
+     *
+     * @return Query Object.
+     */
     public DBObject getDBObject() {
       return new BasicDBObject()
-          .append("_id", _id)
+          .append("_id", id)
           .append("user", user)
           .append("queryString", queryString)
           .append("files", files);
     }
 
-    public String get_id() {
-      return _id;
+    /**
+     * Get ID.
+     *
+     * @return ID.
+     */
+    public String getId() {
+      return id;
     }
 
+    /**
+     * Get user.
+     *
+     * @return User.
+     */
     public String getUser() {
       return user;
     }
 
+    /**
+     * Get query string.
+     *
+     * @return Query string.
+     */
     public String getQueryString() {
       return queryString;
     }
 
+    /**
+     * Get files.
+     *
+     * @return Files.
+     */
     public List<String> getFiles() {
       return files;
     }
@@ -311,26 +427,48 @@ public final class ParselDB {
    * Snippet Schema.
    */
   public static class SnippetSchema {
-    private String query_id, content;
-    private double score;
+    private final String queryId, content;
+    private final double score;
 
+    /**
+     * Constructor.
+     *
+     * @param q Query id.
+     * @param s Score.
+     * @param c Content.
+     */
     public SnippetSchema(String q, double s, String c) {
-      query_id = q;
+      queryId = q;
       score = s;
       content = c;
     }
 
+    /**
+     * Get Snippet DBObject,
+     *
+     * @return Snippet DBObject.
+     */
     public DBObject getDBObject() {
       return new BasicDBObject()
-          .append("query_id", query_id)
+          .append("query_id", queryId)
           .append("score", score)
           .append("content", content);
     }
 
+    /**
+     * Get content.
+     *
+     * @return Content.
+     */
     public String getContent() {
       return content;
     }
 
+    /**
+     * Get score.
+     *
+     * @return Score.
+     */
     public double getScore() {
       return score;
     }

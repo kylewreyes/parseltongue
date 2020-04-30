@@ -10,8 +10,9 @@ import java.io.IOException;
  * A {@link SourceParser} specific for text files.
  */
 public class TextFileParser implements SourceParser {
+  // TODO this isn't used.
   private File source;
-  private BufferedReader reader;
+  private final BufferedReader reader;
   /**
    * Creates a new TextFileParser.
    * @param path the location of the text file

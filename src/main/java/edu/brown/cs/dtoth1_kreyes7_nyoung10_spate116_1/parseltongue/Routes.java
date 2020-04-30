@@ -13,6 +13,7 @@ import spark.Response;
 import spark.TemplateViewRoute;
 
 import javax.servlet.MultipartConfigElement;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -38,6 +39,7 @@ public final class Routes {
   public static class GETMainHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
+      // Redirect to dashboard if logged in.
       if (isLogged(req)) {
         res.redirect("/dashboard");
       }
@@ -49,14 +51,16 @@ public final class Routes {
 
   /**
    * Login Callback.
+   *
    * @param req Req.
    * @param res Res.
-   * @return  null.
+   * @return null.
    */
   public static Object postLoginHandler(Request req, Response res) {
+    // Get user input
     String username = req.queryParams("username");
     String password = req.queryParams("password");
-    // Check if username-password combination is valid
+    // Check if username-password combination is valid.
     ParselDB.UserSchema ret = ParselDB.getUserByID(username);
     if (ret != null && ret.getPassword().equals("" + password.hashCode())) {
       req.session().attribute("logged", username);
@@ -70,11 +74,12 @@ public final class Routes {
 
   /**
    * Logout Callback.
+   *
    * @param req Req.
    * @param res Res.
-   * @return  null.
+   * @return null.
    */
-  public static Object getLoginHandler(Request req, Response res) {
+  public static Object getLogoutHandler(Request req, Response res) {
     req.session().removeAttribute("logged");
     res.redirect("/");
     return null;
@@ -86,6 +91,7 @@ public final class Routes {
   public static class GETRegisterHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
+      // Redirect to dashboard if logged in.
       if (isLogged(req)) {
         res.redirect("/dashboard");
       }
@@ -101,6 +107,7 @@ public final class Routes {
   public static class POSTRegisterHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
+      // Get user input.
       String username = req.queryParams("username");
       String password = req.queryParams("password");
       // Check username hasn't been used yet
@@ -109,6 +116,7 @@ public final class Routes {
         req.session().attribute("error", "Email is invalid or already in use.");
         res.redirect("/error");
       } else {
+        // Create user schema, update database.
         // TODO: Better password encryption
         ParselDB.UserSchema newUser = new ParselDB.UserSchema(username, "" + password.hashCode());
         ParselDB.updateUser(newUser);
@@ -126,9 +134,11 @@ public final class Routes {
   public static class GETDashHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
+      // Redirect to homepage if not logged in.
       if (!isLogged(req)) {
         res.redirect("/");
       }
+      // Get and format user data.
       String logged = currentUser(req);
       List<ParselDB.QuerySchema> queryObjects = ParselDB.getQueriesByUser(logged);
       String queries = formatQueries(queryObjects);
@@ -146,12 +156,15 @@ public final class Routes {
   public static class GETDownloadHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
+      // Redirect to homepage if not logged in.
       if (!isLogged(req)) {
         res.redirect("/");
       }
-      String pdf_id = req.params("pdf_id");
+      // Get requested PDF
+      String pdfId = req.params("pdf_id");
       String logged = currentUser(req);
-      ParselDB.PDFSchema pdf = ParselDB.getPDFByID(pdf_id);
+      ParselDB.PDFSchema pdf = ParselDB.getPDFByID(pdfId);
+      // If PDF belongs to the current user, download it.
       if (pdf != null && pdf.getUser().equals(logged)) {
         try {
           res.header("Content-disposition",
@@ -177,14 +190,17 @@ public final class Routes {
   public static class GETDeleteHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
+      // Redirect to homepage if not logged in.
       if (!isLogged(req)) {
         res.redirect("/");
       }
-      String pdf_id = req.params("pdf_id");
+      // Get requested PDF
+      String pdfId = req.params("pdf_id");
       String logged = currentUser(req);
-      ParselDB.PDFSchema pdf = ParselDB.getPDFByID(pdf_id);
+      ParselDB.PDFSchema pdf = ParselDB.getPDFByID(pdfId);
+      // If PDF belongs to the current user, delete it.
       if (pdf != null && pdf.getUser().equals(logged)) {
-        ParselDB.removePDFByID(pdf_id);
+        ParselDB.removePDFByID(pdfId);
         res.redirect("/dashboard");
       } else {
         req.session().attribute("error", "PDF doesn't exist or malformed PDF.");
@@ -200,6 +216,7 @@ public final class Routes {
   public static class GETUploadHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
+      // Redirect to homepage if not logged in.
       if (!isLogged(req)) {
         res.redirect("/");
       }
@@ -211,21 +228,21 @@ public final class Routes {
 
   /**
    * Handles POST requests to the /upload route.
-   * TODO: Multiple files
+   * TODO: Multiple files, better IDs.
    */
   public static class POSTUploadHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
       // Set form datatype
       req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
-      // Save PDF to database
+      // Save PDF object and data to database
       try (InputStream is = req.raw().getPart("file").getInputStream()) {
         byte[] fileContent = is.readAllBytes();
-        // TODO: Better IDs.
-        String pdf_id = req.session().attribute("logged") + ("_f_" + (int) (Math.random() * 999999999));
+        String pdfId =
+            req.session().attribute("logged") + ("_f_" + (int) (Math.random() * 999999999));
         String filename = req.raw().getPart("file").getSubmittedFileName();
-        ParselDB.PDFSchema newPDF =
-            new ParselDB.PDFSchema(pdf_id, req.session().attribute("logged"), filename, fileContent);
+        ParselDB.PDFSchema newPDF = new ParselDB.PDFSchema(
+            pdfId, req.session().attribute("logged"), filename, fileContent);
         ParselDB.updatePDF(newPDF);
         res.redirect("/dashboard");
       } catch (Exception e) {
@@ -243,9 +260,11 @@ public final class Routes {
   public static class GETQueryHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
+      // Redirect to homepage if not logged in.
       if (!isLogged(req)) {
         res.redirect("/");
       }
+      // Get and format snippets.
       String logged = currentUser(req);
       List<ParselDB.PDFSchema> pdfObjects = ParselDB.getPDFsByUser(logged);
       StringBuilder pdfs = new StringBuilder();
@@ -261,11 +280,12 @@ public final class Routes {
 
   /**
    * Handles POST requests to the /query route.
-   * // TODO: Do this
+   * TODO: Better IDs.
    */
   public static class POSTQueryHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
+      // Get and verify user input.
       String queryString = req.queryParams("keywords");
       String[] fileStrings = req.queryMap().toMap().get("pdf");
       if (fileStrings == null) {
@@ -273,6 +293,7 @@ public final class Routes {
         res.redirect("/error");
         return null;
       }
+      // Download all files to temp storage.
       List<String> files = new ArrayList<>();
       for (String fileString : fileStrings) {
         try {
@@ -285,44 +306,49 @@ public final class Routes {
           System.err.println("ERROR: " + e.getMessage());
         }
       }
+      // Create graph, run PageRank
       RankGraph graph = ParselCommands.parsel(files, queryString);
-      // TODO: Better IDs.
+      // Create and upload query object.
       String logged = req.session().attribute("logged");
-      String query_id = logged + ("_q_" + (int) (Math.random() * 999999999));
-      ParselDB.QuerySchema queryObject = new ParselDB.QuerySchema(query_id, logged, queryString, files);
+      String queryId = logged + ("_q_" + (int) (Math.random() * 999999999));
+      ParselDB.QuerySchema queryObject =
+          new ParselDB.QuerySchema(queryId, logged, queryString, files);
       ParselDB.updateQuery(queryObject);
-      processSnippets(graph.getVertices(), query_id);
-      res.redirect("/query/" + query_id);
+      // Process snippets.
+      processSnippets(graph.getVertices(), queryId);
+      // Delete files.
+      for (String file : files) {
+        File f = new File(file);
+        f.delete();
+      }
+      res.redirect("/query/" + queryId);
       return null;
     }
   }
 
   /**
    * Handles GET requests to the /query/:query_id route.
-   * TODO: Check that pdf belongs to the current user.
-   * TODO: limit # per page
-   * TODO: get similar
-   * TODO: find other things that pagerank gives for free
    */
   public static class GETQueryViewHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
+      // Redirect to home page if not logged in.
       if (!isLogged(req)) {
         res.redirect("/");
       }
+      // Get query and snippets, check for validity.
       String logged = currentUser(req);
-      String query_id = req.params(":query_id");
-      ParselDB.QuerySchema query = ParselDB.getQueryByID(query_id);
-      List<ParselDB.SnippetSchema> snippets = ParselDB.getSnippetsByQuery(query_id);
-      if (snippets.size() == 0) {
+      String queryId = req.params(":query_id");
+      ParselDB.QuerySchema query = ParselDB.getQueryByID(queryId);
+      List<ParselDB.SnippetSchema> snippets = ParselDB.getSnippetsByQuery(queryId);
+      if (snippets.size() == 0 || query == null || !query.getUser().equals(logged)) {
         req.session().attribute("error", "PDF doesn't exist or malformed PDF.");
         res.redirect("/error");
       }
+      // Format snippets and send to user.
       String formattedSnippets = formatSnippets(snippets);
-      Map<String, Object> variables =
-          ImmutableMap.of("loggedIn", logged,
-              "snippets", formattedSnippets,
-              "query", query.getQueryString());
+      Map<String, Object> variables = ImmutableMap.of("loggedIn", logged,
+          "snippets", formattedSnippets, "query", query.getQueryString());
       return new ModelAndView(variables, "view.ftl");
     }
   }
@@ -333,15 +359,18 @@ public final class Routes {
   public static class GETQueryDeleteHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
+      // Redirect to home page if not logged in.
       if (!isLogged(req)) {
         res.redirect("/");
       }
-      String query_id = req.params("query_id");
+      // Get query and user
+      String queryId = req.params("query_id");
       String logged = currentUser(req);
-      ParselDB.QuerySchema query = ParselDB.getQueryByID(query_id);
+      ParselDB.QuerySchema query = ParselDB.getQueryByID(queryId);
+      // If query exists and belongs to the current user, delete from DB.
       if (query != null && query.getUser().equals(logged)) {
-        ParselDB.removeQueryByID(query_id);
-        ParselDB.removeSnippetsByQuery(query_id);
+        ParselDB.removeQueryByID(queryId);
+        ParselDB.removeSnippetsByQuery(queryId);
         res.redirect("/dashboard");
       } else {
         req.session().attribute("error", "Query doesn't exist or malformed Query.");
@@ -357,6 +386,7 @@ public final class Routes {
   public static class GETErrorHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
+      // Get current user and current error message.
       String logged = currentUser(req);
       String errorMessage = req.session().attribute("error");
       if (errorMessage == null) {
@@ -371,8 +401,9 @@ public final class Routes {
 
   /**
    * Method to check if a user is logged in.
+   *
    * @param req Request.
-   * @return  false if not logged in, true if they are.
+   * @return false if not logged in, true if they are.
    */
   private static boolean isLogged(Request req) {
     String status = req.session().attribute("logged");
@@ -381,9 +412,10 @@ public final class Routes {
 
   /**
    * Method to check which user is logged in.
-   * // TODO: Fix this 0 issue
+   * // TODO: Better unlogged management.
+   *
    * @param req Request.
-   * @return  "0" if not logged in, the username if they are.
+   * @return "0" if not logged in, the username if they are.
    */
   private static String currentUser(Request req) {
     if (req.session().attribute("logged") == null) {
@@ -395,15 +427,16 @@ public final class Routes {
 
   /**
    * Format queries.
-   * @param queries  List of pdfs.
+   *
+   * @param queries List of pdfs.
    */
   private static String formatQueries(List<ParselDB.QuerySchema> queries) {
     StringBuilder ret = new StringBuilder();
     for (ParselDB.QuerySchema query : queries) {
       ret.append("<div class=\"query\">");
-      ret.append(String.format("<a href=\"/query/%s\">", query.get_id()));
-      ret.append("\"" + query.getQueryString() + "\"");
-      ret.append(String.format("</a><a class=\"delete\" href=\"/query/delete/%s\">", query.get_id()));
+      ret.append(String.format("<a href=\"/query/%s\">", query.getId()));
+      ret.append(String.format("\"%s\"", query.getQueryString()));
+      ret.append(String.format("</a><a class=\"delete\" href=\"/query/delete/%s\">", query.getId()));
       ret.append("delete");
       ret.append("</a></div>");
     }
@@ -412,7 +445,8 @@ public final class Routes {
 
   /**
    * Format pdfs.
-   * @param pdfs  List of pdfs.
+   *
+   * @param pdfs List of pdfs.
    */
   private static String formatPDFs(List<ParselDB.PDFSchema> pdfs) {
     StringBuilder ret = new StringBuilder();
@@ -434,22 +468,20 @@ public final class Routes {
 
   /**
    * Format snippets.
-   * @param snippets  List of snippets.
+   * TODO: Normalize?
+   *
+   * @param snippets List of snippets.
    */
   private static String formatSnippets(List<ParselDB.SnippetSchema> snippets) {
-    List<ParselDB.SnippetSchema> list = new ArrayList<>();
+    // Get max score for normalizing.
     double maxScore = 0;
-    for (ParselDB.SnippetSchema snippet : snippets){
-      list.add(new ParselDB.SnippetSchema("", snippet.getScore(), snippet.getContent()));
+    for (ParselDB.SnippetSchema snippet : snippets) {
       maxScore = Math.max(maxScore, snippet.getScore());
     }
-
+    // Sort snippets by score
     snippets.sort(Comparator.comparingDouble(ParselDB.SnippetSchema::getScore).reversed());
-
+    // Capped at 100 snippets returned.
     StringBuilder ret = new StringBuilder();
-    // Capped at 100
-    // TODO: Make this a variable, make dynamic pageviews
-    // TODO: Remove/fix normalize
     for (int i = 0; i < Math.min(100, snippets.size()); i++) {
       ret.append("<div class=\"snippet\"><div class=\"snippet-score\">Score: ");
       ret.append(snippets.get(i).getScore() / (maxScore / 100));
@@ -461,13 +493,15 @@ public final class Routes {
   }
 
   /**
-   * Process snippets - upload them to DB and return a list of Strings
-   * @param vertices  snippets.
+   * Process snippets - upload them to DB and return a list of Strings.
+   *
+   * @param vertices snippets.
    */
-  private static void processSnippets(List<RankVertex> vertices, String query_id) {
+  private static void processSnippets(List<RankVertex> vertices, String queryId) {
+    // Add all snippets to DB.
     for (RankVertex v : vertices) {
       ParselDB.SnippetSchema newSnippet = new ParselDB.SnippetSchema(
-          query_id, v.getScore(), v.getValue().getSnippet().getOriginalText());
+          queryId, v.getScore(), v.getValue().getSnippet().getOriginalText());
       ParselDB.updateSnippet(newSnippet);
     }
   }
