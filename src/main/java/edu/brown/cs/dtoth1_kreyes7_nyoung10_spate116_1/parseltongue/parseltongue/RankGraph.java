@@ -15,10 +15,9 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Rank Graph Class! TODO: Complete Docs.
+ * Rank Graph Class!
  */
-public class RankGraph implements
-    Graph<RankVertex, RankEdge, RankMetadata> {
+public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata> {
   private List<RankVertex> nodes;
   private PageRank<RankGraph, RankVertex, RankEdge, RankMetadata> pRank = new PageRank<>(this);
   private Map<RankVertex, Set<RankEdge>> inboundMap = new HashMap<>();
@@ -114,7 +113,7 @@ public class RankGraph implements
   @Override
   public RankVertex getVertex(String id) {
     for (RankVertex v : nodes) {
-      if (v.equals(id)) {
+      if (v.getValue().getID().equals(id)) {
         return v;
       }
     }
@@ -130,7 +129,7 @@ public class RankGraph implements
   @Override
   public boolean containsVertex(String id) {
     for (RankVertex v : nodes) {
-      if (v.equals(id)) {
+      if (v.getValue().getID().equals(id)) {
         return true;
       }
     }

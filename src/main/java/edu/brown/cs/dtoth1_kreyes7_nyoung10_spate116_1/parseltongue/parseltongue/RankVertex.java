@@ -15,7 +15,7 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
   private double score = 0;
 
   /**
-   * Construcor. TODO: Complete Docs.
+   * Construcor.
    * @param meta metadata.
    */
   public RankVertex(RankMetadata meta) {
@@ -23,7 +23,7 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
   }
 
   /**
-   * Add Edge. TODO: Complete Docs.
+   * Add Edge.
    * @param e Edge to add.
    */
   public void addEdge(RankEdge e) {
@@ -38,7 +38,7 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
   }
 
   /**
-   * Get Value. TODO: Complete Docs.
+   * Get Value.
    * @return  Metadata.
    */
   @Override
@@ -47,7 +47,7 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
   }
 
   /**
-   * Get Edges. TODO: Complete Docs.
+   * Get Edges.
    * @return  Edges.
    */
   @Override
@@ -56,7 +56,7 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
   }
 
   /**
-   * Total Weight. TODO: Complete Docs.
+   * Total Weight.
    * @return  Weight.
    */
   @Override
@@ -68,11 +68,19 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
     return sum;
   }
 
+  /**
+   * GSet score.
+   * @param score a double with the pageRank score
+   */
   @Override
   public void setScore(double score) {
     this.score = score;
   }
 
+  /**
+   * Get score.
+   * @return  Score.
+   */
   @Override
   public Double getScore() {
     return score;

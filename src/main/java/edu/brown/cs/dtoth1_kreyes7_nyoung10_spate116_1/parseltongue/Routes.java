@@ -2,8 +2,12 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue;
 
 import com.google.common.collect.ImmutableMap;
 
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseldb.PDFSchema;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseldb.QuerySchema;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseldb.SnippetSchema;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseldb.UserSchema;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselCommands;
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselDB;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseldb.ParselDB;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.RankGraph;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.RankVertex;
 
@@ -14,11 +18,9 @@ import spark.Response;
 import spark.TemplateViewRoute;
 
 import javax.servlet.MultipartConfigElement;
-import javax.servlet.ServletException;
 import javax.servlet.http.Part;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -67,7 +69,7 @@ public final class Routes {
     String username = req.queryParams("username");
     String password = req.queryParams("password");
     // Check if username-password combination is valid.
-    ParselDB.UserSchema ret = ParselDB.getUserByID(username);
+    UserSchema ret = ParselDB.getUserByID(username);
     if (ret != null && ret.getPassword().equals("" + password.hashCode())) {
       req.session().attribute("logged", username);
       res.redirect("/dashboard");
@@ -117,14 +119,14 @@ public final class Routes {
       String username = req.queryParams("username");
       String password = req.queryParams("password");
       // Check username hasn't been used yet
-      ParselDB.UserSchema ret = ParselDB.getUserByID(username);
+      UserSchema ret = ParselDB.getUserByID(username);
       if (ret != null) {
         req.session().attribute("error", "Email is invalid or already in use.");
         res.redirect("/error");
       } else {
         // Create user schema, update database.
         // TODO: Better password encryption
-        ParselDB.UserSchema newUser = new ParselDB.UserSchema(username, "" + password.hashCode());
+        UserSchema newUser = new UserSchema(username, "" + password.hashCode());
         ParselDB.updateUser(newUser);
         System.out.println("New user created!");
         Map<String, Object> variables = ImmutableMap.of("loggedIn", "0");
@@ -146,9 +148,9 @@ public final class Routes {
       }
       // Get and format user data.
       String logged = currentUser(req);
-      List<ParselDB.QuerySchema> queryObjects = ParselDB.getQueriesByUser(logged);
+      List<QuerySchema> queryObjects = ParselDB.getQueriesByUser(logged);
       String queries = formatQueries(queryObjects);
-      List<ParselDB.PDFSchema> pdfObjects = ParselDB.getPDFsByUser(logged);
+      List<PDFSchema> pdfObjects = ParselDB.getPDFsByUser(logged);
       String pdfs = formatPDFs(pdfObjects);
       Map<String, Object> variables =
           ImmutableMap.of("loggedIn", logged, "pdfs", pdfs, "queries", queries);
@@ -169,7 +171,7 @@ public final class Routes {
       // Get requested PDF
       String pdfId = req.params("pdf_id");
       String logged = currentUser(req);
-      ParselDB.PDFSchema pdf = ParselDB.getPDFByID(pdfId);
+      PDFSchema pdf = ParselDB.getPDFByID(pdfId);
       // If PDF belongs to the current user, download it.
       if (pdf != null && pdf.getUser().equals(logged)) {
         try {
@@ -203,7 +205,7 @@ public final class Routes {
       // Get requested PDF
       String pdfId = req.params("pdf_id");
       String logged = currentUser(req);
-      ParselDB.PDFSchema pdf = ParselDB.getPDFByID(pdfId);
+      PDFSchema pdf = ParselDB.getPDFByID(pdfId);
       // If PDF belongs to the current user, delete it.
       if (pdf != null && pdf.getUser().equals(logged)) {
         ParselDB.removePDFByID(pdfId);
@@ -249,7 +251,7 @@ public final class Routes {
           String pdfId =
               req.session().attribute("logged") + ("_f_" + (int) (Math.random() * 999999999));
           String filename = file.getSubmittedFileName();
-          ParselDB.PDFSchema newPDF = new ParselDB.PDFSchema(
+          PDFSchema newPDF = new PDFSchema(
               pdfId, req.session().attribute("logged"), filename, fileContent);
           ParselDB.updatePDF(newPDF);
           is.close();
@@ -276,9 +278,9 @@ public final class Routes {
       }
       // Get and format snippets.
       String logged = currentUser(req);
-      List<ParselDB.PDFSchema> pdfObjects = ParselDB.getPDFsByUser(logged);
+      List<PDFSchema> pdfObjects = ParselDB.getPDFsByUser(logged);
       StringBuilder pdfs = new StringBuilder();
-      for (ParselDB.PDFSchema pdf : pdfObjects) {
+      for (PDFSchema pdf : pdfObjects) {
         pdfs.append(String.format(
             "<input type=\"checkbox\" id=\"%s\" name=\"pdf\" value=\"%s\"><label for=\"%s\">%s</label><br/>",
             pdf.getId(), pdf.getId(), pdf.getId(), pdf.getFilename()));
@@ -322,8 +324,8 @@ public final class Routes {
       // Create and upload query object.
       String logged = req.session().attribute("logged");
       String queryId = logged + ("_q_" + (int) (Math.random() * 999999999));
-      ParselDB.QuerySchema queryObject =
-          new ParselDB.QuerySchema(queryId, logged, labelString, queryString, files);
+      QuerySchema queryObject =
+          new QuerySchema(queryId, logged, labelString, queryString, files);
       ParselDB.updateQuery(queryObject);
       // Process snippets.
       processSnippets(graph.getVertices(), queryId);
@@ -350,8 +352,8 @@ public final class Routes {
       // Get query and snippets, check for validity.
       String logged = currentUser(req);
       String queryId = req.params(":query_id");
-      ParselDB.QuerySchema query = ParselDB.getQueryByID(queryId);
-      List<ParselDB.SnippetSchema> snippets = ParselDB.getSnippetsByQuery(queryId);
+      QuerySchema query = ParselDB.getQueryByID(queryId);
+      List<SnippetSchema> snippets = ParselDB.getSnippetsByQuery(queryId);
       if (snippets.size() == 0 || query == null || !query.getUser().equals(logged)) {
         req.session().attribute("error", "PDF doesn't exist or malformed PDF.");
         res.redirect("/error");
@@ -377,7 +379,7 @@ public final class Routes {
       // Get query and user
       String queryId = req.params("query_id");
       String logged = currentUser(req);
-      ParselDB.QuerySchema query = ParselDB.getQueryByID(queryId);
+      QuerySchema query = ParselDB.getQueryByID(queryId);
       // If query exists and belongs to the current user, delete from DB.
       if (query != null && query.getUser().equals(logged)) {
         ParselDB.removeQueryByID(queryId);
@@ -441,9 +443,9 @@ public final class Routes {
    *
    * @param queries List of pdfs.
    */
-  private static String formatQueries(List<ParselDB.QuerySchema> queries) {
+  private static String formatQueries(List<QuerySchema> queries) {
     StringBuilder ret = new StringBuilder();
-    for (ParselDB.QuerySchema query : queries) {
+    for (QuerySchema query : queries) {
       ret.append("<div class=\"query\">");
       ret.append(String.format("<a href=\"/query/%s\">", query.getId()));
       ret.append(query.getLabel());
@@ -459,9 +461,9 @@ public final class Routes {
    *
    * @param pdfs List of pdfs.
    */
-  private static String formatPDFs(List<ParselDB.PDFSchema> pdfs) {
+  private static String formatPDFs(List<PDFSchema> pdfs) {
     StringBuilder ret = new StringBuilder();
-    for (ParselDB.PDFSchema pdf : pdfs) {
+    for (PDFSchema pdf : pdfs) {
       ret.append("<div class=\"pdf\">");
       ret.append(String.format("<a href=\"/download/%s\">", pdf.getId()));
       ret.append("<img src=\"https://img.icons8.com/dotty/80/000000/pdf-2.png\"/>");
@@ -483,14 +485,14 @@ public final class Routes {
    *
    * @param snippets List of snippets.
    */
-  private static String formatSnippets(List<ParselDB.SnippetSchema> snippets) {
+  private static String formatSnippets(List<SnippetSchema> snippets) {
     // Get max score for normalizing.
     double maxScore = 0;
-    for (ParselDB.SnippetSchema snippet : snippets) {
+    for (SnippetSchema snippet : snippets) {
       maxScore = Math.max(maxScore, snippet.getScore());
     }
     // Sort snippets by score
-    snippets.sort(Comparator.comparingDouble(ParselDB.SnippetSchema::getScore).reversed());
+    snippets.sort(Comparator.comparingDouble(SnippetSchema::getScore).reversed());
     // Set to contain filenames to minimize DB calls.
     Map<String, String> filenames = new HashMap<>();
     // Capped at 100 snippets returned.
@@ -528,7 +530,7 @@ public final class Routes {
     // Add all snippets to DB.
     for (RankVertex v : vertices) {
       Snippet curr = v.getValue().getSnippet();
-      ParselDB.SnippetSchema newSnippet = new ParselDB.SnippetSchema(
+      SnippetSchema newSnippet = new SnippetSchema(
           queryId, curr.getOriginalText(), curr.getFileName(), v.getScore(), curr.getPageNum());
       ParselDB.updateSnippet(newSnippet);
     }

@@ -11,7 +11,7 @@ public class RankMetadata implements VertexMetadata {
   private Snippet snippet;
 
   /**
-   * Constructor. TODO: Complete Docs.
+   * Constructor.
    * @param snippet snippet.
    */
   public RankMetadata(Snippet snippet) {
@@ -20,7 +20,7 @@ public class RankMetadata implements VertexMetadata {
   }
 
   /**
-   * Get ID. TODO: Complete Docs.
+   * Get ID.
    * @return  ID.
    */
   @Override
@@ -29,7 +29,7 @@ public class RankMetadata implements VertexMetadata {
   }
 
   /**
-   * Get Snippet. TODO: Complete Docs.
+   * Get Snippet.
    * @return  Snippet.
    */
   public Snippet getSnippet() {
