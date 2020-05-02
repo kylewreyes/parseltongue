@@ -8,7 +8,8 @@ function getSimilar(snippetId, queryId) {
         const results = JSON.parse(res);
         console.log(results);
         results.result.map(elt => {
-            snippet.append("<div class='secondary-snippet'>".concat(elt, "</div>"));
+            snippet.append("<div class='secondary-snippet'><div class='snippet-score'>Source: "
+            .concat(elt.filename, ", pg. ", elt.page, "</div>", elt.content, "</div>"));
         });
     });
 }

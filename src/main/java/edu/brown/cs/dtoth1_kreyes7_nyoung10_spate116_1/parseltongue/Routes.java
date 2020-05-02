@@ -30,10 +30,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Routes class! Holds and handles all web server routing.
@@ -81,6 +79,7 @@ public final class Routes {
       req.session().attribute("logged", username);
       res.redirect("/dashboard");
     } else {
+      // TODO: Better redirect
       req.session().attribute("error", "Invalid Login.");
       res.redirect("/error");
     }
@@ -380,18 +379,38 @@ public final class Routes {
   public static class POSTAdjacentSnippetsHandler implements Route {
     @Override
     public String handle(Request req, Response res) {
+      // Get snippet data
       QueryParamsMap qm = req.queryMap();
       String snippetId = qm.value("snippetId");
       String queryId = qm.value("queryId");
+      // Get query and graph from db, get closest vertices to given snippet
       QuerySchema query = ParselDB.getQueryByID(queryId);
       RankGraph graph = RankGraph.byteToObj(query.getData());
       RankVertex vertex = graph.getVertex(snippetId);
       List<RankVertex> vertices = vertex.getTopAdj(NUM_ADJ);
-      List<String> ret = new ArrayList<>();
+      // Set to contain filenames to minimize DB calls.
+      Map<String, String> filenames = new HashMap<>();
+      // Construct JSON return.
+      List<Map<String, Object>> ret = new ArrayList<>();
       for (RankVertex v : vertices) {
-        ret.add(v.getValue().getSnippet().getOriginalText());
+        String content = v.getValue().getSnippet().getOriginalText();
+        String page = "" + v.getValue().getSnippet().getPageNum();
+        String fileId = v.getValue().getSnippet().getFileName()
+            .substring(0, v.getValue().getSnippet().getFileName().length()-4);
+        String filename;
+        if (filenames.get(fileId) != null) {
+          filename = filenames.get(fileId);
+        } else {
+          filename = ParselDB.getPDFByID(fileId).getFilename();
+          filenames.put(fileId, filename);
+        }
+        // Make map
+        Map<String, Object> vertexMap =
+            ImmutableMap.of("content", content, "filename", filename, "page", page);
+        ret.add(vertexMap);
       }
-      Map<String, Object> variables;
+      // GSON convert, return
+      Map<String, List<Map<String, Object>>> variables;
       variables = ImmutableMap.of("result", ret);
       return GSON.toJson(variables);
     }
