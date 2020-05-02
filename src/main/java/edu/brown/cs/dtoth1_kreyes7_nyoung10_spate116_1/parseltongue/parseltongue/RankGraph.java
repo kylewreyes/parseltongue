@@ -31,6 +31,7 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
   private List<Map<String, Double>> dist;
   private List<Snippet> rawCoreText;
   private Map<String, Double> keywordDistribution = new HashMap<>();
+  private static final double DISSIMILAR_SOURCE_INCREASE = 2;
 
   public static void main(String[] args) {
     RankGraph test = new RankGraph(new ArrayList<>(), new Jaccardish());
@@ -77,8 +78,15 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
     for (int i = 0; i < nodes.size(); i++) {
       for (int j = i; j < nodes.size(); j++) {
         double weight = metric.calculateRelevance(keywordScoring.get(i), keywordScoring.get(j));
-        edges.add(new RankEdge(nodes.get(i), nodes.get(j), weight));
-        edges.add(new RankEdge(nodes.get(j), nodes.get(i), weight));
+        RankVertex n1 = nodes.get(i);
+        RankVertex n2 = nodes.get(j);
+        String n1FileName = n1.getValue().getSnippet().getFileName();
+        String n2FileName = n2.getValue().getSnippet().getFileName();
+        if (n1FileName != null && n2FileName != null && !n2FileName.equals(n1FileName)) {
+          weight = weight * DISSIMILAR_SOURCE_INCREASE;
+        }
+        edges.add(new RankEdge(n1, n2, weight));
+        edges.add(new RankEdge(n2, n1, weight));
       }
     }
 
@@ -218,6 +226,7 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
 
   /**
    * Convert this object to byte array.
+   * @param graph graph object to convert to byte array
    * @return  Byte data.
    */
   public static byte[] objToBytes(RankGraph graph) {
