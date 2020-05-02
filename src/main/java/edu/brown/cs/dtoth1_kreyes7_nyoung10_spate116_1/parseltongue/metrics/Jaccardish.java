@@ -1,11 +1,12 @@
 package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Method for calculating Document similarity loosely based on the Jaccard index method.
  */
-public class Jaccardish implements RelevanceMetric {
+public class Jaccardish implements RelevanceMetric, Serializable {
   /**
    * Calculates relevance between two keywords. TODO: Complete Docs
    *

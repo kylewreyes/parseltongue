@@ -1,5 +1,6 @@
 package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -16,7 +17,7 @@ import java.util.Map;
  * @param <T> Metadata Type.
  */
 public class PageRank<G extends Graph<V, E, T>, V extends Vertex<E, T>, E extends Edge<V>,
-    T extends VertexMetadata> {
+    T extends VertexMetadata> implements Serializable {
   private final G compGraph;
   private long n;
 

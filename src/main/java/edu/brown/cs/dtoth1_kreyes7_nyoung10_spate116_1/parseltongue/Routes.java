@@ -2,6 +2,7 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue;
 
 import com.google.common.collect.ImmutableMap;
 
+import com.google.gson.Gson;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseldb.PDFSchema;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseldb.QuerySchema;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseldb.SnippetSchema;
@@ -13,8 +14,10 @@ import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.Snippet;
 import spark.ModelAndView;
+import spark.QueryParamsMap;
 import spark.Request;
 import spark.Response;
+import spark.Route;
 import spark.TemplateViewRoute;
 
 import javax.servlet.MultipartConfigElement;
@@ -29,11 +32,13 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Routes class! Holds and handles all web server routing.
  */
 public final class Routes {
+  private static final Gson GSON = new Gson();
 
   /**
    * Private Constructor.
@@ -319,13 +324,14 @@ public final class Routes {
           System.err.println("ERROR: " + e.getMessage());
         }
       }
-      // Create graph, run PageRank
+      // Create graph, run PageRank, convert to byte[]
       RankGraph graph = ParselCommands.parsel(files, queryString);
+      byte[] graphData = RankGraph.objToBytes(graph);
       // Create and upload query object.
       String logged = req.session().attribute("logged");
       String queryId = logged + ("_q_" + (int) (Math.random() * 999999999));
       QuerySchema queryObject =
-          new QuerySchema(queryId, logged, labelString, queryString, files);
+          new QuerySchema(queryId, logged, labelString, queryString, graphData, files);
       ParselDB.updateQuery(queryObject);
       // Process snippets.
       processSnippets(graph.getVertices(), queryId);
@@ -363,6 +369,16 @@ public final class Routes {
       Map<String, Object> variables = ImmutableMap.of("loggedIn", logged, "snippets",
           formattedSnippets, "label", query.getLabel(), "query", query.getQueryString());
       return new ModelAndView(variables, "view.ftl");
+    }
+  }
+
+  /**
+   * Handles post requests for getting adjacent snippets.
+   */
+  public static class POSTAdjacentSnippetsHandler implements Route {
+    @Override
+    public String handle(Request req, Response res) {
+      return null;
     }
   }
 
@@ -508,7 +524,9 @@ public final class Routes {
         filenames.put(fileId, filename);
       }
       // Construct snippet.
-      ret.append("<div class=\"snippet\"><div class=\"snippet-score\">Score: ");
+      ret.append(String.format(
+          "<div class=\"snippet\"><div id=\"%s\" class=\"snippet-score\">Score: ",
+          snippets.get(i).getSnippetId()));
       ret.append(snippets.get(i).getScore() / (maxScore / 100));
       ret.append("</div><div class=\"snippet-score\">Source: ");
       ret.append(filename);
@@ -530,8 +548,8 @@ public final class Routes {
     // Add all snippets to DB.
     for (RankVertex v : vertices) {
       Snippet curr = v.getValue().getSnippet();
-      SnippetSchema newSnippet = new SnippetSchema(
-          queryId, curr.getOriginalText(), curr.getFileName(), v.getScore(), curr.getPageNum());
+      SnippetSchema newSnippet = new SnippetSchema(queryId, v.getValue().getID(),
+          curr.getOriginalText(), curr.getFileName(), v.getScore(), curr.getPageNum());
       ParselDB.updateSnippet(newSnippet);
     }
   }

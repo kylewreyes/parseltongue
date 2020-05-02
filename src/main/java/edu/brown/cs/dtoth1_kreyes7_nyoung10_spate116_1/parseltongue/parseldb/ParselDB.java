@@ -115,6 +115,7 @@ public final class ParselDB {
           res.curr().get("user").toString(),
           res.curr().get("label").toString(),
           res.curr().get("queryString").toString(),
+          Base64.getDecoder().decode(res.curr().get("data").toString()),
           new ArrayList<>());
     } else {
       return null;
@@ -137,6 +138,7 @@ public final class ParselDB {
           res.curr().get("user").toString(),
           res.curr().get("label").toString(),
           res.curr().get("queryString").toString(),
+          Base64.getDecoder().decode(res.curr().get("data").toString()),
           new ArrayList<>());
       ret.add(0, query);
     }
@@ -155,6 +157,7 @@ public final class ParselDB {
     while (res.hasNext()) {
       res.next();
       SnippetSchema curr = new SnippetSchema(res.curr().get("query_id").toString(),
+          res.curr().get("snippet_id").toString(),
           res.curr().get("content").toString(),
           res.curr().get("file").toString(),
           Double.parseDouble(res.curr().get("score").toString()),

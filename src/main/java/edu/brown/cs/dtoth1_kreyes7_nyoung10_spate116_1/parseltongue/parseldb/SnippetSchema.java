@@ -7,7 +7,7 @@ import com.mongodb.DBObject;
  * Snippet Schema.
  */
 public class SnippetSchema {
-  private final String queryId, content, file;
+  private final String queryId, snippetId, content, file;
   private final double score;
   private final int page;
 
@@ -15,13 +15,15 @@ public class SnippetSchema {
    * Constructor.
    *
    * @param q Query id.
+   * @param i Snippet id.
    * @param c Content.
    * @param f File name.
    * @param s Score.
    * @param p Page.
    */
-  public SnippetSchema(String q, String c, String f, double s, int p) {
+  public SnippetSchema(String q, String i, String c, String f, double s, int p) {
     queryId = q;
+    snippetId = i;
     content = c;
     file = f;
     score = s;
@@ -36,6 +38,7 @@ public class SnippetSchema {
   public DBObject getDBObject() {
     return new BasicDBObject()
         .append("query_id", queryId)
+        .append("snippet_id", queryId)
         .append("content", content)
         .append("file", file)
         .append("score", score)
@@ -48,6 +51,14 @@ public class SnippetSchema {
    */
   public String getQueryId() {
     return queryId;
+  }
+
+  /**
+   * Get snippet id.
+   * @return  Snippet id.
+   */
+  public String getSnippetId() {
+    return snippetId;
   }
 
   /**

@@ -3,13 +3,14 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseldb;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 
+import java.util.Base64;
 import java.util.List;
 
 /**
  * Query Schema.
  */
 public class QuerySchema {
-  private final String id, user, label, queryString;
+  private final String id, user, label, queryString, data;
   private final List<String> files;
 
   /**
@@ -20,11 +21,12 @@ public class QuerySchema {
    * @param qs Query string.
    * @param f  Files.
    */
-  public QuerySchema(String i, String u, String l, String qs, List<String> f) {
+  public QuerySchema(String i, String u, String l, String qs, byte[] d, List<String> f) {
     id = i;
     user = u;
     label = l;
     queryString = qs;
+    data = Base64.getEncoder().encodeToString(d);
     files = f;
   }
 
@@ -39,6 +41,7 @@ public class QuerySchema {
         .append("user", user)
         .append("label", label)
         .append("queryString", queryString)
+        .append("data", data)
         .append("files", files);
   }
 
@@ -76,6 +79,14 @@ public class QuerySchema {
    */
   public String getQueryString() {
     return queryString;
+  }
+
+  /**
+   * Get graph data.
+   * @return  Graph data.
+   */
+  public byte[] getData() {
+    return Base64.getDecoder().decode(data);
   }
 
   /**

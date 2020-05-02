@@ -2,10 +2,16 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongu
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.Graph;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.PageRank;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.Jaccardish;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.KeywordExtractor;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.RelevanceMetric;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.Snippet;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -17,7 +23,7 @@ import java.util.Set;
 /**
  * Rank Graph Class!
  */
-public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata> {
+public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Serializable {
   private List<RankVertex> nodes;
   private PageRank<RankGraph, RankVertex, RankEdge, RankMetadata> pRank = new PageRank<>(this);
   private Map<RankVertex, Set<RankEdge>> inboundMap = new HashMap<>();
@@ -25,6 +31,14 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata> {
   private List<Map<String, Double>> dist;
   private List<Snippet> rawCoreText;
   private Map<String, Double> keywordDistribution = new HashMap<>();
+
+  public static void main(String[] args) {
+    RankGraph test = new RankGraph(new ArrayList<>(), new Jaccardish());
+    byte[] testData = RankGraph.objToBytes(test);
+    RankGraph testCompressed = RankGraph.byteToObj(testData);
+    System.out.println(test.equals(testCompressed));
+    System.out.println(testCompressed);
+  }
 
   /**
    * Constructor for rank graph which initializes internal data of the graph.
@@ -200,5 +214,38 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata> {
   public List<RankVertex> getTop(int n) {
     nodes.sort(Comparator.comparing(RankVertex::getScore));
     return nodes.subList(nodes.size() - n, nodes.size());
+  }
+
+  /**
+   * Convert this object to byte array.
+   * @return  Byte data.
+   */
+  public static byte[] objToBytes(RankGraph graph) {
+    try {
+      ByteArrayOutputStream bos = new ByteArrayOutputStream();
+      ObjectOutputStream oos = new ObjectOutputStream(bos);
+      oos.writeObject(graph);
+      oos.flush();
+      return bos.toByteArray();
+    } catch (Exception e) {
+      System.err.println("ERROR: byte write. " + e.getMessage());
+      return null;
+    }
+  }
+
+  /**
+   *
+   * @param bytes  Byte data.
+   * @return  RankGraph.
+   */
+  public static RankGraph byteToObj(byte[] bytes) {
+    try {
+      ByteArrayInputStream byteStream = new ByteArrayInputStream(bytes);
+      ObjectInputStream objStream = new ObjectInputStream(byteStream);
+      return (RankGraph) objStream.readObject();
+    } catch (Exception e) {
+      System.err.println("ERROR: byte conversion. " + e.getMessage());
+      return null;
+    }
   }
 }
