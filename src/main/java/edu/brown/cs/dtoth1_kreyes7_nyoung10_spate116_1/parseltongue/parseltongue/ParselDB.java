@@ -72,11 +72,10 @@ public final class ParselDB {
     DBCursor res = pdfCollection.find(new BasicDBObject("_id", id));
     if (res.count() == 1) {
       res.next();
-      PDFSchema ret = new PDFSchema(res.curr().get("_id").toString(),
+      return new PDFSchema(res.curr().get("_id").toString(),
           res.curr().get("user").toString(),
           res.curr().get("filename").toString(),
           Base64.getDecoder().decode(res.curr().get("data").toString()));
-      return ret;
     } else {
       return null;
     }
