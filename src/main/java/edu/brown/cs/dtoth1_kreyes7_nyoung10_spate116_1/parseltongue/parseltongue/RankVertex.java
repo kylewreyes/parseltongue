@@ -72,7 +72,7 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata>, Serializable 
     List<RankEdge> edges = new ArrayList<>(adj);
     edges.sort((o1, o2) -> -o1.getWeight().compareTo(o2.getWeight()));
     List<RankVertex> ret = new ArrayList<>();
-    for (int i = 1; i <= Math.min(n, edges.size()); ++i) {
+    for (int i = 0; i < Math.min(n, edges.size()); ++i) {
       ret.add(edges.get(i).getDest());
     }
     return ret;
