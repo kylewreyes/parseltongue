@@ -9,7 +9,6 @@ function getSimilar(snippetId, queryId) {
         console.log(results);
         results.result.map(elt => {
             snippet.append("<div class='secondary-snippet'>".concat(elt, "</div>"));
-
         });
     });
 }

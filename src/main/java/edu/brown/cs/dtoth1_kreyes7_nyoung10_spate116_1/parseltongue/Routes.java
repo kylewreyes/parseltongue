@@ -512,7 +512,6 @@ public final class Routes {
 
   /**
    * Format snippets.
-   * TODO: Normalize?
    *
    * @param snippets List of snippets.
    */
@@ -550,7 +549,7 @@ public final class Routes {
       ret.append("</div>");
       ret.append(snippets.get(i).getContent());
       ret.append("<br/>");
-      ret.append(String.format("<button class='similar' onclick=\"getSimilar('%s', '%s')\">Get Similar</button>",
+      ret.append(String.format("<button class='similar' onclick=\"getSimilar('%s', '%s')\">View Similar</button>",
           snippets.get(i).getSnippetId(), snippets.get(i).getQueryId()));
       ret.append("</div>");
     }
