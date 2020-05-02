@@ -86,7 +86,7 @@ public class KeywordExtractorTest {
             " lopment' will form the central theme of the present\n" +
             " article, taking the dependencia theory as an\n" +
             " interpretation context, although in a critical man-\n" +
-            " ner");
+            " ner","uruguay");
     Snippet s2 = new Snippet(" A very brief description will first be given of the\n" +
             " rise of Uruguay as a welfare state, after which the\n" +
             " weak economic basis of the country's prosperity\n" +
@@ -95,7 +95,7 @@ public class KeywordExtractorTest {
             " examined in greater detail. The article concludes\n" +
             " with a postscript in which the developments\n" +
             " described are viewed against the background of\n" +
-            " the dependencia' the");
+            " the dependencia' the","uruguay");
     Snippet s3 = new Snippet(" Uruguay was for a long time an area of little\n" +
             " significance. After the discovery of America the\n" +
             " Spaniards quickly found that Uruguay did not\n" +
@@ -107,7 +107,7 @@ public class KeywordExtractorTest {
             " pay taxes. The Spaniards did ferry horses and\n" +
             " cattle over from Buenos Aires in 1603. These\n" +
             " animals rapidly multiplied and were hunted occa-\n" +
-            " sionally.\n");
+            " sionally.\n","uruguay");
     Snippet s4 = new Snippet(" Not until the 18th century, when the trading\n" +
             " prospects in hides and dried meat became rather\n" +
             " more lucrative, were permanent settlements creat-\n" +
@@ -127,7 +127,7 @@ public class KeywordExtractorTest {
             " function as a buffer between Argentina and\n" +
             " Brazil, the country had no more than 60 to\n" +
             " 70,000 inhabitants, of whom some 15,000 lived\n" +
-            " in Montevideo.\n");
+            " in Montevideo.\n","uruguay");
     Snippet s5 = new Snippet(" After independence important changes took\n" +
             " place in the economic sphere as a result of the\n" +
             " development from the middle of the last century\n" +
@@ -139,7 +139,7 @@ public class KeywordExtractorTest {
             " to encourage its development through the supply\n" +
             " of high quality breeding animals and various\n" +
             " other assets (such as barbed wire), the establish-\n" +
-            " ment of a meat extract plant at Fray Bent");
+            " ment of a meat extract plant at Fray Bent","uruguay");
     Snippet s6 = new Snippet("os, the\n" +
             " construction of railways, the introduction of refri-\n" +
             " gerated ships and the building of a modern\n" +
@@ -152,7 +152,7 @@ public class KeywordExtractorTest {
             " terrritory took place. The greater part of the land\n" +
             " came into the hands of large landowners, who\n" +
             " continued to exploit it in an extensive manner, so\n" +
-            " that the yields per hectare remained low.");
+            " that the yields per hectare remained low.","uruguay");
     Snippet s7 = new Snippet(" Only 1 2% of the agricultural land was ultimate-\n" +
             " ly used for arable farming, which mainly served\n" +
             " for national self-sufficiency and largely deve-\n" +
@@ -164,7 +164,7 @@ public class KeywordExtractorTest {
             " the southern and western part of the country,\n" +
             " which is the most suited physically to the purpose\n" +
             " and has the largest concentration of population\n" +
-            " (map 1).\n");
+            " (map 1).\n","uruguay");
     Snippet s8 = new Snippet(" The dependency on imported industrial\n" +
             " products was also exposed in the present century\n" +
             " and the Uruguay an government has consequently\n" +
@@ -182,7 +182,7 @@ public class KeywordExtractorTest {
             " then itself already producing many consumer\n" +
             " goods in common use. The majority of factories,\n" +
             " with the exception of the frigoríficos, operated\n" +
-            " with Uruguayan capital");
+            " with Uruguayan capital","uruguay");
     Snippet s9 = new Snippet(" The strong emphasis on extensive livestock\n" +
             " farming had important consequences for the size\n" +
             " and distribution of the population. Although the\n" +
@@ -194,7 +194,7 @@ public class KeywordExtractorTest {
             " counties of Brazil and Argentina. Uruguay, which\n" +
             " had only 229,000 inhabitants in I860, still had no\n" +
             " more than 505,000 in 1882, only 1.14 million in\n" +
-            " 1910 and 1.9 million in 1930");
+            " 1910 and 1.9 million in 1930","uruguay");
     Snippet s10 = new Snippet(" The majority of immigrants did not go to the\n" +
             " countryside, because the extensive sheep and\n" +
             " cattle ranches there offered little employment.\n" +
@@ -203,7 +203,7 @@ public class KeywordExtractorTest {
             " thinly populated and one of the direct conse-\n" +
             " quences of this was that the growth of the urban\n" +
             " centres was severely restricted, since they could\n" +
-            " perform only a modest service function");
+            " perform only a modest service function","uruguay");
     Snippet s11 = new Snippet(" The most important towns after Montevideo\n" +
             " were Salto and Paysandú, but even today they still\n" +
             " have each only about 80,000 inhabitants. The\n" +
@@ -213,7 +213,7 @@ public class KeywordExtractorTest {
             " istrative function and also serve as the residence of\n" +
             " estancieros', who leave the daily running of their\n" +
             " ranches to managers. With the exception to some\n" +
-            " extent of Paysandú, no industry");
+            " extent of Paysandú, no industry","uruguay");
     Snippet s12 = new Snippet(" The only settlement wih a real urban character\n" +
             " is Montevideo. Althoug the whole country had a\n" +
             " population of only 2.76 million in 1975, no less\n" +
@@ -226,7 +226,7 @@ public class KeywordExtractorTest {
             " attraction which the capital has always been able\n" +
             " to exert, in a small and easily accessible terrority,\n" +
             " on economic activities and facilities of all kinds\n" +
-            " and, through them, on the population. A regular");
+            " and, through them, on the population. A regular","uruguay");
     Snippet s13 = new Snippet(" In about 1 950 Uruguay had a very unbalanced\n" +
             " economy. Although it could already supply many\n" +
             " of its own needs in arable products and simple\n" +
