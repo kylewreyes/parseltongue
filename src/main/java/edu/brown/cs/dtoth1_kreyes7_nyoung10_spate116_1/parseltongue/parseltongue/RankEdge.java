@@ -49,7 +49,7 @@ public class RankEdge implements Edge<RankVertex> {
    * @return weight.
    */
   @Override
-  public double getWeight() {
+  public Double getWeight() {
     return weight;
   }
 }

@@ -2,7 +2,9 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongu
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.Vertex;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -54,6 +56,30 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
   public Set<RankEdge> getEdges() {
     return adj;
   }
+
+  /**
+   * Get top n vertices adjacent.
+   * @param n the number of nodes wanted
+   * @return list of n vertices
+   */
+  public List<RankVertex> getTopAdj(int n) {
+    List<RankEdge> edges = new ArrayList<>(adj);
+    edges.sort((o1, o2) -> -o1.getWeight().compareTo(o2.getWeight()));
+
+    List<RankVertex> ret = new ArrayList<>();
+    if (n >= edges.size()) {
+      for (RankEdge e : edges) {
+        ret.add(e.getDest());
+      }
+    } else {
+      for (int i = 0; i < n; ++i) {
+        ret.add(edges.get(i).getDest());
+      }
+    }
+
+    return ret;
+  }
+
 
   /**
    * Total Weight.
