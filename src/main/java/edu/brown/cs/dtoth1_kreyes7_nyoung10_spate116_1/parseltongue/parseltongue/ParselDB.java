@@ -114,6 +114,7 @@ public final class ParselDB {
       res.next();
       return new QuerySchema(res.curr().get("_id").toString(),
           res.curr().get("user").toString(),
+          res.curr().get("label").toString(),
           res.curr().get("queryString").toString(),
           new ArrayList<>());
     } else {
@@ -135,6 +136,7 @@ public final class ParselDB {
       res.next();
       QuerySchema query = new QuerySchema(res.curr().get("_id").toString(),
           res.curr().get("user").toString(),
+          res.curr().get("label").toString(),
           res.curr().get("queryString").toString(),
           new ArrayList<>());
       ret.add(0, query);
@@ -356,7 +358,7 @@ public final class ParselDB {
    * Query Schema.
    */
   public static class QuerySchema {
-    private final String id, user, queryString;
+    private final String id, user, label, queryString;
     private final List<String> files;
 
     /**
@@ -367,9 +369,10 @@ public final class ParselDB {
      * @param qs Query string.
      * @param f  Files.
      */
-    public QuerySchema(String i, String u, String qs, List<String> f) {
+    public QuerySchema(String i, String u, String l, String qs, List<String> f) {
       id = i;
       user = u;
+      label = l;
       queryString = qs;
       files = f;
     }
@@ -383,6 +386,7 @@ public final class ParselDB {
       return new BasicDBObject()
           .append("_id", id)
           .append("user", user)
+          .append("label", label)
           .append("queryString", queryString)
           .append("files", files);
     }
@@ -403,6 +407,15 @@ public final class ParselDB {
      */
     public String getUser() {
       return user;
+    }
+
+    /**
+     * Get label.
+     *
+     * @return  Label.
+     */
+    public String getLabel() {
+      return label;
     }
 
     /**

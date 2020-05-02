@@ -14,12 +14,17 @@ import spark.Response;
 import spark.TemplateViewRoute;
 
 import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletException;
+import javax.servlet.http.Part;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -227,27 +232,31 @@ public final class Routes {
     }
   }
 
-  /**
+   /**
    * Handles POST requests to the /upload route.
-   * TODO: Multiple files, better IDs.
+   * TODO: Better IDs.
    */
   public static class POSTUploadHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
       // Set form datatype
       req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
-      // Save PDF object and data to database
-      try (InputStream is = req.raw().getPart("file").getInputStream()) {
-        byte[] fileContent = is.readAllBytes();
-        String pdfId =
-            req.session().attribute("logged") + ("_f_" + (int) (Math.random() * 999999999));
-        String filename = req.raw().getPart("file").getSubmittedFileName();
-        ParselDB.PDFSchema newPDF = new ParselDB.PDFSchema(
-            pdfId, req.session().attribute("logged"), filename, fileContent);
-        ParselDB.updatePDF(newPDF);
+      // Save PDFs object and data to database
+      try {Collection<Part> files = req.raw().getParts();
+      for (Part file : files) {
+          InputStream is = file.getInputStream();
+          byte[] fileContent = is.readAllBytes();
+          String pdfId =
+              req.session().attribute("logged") + ("_f_" + (int) (Math.random() * 999999999));
+          String filename = file.getSubmittedFileName();
+          ParselDB.PDFSchema newPDF = new ParselDB.PDFSchema(
+              pdfId, req.session().attribute("logged"), filename, fileContent);
+          ParselDB.updatePDF(newPDF);
+          is.close();
+        }
         res.redirect("/dashboard");
       } catch (Exception e) {
-        System.err.println("ERROR: Bad File Upload at /upload");
+        System.err.println("ERROR: Bad File Upload at /upload: " + e.getMessage());
         req.session().attribute("error", "Bad File Upload at /upload");
         res.redirect("/error");
       }
@@ -287,6 +296,7 @@ public final class Routes {
     @Override
     public ModelAndView handle(Request req, Response res) {
       // Get and verify user input.
+      String labelString = req.queryParams("label");
       String queryString = req.queryParams("keywords");
       String[] fileStrings = req.queryMap().toMap().get("pdf");
       if (fileStrings == null) {
@@ -313,7 +323,7 @@ public final class Routes {
       String logged = req.session().attribute("logged");
       String queryId = logged + ("_q_" + (int) (Math.random() * 999999999));
       ParselDB.QuerySchema queryObject =
-          new ParselDB.QuerySchema(queryId, logged, queryString, files);
+          new ParselDB.QuerySchema(queryId, logged, labelString, queryString, files);
       ParselDB.updateQuery(queryObject);
       // Process snippets.
       processSnippets(graph.getVertices(), queryId);
@@ -348,8 +358,8 @@ public final class Routes {
       }
       // Format snippets and send to user.
       String formattedSnippets = formatSnippets(snippets);
-      Map<String, Object> variables = ImmutableMap.of("loggedIn", logged,
-          "snippets", formattedSnippets, "query", query.getQueryString());
+      Map<String, Object> variables = ImmutableMap.of("loggedIn", logged, "snippets",
+          formattedSnippets, "label", query.getLabel(), "query", query.getQueryString());
       return new ModelAndView(variables, "view.ftl");
     }
   }
@@ -436,7 +446,7 @@ public final class Routes {
     for (ParselDB.QuerySchema query : queries) {
       ret.append("<div class=\"query\">");
       ret.append(String.format("<a href=\"/query/%s\">", query.getId()));
-      ret.append(String.format("\"%s\"", query.getQueryString()));
+      ret.append(query.getLabel());
       ret.append(String.format("</a><a class=\"delete\" href=\"/query/delete/%s\">", query.getId()));
       ret.append("delete");
       ret.append("</a></div>");
@@ -481,13 +491,25 @@ public final class Routes {
     }
     // Sort snippets by score
     snippets.sort(Comparator.comparingDouble(ParselDB.SnippetSchema::getScore).reversed());
+    // Set to contain filenames to minimize DB calls.
+    Map<String, String> filenames = new HashMap<>();
     // Capped at 100 snippets returned.
     StringBuilder ret = new StringBuilder();
-    for (int i = 0; i < Math.min(100, snippets.size()); i++) {
+    for (int i = 0; i < Math.min(50, snippets.size()); i++) {
+      // Get filename
+      String fileId = snippets.get(i).getFile().substring(0, snippets.get(i).getFile().length()-4);
+      String filename;
+      if (filenames.get(fileId) != null) {
+        filename = filenames.get(fileId);
+      } else {
+        filename = ParselDB.getPDFByID(fileId).getFilename();
+        filenames.put(fileId, filename);
+      }
+      // Construct snippet.
       ret.append("<div class=\"snippet\"><div class=\"snippet-score\">Score: ");
       ret.append(snippets.get(i).getScore() / (maxScore / 100));
       ret.append("</div><div class=\"snippet-score\">Source: ");
-      ret.append(snippets.get(i).getFile());
+      ret.append(filename);
       ret.append(", pg. ");
       ret.append(snippets.get(i).getPage());
       ret.append("</div>");
