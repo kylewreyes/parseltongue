@@ -76,7 +76,7 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
 
     List<RankEdge> edges = new ArrayList<>();
     for (int i = 0; i < nodes.size(); i++) {
-      for (int j = i; j < nodes.size(); j++) {
+      for (int j = i + 1; j < nodes.size(); j++) {
         double weight = metric.calculateRelevance(keywordScoring.get(i), keywordScoring.get(j));
         RankVertex n1 = nodes.get(i);
         RankVertex n2 = nodes.get(j);
