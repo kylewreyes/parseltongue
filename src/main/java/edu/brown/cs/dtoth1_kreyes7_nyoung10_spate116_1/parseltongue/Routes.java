@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -39,6 +40,7 @@ import java.util.Set;
  */
 public final class Routes {
   private static final Gson GSON = new Gson();
+  private static final int NUM_ADJ = 5;
 
   /**
    * Private Constructor.
@@ -378,7 +380,20 @@ public final class Routes {
   public static class POSTAdjacentSnippetsHandler implements Route {
     @Override
     public String handle(Request req, Response res) {
-      return null;
+      QueryParamsMap qm = req.queryMap();
+      String snippetId = qm.value("snippetId");
+      String queryId = qm.value("queryId");
+      QuerySchema query = ParselDB.getQueryByID(queryId);
+      RankGraph graph = RankGraph.byteToObj(query.getData());
+      RankVertex vertex = graph.getVertex(snippetId);
+      List<RankVertex> vertices = vertex.getTopAdj(NUM_ADJ);
+      List<String> ret = new ArrayList<>();
+      for (RankVertex v : vertices) {
+        ret.add(v.getValue().getSnippet().getOriginalText());
+      }
+      Map<String, Object> variables;
+      variables = ImmutableMap.of("result", ret);
+      return GSON.toJson(variables);
     }
   }
 
@@ -525,7 +540,7 @@ public final class Routes {
       }
       // Construct snippet.
       ret.append(String.format(
-          "<div class=\"snippet\"><div id=\"%s\" class=\"snippet-score\">Score: ",
+          "<div id=\"%s\" class=\"snippet\"><div class=\"snippet-score\">Score: ",
           snippets.get(i).getSnippetId()));
       ret.append(snippets.get(i).getScore() / (maxScore / 100));
       ret.append("</div><div class=\"snippet-score\">Source: ");
@@ -534,6 +549,9 @@ public final class Routes {
       ret.append(snippets.get(i).getPage());
       ret.append("</div>");
       ret.append(snippets.get(i).getContent());
+      ret.append("<br/>");
+      ret.append(String.format("<button class='similar' onclick=\"getSimilar('%s', '%s')\">Get Similar</button>",
+          snippets.get(i).getSnippetId(), snippets.get(i).getQueryId()));
       ret.append("</div>");
     }
     return ret.toString();
