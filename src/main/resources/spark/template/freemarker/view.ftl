@@ -6,6 +6,7 @@
         ${snippets}
     </div>
 </div>
+<script src="/js/snippets.js"></script>
 </#assign>
 <#assign footer>
 </#assign>

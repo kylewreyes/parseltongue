@@ -38,7 +38,7 @@ public class SnippetSchema {
   public DBObject getDBObject() {
     return new BasicDBObject()
         .append("query_id", queryId)
-        .append("snippet_id", queryId)
+        .append("snippet_id", snippetId)
         .append("content", content)
         .append("file", file)
         .append("score", score)

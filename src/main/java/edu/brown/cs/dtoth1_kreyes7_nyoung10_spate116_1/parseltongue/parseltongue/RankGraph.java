@@ -32,14 +32,6 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
   private List<Snippet> rawCoreText;
   private Map<String, Double> keywordDistribution = new HashMap<>();
 
-  public static void main(String[] args) {
-    RankGraph test = new RankGraph(new ArrayList<>(), new Jaccardish());
-    byte[] testData = RankGraph.objToBytes(test);
-    RankGraph testCompressed = RankGraph.byteToObj(testData);
-    System.out.println(test.equals(testCompressed));
-    System.out.println(testCompressed);
-  }
-
   /**
    * Constructor for rank graph which initializes internal data of the graph.
    *

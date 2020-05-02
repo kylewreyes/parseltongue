@@ -141,8 +141,8 @@ public final class Main {
     // GET View query - "/query/:query_id"
     Spark.get("/query/:query_id", new Routes.GETQueryViewHandler(), freeMarker);
 
-    // POST get nearest nertices - "/query/:query_id"
-    Spark.post("/query/:query_id", new Routes.POSTAdjacentSnippetsHandler());
+    // POST get nearest vertices - "/query/:query_id"
+    Spark.post("/nearest", new Routes.POSTAdjacentSnippetsHandler());
 
     // GET delete query - "/query/delete/:query_id"
     Spark.get("/query/delete/:query_id", new Routes.GETQueryDeleteHandler(), freeMarker);
