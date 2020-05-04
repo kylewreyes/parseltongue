@@ -13,7 +13,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -202,18 +201,6 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
     }
 
     return finalEdges;
-  }
-
-  /**
-   * Returns the top n nodes with according to their score.
-   * Note that if pagerank has not been run on this graph then the
-   * returned results will not have a score to be sorted on.
-   * @param n number of nodes to return
-   * @return the top n nodes with the highest score
-   */
-  public List<RankVertex> getTop(int n) {
-    nodes.sort(Comparator.comparing(RankVertex::getScore));
-    return nodes.subList(nodes.size() - n, nodes.size());
   }
 
   /**
