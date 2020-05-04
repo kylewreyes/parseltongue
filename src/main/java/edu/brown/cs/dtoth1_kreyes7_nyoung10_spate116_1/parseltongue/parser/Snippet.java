@@ -431,20 +431,20 @@ public class Snippet implements Serializable {
     return Objects.hash(getOriginalText(), file, getPageNum());
   }
 
-  public static void main(String[] args) {
-    File f = new File("C:/Users/kwill/Desktop/Temp/Rost-2019-Navigating-the-ancient-Tigris.pdf");
-    try (PDFParser parser = new PDFParser(f)) {
-      List<String> pages = new ArrayList<>();
-      for (int i = 1; i <= parser.getPageCount(); i++) {
-        pages.add(parser.getTextFromPage(i));
-      }
-      List<Snippet> l = Snippet.parseText(pages, f.getName());
-      for (Snippet s : l) {
-        System.out.println(s.getOriginalText());
-        System.out.println(System.lineSeparator());
-      }
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
+//  public static void main(String[] args) {
+//    File f = new File("C:/Users/kwill/Desktop/Temp/Rost-2019-Navigating-the-ancient-Tigris.pdf");
+//    try (PDFParser parser = new PDFParser(f)) {
+//      List<String> pages = new ArrayList<>();
+//      for (int i = 1; i <= parser.getPageCount(); i++) {
+//        pages.add(parser.getTextFromPage(i));
+//      }
+//      List<Snippet> l = Snippet.parseText(pages, f.getName());
+//      for (Snippet s : l) {
+//        System.out.println(s.getOriginalText());
+//        System.out.println(System.lineSeparator());
+//      }
+//    } catch (IOException e) {
+//      e.printStackTrace();
+//    }
+//  }
 }
