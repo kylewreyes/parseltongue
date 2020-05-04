@@ -5,7 +5,9 @@ import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.PageRa
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.Rankable;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.KeywordExtractor;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.RelevanceMetric;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.StatisticalKeywordExtractor;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.Snippet;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.Stemmer;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -30,10 +32,13 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
   private List<Map<String, Double>> dist;
   private List<Snippet> rawCoreText;
   private Map<String, Double> keywordDistribution = new HashMap<>();
+  private KeywordExtractor keyExtract;
+  private Stemmer stemmer;
   private static final double DISSIMILAR_SOURCE_INCREASE = 2;
 
   /**
    * Constructor for rank graph which initializes internal data of the graph.
+   * Uses Statistical Keyword Constructor as a default.
    *
    * @param rawCoreText raw snippets to be used as the node data for this graph
    * @param newMetric  a metric for determining similarity between two snippets
@@ -47,6 +52,35 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
     }
     this.metric = newMetric;
     this.rawCoreText = rawCoreText;
+    this.keyExtract = new StatisticalKeywordExtractor();
+    this.stemmer = new IdentityStemmer();
+  }
+  /**
+   * Constructor for rank graph which initializes internal data of the graph.
+   *
+   * @param rawCoreText raw snippets to be used as the node data for this graph
+   * @param newMetric  a metric for determining similarity between two snippets
+   * @param keyExtract Strategy for extracting and filtering keywords
+   * @param stemmer    Strategy for stemming words to roots
+   */
+  public RankGraph(
+          List<Snippet> rawCoreText,
+          RelevanceMetric newMetric,
+          KeywordExtractor keyExtract,
+          Stemmer stemmer) {
+    dist = new ArrayList<>();
+    nodes = new ArrayList<>();
+    for (Snippet s : rawCoreText) {
+      nodes.add(new RankVertex(new RankMetadata(s)));
+      dist.add(s.distribution());
+    }
+    this.metric = newMetric;
+    for (Snippet s : rawCoreText) {
+      s.stemPlainText(stemmer);
+    }
+    this.rawCoreText = rawCoreText;
+    this.keyExtract = keyExtract;
+    this.stemmer = stemmer;
   }
 
   /**
@@ -54,11 +88,16 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
    * @param keywords the list of new keywords to be used.
    */
   public void populateEdges(List<String> keywords) {
+    List<String> stemmedKeywords = new ArrayList<>();
+    for (String keyword : keywords) {
+      stemmedKeywords.add(stemmer.stemWord(keyword));
+    }
+    keywords = stemmedKeywords;
     for (RankVertex v : nodes) {
       v.clearEdges();
     }
 
-    keywordDistribution = KeywordExtractor.extractKeywords(keywords, dist);
+    keywordDistribution = keyExtract.extractKeywords(keywords, dist);
 
     List<List<Double>> keywordScoring = new ArrayList<>(nodes.size());
     for (int i = 0; i < nodes.size(); i++) {
@@ -234,6 +273,16 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
     } catch (Exception e) {
       System.err.println("ERROR: byte conversion. " + e.getMessage());
       return null;
+    }
+  }
+
+  /**
+   * Stemmer which returns the word unaltered.
+   */
+  private static class IdentityStemmer implements Stemmer {
+    @Override
+    public String stemWord(String word) {
+      return word;
     }
   }
 }

@@ -1,9 +1,13 @@
 package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser;
 
+
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.Stemmer;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.io.StringBufferInputStream;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,7 +52,6 @@ public class Snippet implements Serializable {
     this.file = file;
     this.pageNum = pageNum;
   }
-
   /**
    * Gets the page number of the page that this Snippet originates from. Note that indexing
    * starts at 1. If this Snippet is not from a source that contains page numbers, the output is 0.
@@ -77,7 +80,7 @@ public class Snippet implements Serializable {
       StringBuilder builder = new StringBuilder();
       for (String s : splitText) {
         if (!s.equals("")) {
-          builder.append(s + " ");
+          builder.append(s).append(" ");
         }
       }
       if (builder.length() != 0) {
@@ -89,6 +92,24 @@ public class Snippet implements Serializable {
     return plainText;
   }
 
+  /**
+   * Stems plaintext based on provided strategy.
+   * @param stemmer stemming strategy
+   */
+  public void stemPlainText(Stemmer stemmer) {
+    if (plainText == null) {
+      getPlainText();
+    }
+    StringBuilder sb = new StringBuilder();
+    for (String s : plainText.split(" ")) {
+      sb.append(stemmer.stemWord(s)).append(" ");
+    }
+    if (sb.length() != 0) {
+      // Removes the last space
+      sb.deleteCharAt(sb.length() - 1);
+    }
+    plainText = sb.toString();
+  }
   /**
    * Gets the distribution for words.
    *
@@ -431,20 +452,4 @@ public class Snippet implements Serializable {
     return Objects.hash(getOriginalText(), file, getPageNum());
   }
 
-//  public static void main(String[] args) {
-//    File f = new File("C:/Users/kwill/Desktop/Temp/Rost-2019-Navigating-the-ancient-Tigris.pdf");
-//    try (PDFParser parser = new PDFParser(f)) {
-//      List<String> pages = new ArrayList<>();
-//      for (int i = 1; i <= parser.getPageCount(); i++) {
-//        pages.add(parser.getTextFromPage(i));
-//      }
-//      List<Snippet> l = Snippet.parseText(pages, f.getName());
-//      for (Snippet s : l) {
-//        System.out.println(s.getOriginalText());
-//        System.out.println(System.lineSeparator());
-//      }
-//    } catch (IOException e) {
-//      e.printStackTrace();
-//    }
-//  }
 }

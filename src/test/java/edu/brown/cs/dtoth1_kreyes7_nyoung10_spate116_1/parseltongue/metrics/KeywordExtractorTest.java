@@ -65,7 +65,8 @@ public class KeywordExtractorTest {
     testList.add(doc2);
     testList.add(doc3);
     testList.add(doc4);
-    Map<String, Double> res = KeywordExtractor.extractKeywords(Arrays.asList("1", "3"), testList);
+    StatisticalKeywordExtractor k = new StatisticalKeywordExtractor();
+    Map<String, Double> res = k.extractKeywords(Arrays.asList("1", "3"), testList);
     assertTrue(res.containsKey("3"));
     //assertTrue(res.containsKey("2"));
     assertFalse(res.containsKey("1"));
@@ -340,7 +341,8 @@ public class KeywordExtractorTest {
     lds.add(s18.distribution());
     lds.add(s19.distribution());
     lds.add(s20.distribution());
-    System.out.println(KeywordExtractor.extractKeywords(Arrays.asList("sheep", "populations", "reduction"),lds));
+    StatisticalKeywordExtractor k = new StatisticalKeywordExtractor();
+    System.out.println(k.extractKeywords(Arrays.asList("sheep", "populations", "reduction"),lds));
     List<Snippet> corpus = List.of(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20);
     RankGraph rg = new RankGraph(corpus, new Jaccardish());
     rg.populateEdges(List.of("sheep", "populations", "reduction"));

@@ -1,18 +1,18 @@
 package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils;
 
 /**
- * Porter Stemming Class!  TODO: Complete Docs.
+ * Porter Stemming Class!
  */
-final class PorterStemming {
+final class PorterStemming implements Stemmer {
   /**
    * Private Constructor.
    */
   private PorterStemming() { }
 
   /**
-   * Porter. TODO: Complete Docs.
-   * @param raw raw.
-   * @return  ret.
+   * Porter. Algorithm for stemming individual words to a common root.
+   * @param raw raw word to be stemmed
+   * @return  returns the root of the word
    */
   public static String porter(String raw) {
     String word = raw.toLowerCase();
@@ -123,7 +123,7 @@ final class PorterStemming {
     return word;
   }
   /**
-   * Assorted helper methods for implementing porter stemming. TODO: Complete Docs.
+   * Assorted helper methods for implementing porter stemming.
    * @param word  word.
    * @return  int.
    */
@@ -151,11 +151,11 @@ final class PorterStemming {
   }
 
   /**
-   *  TODO: Complete Docs.
-   * @param word  word.
-   * @param pred  pred.
-   * @param replace replace.
-   * @return  ret.
+   *  Checks if the suffix of a word matches a predicate and if it does, replaces it.
+   * @param word  word
+   * @param pred  predicate to match
+   * @param replace replacement to suffix
+   * @return  new word with predicate replaced
    */
   private static String suffix(String word, String pred, String replace) {
     if (word.endsWith(pred)) {
@@ -165,7 +165,7 @@ final class PorterStemming {
   }
 
   /**
-   *  TODO: Complete Docs.
+   *  checks if the character at an index is a vowel.
    * @param word  word.
    * @param index index.
    * @return  ret.
@@ -224,5 +224,10 @@ final class PorterStemming {
             && !isVowel(word, word.length() - 1)
             && isVowel(word, word.length() - 2)
             && !isVowel(word, word.length() - 3);
+  }
+
+  @Override
+  public String stemWord(String word) {
+    return porter(word);
   }
 }
