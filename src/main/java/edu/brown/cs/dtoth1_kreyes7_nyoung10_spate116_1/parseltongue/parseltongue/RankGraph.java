@@ -2,10 +2,16 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongu
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.Graph;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.PageRank;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.Rankable;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.KeywordExtractor;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.RelevanceMetric;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.Snippet;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -15,17 +21,17 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Rank Graph Class! TODO: Complete Docs.
+ * Rank Graph Class!
  */
-public class RankGraph implements
-    Graph<RankVertex, RankEdge, RankMetadata> {
+public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Serializable {
   private List<RankVertex> nodes;
-  private PageRank<RankGraph, RankVertex, RankEdge, RankMetadata> pRank = new PageRank<>(this);
+  private Rankable<RankGraph, RankVertex, RankEdge, RankMetadata> pRank = new PageRank<>(this);
   private Map<RankVertex, Set<RankEdge>> inboundMap = new HashMap<>();
   private RelevanceMetric metric;
   private List<Map<String, Double>> dist;
   private List<Snippet> rawCoreText;
   private Map<String, Double> keywordDistribution = new HashMap<>();
+  private static final double DISSIMILAR_SOURCE_INCREASE = 2;
 
   /**
    * Constructor for rank graph which initializes internal data of the graph.
@@ -62,10 +68,17 @@ public class RankGraph implements
 
     List<RankEdge> edges = new ArrayList<>();
     for (int i = 0; i < nodes.size(); i++) {
-      for (int j = i; j < nodes.size(); j++) {
+      for (int j = i + 1; j < nodes.size(); j++) {
         double weight = metric.calculateRelevance(keywordScoring.get(i), keywordScoring.get(j));
-        edges.add(new RankEdge(nodes.get(i), nodes.get(j), weight));
-        edges.add(new RankEdge(nodes.get(j), nodes.get(i), weight));
+        RankVertex n1 = nodes.get(i);
+        RankVertex n2 = nodes.get(j);
+        String n1FileName = n1.getValue().getSnippet().getFileName();
+        String n2FileName = n2.getValue().getSnippet().getFileName();
+        if (n1FileName != null && n2FileName != null && !n2FileName.equals(n1FileName)) {
+          weight = weight * DISSIMILAR_SOURCE_INCREASE;
+        }
+        edges.add(new RankEdge(n1, n2, weight));
+        edges.add(new RankEdge(n2, n1, weight));
       }
     }
 
@@ -97,7 +110,7 @@ public class RankGraph implements
    * @return  List of Snippets.
    */
   public List<Snippet> rank() {
-    List<RankVertex> metaDataRanked = pRank.pageRank();
+    List<RankVertex> metaDataRanked = pRank.rank();
     List<Snippet> returnList = new ArrayList<>();
     for (RankVertex v : metaDataRanked) {
       returnList.add(v.getValue().getSnippet());
@@ -114,7 +127,7 @@ public class RankGraph implements
   @Override
   public RankVertex getVertex(String id) {
     for (RankVertex v : nodes) {
-      if (v.equals(id)) {
+      if (v.getValue().getID().equals(id)) {
         return v;
       }
     }
@@ -130,7 +143,7 @@ public class RankGraph implements
   @Override
   public boolean containsVertex(String id) {
     for (RankVertex v : nodes) {
-      if (v.equals(id)) {
+      if (v.getValue().getID().equals(id)) {
         return true;
       }
     }
@@ -201,5 +214,39 @@ public class RankGraph implements
   public List<RankVertex> getTop(int n) {
     nodes.sort(Comparator.comparing(RankVertex::getScore));
     return nodes.subList(nodes.size() - n, nodes.size());
+  }
+
+  /**
+   * Convert this object to byte array.
+   * @param graph graph object to convert to byte array
+   * @return  Byte data.
+   */
+  public static byte[] objToBytes(RankGraph graph) {
+    try {
+      ByteArrayOutputStream bos = new ByteArrayOutputStream();
+      ObjectOutputStream oos = new ObjectOutputStream(bos);
+      oos.writeObject(graph);
+      oos.flush();
+      return bos.toByteArray();
+    } catch (Exception e) {
+      System.err.println("ERROR: byte write. " + e.getMessage());
+      return null;
+    }
+  }
+
+  /**
+   *
+   * @param bytes  Byte data.
+   * @return  RankGraph.
+   */
+  public static RankGraph byteToObj(byte[] bytes) {
+    try {
+      ByteArrayInputStream byteStream = new ByteArrayInputStream(bytes);
+      ObjectInputStream objStream = new ObjectInputStream(byteStream);
+      return (RankGraph) objStream.readObject();
+    } catch (Exception e) {
+      System.err.println("ERROR: byte conversion. " + e.getMessage());
+      return null;
+    }
   }
 }

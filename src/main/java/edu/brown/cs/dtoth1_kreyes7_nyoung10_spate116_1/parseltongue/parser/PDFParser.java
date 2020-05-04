@@ -7,13 +7,13 @@ import org.apache.pdfbox.text.PDFTextStripperByArea;
 import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.io.IOException;
+import java.util.Optional;
 
 /**
  * A {@link SourceParser} specific for PDFs.
  */
 public class PDFParser implements SourceParser {
-  private File source;
-  private PDDocument document;
+  private final PDDocument document;
 
   /**
    * Creates a new PDFParser.
@@ -28,7 +28,6 @@ public class PDFParser implements SourceParser {
    * @param file the PDF file
    */
   public PDFParser(File file) {
-    source = file;
     try {
       document = PDDocument.load(file);
     } catch (IOException e) {
@@ -46,6 +45,7 @@ public class PDFParser implements SourceParser {
 
   @Override
   public String getText() {
+    // TODO: these aren't used.
     final double widthMargin = 36; // 0.5" in pts
     final double htMargin = 72; // 1" in pts
     StringBuilder text = new StringBuilder();

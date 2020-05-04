@@ -6,7 +6,7 @@
                 <h1>Upload PDFs</h1>
                 <br/>
                 <label for="file">File:</label>
-                <input type="file" name="file" accept='.pdf' required>
+                <input type="file" name="file" accept='.pdf' multiple required>
                 <br/>
                 <button class="button">Upload</button>
             </form>

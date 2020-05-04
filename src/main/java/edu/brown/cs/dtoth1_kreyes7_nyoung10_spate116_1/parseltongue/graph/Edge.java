@@ -25,5 +25,5 @@ public interface Edge<V extends Vertex<? extends Edge, ? extends VertexMetadata>
    *
    * @return the weight
    */
-  double getWeight();
+  Double getWeight();
 }

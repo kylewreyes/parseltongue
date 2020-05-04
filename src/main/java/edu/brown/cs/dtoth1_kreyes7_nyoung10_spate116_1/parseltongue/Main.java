@@ -6,10 +6,9 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselCommands;
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselDB;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseldb.ParselDB;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.REPL;
 import joptsimple.OptionParser;
-import joptsimple.OptionSet;
 import spark.ExceptionHandler;
 import spark.Request;
 import spark.Response;
@@ -48,13 +47,10 @@ public final class Main {
     parser.accepts("gui");
     parser.accepts("port").withRequiredArg().ofType(Integer.class)
         .defaultsTo(DEFAULT_PORT);
-    // TODO: Fix this.
-    OptionSet options = parser.parse(args);
 
     // Connect to database.
     // TODO: Make this secure!
-    String uri =
-        "mongodb+srv://n-young:IL5hkmuVnDfwsjqk@cluster0-dgi6r.mongodb"
+    String uri = "mongodb+srv://n-young:IL5hkmuVnDfwsjqk@cluster0-dgi6r.mongodb"
             + ".net/test?retryWrites=true&w=majority";
     ParselDB.connect(uri);
 
@@ -113,7 +109,7 @@ public final class Main {
     Spark.post("/login", Routes::postLoginHandler);
 
     // GET Logout Request - "/logout"
-    Spark.get("/logout", Routes::getLoginHandler);
+    Spark.get("/logout", Routes::getLogoutHandler);
 
     // GET Registration Page - "/register"
     Spark.get("/register", new Routes.GETRegisterHandler(), freeMarker);
@@ -145,7 +141,10 @@ public final class Main {
     // GET View query - "/query/:query_id"
     Spark.get("/query/:query_id", new Routes.GETQueryViewHandler(), freeMarker);
 
-    // GET View query - "/query/delete/:query_id"
+    // POST get nearest vertices - "/query/:query_id"
+    Spark.post("/nearest", new Routes.POSTAdjacentSnippetsHandler());
+
+    // GET delete query - "/query/delete/:query_id"
     Spark.get("/query/delete/:query_id", new Routes.GETQueryDeleteHandler(), freeMarker);
 
     // GET Error page

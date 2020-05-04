@@ -2,20 +2,24 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongu
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.Vertex;
 
+import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
 /**
  * PageRank Vertex Class!
  */
-public class RankVertex implements Vertex<RankEdge, RankMetadata> {
+public class RankVertex implements Vertex<RankEdge, RankMetadata>, Serializable {
   private RankMetadata meta;
   private Set<RankEdge> adj = new HashSet<>();
   private double score = 0;
 
   /**
-   * Construcor. TODO: Complete Docs.
+   * Construcor.
+   *
    * @param meta metadata.
    */
   public RankVertex(RankMetadata meta) {
@@ -23,7 +27,8 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
   }
 
   /**
-   * Add Edge. TODO: Complete Docs.
+   * Add Edge.
+   *
    * @param e Edge to add.
    */
   public void addEdge(RankEdge e) {
@@ -38,8 +43,9 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
   }
 
   /**
-   * Get Value. TODO: Complete Docs.
-   * @return  Metadata.
+   * Get Value.
+   *
+   * @return Metadata.
    */
   @Override
   public RankMetadata getValue() {
@@ -47,8 +53,9 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
   }
 
   /**
-   * Get Edges. TODO: Complete Docs.
-   * @return  Edges.
+   * Get Edges.
+   *
+   * @return Edges.
    */
   @Override
   public Set<RankEdge> getEdges() {
@@ -56,8 +63,25 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
   }
 
   /**
-   * Total Weight. TODO: Complete Docs.
-   * @return  Weight.
+   * Get top n vertices adjacent.
+   *
+   * @param n the number of nodes wanted
+   * @return list of n vertices
+   */
+  public List<RankVertex> getTopAdj(int n) {
+    List<RankEdge> edges = new ArrayList<>(adj);
+    edges.sort((o1, o2) -> -o1.getWeight().compareTo(o2.getWeight()));
+    List<RankVertex> ret = new ArrayList<>();
+    for (int i = 0; i < Math.min(n, edges.size()); ++i) {
+      ret.add(edges.get(i).getDest());
+    }
+    return ret;
+  }
+
+  /**
+   * Total Weight.
+   *
+   * @return Weight.
    */
   @Override
   public Double totalWeight() {
@@ -68,11 +92,21 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
     return sum;
   }
 
+  /**
+   * GSet score.
+   *
+   * @param score a double with the pageRank score
+   */
   @Override
   public void setScore(double score) {
     this.score = score;
   }
 
+  /**
+   * Get score.
+   *
+   * @return Score.
+   */
   @Override
   public Double getScore() {
     return score;
@@ -80,8 +114,9 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
 
   /**
    * Equals.
+   *
    * @param o Other object.
-   * @return  True if equal.
+   * @return True if equal.
    */
   @Override
   public boolean equals(Object o) {
@@ -97,7 +132,8 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata> {
 
   /**
    * Hashcode.
-   * @return  Hashed Vertex.
+   *
+   * @return Hashed Vertex.
    */
   @Override
   public int hashCode() {

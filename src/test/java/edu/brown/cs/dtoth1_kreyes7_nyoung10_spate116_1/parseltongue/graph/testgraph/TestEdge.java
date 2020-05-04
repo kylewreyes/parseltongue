@@ -23,7 +23,7 @@ public class TestEdge implements Edge<TestVertex> {
   }
 
   @Override
-  public double getWeight() {
+  public Double getWeight() {
     return weight;
   }
 }

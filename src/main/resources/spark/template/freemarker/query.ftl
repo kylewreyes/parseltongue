@@ -5,7 +5,10 @@
             <form method="POST" action="/query" onsubmit='loading()'>
                 <h1>Query</h1>
                 <br/>
-                <label for="file">Keywords:</label>
+                <label for="label">Label:</label>
+                <input type="text" name="label" required>
+                <br/>
+                <label for="keywords">Keywords:</label>
                 <input type="text" name="keywords" required>
                 <br/>
                 <label for="file">Files:</label>

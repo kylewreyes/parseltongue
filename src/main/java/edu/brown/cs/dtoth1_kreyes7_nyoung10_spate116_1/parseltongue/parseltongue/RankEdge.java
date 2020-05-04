@@ -2,10 +2,12 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongu
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.Edge;
 
+import java.io.Serializable;
+
 /**
  * PageRank Edge Class! TODO: Complete Docs.
  */
-public class RankEdge implements Edge<RankVertex> {
+public class RankEdge implements Edge<RankVertex>, Serializable {
   private final RankVertex to;
   private final RankVertex from;
   private final double weight;
@@ -49,7 +51,7 @@ public class RankEdge implements Edge<RankVertex> {
    * @return weight.
    */
   @Override
-  public double getWeight() {
+  public Double getWeight() {
     return weight;
   }
 }

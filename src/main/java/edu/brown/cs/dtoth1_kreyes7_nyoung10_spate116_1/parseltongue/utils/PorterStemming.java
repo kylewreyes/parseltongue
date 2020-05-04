@@ -180,7 +180,7 @@ final class PorterStemming {
             || c.equals("i")
             || c.equals("o")
             || c.equals("u")
-            || (c.equals("y") && !isVowel(word, index - 1));
+            || c.equals("y") && !isVowel(word, index - 1);
   }
 
   /**

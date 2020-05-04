@@ -3,6 +3,7 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,7 +18,7 @@ import java.util.Set;
 /**
  * An object containing chunks of text to be used for.
  */
-public class Snippet {
+public class Snippet implements Serializable {
   private String plainText, originalText, file;
   private int pageNum;
 
@@ -208,6 +209,7 @@ public class Snippet {
   /**
    * Filters text for relevant content and converts text into Snippets, separated by paragraphs.
    *
+<<<<<<< HEAD
    * @param text Text acquired from a {@link SourceParser}.
    * @param file The name of the file that this Snippet is acquired from
    * @return a List of Snippets, each one containing a paragraph
@@ -420,6 +422,10 @@ public class Snippet {
         && Objects.equals(file, snippet.file);
   }
 
+  /**
+   * Hashcode.
+   * @return  Hashed snippet.
+   */
   @Override
   public int hashCode() {
     return Objects.hash(getOriginalText(), file, getPageNum());

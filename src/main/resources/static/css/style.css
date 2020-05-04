@@ -159,7 +159,8 @@ nav {
 
 #jumbotronText {
   font-weight: 200;
-  font-size: 3.5rem;
+  font-size: 5rem;
+  padding: 25px;
 }
 
 #jumbotronImage {
@@ -196,7 +197,7 @@ nav {
 
 @media only screen and (max-width: 600px) {
   #jumbotronText {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   .button {
@@ -358,6 +359,25 @@ footer {
 .snippet-score {
   color: red;
   margin-bottom: 10px;
+}
+
+.secondary-snippet {
+    margin: 10px;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    font-size: 0.8rem
+}
+
+.similar {
+  padding: 5px 15px;
+  margin: 15px auto;
+  border: 0 solid black;
+  border-radius: 20px;
+  background-color: #45ab42;
+  color: white;
+  font-size: 1.2rem;
 }
 
 /* =================================== */
