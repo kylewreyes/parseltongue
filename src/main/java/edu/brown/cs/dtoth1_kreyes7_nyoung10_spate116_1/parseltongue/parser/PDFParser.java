@@ -7,6 +7,7 @@ import org.apache.pdfbox.text.PDFTextStripperByArea;
 import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.io.IOException;
+import java.util.Optional;
 
 /**
  * A {@link SourceParser} specific for PDFs.
@@ -63,8 +64,8 @@ public class PDFParser implements SourceParser {
    * @return the text from the specified page of the PDF
    */
   public String getTextFromPage(int pageNum) {
-    final double widthMargin = 36; // 0.5" in pts
-    final double htMargin = 72; // 1" in pts
+    final double widthMargin = 32.4; // 0.45" in pts
+    final double htMargin = 46.8; // 0.65" in pts
 
     if (pageNum <= document.getNumberOfPages()) {
       PDRectangle docSize = document.getPage(pageNum - 1).getMediaBox();

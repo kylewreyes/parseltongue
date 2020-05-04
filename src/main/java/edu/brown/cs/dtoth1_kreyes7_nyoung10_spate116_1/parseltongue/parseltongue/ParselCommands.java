@@ -13,7 +13,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * A utility class that contains all the necessary commands for ParselTongue to run.
@@ -106,18 +105,17 @@ public final class ParselCommands {
       String fileEnding = filePath.substring(filePath.length() - 4);
       if (fileEnding.equals(".pdf")) {
         try (PDFParser parser = new PDFParser(file)) {
-          List<Snippet> snippetList = new ArrayList<>();
+          List<String> pages = new ArrayList<>();
           for (int i = 1; i <= parser.getPageCount(); i++) {
-            snippetList.addAll(Snippet.parseText(parser.getTextFromPage(i), file.getName(),
-                Optional.of(i)));
+            pages.add(parser.getTextFromPage(i));
           }
-          return snippetList;
+          return Snippet.parseText(pages, file.getName());
         } catch (IOException e) {
           throw new IllegalArgumentException("ERROR: Invalid PDF file");
         }
       } else if (fileEnding.equals(".txt")) {
         SourceParser parser = new TextFileParser(file);
-        return Snippet.parseText(parser.getText(), file.getName(), Optional.empty());
+        return Snippet.parseText(parser.getText(), file.getName());
       } else {
         throw new IllegalArgumentException("ERROR: Invalid file path");
       }

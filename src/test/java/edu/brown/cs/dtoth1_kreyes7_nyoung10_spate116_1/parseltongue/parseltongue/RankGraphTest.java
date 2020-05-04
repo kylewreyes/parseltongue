@@ -18,8 +18,7 @@ public class RankGraphTest {
   @Test
   public void testMultipleParagraphs() {
     try (PDFParser parser = new PDFParser("data/test.pdf")) {
-      RankGraph g = new RankGraph(Snippet.parseText(parser.getText(), "test.pdf",
-          Optional.empty()), new CosineSimilarity());
+      RankGraph g = new RankGraph(Snippet.parseText(parser.getText(), "test.pdf"), new CosineSimilarity());
       g.populateEdges(List.of("rocks", "rock", "the"));
       Rankable ranker = new PageRank(g);
       List<RankVertex> snippets = ranker.rank();
