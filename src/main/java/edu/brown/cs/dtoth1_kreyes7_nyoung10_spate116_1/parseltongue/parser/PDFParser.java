@@ -64,8 +64,8 @@ public class PDFParser implements SourceParser {
    * @return the text from the specified page of the PDF
    */
   public String getTextFromPage(int pageNum) {
-    final double widthMargin = 36; // 0.5" in pts
-    final double htMargin = 72; // 1" in pts
+    final double widthMargin = 32.4; // 0.45" in pts
+    final double htMargin = 46.8; // 0.65" in pts
 
     if (pageNum <= document.getNumberOfPages()) {
       PDRectangle docSize = document.getPage(pageNum - 1).getMediaBox();
