@@ -1,233 +1,370 @@
 package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils;
+/*
+
+   Porter stemmer in Java. The original paper is in
+
+       Porter, 1980, An algorithm for suffix stripping, Program, Vol. 14,
+       no. 3, pp 130-137,
+
+   See also http://www.tartarus.org/~martin/PorterStemmer
+
+   History:
+
+   Release 1
+
+   Bug 1 (reported by Gonzalo Parra 16/10/99) fixed as marked below.
+   The words 'aed', 'eed', 'oed' leave k at 'a' for step 3, and b[k-1]
+   is then out outside the bounds of b.
+
+   Release 2
+
+   Similarly,
+
+   Bug 2 (reported by Steve Dyrdahl 22/2/00) fixed as marked below.
+   'ion' by itself leaves j = -1 in the test for 'ion' in step 5, and
+   b[j] is then outside the bounds of b.
+
+   Release 3
+
+   Considerably revised 4/9/00 in the light of many helpful suggestions
+   from Brian Goetz of Quiotix Corporation (brian@quiotix.com).
+
+   Release 4
+
+*/
+
+import java.io.*;
 
 /**
- * Porter Stemming Class!
+ * Stemmer, implementing the Porter Stemming Algorithm
+ *
+ * The Stemmer class transforms a word into its root form.  The input
+ * word can be provided a character at time (by calling add()), or at once
+ * by calling one of the various stem(something) methods.
  */
-final class PorterStemming implements Stemmer {
-  /**
-   * Private Constructor.
-   */
-  private PorterStemming() { }
 
-  /**
-   * Porter. Algorithm for stemming individual words to a common root.
-   * @param raw raw word to be stemmed
-   * @return  returns the root of the word
-   */
-  public static String porter(String raw) {
-    String word = raw.toLowerCase();
-    //Step 1a
-    word = suffix(word, "sses", "ss");
-    word = suffix(word, "ies", "i");
-    if (!word.endsWith("ss")) {
-      word = suffix(word, "s", "");
-    }
-    //Step 1b
-    boolean bFlag = false;
-    if (word.endsWith("eed") && m(word) > 0) {
-      word = suffix(word, "eed", "ee");
-    } else if (v(word.substring(0, word.length() - 2))) {
-      word = suffix(word, "ed", "");
-      bFlag = true;
-    } else if (v(word.substring(0, word.length() - 3))) {
-      word = suffix(word, "ing", "");
-      bFlag = true;
-    }
-    if (bFlag) {
-      word = suffix(word, "at", "ate");
-      word = suffix(word, "bl", "ble");
-      word = suffix(word, "iz", "ize");
-      if (d(word) && !(word.endsWith("l")
-              || word.endsWith("s")
-              || word.endsWith("z"))) {
-        word = word.substring(0, word.length() - 1);
-      }
-      if (m(word) == 1 && o(word)) {
-        word = word + "e";
-      }
-    }
-    //Step 1c
-    if (v(word.substring(0, word.length() - 1))) {
-      word = suffix(word, "y", "i");
-    }
-    //Step 2
-    if (m(word) > 0) {
-      if (word.endsWith("ational")) {
-        word = suffix(word, "ational", "ate");
-      } else {
-        word = suffix(word, "tional", "tion");
-      }
-      word = suffix(word, "enci", "ence");
-      word = suffix(word, "anci", "ance");
-      word = suffix(word, "izer", "ize");
-      word = suffix(word, "abli", "able");
-      word = suffix(word, "alli", "al");
-      word = suffix(word, "entli", "ent");
-      word = suffix(word, "eli", "e");
-      word = suffix(word, "ousli", "ous");
-      word = suffix(word, "ization", "ize");
-      word = suffix(word, "ation", "ate");
-      word = suffix(word, "ator", "ate");
-      word = suffix(word, "alism", "al");
-      word = suffix(word, "iveness", "ive");
-      word = suffix(word, "fulness", "ful");
-      word = suffix(word, "ousness", "ous");
-      word = suffix(word, "aliti", "al");
-      word = suffix(word, "iviti", "ive");
-      word = suffix(word, "biliti", "ble");
-    }
-    //Step 3
-    if (m(word) > 0) {
-      word = suffix(word, "icate", "ic");
-      word = suffix(word, "ative", "");
-      word = suffix(word, "alize", "al");
-      word = suffix(word, "iciti", "ic");
-      word = suffix(word, "ical", "ic");
-      word = suffix(word, "ful", "");
-      word = suffix(word, "ness", "");
-    }
-    //Step 4
-    if (m(word) > 1) {
-      word = suffix(word, "al", "");
-      word = suffix(word, "ance", "");
-      word = suffix(word, "ence", "");
-      word = suffix(word, "er", "");
-      word = suffix(word, "ic", "");
-      word = suffix(word, "able", "");
-      word = suffix(word, "ible", "");
-      word = suffix(word, "ant", "");
-      word = suffix(word, "ement", "");
-      word = suffix(word, "ment", "");
-      word = suffix(word, "ent", "");
-      if (word.endsWith("tion") || word.endsWith("sion")) {
-        word = suffix(word, "ion", "");
-      }
-      word = suffix(word, "ou", "");
-      word = suffix(word, "ism", "");
-      word = suffix(word, "ate", "");
-      word = suffix(word, "iti", "");
-      word = suffix(word, "ous", "");
-      word = suffix(word, "ive", "");
-      word = suffix(word, "ize", "");
-    }
-    //Step 5a
-    if (m(word) > 1) {
-      word = suffix(word, "e", "");
-    } else if (m(word) == 1 && !(o(word))) {
-      word = suffix(word, "e", "");
-    }
-    //Step 5b
-    if (m(word) > 1 && d(word) && word.endsWith("l")) {
-      word = word.substring(0, word.length() - 1);
-    }
-    return word;
-  }
-  /**
-   * Assorted helper methods for implementing porter stemming.
-   * @param word  word.
-   * @return  int.
-   */
-  private static int m(String word) {
-    //eliminate leading consonants
-    while (!isVowel(word, 0)) {
-      word = word.substring(1);
-    }
-    //eliminate trailing vowels
-    while (isVowel(word, word.length() - 1)) {
-      if (word.length() == 0) {
-        return 0;
-      }
-      word = word.substring(0, word.length() - 1);
-    }
-    boolean lastIsVowel = false;
-    int m = 0;
-    for (int i = 0; i < word.length(); i++) {
-      if (isVowel(word, i) ^ lastIsVowel) {
-        lastIsVowel = !lastIsVowel;
-        m++;
-      }
-    }
-    return m;
+class PorterStemming implements Stemmer {
+  private char[] b;
+  private int i,     /* offset into b */
+          i_end, /* offset to end of stemmed word */
+          j, k;
+  private static final int INC = 50;
+  /* unit of size whereby b is increased */
+  public PorterStemming() {
+    b = new char[INC];
+    i = 0;
+    i_end = 0;
   }
 
   /**
-   *  Checks if the suffix of a word matches a predicate and if it does, replaces it.
-   * @param word  word
-   * @param pred  predicate to match
-   * @param replace replacement to suffix
-   * @return  new word with predicate replaced
+   * Add a character to the word being stemmed.  When you are finished
+   * adding characters, you can call stem(void) to stem the word.
    */
-  private static String suffix(String word, String pred, String replace) {
-    if (word.endsWith(pred)) {
-      word = word.substring(0, word.length() - pred.length()) + replace;
-    }
-    return word;
+
+  private void add(char ch)
+  {  if (i == b.length)
+  {  char[] new_b = new char[i+INC];
+    for (int c = 0; c < i; c++) new_b[c] = b[c];
+    b = new_b;
+  }
+    b[i++] = ch;
+  }
+
+
+  /** Adds wLen characters to the word being stemmed contained in a portion
+   * of a char[] array. This is like repeated calls of add(char ch), but
+   * faster.
+   */
+
+  public void add(char[] w, int wLen)
+  {  if (i+wLen >= b.length)
+  {  char[] new_b = new char[i+wLen+INC];
+    for (int c = 0; c < i; c++) new_b[c] = b[c];
+    b = new_b;
+  }
+    for (int c = 0; c < wLen; c++) b[i++] = w[c];
   }
 
   /**
-   *  checks if the character at an index is a vowel.
-   * @param word  word.
-   * @param index index.
-   * @return  ret.
+   * Returns the length of the word resulting from the stemming process.
    */
-  private static boolean isVowel(String word, int index) {
-    if (index < 0) {
-      return true;
-    }
-    String c = word.substring(index, index + 1);
-    return c.equals("a")
-            || c.equals("e")
-            || c.equals("i")
-            || c.equals("o")
-            || c.equals("u")
-            || c.equals("y") && !isVowel(word, index - 1);
-  }
+  public int getResultLength() { return i_end; }
 
   /**
-   *  TODO: Complete Docs.
-   * @param word  word.
-   * @return  ret.
+   * Returns a reference to a character buffer containing the results of
+   * the stemming process.  You also need to consult getResultLength()
+   * to determine the length of the result.
    */
-  private static boolean v(String word) {
-    for (int i = 0; i < word.length(); i++) {
-      if (isVowel(word, i)) {
-        return true;
+  public char[] getResultBuffer() { return b; }
+
+  /* cons(i) is true <=> b[i] is a consonant. */
+
+  private final boolean cons(int i)
+  {  switch (b[i])
+  {  case 'a': case 'e': case 'i': case 'o': case 'u': return false;
+    case 'y': return (i==0) ? true : !cons(i-1);
+    default: return true;
+  }
+  }
+
+   /* m() measures the number of consonant sequences between 0 and j. if c is
+      a consonant sequence and v a vowel sequence, and <..> indicates arbitrary
+      presence,
+
+         <c><v>       gives 0
+         <c>vc<v>     gives 1
+         <c>vcvc<v>   gives 2
+         <c>vcvcvc<v> gives 3
+         ....
+   */
+
+  private final int m()
+  {  int n = 0;
+    int i = 0;
+    while(true)
+    {  if (i > j) return n;
+      if (! cons(i)) break; i++;
+    }
+    i++;
+    while(true)
+    {  while(true)
+    {  if (i > j) return n;
+      if (cons(i)) break;
+      i++;
+    }
+      i++;
+      n++;
+      while(true)
+      {  if (i > j) return n;
+        if (! cons(i)) break;
+        i++;
       }
+      i++;
     }
+  }
+
+  /* vowelinstem() is true <=> 0,...j contains a vowel */
+
+  private final boolean vowelinstem()
+  {  int i; for (i = 0; i <= j; i++) if (! cons(i)) return true;
     return false;
   }
 
-  /**
-   *  TODO: Complete Docs.
-   * @param word  word.
-   * @return  ret.
+  /* doublec(j) is true <=> j,(j-1) contain a double consonant. */
+
+  private final boolean doublec(int j)
+  {  if (j < 1) return false;
+    if (b[j] != b[j-1]) return false;
+    return cons(j);
+  }
+
+   /* cvc(i) is true <=> i-2,i-1,i has the form consonant - vowel - consonant
+      and also if the second c is not w,x or y. this is used when trying to
+      restore an e at the end of a short word. e.g.
+
+         cav(e), lov(e), hop(e), crim(e), but
+         snow, box, tray.
+
    */
-  private static boolean d(String word) {
-    if (word.length() < 2) {
-      return false;
-    } else {
-      return !(isVowel(word, word.length() - 1) || isVowel(word, word.length() - 2));
+
+  private final boolean cvc(int i)
+  {  if (i < 2 || !cons(i) || cons(i-1) || !cons(i-2)) return false;
+    {  int ch = b[i];
+      if (ch == 'w' || ch == 'x' || ch == 'y') return false;
+    }
+    return true;
+  }
+
+  private final boolean ends(String s)
+  {  int l = s.length();
+    int o = k-l+1;
+    if (o < 0) return false;
+    for (int i = 0; i < l; i++) if (b[o+i] != s.charAt(i)) return false;
+    j = k-l;
+    return true;
+  }
+
+   /* setto(s) sets (j+1),...k to the characters in the string s, readjusting
+      k. */
+
+  private final void setto(String s)
+  {  int l = s.length();
+    int o = j+1;
+    for (int i = 0; i < l; i++) b[o+i] = s.charAt(i);
+    k = j+l;
+  }
+
+  /* r(s) is used further down. */
+
+  private final void r(String s) { if (m() > 0) setto(s); }
+
+   /* step1() gets rid of plurals and -ed or -ing. e.g.
+
+          caresses  ->  caress
+          ponies    ->  poni
+          ties      ->  ti
+          caress    ->  caress
+          cats      ->  cat
+
+          feed      ->  feed
+          agreed    ->  agree
+          disabled  ->  disable
+
+          matting   ->  mat
+          mating    ->  mate
+          meeting   ->  meet
+          milling   ->  mill
+          messing   ->  mess
+
+          meetings  ->  meet
+
+   */
+
+  private final void step1()
+  {  if (b[k] == 's')
+  {  if (ends("sses")) k -= 2; else
+  if (ends("ies")) setto("i"); else
+  if (b[k-1] != 's') k--;
+  }
+    if (ends("eed")) { if (m() > 0) k--; } else
+    if ((ends("ed") || ends("ing")) && vowelinstem())
+    {  k = j;
+      if (ends("at")) setto("ate"); else
+      if (ends("bl")) setto("ble"); else
+      if (ends("iz")) setto("ize"); else
+      if (doublec(k))
+      {  k--;
+        {  int ch = b[k];
+          if (ch == 'l' || ch == 's' || ch == 'z') k++;
+        }
+      }
+      else if (m() == 1 && cvc(k)) setto("e");
     }
   }
 
-  /**
-   *  TODO: Complete Docs.
-   * @param word  word.
-   * @return  ret.
-   */
-  private static boolean o(String word) {
-    if (word.length() < 3) {
-      return false;
-    }
-    String last = word.substring(word.length() - 1);
-    return !(last.equals("w") || last.equals("x") || last.equals("y"))
-            && !isVowel(word, word.length() - 1)
-            && isVowel(word, word.length() - 2)
-            && !isVowel(word, word.length() - 3);
+  /* step2() turns terminal y to i when there is another vowel in the stem. */
+
+  private final void step2() { if (ends("y") && vowelinstem()) b[k] = 'i'; }
+
+   /* step3() maps double suffices to single ones. so -ization ( = -ize plus
+      -ation) maps to -ize etc. note that the string before the suffix must give
+      m() > 0. */
+
+  private final void step3() { if (k == 0) return; /* For Bug 1 */ switch (b[k-1])
+  {
+    case 'a': if (ends("ational")) { r("ate"); break; }
+      if (ends("tional")) { r("tion"); break; }
+      break;
+    case 'c': if (ends("enci")) { r("ence"); break; }
+      if (ends("anci")) { r("ance"); break; }
+      break;
+    case 'e': if (ends("izer")) { r("ize"); break; }
+      break;
+    case 'l': if (ends("bli")) { r("ble"); break; }
+      if (ends("alli")) { r("al"); break; }
+      if (ends("entli")) { r("ent"); break; }
+      if (ends("eli")) { r("e"); break; }
+      if (ends("ousli")) { r("ous"); break; }
+      break;
+    case 'o': if (ends("ization")) { r("ize"); break; }
+      if (ends("ation")) { r("ate"); break; }
+      if (ends("ator")) { r("ate"); break; }
+      break;
+    case 's': if (ends("alism")) { r("al"); break; }
+      if (ends("iveness")) { r("ive"); break; }
+      if (ends("fulness")) { r("ful"); break; }
+      if (ends("ousness")) { r("ous"); break; }
+      break;
+    case 't': if (ends("aliti")) { r("al"); break; }
+      if (ends("iviti")) { r("ive"); break; }
+      if (ends("biliti")) { r("ble"); break; }
+      break;
+    case 'g': if (ends("logi")) { r("log"); break; }
+  } }
+
+  /* step4() deals with -ic-, -full, -ness etc. similar strategy to step3. */
+
+  private final void step4() { switch (b[k])
+  {
+    case 'e': if (ends("icate")) { r("ic"); break; }
+      if (ends("ative")) { r(""); break; }
+      if (ends("alize")) { r("al"); break; }
+      break;
+    case 'i': if (ends("iciti")) { r("ic"); break; }
+      break;
+    case 'l': if (ends("ical")) { r("ic"); break; }
+      if (ends("ful")) { r(""); break; }
+      break;
+    case 's': if (ends("ness")) { r(""); break; }
+      break;
+  } }
+
+  /* step5() takes off -ant, -ence etc., in context <c>vcvc<v>. */
+
+  private final void step5()
+  {   if (k == 0) return; /* for Bug 1 */ switch (b[k-1])
+  {  case 'a': if (ends("al")) break; return;
+    case 'c': if (ends("ance")) break;
+      if (ends("ence")) break; return;
+    case 'e': if (ends("er")) break; return;
+    case 'i': if (ends("ic")) break; return;
+    case 'l': if (ends("able")) break;
+      if (ends("ible")) break; return;
+    case 'n': if (ends("ant")) break;
+      if (ends("ement")) break;
+      if (ends("ment")) break;
+      /* element etc. not stripped before the m */
+      if (ends("ent")) break; return;
+    case 'o': if (ends("ion") && j >= 0 && (b[j] == 's' || b[j] == 't')) break;
+      /* j >= 0 fixes Bug 2 */
+      if (ends("ou")) break; return;
+    /* takes care of -ous */
+    case 's': if (ends("ism")) break; return;
+    case 't': if (ends("ate")) break;
+      if (ends("iti")) break; return;
+    case 'u': if (ends("ous")) break; return;
+    case 'v': if (ends("ive")) break; return;
+    case 'z': if (ends("ize")) break; return;
+    default: return;
+  }
+    if (m() > 1) k = j;
   }
 
-  @Override
+  /* step6() removes a final -e if m() > 1. */
+
+  private void step6() {
+    j = k;
+    if (b[k] == 'e') {
+      int a = m();
+      if (a > 1 || a == 1 && !cvc(k - 1)) {
+        k--;
+      }
+    }
+    if (b[k] == 'l' && doublec(k) && m() > 1) {
+      k--;
+    }
+  }
+
+  /** Stem the word placed into the Stemmer buffer through calls to add().
+   * Returns true if the stemming process resulted in a word different
+   * from the input.  You can retrieve the result with
+   * getResultLength()/getResultBuffer() or toString().
+   */
   public String stemWord(String word) {
-    return porter(word);
+    for (char c : word.toCharArray()) {
+      add(c);
+    }
+    k = i - 1;
+    if (k > 1) {
+      step1();
+      step2();
+      step3();
+      step4();
+      step5();
+      step6();
+    }
+    i_end = k + 1;
+    i = 0;
+    return new String(b, 0, i_end);
   }
 }
