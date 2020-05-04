@@ -25,7 +25,7 @@ import java.util.Set;
  */
 public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Serializable {
   private List<RankVertex> nodes;
-  private PageRank<RankGraph, RankVertex, RankEdge, RankMetadata> pRank = new PageRank<>(this);
+  private Rankable<RankGraph, RankVertex, RankEdge, RankMetadata> pRank = new PageRank<>(this);
   private Map<RankVertex, Set<RankEdge>> inboundMap = new HashMap<>();
   private RelevanceMetric metric;
   private List<Map<String, Double>> dist;
