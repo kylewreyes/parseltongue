@@ -23,7 +23,8 @@ public final class ParselCommands {
   /**
    * Private Constructor.
    */
-  private ParselCommands() { }
+  private ParselCommands() {
+  }
 
   /**
    * @return the parsing argument pattern to be used for the REPL
@@ -57,7 +58,8 @@ public final class ParselCommands {
   };
 
   /**
-   * Parse! TODO: Complete Docs.
+   * Creates a {@link RankGraph} that ranks different {@link Snippet}s from the given files,
+   * based on the keywords given.
    *
    * @param pdfPaths    PDF Paths.
    * @param queryString Query string.

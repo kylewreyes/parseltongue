@@ -451,5 +451,4 @@ public class Snippet implements Serializable {
   public int hashCode() {
     return Objects.hash(getOriginalText(), file, getPageNum());
   }
-
 }

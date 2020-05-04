@@ -22,7 +22,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Rank Graph Class!
+ * An implementation of {@link Graph} that.
+ * TODO:  Finish docs.
  */
 public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Serializable {
   private List<RankVertex> nodes;
