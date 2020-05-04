@@ -137,6 +137,6 @@ public class RankVertex implements Vertex<RankEdge, RankMetadata>, Serializable 
    */
   @Override
   public int hashCode() {
-    return Objects.hash(meta);
+    return meta.hashCode();
   }
 }

@@ -19,7 +19,7 @@ public class RankMetadata implements VertexMetadata, Serializable {
    */
   public RankMetadata(Snippet snippet) {
     this.snippet = snippet;
-    this.id = String.valueOf(snippet.hashCode());
+    this.id = String.valueOf(snippet.getOriginalText().hashCode());
   }
 
   /**
@@ -46,7 +46,9 @@ public class RankMetadata implements VertexMetadata, Serializable {
    */
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
+    if (this == o) {
+      return true;
+    }
     if (o == null || getClass() != o.getClass()) return false;
     RankMetadata that = (RankMetadata) o;
     return id.equals(that.id);
@@ -58,6 +60,6 @@ public class RankMetadata implements VertexMetadata, Serializable {
    */
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(snippet);
   }
 }

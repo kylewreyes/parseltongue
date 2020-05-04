@@ -45,6 +45,9 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
       nodes.add(new RankVertex(new RankMetadata(s)));
       dist.add(s.distribution());
     }
+    Set<RankVertex> unique = new HashSet<>(nodes);
+    nodes = new ArrayList<>();
+    nodes.addAll(unique);
     this.metric = newMetric;
     this.rawCoreText = rawCoreText;
   }
@@ -86,8 +89,8 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
       e.getSource().addEdge(e);
     }
 
-    for (RankVertex v : nodes) {
-      inboundMap.put(v, new HashSet<>());
+    for (int i = 0; i < nodes.size(); ++i) {
+      inboundMap.put(nodes.get(i), new HashSet<>());
     }
 
     for (RankEdge e : edges) {
