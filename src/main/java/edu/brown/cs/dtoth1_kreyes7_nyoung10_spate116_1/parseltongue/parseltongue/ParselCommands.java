@@ -5,7 +5,6 @@ import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.Rankab
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.CosineSimilarity;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.PDFParser;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.SourceParser;
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.TextFileParser;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.REPL;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.Snippet;
 
@@ -113,9 +112,6 @@ public final class ParselCommands {
         } catch (IOException e) {
           throw new IllegalArgumentException("ERROR: Invalid PDF file");
         }
-      } else if (fileEnding.equals(".txt")) {
-        SourceParser parser = new TextFileParser(file);
-        return Snippet.parseText(parser.getText(), file.getName());
       } else {
         throw new IllegalArgumentException("ERROR: Invalid file path");
       }
