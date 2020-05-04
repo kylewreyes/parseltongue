@@ -2,7 +2,7 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongu
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.Graph;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.PageRank;
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.Jaccardish;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.Rankable;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.KeywordExtractor;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.RelevanceMetric;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.Snippet;
@@ -110,7 +110,7 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
    * @return  List of Snippets.
    */
   public List<Snippet> rank() {
-    List<RankVertex> metaDataRanked = pRank.pageRank();
+    List<RankVertex> metaDataRanked = pRank.rank();
     List<Snippet> returnList = new ArrayList<>();
     for (RankVertex v : metaDataRanked) {
       returnList.add(v.getValue().getSnippet());

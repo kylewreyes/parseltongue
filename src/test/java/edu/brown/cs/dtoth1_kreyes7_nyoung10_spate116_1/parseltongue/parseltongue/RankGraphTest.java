@@ -18,7 +18,7 @@ public class RankGraphTest {
           Optional.empty()), new CosineSimilarity());
       g.populateEdges(List.of("rocks", "rock", "the"));
       PageRank ranker = new PageRank(g);
-      List<RankVertex> snippets = ranker.pageRank();
+      List<RankVertex> snippets = ranker.rank();
 //    for (int i = 0; i < 5; i++) {
 //        System.out.println(snippets.get(i).getValue().getSnippet().getOriginalText());
 //        System.out.println();

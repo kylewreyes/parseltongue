@@ -75,8 +75,8 @@ public final class ParselCommands {
     try {
       RankGraph g = new RankGraph(coreTexts, new CosineSimilarity());
       g.populateEdges(new ArrayList<>(query.distribution().keySet()));
-      PageRank ranker = new PageRank<>(g);
-      ranker.pageRank();
+      PageRank<RankGraph, RankVertex, RankEdge, RankMetadata> ranker = new PageRank<>(g);
+      ranker.rank();
       return g;
     } catch (Exception e) {
       e.printStackTrace();

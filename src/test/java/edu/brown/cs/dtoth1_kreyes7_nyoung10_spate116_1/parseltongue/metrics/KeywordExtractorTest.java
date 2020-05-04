@@ -344,7 +344,7 @@ public class KeywordExtractorTest {
     RankGraph rg = new RankGraph(corpus, new Jaccardish());
     rg.populateEdges(List.of("sheep", "populations", "reduction"));
     PageRank pr = new PageRank(rg);
-    List<RankVertex> ranked = pr.pageRank();
+    List<RankVertex> ranked = pr.rank();
     for (RankVertex rv : ranked) {
       System.out.println('\n' + rv.getValue().getSnippet().getOriginalText());
     }

@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Jaccardish implements RelevanceMetric, Serializable {
   /**
-   * Calculates relevance between two keywords. TODO: Complete Docs
+   * Calculates relevance between two keywords.
    *
    * @param doc1 vector representing keyword presence in first document
    * @param doc2 vector representing keyword presence in second document
