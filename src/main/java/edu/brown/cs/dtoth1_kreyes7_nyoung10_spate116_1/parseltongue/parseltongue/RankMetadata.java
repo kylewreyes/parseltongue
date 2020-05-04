@@ -19,7 +19,7 @@ public class RankMetadata implements VertexMetadata, Serializable {
    */
   public RankMetadata(Snippet snippet) {
     this.snippet = snippet;
-    this.id = String.valueOf(snippet.getOriginalText().hashCode());
+    this.id = String.valueOf(snippet.hashCode());
   }
 
   /**
