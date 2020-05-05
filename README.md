@@ -6,6 +6,8 @@ example:
 
 `parse test_pdf.pdf anothertest.pdf this/that/then.pdf "I have a very interesting question, here it is!"`
 
+
+
 ## Database
 The database is implemented in MongoDB.
 
