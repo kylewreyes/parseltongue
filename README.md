@@ -20,6 +20,16 @@ At this time, no bugs are known.
 
 ### Similarity Metrics and Keyword Extraction
 
+The primary goal in the creation of these systems was extensibility and the ability to replace strategies quickly. As these components deal with the semantic details of the text to generate edge weights, the problem essentially boils down to a natural language processing problem of determining relevance between two documents given a set of important keywords.
+
+The `KeywordExtractor` Interface describes the contract that we expect any Extractor to use. The idea behind it is to generate a set of keywords with an associated weight which we can then use to generate feature vectors for each snippet by representing each keyword as a dimension in a vector with the value in that dimension represents that keywords occurance in a given document. It allows us to embed each document in a feature space defined by the keywords. The motivation behind using an extractor is that there may be semantically relevant keywords to the users query which are not included in the initial query but can be identified through analysis of the text.
+
+The current iteration of the project uses the `StatisticalKeywordExtractor` to produce these keyword mappings. It relies heavily on the tfidf (text frequency, inverse document frequency) function to produce a weighting of initial keywords where they are filtered by a heuristic measure which cuts off a certain amount below the mean. The secondary keywords are extracted through a modified tfidf metric which identifies words that are semi-covariant with the primary keywords. This means that the secondary keywords are those which occur in equal parts with the primary keywords and without.
+
+Eventually we plan to migrate the keyword extraction to a more NLP based approach as we feel that this would yield a more effective ranking but for the purposes of the demo this is unnecessary
+
+The `RelevanceMetric` Interface takes in two feature embedded vectors and returns a value representing the two documents similarity to each other based on the primary keywords. We created two methods for this, one is the `CosineSimilarity` metric which uses vector operations to extract the angle between the vectors, and the other being `Jaccardish` which is inspired by the Jaccard Index. Both of these are relatively simple and simply convert the two feature vectors into a number which is higher the more similar the documents are. These values then populate the adjacency matrix of the snippet graph.
+
 ### PageRank
 
 The Page Rank algorithm that was used in this project is a modified version of that used in the original paper from Stanford. Indeed, our version is a modification that takes edge weighting into account. Mathematically, the original algorithm assumed that moving from one page to any of the adjoining pages was a uniform distribution. We have modified that to be weighted on the edge weights for a given node. Hence, the same properties hold as the original algorithm, but we are able to reward a tight connection between two passages.
