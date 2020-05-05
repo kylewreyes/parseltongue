@@ -102,7 +102,6 @@ public final class ParselDB {
 
   /**
    * Gets a query by ID. NOTE: Doesn't return the files.
-   * TODO: Get files
    *
    * @param id Query id.
    * @return Query with the given ID.
@@ -123,8 +122,7 @@ public final class ParselDB {
   }
 
   /**
-   * Gets all queries that belong to the given user.
-   * TODO: Get files.
+   * Gets all queries that belong to the given user. NOTE: Doesn't return the files.
    *
    * @param user User id.
    * @return Queries that belong to the given user.
