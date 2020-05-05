@@ -4,8 +4,11 @@ import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.PageRa
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.Rankable;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.CosineSimilarity;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.Jaccardish;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.StatisticalKeywordExtractor;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.PDFParser;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.Snippet;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.PorterStemming;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.PorterStemmingTest;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -18,7 +21,7 @@ public class RankGraphTest {
   @Test
   public void testMultipleParagraphs() {
     try (PDFParser parser = new PDFParser("data/test.pdf")) {
-      RankGraph g = new RankGraph(Snippet.parseText(parser.getText(), "test.pdf"), new CosineSimilarity());
+      RankGraph g = new RankGraph(Snippet.parseText(parser.getText(), "test.pdf"), new CosineSimilarity(), new StatisticalKeywordExtractor(), new PorterStemming());
       g.populateEdges(List.of("rocks", "rock", "the"));
       Rankable ranker = new PageRank(g);
       List<RankVertex> snippets = ranker.rank();

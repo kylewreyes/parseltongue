@@ -78,6 +78,9 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
       nodes.add(new RankVertex(new RankMetadata(s)));
       dist.add(s.distribution());
     }
+    Set<RankVertex> unique = new HashSet<>(nodes);
+    nodes = new ArrayList<>();
+    nodes.addAll(unique);
     this.metric = newMetric;
     for (Snippet s : rawCoreText) {
       s.stemPlainText(stemmer);
