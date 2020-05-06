@@ -16,6 +16,8 @@ The solution is deployed at https://parseltongue-cs32.herokuapp.com/ as well. No
 
 The database is currently being connected through a hardcoded URI string. This presents a significant security problem, and we need to figure out a way to store this string in a keystore. However, due to time constraints, this wasn't possible.
 
+Heroku has a local file size limit, which means that users cannot upload too many files at a time, or upload files that are too large. However, this limit is quite high, and should not be hit under most general use cases.
+
 ## Design details
 
 ### Similarity Metrics and Keyword Extraction
