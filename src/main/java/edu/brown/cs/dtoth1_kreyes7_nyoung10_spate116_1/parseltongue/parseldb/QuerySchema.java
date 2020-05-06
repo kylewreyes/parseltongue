@@ -18,9 +18,9 @@ public class QuerySchema {
    *
    * @param i  Query ID.
    * @param u  User.
-   * @param l TODO.
+   * @param l  Label.
    * @param qs Query string.
-   * @param d TODO.
+   * @param d  Data.
    * @param f  Files.
    */
   public QuerySchema(String i, String u, String l, String qs, byte[] d, List<String> f) {
@@ -68,7 +68,7 @@ public class QuerySchema {
   /**
    * Get label.
    *
-   * @return  Label.
+   * @return Label.
    */
   public String getLabel() {
     return label;
@@ -85,7 +85,8 @@ public class QuerySchema {
 
   /**
    * Get graph data.
-   * @return  Graph data.
+   *
+   * @return Graph data.
    */
   public byte[] getData() {
     return Base64.getDecoder().decode(data);

@@ -31,7 +31,7 @@ public class SnippetSchema {
   }
 
   /**
-   * Get Snippet DBObject,
+   * Get Snippet DBObject.
    *
    * @return Snippet DBObject.
    */

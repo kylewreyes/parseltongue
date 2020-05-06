@@ -34,7 +34,7 @@ public final class ParselCommands {
 
   private static REPL.Command parse = new REPL.Command() {
     /**
-     * REPL command wrapper for parse command. TODO: Complete Docs.
+     * REPL command wrapper for parse command.
      * @param args parameters to execute the command
      * @return String.
      */

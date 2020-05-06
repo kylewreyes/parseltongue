@@ -25,7 +25,7 @@ public class MongoProxy {
   }
 
   /**
-   * Get Client. TODO: Returns mutable.
+   * Get Client.
    * @return  mongoClient.
    */
   public MongoClient getClient() {

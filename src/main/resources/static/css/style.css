@@ -59,6 +59,15 @@ input {
   text-align: center;
 }
 
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* =================================== */
 /* Navbar */
 /* =================================== */
@@ -75,7 +84,7 @@ nav {
   background-color: white;
 }
 
-.navHolder {
+#navHolder {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -122,12 +131,6 @@ nav {
   text-decoration: none;
 }
 
-@media only screen and (max-width: 400px) {
-  #navHeader {
-    display: none;
-  }
-}
-
 #navRight {
   display: flex;
   align-items: center;
@@ -139,7 +142,13 @@ nav {
   margin-left: 30px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 540px) {
+  #navHolder {
+    justify-content: center;
+  }
+  #navHeader {
+    display: none;
+  }
   #navRight {
     display: none;
   }
@@ -158,6 +167,7 @@ nav {
 }
 
 #jumbotronText {
+  text-align: center;
   font-weight: 200;
   font-size: 5rem;
   padding: 25px;
@@ -195,7 +205,7 @@ nav {
   background-color: #50c44c;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 540px) {
   #jumbotronText {
     font-size: 4rem;
   }
@@ -245,16 +255,7 @@ footer {
 }
 
 .animate {
-  animation: animatezoom 0.6s;
-}
-
-@keyframes animatezoom {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
+  animation: fadein 0.3s;
 }
 
 /* =================================== */
@@ -266,6 +267,7 @@ footer {
   border-radius: 40px;
   background-color: #eee;
   text-align: center;
+  animation: fadein 0.5s;
 }
 
 #queries {
@@ -301,7 +303,7 @@ footer {
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 540px) {
   #pdfs {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -354,6 +356,7 @@ footer {
   border-radius: 40px;
   background-color: #eee;
   text-align: left;
+  animation: fadein 0.5s;
 }
 
 .snippet-score {
@@ -362,12 +365,12 @@ footer {
 }
 
 .secondary-snippet {
-    margin: 10px;
-    margin-left: 20px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 20px;
-    font-size: 0.8rem
+  margin: 10px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  animation: fadein 0.5s;
 }
 
 .similar {

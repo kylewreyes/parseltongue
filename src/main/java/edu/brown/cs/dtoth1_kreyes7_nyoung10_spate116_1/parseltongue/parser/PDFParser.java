@@ -44,6 +44,10 @@ public class PDFParser implements SourceParser {
     return document.getNumberOfPages();
   }
 
+  /**
+   * Get text.
+   * @return  Text.
+   */
   @Override
   public String getText() {
     StringBuilder text = new StringBuilder();

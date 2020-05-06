@@ -22,19 +22,20 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * An implementation of {@link Graph} that.
- * TODO:  Finish docs.
+ * An implementation of {@link Graph} that holds PageRank data. Designed to
+ * work with a PageRank implementation.
  */
 public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Serializable {
   private List<RankVertex> nodes;
-  private Rankable<RankGraph, RankVertex, RankEdge, RankMetadata> pRank = new PageRank<>(this);
-  private Map<RankVertex, Set<RankEdge>> inboundMap = new HashMap<>();
-  private RelevanceMetric metric;
-  private List<Map<String, Double>> dist;
-  private List<Snippet> rawCoreText;
+  private final Rankable<RankGraph, RankVertex, RankEdge, RankMetadata> pRank =
+      new PageRank<>(this);
+  private final Map<RankVertex, Set<RankEdge>> inboundMap = new HashMap<>();
+  private final RelevanceMetric metric;
+  private final List<Map<String, Double>> dist;
+  private final List<Snippet> rawCoreText;
   private Map<String, Double> keywordDistribution = new HashMap<>();
-  private KeywordExtractor keyExtract;
-  private Stemmer stemmer;
+  private final KeywordExtractor keyExtract;
+  private final Stemmer stemmer;
   private static final double DISSIMILAR_SOURCE_INCREASE = 2;
 
   /**
@@ -132,8 +133,8 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
       e.getSource().addEdge(e);
     }
 
-    for (int i = 0; i < nodes.size(); ++i) {
-      inboundMap.put(nodes.get(i), new HashSet<>());
+    for (RankVertex node : nodes) {
+      inboundMap.put(node, new HashSet<>());
     }
 
     for (RankEdge e : edges) {
