@@ -593,14 +593,10 @@ public class PorterStemming implements Stemmer {
    * Returns true if the stemming process resulted in a word different
    * from the input.  You can retrieve the result with
    * getResultLength()/getResultBuffer() or toString().
-<<<<<<< HEAD
    *
-   * @return TODO.
-=======
    * @param word the word to be stemmed
    * @return the stemmed version of the word
->>>>>>> f4451af3e22383339e5caa2e745ad59f3b99eabc
-   */
+  */
   public String stemWord(String word) {
     for (char c : word.toCharArray()) {
       add(c);
