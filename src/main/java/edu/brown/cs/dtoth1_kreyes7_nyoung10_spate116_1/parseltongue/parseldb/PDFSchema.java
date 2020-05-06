@@ -48,21 +48,21 @@ public class PDFSchema {
   }
 
   /**
-   * Get filename.
-   *
-   * @return Filename.
-   */
-  public String getFilename() {
-    return filename;
-  }
-
-  /**
    * Get user.
    *
    * @return User.
    */
   public String getUser() {
     return user;
+  }
+
+  /**
+   * Get filename.
+   *
+   * @return Filename.
+   */
+  public String getFilename() {
+    return filename;
   }
 
   /**
