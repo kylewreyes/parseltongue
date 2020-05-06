@@ -389,10 +389,24 @@ public final class Routes {
         req.session().attribute("error", "PDF doesn't exist or malformed PDF.");
         res.redirect("/error");
       }
+      // Get keywords
+      StringBuilder keywords = new StringBuilder();
+      RankGraph graph = RankGraph.byteToObj(query.getData());
+      if (graph != null) {
+        List<String> keys = new ArrayList<>(graph.getCurrentKeywords().keySet());
+        for (String key : keys) {
+          keywords.append(String.format(
+              "<input type='checkbox' class='keyword-toggle' value='%s' onclick='highlight(this)'>",
+              key));
+          keywords.append(String.format("<label for='%s'>%s</label", key, key));
+          keywords.append("</input><br/>");
+        }
+      }
       // Format snippets and send to user.
       String formattedSnippets = formatSnippets(snippets);
       Map<String, Object> variables = ImmutableMap.of("loggedIn", logged, "snippets",
-          formattedSnippets, "label", query.getLabel(), "query", query.getQueryString());
+          formattedSnippets, "label", query.getLabel(), "query", query.getQueryString(),
+          "keywords", keywords.toString());
       return new ModelAndView(variables, "view.ftl");
     }
   }
