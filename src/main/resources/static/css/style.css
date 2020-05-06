@@ -396,7 +396,7 @@ footer {
 
 .similar {
   padding: 5px 15px;
-  margin: 15px auto;
+  margin: 10px auto 0 auto;
   border: 0 solid black;
   border-radius: 20px;
   background-color: #45ab42;

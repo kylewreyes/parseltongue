@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public final class StatisticalKeywordExtractor implements KeywordExtractor {
   private static final double OFFSET = 0.5;
-  private static final double PRIMARY_KEYWORD_WEIGHT = 3;
+  private static final double PRIMARY_KEYWORD_WEIGHT = 4;
   /**
    * Function which extracts keywords from a set of input.
    *
@@ -31,7 +31,7 @@ public final class StatisticalKeywordExtractor implements KeywordExtractor {
       keywordHeuristics.put(keyword, keywordIdf);
     }
     //Filter primary keywords
-    final double avgfKeywordIdf = avgCounter / keywords.size();
+    //final double avgfKeywordIdf = avgCounter / keywords.size();
     //keywordHeuristics.values().removeIf(idf -> idf < avgfKeywordIdf);
     //Generate a set of all words in the documents
     for (Map<String, Double> doc : documents) {
