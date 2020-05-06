@@ -3,6 +3,7 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser;
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.Stemmer;
 
+import javax.swing.text.html.Option;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -230,7 +231,6 @@ public class Snippet implements Serializable {
   /**
    * Filters text for relevant content and converts text into Snippets, separated by paragraphs.
    *
-<<<<<<< HEAD
    * @param text Text acquired from a {@link SourceParser}.
    * @param file The name of the file that this Snippet is acquired from
    * @return a List of Snippets, each one containing a paragraph
@@ -281,14 +281,21 @@ public class Snippet implements Serializable {
 
         // Most but not all the documents contain their references, so if one is found,
         // everything after it will be ignored
-        if (matchesDocumentEnd(nextLine)) {
+        if (matchesDocumentEnd(nextLine) && !pageNum.isEmpty() && pageNum.get() >= 2) {
           // Check to see if currentSnippet contains anything
           if (currentSnippet.length() != 0) {
             Snippet paragraph;
             if (pageNum.isEmpty()) {
               paragraph = new Snippet(currentSnippet.toString(), file);
             } else {
-              paragraph = new Snippet(currentSnippet.toString(), file, pageNum.get());
+              // Check if there a previous preexisting Snippet from a previous page
+              if (!previousSnippetPage.isEmpty() && !usedPreviousSnippet) {
+                usedPreviousSnippet = true;
+                paragraph =
+                    new Snippet(currentSnippet.toString(), file, previousSnippetPage.get());
+              } else {
+                paragraph = new Snippet(currentSnippet.toString(), file, pageNum.get());
+              }
             }
             snippets.add(paragraph);
           }
@@ -450,5 +457,22 @@ public class Snippet implements Serializable {
   @Override
   public int hashCode() {
     return Objects.hash(getOriginalText(), file, getPageNum());
+  }
+
+  public static void main(String[] args) {
+    File f = new File("C:\\Users\\kwill\\Desktop\\Temp\\Uruguay.pdf");
+    try (PDFParser parser = new PDFParser(f)) {
+      List<String> pages = new ArrayList<>();
+      for (int i = 1; i <= parser.getPageCount(); i++) {
+        pages.add(parser.getTextFromPage(i));
+      }
+      List<Snippet> snippets = Snippet.parseText(parser.getText(), f.getName());
+      for (Snippet s : snippets) {
+        System.out.println(s.getOriginalText());
+        System.out.println(System.lineSeparator());
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 }

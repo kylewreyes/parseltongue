@@ -18,7 +18,9 @@ public class QuerySchema {
    *
    * @param i  Query ID.
    * @param u  User.
+   * @param l TODO.
    * @param qs Query string.
+   * @param d TODO.
    * @param f  Files.
    */
   public QuerySchema(String i, String u, String l, String qs, byte[] d, List<String> f) {

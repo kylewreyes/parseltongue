@@ -60,22 +60,19 @@ public class PorterStemming implements Stemmer {
    * Add a character to the word being stemmed.  When you are finished
    * adding characters, you can call stem(void) to stem the word.
    */
-
-  private void add(char ch)
-  {  if (i == b.length)
-  {  char[] new_b = new char[i+INC];
-    for (int c = 0; c < i; c++) new_b[c] = b[c];
-    b = new_b;
-  }
+  private void add(char ch) {
+    if (i == b.length) {
+      char[] new_b = new char[i+INC];
+      for (int c = 0; c < i; c++) new_b[c] = b[c];
+      b = new_b;
+    }
     b[i++] = ch;
   }
-
 
   /** Adds wLen characters to the word being stemmed contained in a portion
    * of a char[] array. This is like repeated calls of add(char ch), but
    * faster.
    */
-
   public void add(char[] w, int wLen)
   {  if (i+wLen >= b.length)
   {  char[] new_b = new char[i+wLen+INC];
@@ -94,6 +91,7 @@ public class PorterStemming implements Stemmer {
    * Returns a reference to a character buffer containing the results of
    * the stemming process.  You also need to consult getResultLength()
    * to determine the length of the result.
+   * @return TODO.
    */
   public char[] getResultBuffer() { return b; }
 
@@ -349,6 +347,7 @@ public class PorterStemming implements Stemmer {
    * Returns true if the stemming process resulted in a word different
    * from the input.  You can retrieve the result with
    * getResultLength()/getResultBuffer() or toString().
+   * @return TODO.
    */
   public String stemWord(String word) {
     for (char c : word.toCharArray()) {
