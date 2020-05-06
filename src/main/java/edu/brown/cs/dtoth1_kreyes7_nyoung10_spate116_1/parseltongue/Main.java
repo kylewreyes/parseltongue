@@ -32,10 +32,7 @@ public final class Main {
     new Main(args).run();
   }
 
-  private String[] args;
-
   private Main(String[] args) {
-    this.args = args;
   }
 
   /**

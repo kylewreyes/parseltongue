@@ -1,4 +1,4 @@
-package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils;
+package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseldb;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;

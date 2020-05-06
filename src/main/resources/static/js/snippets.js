@@ -49,3 +49,17 @@ function highlight(keyword) {
     snippet.innerHTML = text;
   });
 }
+
+function selectAll() {
+  $(".keyword-toggle").each((e) => {
+    $(".keyword-toggle")[e].checked = 0;
+    $(".keyword-toggle")[e].click();
+  });
+}
+
+function deselectAll() {
+  $(".keyword-toggle").each((e) => {
+    $(".keyword-toggle")[e].checked = 1;
+    $(".keyword-toggle")[e].click();
+  });
+}

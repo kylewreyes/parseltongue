@@ -31,7 +31,7 @@ public final class StatisticalKeywordExtractor implements KeywordExtractor {
       keywordHeuristics.put(keyword, keywordIdf);
     }
     //Filter primary keywords
-    final double avgfKeywordIdf = avgCounter / keywords.size();
+    //final double avgfKeywordIdf = avgCounter / keywords.size();
     //keywordHeuristics.values().removeIf(idf -> idf < avgfKeywordIdf);
     //Generate a set of all words in the documents
     for (Map<String, Double> doc : documents) {
