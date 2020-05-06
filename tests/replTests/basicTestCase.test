@@ -1,0 +1,5 @@
+INPUT
+parse data/simpleTest.pdf ""
+OUTPUT
+This is a simple test document
+END
