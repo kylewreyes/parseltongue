@@ -22,7 +22,7 @@ import java.util.Set;
  */
 public class Snippet implements Serializable {
   private String plainText, originalText, file;
-  private static final double NORM_WEIGHT = 0.95;
+  private static final double NORM_WEIGHT = 0.5;
   private int pageNum;
 
   /**
