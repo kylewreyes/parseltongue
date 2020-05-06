@@ -13,7 +13,7 @@
   </head>
   <body>
     <nav>
-      <div class="navHolder">
+      <div id="navHolder">
         <a href="/">
           <div id="navLeft">
             <img src="/img/logo.png" id="navLogo" />

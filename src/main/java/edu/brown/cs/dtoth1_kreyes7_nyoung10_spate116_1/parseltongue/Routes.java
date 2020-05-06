@@ -82,7 +82,6 @@ public final class Routes {
       req.session().attribute("logged", username);
       res.redirect("/dashboard");
     } else {
-      // TODO: Better redirect
       req.session().attribute("error", "Invalid Login.");
       res.redirect("/error");
     }
@@ -293,7 +292,7 @@ public final class Routes {
       for (PDFSchema pdf : pdfObjects) {
         pdfs.append(String.format(
             "<input type=\"checkbox\" id=\"%s\" name=\"pdf\" value=\"%s\">"
-             + "<label for=\"%s\">%s</label><br/>",
+                + "<label for=\"%s\">%s</label><br/>",
             pdf.getId(), pdf.getId(), pdf.getId(), pdf.getFilename()));
       }
       Map<String, Object> variables = ImmutableMap.of("loggedIn", logged, "pdfs", pdfs.toString());
@@ -321,17 +320,37 @@ public final class Routes {
       List<String> files = new ArrayList<>();
       for (String fileString : fileStrings) {
         try {
-          byte[] pdfData = ParselDB.getPDFByID(fileString).getData();
+          PDFSchema pdf = ParselDB.getPDFByID(fileString);
+          if (pdf == null) {
+            req.session().attribute("error", "Malformed or missing PDF.");
+            res.redirect("/error");
+            return null;
+          }
+          byte[] pdfData = pdf.getData();
           String filePath = "temp/" + fileString + ".pdf";
           FileOutputStream fileOutputStream = new FileOutputStream(filePath);
           fileOutputStream.write(pdfData);
           files.add(filePath);
         } catch (Exception e) {
+          for (String file : files) {
+            File f = new File(file);
+            f.delete();
+          }
           System.err.println("ERROR: " + e.getMessage());
         }
       }
+      // Delete files.
+      for (String file : files) {
+        File f = new File(file);
+        f.delete();
+      }
       // Create graph, run PageRank, convert to byte[]
       RankGraph graph = ParselCommands.parsel(files, queryString);
+      if (graph == null) {
+        req.session().attribute("error", "Malformed graph.");
+        res.redirect("/error");
+        return null;
+      }
       byte[] graphData = RankGraph.objToBytes(graph);
       // Create and upload query object.
       String logged = req.session().attribute("logged");
@@ -341,11 +360,6 @@ public final class Routes {
       ParselDB.updateQuery(queryObject);
       // Process snippets.
       processSnippets(graph.getVertices(), queryId);
-      // Delete files.
-      for (String file : files) {
-        File f = new File(file);
-        f.delete();
-      }
       res.redirect("/query/" + queryId);
       return null;
     }
@@ -365,8 +379,13 @@ public final class Routes {
       String logged = currentUser(req);
       String queryId = req.params(":query_id");
       QuerySchema query = ParselDB.getQueryByID(queryId);
+      if (query == null) {
+        req.session().attribute("error", "Malformed query.");
+        res.redirect("/error");
+        return null;
+      }
       List<SnippetSchema> snippets = ParselDB.getSnippetsByQuery(queryId);
-      if (snippets.size() == 0 || query == null || !query.getUser().equals(logged)) {
+      if (snippets.size() == 0 || !query.getUser().equals(logged)) {
         req.session().attribute("error", "PDF doesn't exist or malformed PDF.");
         res.redirect("/error");
       }
@@ -390,7 +409,17 @@ public final class Routes {
       String queryId = qm.value("queryId");
       // Get query and graph from db, get closest vertices to given snippet
       QuerySchema query = ParselDB.getQueryByID(queryId);
+      if (query == null) {
+        req.session().attribute("error", "Malformed query.");
+        res.redirect("/error");
+        return null;
+      }
       RankGraph graph = RankGraph.byteToObj(query.getData());
+      if (graph == null) {
+        req.session().attribute("error", "Malformed graph.");
+        res.redirect("/error");
+        return null;
+      }
       RankVertex vertex = graph.getVertex(snippetId);
       List<RankVertex> vertices = vertex.getTopAdj(NUM_ADJ);
       // Set to contain filenames to minimize DB calls.
@@ -406,7 +435,12 @@ public final class Routes {
         if (filenames.get(fileId) != null) {
           filename = filenames.get(fileId);
         } else {
-          filename = ParselDB.getPDFByID(fileId).getFilename();
+          PDFSchema pdf = ParselDB.getPDFByID(fileId);
+          if (pdf == null) {
+            filename = "[MISSING PDF]";
+          } else {
+            filename = pdf.getFilename();
+          }
           filenames.put(fileId, filename);
         }
         // Make map
@@ -504,7 +538,8 @@ public final class Routes {
       ret.append("<div class=\"query\">");
       ret.append(String.format("<a href=\"/query/%s\">", query.getId()));
       ret.append(query.getLabel());
-      ret.append(String.format("</a><a class=\"delete\" href=\"/query/delete/%s\">", query.getId()));
+      ret.append(String.format(
+          "</a><a class=\"delete\" href=\"/query/delete/%s\" onclick=\"loading()\">", query.getId()));
       ret.append("delete");
       ret.append("</a></div>");
     }
@@ -526,7 +561,8 @@ public final class Routes {
       ret.append(pdf.getFilename());
       ret.append("</a>");
       ret.append("<br/><br/>");
-      ret.append(String.format("<a class=\"delete\" href=\"/delete/%s\">", pdf.getId()));
+      ret.append(String.format(
+          "<a class=\"delete\" href=\"/delete/%s\" onclick=\"loading()\">", pdf.getId()));
       ret.append("delete");
       ret.append("</a></div>");
     }
@@ -559,7 +595,12 @@ public final class Routes {
       if (filenames.get(fileId) != null) {
         filename = filenames.get(fileId);
       } else {
-        filename = ParselDB.getPDFByID(fileId).getFilename();
+        PDFSchema pdf = ParselDB.getPDFByID(fileId);
+        if (pdf == null) {
+          filename = "[MISSING PDF]";
+        } else {
+          filename = pdf.getFilename();
+        }
         filenames.put(fileId, filename);
       }
       // Construct snippet.
