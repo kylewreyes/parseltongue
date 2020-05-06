@@ -19,10 +19,10 @@ public class CosineSimilarity implements RelevanceMetric, Serializable {
    */
   @Override
   public double calculateRelevance(List<Double> doc1, List<Double> doc2) {
-    double min = Math.min(norm2(doc1), norm2(doc2));
-    if (min == 0) {
+    double max = Math.min(norm2(doc1), norm2(doc2));
+    if (max == 0) {
       return 0;
     }
-    return dot(doc1, doc2) / (norm2(doc1) * norm2(doc2));
+    return dot(doc1, doc2) / (max);
   }
 }

@@ -2,7 +2,8 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongu
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.PageRank;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.Rankable;
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.CosineSimilarity;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.Jaccarding;
+import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.metrics.Jaccardish;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.PDFParser;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.REPL;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser.Snippet;
@@ -73,7 +74,7 @@ public final class ParselCommands {
     }
     Snippet query = new Snippet(queryString);
     try {
-      RankGraph g = new RankGraph(coreTexts, new CosineSimilarity());
+      RankGraph g = new RankGraph(coreTexts, new Jaccardish());
       g.populateEdges(new ArrayList<>(query.distribution().keySet()));
       Rankable<RankGraph, RankVertex, RankEdge, RankMetadata> ranker = new PageRank<>(g);
       ranker.rank();

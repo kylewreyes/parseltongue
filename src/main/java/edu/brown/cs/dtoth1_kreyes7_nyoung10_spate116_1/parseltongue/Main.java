@@ -49,7 +49,6 @@ public final class Main {
         .defaultsTo(DEFAULT_PORT);
 
     // Connect to database.
-    // TODO: Make this secure!
     String uri = "mongodb+srv://n-young:IL5hkmuVnDfwsjqk@cluster0-dgi6r.mongodb"
             + ".net/test?retryWrites=true&w=majority";
     ParselDB.connect(uri);

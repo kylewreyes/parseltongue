@@ -6,11 +6,7 @@ Welcome to the ParselTongue project of Derick Toth, Shalin Patel, Kyle Reyes, an
 
 ## Getting Started
 
-<<<<<<< HEAD
-To build ParselTongue, first confirm that you have a compatible version of Java (Java 11+), and a compatible version of Maven (Maven 3). Next, navigate to the project's root directory and run `mvn package`. This will compile the code into an executable file, which you can run from the command line. To run ParselTongue, navigate to the root directory and run `./run`. This will start a CLI implementation of ParselTongue, which supports the following commands:
-=======
 To build ParselTongue, first confirm that you have a compatible version of Java (Java 11+), and a compatible version of Maven (Maven 3). Next, navigate to the root directory and run `mvn package`. This will compile the code into an executable file, which you can run from the command line. To run Maps, navigate to the root directory and run `./run`. This will start a webserver alongside a CLI implementation of ParselTongue, which supports the following command:
->>>>>>> f26284aed97f4c1100771f49647676614b692e43
 
 - `parsel <list of /path/to/pdfs> <list of keywords>` which will output the snippets extracted from the PDFs and display them in decreasing score as determined by our algorithm.
 
@@ -52,15 +48,11 @@ Finally, the entirety of our graph implementation implements `Serializable` for 
 
 ### PDF Parsing
 
-<<<<<<< HEAD
 PDF parsing is done with the help of Apache PDFBox, an open-source Java library that can extract text from PDFs. This tool takes care of acquiring every instance of text found in any given PDF. Using various heuristics, the `Snippet` class takes care of filtering out irrelevant information and splitting the text into various chunks. One limitation is that PDFBox only works on text-based PDFs. There is no guarantee that ParselTongue will recognize PDFs that contain images of text. 
 
 We also created a `SourceParser` interface, in the event that we want to expand functionality to other data sources, such as Microsoft Word documents and HTML files.
 
-### Database
-=======
 ### Database and Persistence
->>>>>>> f26284aed97f4c1100771f49647676614b692e43
 
 The database is implemented in MongoDB. The DB in question has three collections.
 
@@ -88,7 +80,7 @@ JUnit tests were written to consider all edge cases for each class written. For 
 
 System tests were written to consider a variety of input, both well formed and malformed, as well as a variety of interesting edge cases. Note that there is no way to test for correctness of a given output, but we can consider its properties. A (non-exhaustive) list per command is as follows:
 
-- `parsel`:
+- `parsel`: improper REPL input, improper input into parsel
 
 ## Checkstyle
 
@@ -98,17 +90,6 @@ There are no outstanding Checkstyle errors.
 
 ### Division of Labour
 
-<<<<<<< HEAD
-- Nick: Front-End and Database integration
-- Kyle: PDF parsing and parts of ParselGraph
-- Derick: Similarity metrics and keyword extraction
-- Shalin: PageRank and ParselGraph
-
-### Problems we Faced
-When it came to parsing, we had to try various tools until we found one that worked best for our purposes. In addition, PDFs can be very unpredictable, so designing heuristics that filtered just the right amount of information involved a lot of trial and error.
-
-Collectively, we had troubles integrating the various parts of our product. There were a lot of threads involved and, thus, integrating them took a bit of work as they were each very different in function. Furthermore, it took some time to calibrate the various constants and design choices we made to ensure that we got meaningful results from the program.
-=======
 - Nick: Front-End and Database integration.
 - Kyle: PDF parsing and parts of ParselGraph.
 - Derick: Similarity metrics and keyword extraction.
@@ -117,6 +98,5 @@ Collectively, we had troubles integrating the various parts of our product. Ther
 ### Problems we Faced
 
 A few problems we first faced were in integrating the various parts of our product. There were a lot of threads involved and, thus, integrating them took a bit of work as they were each very different in function. Furthermore, it took some time to callibrate the various constants and design choices we made to ensure that we got meaningful results from the program.
->>>>>>> f26284aed97f4c1100771f49647676614b692e43
 
 The final problem we really faced was creating testing for the project that would be meaningful and test its boundaries as the overall program creates very subjective results. We did manage to break it down and focus on testable sections to achieve the level of confidence we wanted in the product.

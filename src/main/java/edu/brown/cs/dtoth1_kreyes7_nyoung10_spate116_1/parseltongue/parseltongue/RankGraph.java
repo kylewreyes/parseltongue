@@ -36,7 +36,7 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
   private Map<String, Double> keywordDistribution = new HashMap<>();
   private final KeywordExtractor keyExtract;
   private final Stemmer stemmer;
-  private static final double DISSIMILAR_SOURCE_INCREASE = 1.3;
+  private static final double DISSIMILAR_SOURCE_INCREASE = 1.025;
 
   /**
    * Constructor for rank graph which initializes internal data of the graph.
