@@ -6,7 +6,7 @@ Welcome to the ParselTongue project of Derick Toth, Shalin Patel, Kyle Reyes, an
 
 ## Getting Started
 
-To build ParselTongue, first confirm that you have a compatible version of Java (Java 11+), and a compatible version of Maven (Maven 3). Next, navigate to the root directory and run `mvn package`. This will compile the code into an executable file, which you can run from the command line. To run Maps, navigate to the root directory and run `./run`. This will start a CLI implementation of ParselTongue, which supports the following commands:
+To build ParselTongue, first confirm that you have a compatible version of Java (Java 11+), and a compatible version of Maven (Maven 3). Next, navigate to the root directory and run `mvn package`. This will compile the code into an executable file, which you can run from the command line. To run Maps, navigate to the root directory and run `./run`. This will start a webserver alongside a CLI implementation of ParselTongue, which supports the following command:
 
 - `parsel <list of /path/to/pdfs> <list of keywords>` which will output the snippets extracted from the pdfs and display them in decreasing score as determined by our algorithm.
 
@@ -14,7 +14,7 @@ The solution is deployed at https://parseltongue-cs32.herokuapp.com/ as well. No
 
 ## Known bugs
 
-At this time, no bugs are known.
+The database is currently being connected through a hardcoded URI string. This presents a significant security problem, and we need to figure out a way to store this string in a keystore. However, due to time constraints, this wasn't possible.
 
 ## Design details
 
@@ -36,19 +36,19 @@ The Page Rank algorithm that was used in this project is a modified version of t
 
 The algorithm is defined generically on our `Graph<V, E, T>` abstraction as it can work for any graph type as long as they adhere to the interface methods. Additionally, we abstracted the idea of PageRank and have made it adaptable for change by introducing the `Rankable` interface that allows for quick code modification whereby people can use algorithms other than PageRank to determine the importance of nodes in a graph. One such algorithm could be an Ordinary Differential Equations method that has also shown good results.
 
-Internally, the implementation of PageRank utilizes an iterative method of updating rank scores as we have defined our graph class to have adjacency lists rather than an adjacency matrix. The reason for this is two-fold. Firstly, since we are dealing with sparse matrices, the adjacency list implementation is  faster. The second reason is that this makes the program more adaptable to loading data in a lazy format for massive datasets and for live analysis. 
+Internally, the implementation of PageRank utilizes an iterative method of updating rank scores as we have defined our graph class to have adjacency lists rather than an adjacency matrix. The reason for this is two-fold. Firstly, since we are dealing with sparse matrices, the adjacency list implementation is faster. The second reason is that this makes the program more adaptable to loading data in a lazy format for massive datasets and for live analysis.
 
 ### ParselGraph
 
-Our `Graph<V, E, T>` implementation that is the core of the project is the `RankGraph = Graph<RankVertex, RankEdge, RankMetadata>` type. This type has useful a useful internal implementation that allows it to be efficient with the program we are implementing. The first optimization is that we lazily add in the edges for the graph rather than at construction. This means that a user can requery a set of documents more efficiently as they dont need to parse the PDFs over and over again. 
+Our `Graph<V, E, T>` implementation that is the core of the project is the `RankGraph = Graph<RankVertex, RankEdge, RankMetadata>` type. This type has useful a useful internal implementation that allows it to be efficient with the program we are implementing. The first optimization is that we lazily add in the edges for the graph rather than at construction. This means that a user can requery a set of documents more efficiently as they dont need to parse the PDFs over and over again.
 
-Other optimizations include creating an `inboundMap` private instance variable that allows us to cache the edges that are inbound on a vertex rather than redetermining them each time. This is done on construction of the edges and reduces the runtime complexity of the PageRank algorithm as  a call to the cache is in O(1).
+Other optimizations include creating an `inboundMap` private instance variable that allows us to cache the edges that are inbound on a vertex rather than redetermining them each time. This is done on construction of the edges and reduces the runtime complexity of the PageRank algorithm as a call to the cache is in O(1).
 
 Finally, the entirety of our graph implementation implements `Serializable` for the purpose of resuse. In the database, we could have just stored the Snippets, but we realized that storing the entire graph to the MongoDB instance was valuable as it would allow the user to quickly requery a set of PDFs and would save us time in generating configuration files for a given query for reconstruction later.
 
 ### PDF Parsing
 
-### Database
+### Database and Persistence
 
 The database is implemented in MongoDB. The DB in question has three collections.
 
@@ -58,7 +58,9 @@ The `pdf` collection has five fields: `id`, `user`, `filename`, `query`, and `ti
 
 The `snippet` collection has three fields: `pdf-id`, `score`, and `content`.
 
-### Front End
+Database object schemas for each collection were used to simplify data transfer between the backend and the database.
+
+Persistence is handled through a combination of the database's userdata storage and sessions, which keeps users logged in and stores some userdata in the browser.
 
 ## Testing
 
@@ -74,8 +76,7 @@ JUnit tests were written to consider all edge cases for each class written. For 
 
 System tests were written to consider a variety of input, both well formed and malformed, as well as a variety of interesting edge cases. Note that there is no way to test for correctness of a given output, but we can consider its properties. A (non-exhaustive) list per command is as follows:
 
-- `parsel`: 
-
+- `parsel`:
 
 ## Checkstyle
 
@@ -85,12 +86,13 @@ There are no outstanding Checkstyle errors.
 
 ### Division of Labour
 
-- Nick: Front-End and Database integration
-- Kyle: PDF parsing and parts of parselgraph
-- Derick: Similarity metrics and keyword extraction
-- Shalin: PageRank and parselgraph
+- Nick: Front-End and Database integration.
+- Kyle: PDF parsing and parts of ParselGraph.
+- Derick: Similarity metrics and keyword extraction.
+- Shalin: PageRank and ParselGraph.
 
 ### Problems we Faced
-A few problems we first faced were in integrating the various parts of our product. There were a lot of threads involved and, thus, integrating them took a bit of work as they were each very different in function. Furthermore, it took some time to callibrate  the various constants and design choices we made to ensure that we got meaningful results from the program.
+
+A few problems we first faced were in integrating the various parts of our product. There were a lot of threads involved and, thus, integrating them took a bit of work as they were each very different in function. Furthermore, it took some time to callibrate the various constants and design choices we made to ensure that we got meaningful results from the program.
 
 The final problem we really faced was creating testing for the project that would be meaningful and test its boundaries as the overall program creates very subjective results. We did manage to break it down and focus on testable sections to achieve the level of confidence we wanted in the product.

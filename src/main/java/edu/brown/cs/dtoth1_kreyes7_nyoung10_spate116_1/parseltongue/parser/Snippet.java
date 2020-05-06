@@ -4,10 +4,8 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.Stemmer;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
-import java.io.StringBufferInputStream;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,6 +50,7 @@ public class Snippet implements Serializable {
     this.file = file;
     this.pageNum = pageNum;
   }
+
   /**
    * Gets the page number of the page that this Snippet originates from. Note that indexing
    * starts at 1. If this Snippet is not from a source that contains page numbers, the output is 0.
@@ -94,6 +93,7 @@ public class Snippet implements Serializable {
 
   /**
    * Stems plaintext based on provided strategy.
+   *
    * @param stemmer stemming strategy
    */
   public void stemPlainText(Stemmer stemmer) {
@@ -110,6 +110,7 @@ public class Snippet implements Serializable {
     }
     plainText = sb.toString();
   }
+
   /**
    * Gets the distribution for words.
    *
@@ -230,7 +231,6 @@ public class Snippet implements Serializable {
   /**
    * Filters text for relevant content and converts text into Snippets, separated by paragraphs.
    *
-<<<<<<< HEAD
    * @param text Text acquired from a {@link SourceParser}.
    * @param file The name of the file that this Snippet is acquired from
    * @return a List of Snippets, each one containing a paragraph
@@ -246,7 +246,7 @@ public class Snippet implements Serializable {
    * @param text    the {@link String} to be split up
    * @param file    the name of the file that text originated from
    * @param pageNum an {@link Optional} that specifies if text is from a specific page of the source
-   * @return
+   * @return Snippet Object.
    */
   private static SnippetObject getSnippetObject(String text, String file,
                                                 Optional<Integer> pageNum,
@@ -445,7 +445,8 @@ public class Snippet implements Serializable {
 
   /**
    * Hashcode.
-   * @return  Hashed snippet.
+   *
+   * @return Hashed snippet.
    */
   @Override
   public int hashCode() {

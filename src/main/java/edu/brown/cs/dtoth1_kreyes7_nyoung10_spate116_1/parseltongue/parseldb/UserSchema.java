@@ -17,8 +17,7 @@ public class UserSchema {
    */
   public UserSchema(String u, String pw) {
     id = u;
-    //TODO: Make this more secure.
-    password = "" + pw;
+    password = pw;
   }
 
   /**

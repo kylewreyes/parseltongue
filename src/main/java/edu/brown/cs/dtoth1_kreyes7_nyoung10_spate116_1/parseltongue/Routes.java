@@ -39,6 +39,9 @@ import java.util.Map;
 public final class Routes {
   private static final Gson GSON = new Gson();
   private static final int NUM_ADJ = 5;
+  private static final int ID_CONSTANT = 999999999;
+  private static final int MAX_SNIPPETS = 50;
+  private static final int NORMALIZE = 100;
 
   /**
    * Private Constructor.
@@ -240,7 +243,7 @@ public final class Routes {
     }
   }
 
-   /**
+  /**
    * Handles POST requests to the /upload route.
    * TODO: Better IDs.
    */
@@ -250,12 +253,13 @@ public final class Routes {
       // Set form datatype
       req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
       // Save PDFs object and data to database
-      try {Collection<Part> files = req.raw().getParts();
-      for (Part file : files) {
+      try {
+        Collection<Part> files = req.raw().getParts();
+        for (Part file : files) {
           InputStream is = file.getInputStream();
           byte[] fileContent = is.readAllBytes();
           String pdfId =
-              req.session().attribute("logged") + ("_f_" + (int) (Math.random() * 999999999));
+              req.session().attribute("logged") + ("_f_" + (int) (Math.random() * ID_CONSTANT));
           String filename = file.getSubmittedFileName();
           PDFSchema newPDF = new PDFSchema(
               pdfId, req.session().attribute("logged"), filename, fileContent);
@@ -288,7 +292,8 @@ public final class Routes {
       StringBuilder pdfs = new StringBuilder();
       for (PDFSchema pdf : pdfObjects) {
         pdfs.append(String.format(
-            "<input type=\"checkbox\" id=\"%s\" name=\"pdf\" value=\"%s\"><label for=\"%s\">%s</label><br/>",
+            "<input type=\"checkbox\" id=\"%s\" name=\"pdf\" value=\"%s\">"
+             + "<label for=\"%s\">%s</label><br/>",
             pdf.getId(), pdf.getId(), pdf.getId(), pdf.getFilename()));
       }
       Map<String, Object> variables = ImmutableMap.of("loggedIn", logged, "pdfs", pdfs.toString());
@@ -330,7 +335,7 @@ public final class Routes {
       byte[] graphData = RankGraph.objToBytes(graph);
       // Create and upload query object.
       String logged = req.session().attribute("logged");
-      String queryId = logged + ("_q_" + (int) (Math.random() * 999999999));
+      String queryId = logged + ("_q_" + (int) (Math.random() * ID_CONSTANT));
       QuerySchema queryObject =
           new QuerySchema(queryId, logged, labelString, queryString, graphData, files);
       ParselDB.updateQuery(queryObject);
@@ -396,7 +401,7 @@ public final class Routes {
         String content = v.getValue().getSnippet().getOriginalText();
         String page = "" + v.getValue().getSnippet().getPageNum();
         String fileId = v.getValue().getSnippet().getFileName()
-            .substring(0, v.getValue().getSnippet().getFileName().length()-4);
+            .substring(0, v.getValue().getSnippet().getFileName().length() - 4);
         String filename;
         if (filenames.get(fileId) != null) {
           filename = filenames.get(fileId);
@@ -546,9 +551,10 @@ public final class Routes {
     Map<String, String> filenames = new HashMap<>();
     // Capped at 100 snippets returned.
     StringBuilder ret = new StringBuilder();
-    for (int i = 0; i < Math.min(50, snippets.size()); i++) {
+    for (int i = 0; i < Math.min(MAX_SNIPPETS, snippets.size()); i++) {
       // Get filename
-      String fileId = snippets.get(i).getFile().substring(0, snippets.get(i).getFile().length()-4);
+      String fileId =
+          snippets.get(i).getFile().substring(0, snippets.get(i).getFile().length() - 4);
       String filename;
       if (filenames.get(fileId) != null) {
         filename = filenames.get(fileId);
@@ -560,7 +566,7 @@ public final class Routes {
       ret.append(String.format(
           "<div id=\"%s\" class=\"snippet\"><div class=\"snippet-score\">Score: ",
           snippets.get(i).getSnippetId()));
-      ret.append(snippets.get(i).getScore() / (maxScore / 100));
+      ret.append(snippets.get(i).getScore() / (maxScore / NORMALIZE));
       ret.append("</div><div class=\"snippet-score\">Source: ");
       ret.append(filename);
       ret.append(", pg. ");
@@ -568,7 +574,8 @@ public final class Routes {
       ret.append("</div>");
       ret.append(snippets.get(i).getContent());
       ret.append("<br/>");
-      ret.append(String.format("<button class='similar' onclick=\"getSimilar('%s', '%s')\">View Similar</button>",
+      ret.append(String.format(
+          "<button class='similar' onclick=\"getSimilar('%s', '%s')\">View Similar</button>",
           snippets.get(i).getSnippetId(), snippets.get(i).getQueryId()));
       ret.append("</div>");
     }

@@ -5,7 +5,7 @@ import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.graph.Edge;
 import java.io.Serializable;
 
 /**
- * PageRank Edge Class! TODO: Complete Docs.
+ * PageRank Edge Class!
  */
 public class RankEdge implements Edge<RankVertex>, Serializable {
   private final RankVertex to;
@@ -13,7 +13,7 @@ public class RankEdge implements Edge<RankVertex>, Serializable {
   private final double weight;
 
   /**
-   * Constructor. TODO: Complete Docs.
+   * Constructor.
    *
    * @param from   source.
    * @param to     destination.

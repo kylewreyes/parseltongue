@@ -10,11 +10,12 @@ import java.util.Objects;
  * PageRank Metadata Class!
  */
 public class RankMetadata implements VertexMetadata, Serializable {
-  private String id;
-  private Snippet snippet;
+  private final String id;
+  private final Snippet snippet;
 
   /**
    * Constructor.
+   *
    * @param snippet snippet.
    */
   public RankMetadata(Snippet snippet) {
@@ -24,7 +25,8 @@ public class RankMetadata implements VertexMetadata, Serializable {
 
   /**
    * Get ID.
-   * @return  ID.
+   *
+   * @return ID.
    */
   @Override
   public String getID() {
@@ -33,7 +35,8 @@ public class RankMetadata implements VertexMetadata, Serializable {
 
   /**
    * Get Snippet.
-   * @return  Snippet.
+   *
+   * @return Snippet.
    */
   public Snippet getSnippet() {
     return snippet;
@@ -41,6 +44,7 @@ public class RankMetadata implements VertexMetadata, Serializable {
 
   /**
    * Override equals.
+   *
    * @param o the other rankmetadata
    * @return true if equal by id.
    */
@@ -49,13 +53,16 @@ public class RankMetadata implements VertexMetadata, Serializable {
     if (this == o) {
       return true;
     }
-    if (o == null || getClass() != o.getClass()) return false;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     RankMetadata that = (RankMetadata) o;
     return id.equals(that.id);
   }
 
   /**
    * Override hashcode.
+   *
    * @return hash of id
    */
   @Override

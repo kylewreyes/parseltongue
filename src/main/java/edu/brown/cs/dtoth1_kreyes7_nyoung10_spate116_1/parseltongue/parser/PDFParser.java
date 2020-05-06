@@ -7,7 +7,6 @@ import org.apache.pdfbox.text.PDFTextStripperByArea;
 import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.io.IOException;
-import java.util.Optional;
 
 /**
  * A {@link SourceParser} specific for PDFs.
@@ -43,6 +42,10 @@ public class PDFParser implements SourceParser {
     return document.getNumberOfPages();
   }
 
+  /**
+   * Get text.
+   * @return  Text.
+   */
   @Override
   public String getText() {
     // TODO: these aren't used.
