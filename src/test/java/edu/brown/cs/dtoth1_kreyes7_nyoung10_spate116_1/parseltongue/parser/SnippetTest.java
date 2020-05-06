@@ -2,6 +2,8 @@ package edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parser;
 
 import org.junit.Test;
 
+import java.io.IOException;
+
 import static org.junit.Assert.*;
 
 public class SnippetTest {
@@ -22,7 +24,12 @@ public class SnippetTest {
 
   @Test
   public void parseTextTest() {
-    /* TODO:
+    try (PDFParser parser = new PDFParser("data/UruguayWithFace.pdf")) {
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    /*
   Test for separation by paragraphs
   Test for margins (headers and footers)
   Test for multiple pages

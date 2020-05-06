@@ -51,7 +51,7 @@ public final class ParselCommands {
       StringBuilder sb = new StringBuilder();
       for (Snippet s : results) {
         sb.append(s.getOriginalText());
-        sb.append("\n");
+        sb.append(System.lineSeparator());
       }
       return sb.toString();
     }
