@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public final class StatisticalKeywordExtractor implements KeywordExtractor {
   private static final double OFFSET = 0.5;
-  private static final double PRIMARY_KEYWORD_WEIGHT = 1.25;
+  private static final double PRIMARY_KEYWORD_WEIGHT = 1.5;
   /**
    * Function which extracts keywords from a set of input.
    *
