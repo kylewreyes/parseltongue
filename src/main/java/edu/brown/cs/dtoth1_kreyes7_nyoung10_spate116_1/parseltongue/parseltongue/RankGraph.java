@@ -56,7 +56,11 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
     nodes = new ArrayList<>();
     nodes.addAll(unique);
     this.metric = newMetric;
-    this.rawCoreText = rawCoreText;
+    List<Snippet> uniqueCoreText = new ArrayList<>();
+    for (RankVertex v : nodes) {
+      uniqueCoreText.add(v.getValue().getSnippet());
+    }
+    this.rawCoreText = uniqueCoreText;
     this.keyExtract = new StatisticalKeywordExtractor();
     this.stemmer = new IdentityStemmer();
   }
@@ -107,7 +111,7 @@ public class RankGraph implements Graph<RankVertex, RankEdge, RankMetadata>, Ser
 
     keywordDistribution = keyExtract.extractKeywords(keywords, dist);
 
-    List<List<Double>> keywordScoring = new ArrayList<>(nodes.size());
+    List<List<Double>> keywordScoring = new ArrayList<>();
     for (int i = 0; i < nodes.size(); i++) {
       keywordScoring.add(rawCoreText.get(i).keywordScores(keywordDistribution));
     }
