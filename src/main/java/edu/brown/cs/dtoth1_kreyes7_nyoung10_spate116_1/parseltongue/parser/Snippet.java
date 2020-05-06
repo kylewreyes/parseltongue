@@ -253,6 +253,7 @@ public class Snippet implements Serializable {
                                                 Optional<Integer> pageNum,
                                                 Optional<StringBuilder> previousSnippet,
                                                 Optional<Integer> previousSnippetPage) {
+    final int minSnippetLength = 20;
     final Set<String> paragraphEnds = new HashSet<>();
     paragraphEnds.add(".");
     paragraphEnds.add("!");
@@ -284,7 +285,7 @@ public class Snippet implements Serializable {
         // everything after it will be ignored
         if (matchesDocumentEnd(nextLine) && !pageNum.isEmpty() && pageNum.get() >= 2) {
           // Check to see if currentSnippet contains anything
-          if (currentSnippet.length() != 0) {
+          if (currentSnippet.length() >= minSnippetLength) {
             Snippet paragraph;
             if (pageNum.isEmpty()) {
               paragraph = new Snippet(currentSnippet.toString(), file);
@@ -299,12 +300,14 @@ public class Snippet implements Serializable {
               }
             }
             snippets.add(paragraph);
+          } else { // The Snippet is too short to be relevant, so it is not added to the list.
+            currentSnippet.setLength(0);
           }
           foundEnding = true;
           break;
         }
         // Checks if this is part of a Figure or Table caption. If it is, ignore everything else
-        // until a paragraph ender is found.
+        // until a paragraph ending is found.
         if (!foundCaption) {
           foundCaption = matchesCaption(nextLine);
         }
@@ -319,7 +322,7 @@ public class Snippet implements Serializable {
           // Check if we have reached the end of a paragraph.
           if (paragraphEnds.contains(lastChar)) {
             Snippet paragraph;
-            if (!foundCaption) {
+            if (!foundCaption && currentSnippet.length() >= minSnippetLength) {
               if (pageNum.isEmpty()) {
                 paragraph = new Snippet(currentSnippet.toString(), file);
               } else {
@@ -333,9 +336,10 @@ public class Snippet implements Serializable {
                 }
               }
               snippets.add(paragraph);
-              // After adding a Snippet, reset the StringBuilder
-              currentSnippet.setLength(0);
             }
+            // After adding a Snippet (or finding a Snippet that is too short), reset the
+            // StringBuilder
+            currentSnippet.setLength(0);
             // Always set foundCaption to false at the end of a paragraph
             foundCaption = false;
           } else if (!foundCaption) {

@@ -44,9 +44,11 @@ public final class StatisticalKeywordExtractor implements KeywordExtractor {
     //Calculate tandem frequency for all words
     avgCounter = 0;
     for (String word : allWords.keySet()) {
-      double tandumFreq = ttfidf(keywordHeuristics, word, documents);
-      avgCounter += tandumFreq;
-      allWords.put(word, tandumFreq);
+      if (!word.matches(".*\\d.*")) {
+        double tandumFreq = secondaryKeywordWeight(keywordHeuristics, word, documents);
+        avgCounter += tandumFreq;
+        allWords.put(word, tandumFreq);
+      }
     }
     //calculate average and standard deviation of tandem frequency
     double avgTandumFreq = avgCounter / allWords.size();
@@ -95,7 +97,7 @@ public final class StatisticalKeywordExtractor implements KeywordExtractor {
    * @param documents documents to score from
    * @return ^.
    */
-  private static double ttfidf(
+  private static double secondaryKeywordWeight(
       Map<String, Double> keywords, String word, List<Map<String, Double>> documents) {
     double dependantFreq = 0;
     double independentFreq = 0;

@@ -23,3 +23,28 @@ function getSimilar(snippetId, queryId) {
     });
   });
 }
+
+function highlight(keyword) {
+  value = keyword.value;
+  checked = keyword.checked;
+  snippets = $(".snippet, .secondary-snippet");
+  snippets.each((e) => {
+    ret = "";
+    snippet = snippets[e];
+    text = snippet.innerHTML;
+    var pattern = new RegExp(value, "gi");
+    if (checked) {
+      text = text.replace(
+        pattern,
+        "<span style='background-color: yellow;'>" + value + "</span>"
+      );
+    } else {
+      text = text.replace(
+        pattern,
+        "<span style='background-color: #eee;'>" + value + "</span>"
+      );
+    }
+    console.log(text);
+    snippet.innerHTML = text;
+  });
+}

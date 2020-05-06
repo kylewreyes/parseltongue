@@ -68,6 +68,7 @@ public class PorterStemming implements Stemmer {
     }
     b[i++] = ch;
   }
+
   /**
    * Adds wLen characters to the word being stemmed contained in a portion
    * of a char[] array. This is like repeated calls of add(char ch), but
@@ -102,6 +103,7 @@ public class PorterStemming implements Stemmer {
    * Returns a reference to a character buffer containing the results of
    * the stemming process.  You also need to consult getResultLength()
    * to determine the length of the result.
+   *
    * @return TODO.
    */
   public char[] getResultBuffer() {
@@ -118,22 +120,22 @@ public class PorterStemming implements Stemmer {
       case 'u':
         return false;
       case 'y':
-        return (index == 0) || !cons(index - 1);
+        return index == 0 || !cons(index - 1);
       default:
         return true;
     }
   }
 
-   /* m() measures the number of consonant sequences between 0 and j. if c is
-      a consonant sequence and v a vowel sequence, and <..> indicates arbitrary
-      presence,
+  /* m() measures the number of consonant sequences between 0 and j. if c is
+     a consonant sequence and v a vowel sequence, and <..> indicates arbitrary
+     presence,
 
-         <c><v>       gives 0
-         <c>vc<v>     gives 1
-         <c>vcvc<v>   gives 2
-         <c>vcvcvc<v> gives 3
-         ....
-   */
+        <c><v>       gives 0
+        <c>vc<v>     gives 1
+        <c>vcvc<v>   gives 2
+        <c>vcvcvc<v> gives 3
+        ....
+  */
   private int m() {
     int n = 0;
     int index = 0;
@@ -185,7 +187,6 @@ public class PorterStemming implements Stemmer {
   }
 
   /* doublec(j) is true <=> j,(j-1) contain a double consonant. */
-
   private boolean doublec(int index) {
     if (index < 1) {
       return false;
@@ -204,7 +205,6 @@ public class PorterStemming implements Stemmer {
          snow, box, tray.
 
    */
-
   private boolean cvc(int index) {
     if (index < 2 || !cons(index) || cons(index - 1) || !cons(index - 2)) {
       return false;
@@ -593,8 +593,13 @@ public class PorterStemming implements Stemmer {
    * Returns true if the stemming process resulted in a word different
    * from the input.  You can retrieve the result with
    * getResultLength()/getResultBuffer() or toString().
+<<<<<<< HEAD
+   *
+   * @return TODO.
+=======
    * @param word the word to be stemmed
    * @return the stemmed version of the word
+>>>>>>> f4451af3e22383339e5caa2e745ad59f3b99eabc
    */
   public String stemWord(String word) {
     for (char c : word.toCharArray()) {

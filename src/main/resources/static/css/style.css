@@ -344,10 +344,26 @@ footer {
   justify-content: stretch;
 }
 
-#snippets {
+#mainSnippets {
+  height: 83vh;
+  width: 100%;
+  max-width: 992px;
   margin: auto;
+  padding: 40px 20px;
   background-color: white;
   text-align: center;
+  overflow-y: scroll;
+}
+
+#sideSnippets {
+  width: 15%;
+  background-color: #eee;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
 }
 
 .snippet {
@@ -381,6 +397,16 @@ footer {
   background-color: #45ab42;
   color: white;
   font-size: 1.2rem;
+}
+
+.keyword-toggle {
+  color: red;
+}
+
+@media only screen and (max-width: 540px) {
+  #sideSnippets {
+    display: none;
+  }
 }
 
 /* =================================== */

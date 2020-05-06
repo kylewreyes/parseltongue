@@ -1,6 +1,10 @@
 <#assign content>
-<div id="app">
-    <div id="snippets">
+<div id="view">
+    <div id="sideSnippets">
+        <h2>Keywords</h2>
+        ${keywords}
+    </div>
+    <div id="mainSnippets">
         <h1>${label}</h1>
         <h2>Query: "${query}"</h2>
         ${snippets}
