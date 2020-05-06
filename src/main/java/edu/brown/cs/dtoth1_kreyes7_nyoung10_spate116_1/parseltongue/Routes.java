@@ -339,17 +339,17 @@ public final class Routes {
           System.err.println("ERROR: " + e.getMessage());
         }
       }
-      // Delete files.
-      for (String file : files) {
-        File f = new File(file);
-        f.delete();
-      }
       // Create graph, run PageRank, convert to byte[]
       RankGraph graph = ParselCommands.parsel(files, queryString);
       if (graph == null) {
         req.session().attribute("error", "Malformed graph.");
         res.redirect("/error");
         return null;
+      }
+      // Delete files.
+      for (String file : files) {
+        File f = new File(file);
+        f.delete();
       }
       byte[] graphData = RankGraph.objToBytes(graph);
       // Create and upload query object.
