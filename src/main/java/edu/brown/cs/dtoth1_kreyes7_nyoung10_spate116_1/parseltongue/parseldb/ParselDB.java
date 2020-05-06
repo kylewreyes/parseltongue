@@ -4,7 +4,6 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
-import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.MongoProxy;
 
 import java.util.ArrayList;
 import java.util.Base64;

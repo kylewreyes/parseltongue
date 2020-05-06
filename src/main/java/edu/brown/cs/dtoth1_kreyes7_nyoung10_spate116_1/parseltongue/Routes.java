@@ -133,7 +133,7 @@ public final class Routes {
         res.redirect("/error");
       } else {
         // Create user schema, update database.
-        // TODO: Better password encryption
+        // to do: Better password encryption
         UserSchema newUser = new UserSchema(username, "" + password.hashCode());
         ParselDB.updateUser(newUser);
         System.out.println("New user created!");
@@ -244,7 +244,6 @@ public final class Routes {
 
   /**
    * Handles POST requests to the /upload route.
-   * TODO: Better IDs.
    */
   public static class POSTUploadHandler implements TemplateViewRoute {
     @Override
@@ -302,7 +301,6 @@ public final class Routes {
 
   /**
    * Handles POST requests to the /query route.
-   * TODO: Better IDs.
    */
   public static class POSTQueryHandler implements TemplateViewRoute {
     @Override
@@ -330,11 +328,16 @@ public final class Routes {
           String filePath = "temp/" + fileString + ".pdf";
           FileOutputStream fileOutputStream = new FileOutputStream(filePath);
           fileOutputStream.write(pdfData);
+          fileOutputStream.close();
           files.add(filePath);
         } catch (Exception e) {
           for (String file : files) {
             File f = new File(file);
-            f.delete();
+            if (f.delete()) {
+              System.out.println(file + " deleted successfully.");
+            } else {
+              System.out.println(file + " deleted unsuccessfully.");
+            }
           }
           System.err.println("ERROR: " + e.getMessage());
         }
@@ -349,7 +352,11 @@ public final class Routes {
       // Delete files.
       for (String file : files) {
         File f = new File(file);
-        f.delete();
+        if (f.delete()) {
+          System.out.println(file + " deleted successfully.");
+        } else {
+          System.out.println(file + " deleted unsuccessfully.");
+        }
       }
       byte[] graphData = RankGraph.objToBytes(graph);
       // Create and upload query object.
@@ -528,7 +535,7 @@ public final class Routes {
 
   /**
    * Method to check which user is logged in.
-   * // TODO: Better unlogged management.
+   * // to do: Better unlogged management.
    *
    * @param req Request.
    * @return "0" if not logged in, the username if they are.

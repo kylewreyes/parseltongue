@@ -202,7 +202,12 @@ nav {
 }
 
 .button:hover {
+  cursor: pointer;
   background-color: #50c44c;
+}
+
+.button:focus {
+  outline: none;
 }
 
 @media only screen and (max-width: 540px) {
@@ -391,12 +396,21 @@ footer {
 
 .similar {
   padding: 5px 15px;
-  margin: 15px auto;
+  margin: 10px auto 0 auto;
   border: 0 solid black;
   border-radius: 20px;
   background-color: #45ab42;
   color: white;
   font-size: 1.2rem;
+}
+
+.similar:hover {
+  cursor: pointer;
+  background-color: #50c44c;
+}
+
+.similar:focus {
+  outline: none;
 }
 
 .keyword-toggle {

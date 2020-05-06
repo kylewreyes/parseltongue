@@ -1,0 +1,5 @@
+INPUT
+parse data/Uruguay.pdf
+OUTPUT
+ERROR:
+END

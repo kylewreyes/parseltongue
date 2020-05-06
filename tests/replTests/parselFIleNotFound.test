@@ -1,0 +1,5 @@
+INPUT
+parse thusisnotafile.pdf "sheeppp"
+OUTPUT
+ERROR:
+END
