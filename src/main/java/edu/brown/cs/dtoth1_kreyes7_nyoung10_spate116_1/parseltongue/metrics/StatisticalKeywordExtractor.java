@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public final class StatisticalKeywordExtractor implements KeywordExtractor {
   private static final double OFFSET = 0.5;
-
+  private static final double PRIMARY_KEYWORD_WEIGHT = 1.25;
   /**
    * Function which extracts keywords from a set of input.
    *
@@ -59,6 +59,7 @@ public final class StatisticalKeywordExtractor implements KeywordExtractor {
     allWords.values().removeIf(val -> val < avgTandumFreq + 5 * ttidfStd);
     allWords.keySet().removeIf(word -> word.length() < 4);
     //Create final set of keywords and return
+    keywordHeuristics.replaceAll((s, w) -> PRIMARY_KEYWORD_WEIGHT * w);
     keywordHeuristics.putAll(allWords);
     return keywordHeuristics;
   }

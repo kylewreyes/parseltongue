@@ -425,58 +425,100 @@ public class PorterStemming implements Stemmer {
   /* step5() takes off -ant, -ence etc., in context <c>vcvc<v>. */
 
   private void step5() {
-    if (k == 0) return; /* for Bug 1 */
+    if (k == 0) {
+      return; // for Bug 1
+    }
     switch (b[k - 1]) {
       case 'a':
-        if (ends("al")) break;
+        if (ends("al")) {
+          break;
+        }
         return;
       case 'c':
-        if (ends("ance")) break;
-        if (ends("ence")) break;
+        if (ends("ance")) {
+          break;
+        }
+        if (ends("ence")) {
+          break;
+        }
         return;
       case 'e':
-        if (ends("er")) break;
+        if (ends("er")) {
+          break;
+        }
         return;
       case 'i':
-        if (ends("ic")) break;
+        if (ends("ic")) {
+          break;
+        }
         return;
       case 'l':
-        if (ends("able")) break;
-        if (ends("ible")) break;
+        if (ends("able")) {
+          break;
+        }
+        if (ends("ible")) {
+          break;
+        }
         return;
       case 'n':
-        if (ends("ant")) break;
-        if (ends("ement")) break;
-        if (ends("ment")) break;
+        if (ends("ant")) {
+          break;
+        }
+        if (ends("ement")) {
+          break;
+        }
+        if (ends("ment")) {
+          break;
+        }
         /* element etc. not stripped before the m */
-        if (ends("ent")) break;
+        if (ends("ent")) {
+          break;
+        }
         return;
       case 'o':
-        if (ends("ion") && j >= 0 && (b[j] == 's' || b[j] == 't')) break;
+        if (ends("ion") && j >= 0 && (b[j] == 's' || b[j] == 't')) {
+          break;
+        }
         /* j >= 0 fixes Bug 2 */
-        if (ends("ou")) break;
+        if (ends("ou")) {
+          break;
+        }
         return;
       /* takes care of -ous */
       case 's':
-        if (ends("ism")) break;
+        if (ends("ism")) {
+          break;
+        }
         return;
       case 't':
-        if (ends("ate")) break;
-        if (ends("iti")) break;
+        if (ends("ate")) {
+          break;
+        }
+        if (ends("iti")) {
+          break;
+        }
         return;
       case 'u':
-        if (ends("ous")) break;
+        if (ends("ous")) {
+          break;
+        }
         return;
       case 'v':
-        if (ends("ive")) break;
+        if (ends("ive")) {
+          break;
+        }
         return;
       case 'z':
-        if (ends("ize")) break;
+        if (ends("ize")) {
+          break;
+        }
         return;
       default:
         return;
     }
-    if (m() > 1) k = j;
+    if (m() > 1) {
+      k = j;
+    }
   }
 
   /* step6() removes a final -e if m() > 1. */
@@ -499,7 +541,8 @@ public class PorterStemming implements Stemmer {
    * Returns true if the stemming process resulted in a word different
    * from the input.  You can retrieve the result with
    * getResultLength()/getResultBuffer() or toString().
-   * @return TODO.
+   * @param word the word to be stemmed
+   * @return the stemmed version of the word
    */
   public String stemWord(String word) {
     for (char c : word.toCharArray()) {
