@@ -7,8 +7,7 @@ function getSimilar(snippetId, queryId) {
   };
   $.post("/nearest", postParameters, (res) => {
     const results = JSON.parse(res);
-    console.log(results);
-    snippet.children().eq(3).nextAll().remove();
+    snippet.find(".similar").nextAll().remove();
     results.result.map((elt) => {
       snippet.append(
         "<div class='secondary-snippet'><div class='snippet-score'>Source: ".concat(
@@ -20,6 +19,9 @@ function getSimilar(snippetId, queryId) {
           "</div>"
         )
       );
+    });
+    $(".keyword-toggle").each((e) => {
+      highlight($(".keyword-toggle")[e]);
     });
   });
 }
@@ -44,7 +46,6 @@ function highlight(keyword) {
         "<span style='background-color: #eee;'>" + value + "</span>"
       );
     }
-    console.log(text);
     snippet.innerHTML = text;
   });
 }
