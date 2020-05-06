@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public final class StatisticalKeywordExtractor implements KeywordExtractor {
   private static final double OFFSET = 0.5;
-
+  private static final double PRIMARY_KEYWORD_WEIGHT = 1.5;
   /**
    * Function which extracts keywords from a set of input.
    *
@@ -44,9 +44,11 @@ public final class StatisticalKeywordExtractor implements KeywordExtractor {
     //Calculate tandem frequency for all words
     avgCounter = 0;
     for (String word : allWords.keySet()) {
-      double tandumFreq = ttfidf(keywordHeuristics, word, documents);
-      avgCounter += tandumFreq;
-      allWords.put(word, tandumFreq);
+      if (!word.matches(".*\\d.*")) {
+        double tandumFreq = secondaryKeywordWeight(keywordHeuristics, word, documents);
+        avgCounter += tandumFreq;
+        allWords.put(word, tandumFreq);
+      }
     }
     //calculate average and standard deviation of tandem frequency
     double avgTandumFreq = avgCounter / allWords.size();
@@ -59,6 +61,7 @@ public final class StatisticalKeywordExtractor implements KeywordExtractor {
     allWords.values().removeIf(val -> val < avgTandumFreq + 5 * ttidfStd);
     allWords.keySet().removeIf(word -> word.length() < 4);
     //Create final set of keywords and return
+    keywordHeuristics.replaceAll((s, w) -> PRIMARY_KEYWORD_WEIGHT * w);
     keywordHeuristics.putAll(allWords);
     return keywordHeuristics;
   }
@@ -94,7 +97,7 @@ public final class StatisticalKeywordExtractor implements KeywordExtractor {
    * @param documents documents to score from
    * @return ^.
    */
-  private static double ttfidf(
+  private static double secondaryKeywordWeight(
       Map<String, Double> keywords, String word, List<Map<String, Double>> documents) {
     double dependantFreq = 0;
     double independentFreq = 0;

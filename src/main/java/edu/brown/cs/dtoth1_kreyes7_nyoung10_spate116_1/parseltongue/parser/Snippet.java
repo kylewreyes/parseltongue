@@ -22,6 +22,7 @@ import java.util.Set;
  */
 public class Snippet implements Serializable {
   private String plainText, originalText, file;
+  private static final double NORM_WEIGHT = 0.95;
   private int pageNum;
 
   /**
@@ -132,7 +133,7 @@ public class Snippet implements Serializable {
 
     int n = plainText.split(" ").length;
     for (String key : uniqueWords) {
-      dist.replace(key, dist.get(key) / n);
+      dist.replace(key, dist.get(key) / Math.pow(n, NORM_WEIGHT));
     }
 
     return dist;
