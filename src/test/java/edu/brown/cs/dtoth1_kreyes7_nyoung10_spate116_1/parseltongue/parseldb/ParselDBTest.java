@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class ParselDBTest {
   private final UserSchema testingUser = new UserSchema("userid", "userpassword");
@@ -30,7 +31,13 @@ public class ParselDBTest {
   public void setUp() {
     String uri = "mongodb://n-young:OtAPchYZjVfhQIqZ@cluster0-shard-00-00-rtgum.mongodb.net:27017,cluster0-shard-00-01-rtgum.mongodb.net:27017,cluster0-shard-00-02-rtgum.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
     ParselDB.connect(uri);
-    ParselDB.flush();
+    ParselDB.removeUserByID("userid");
+    ParselDB.removePDFByID("pdfid_1");
+    ParselDB.removePDFByID("pdfid_2");
+    ParselDB.removeQueryByID("queryid_1");
+    ParselDB.removeQueryByID("queryid_2");
+    ParselDB.removeSnippetsByQuery("queryid_1");
+    ParselDB.removeSnippetsByQuery("queryid_2");
     ParselDB.updateUser(testingUser);
     ParselDB.updatePDF(testingPDF1);
     ParselDB.updatePDF(testingPDF2);
@@ -57,6 +64,7 @@ public class ParselDBTest {
     UserSchema ret = ParselDB.getUserByID("userid");
     assertEquals(ret.getId(), "userid");
     assertEquals(ret.getPassword(), "userpassword");
+    assertNull(ParselDB.getUserByID("userid doesn't exist"));
     tearDown();
   }
 
@@ -70,6 +78,7 @@ public class ParselDBTest {
     assertEquals(ret.getId(), "pdfid_1");
     assertEquals(ret.getUser(), "userid");
     assertEquals(ret.getFilename(), "filename_1.pdf");
+    assertNull(ParselDB.getPDFByID("pdf doesn't exist"));
     tearDown();
   }
 
@@ -83,6 +92,7 @@ public class ParselDBTest {
     assertEquals(ret.getId(), "pdfid_1");
     assertEquals(ret.getUser(), "userid");
     assertEquals(ret.getFilename(), "filename_1.pdf");
+    assertEquals(ParselDB.getPDFsByUser("userid doesn't exist"), new ArrayList<>());
     tearDown();
   }
 
@@ -97,6 +107,7 @@ public class ParselDBTest {
     assertEquals(ret.getUser(), "userid");
     assertEquals(ret.getLabel(), "label_1");
     assertEquals(ret.getQueryString(), "query_1");
+    assertNull(ParselDB.getQueryByID("queryid doesn't exist"));
     tearDown();
   }
 
@@ -111,6 +122,7 @@ public class ParselDBTest {
     assertEquals(ret.getUser(), "userid");
     assertEquals(ret.getLabel(), "label_1");
     assertEquals(ret.getQueryString(), "query_1");
+    assertEquals(ParselDB.getQueriesByUser("userid doesn't exist"), new ArrayList<>());
     tearDown();
   }
 
@@ -125,6 +137,7 @@ public class ParselDBTest {
     assertEquals(ret.getSnippetId(), "snippetid_1");
     assertEquals(ret.getContent(), "content_1");
     assertEquals(ret.getFile(), "file_1");
+    assertEquals(ParselDB.getSnippetsByQuery("queryid doesn't exist"), new ArrayList<>());
     tearDown();
   }
 }

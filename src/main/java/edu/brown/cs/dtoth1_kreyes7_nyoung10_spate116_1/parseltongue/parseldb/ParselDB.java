@@ -44,16 +44,6 @@ public final class ParselDB {
   }
 
   /**
-   * Flushes DB. USE WITH CAUTION!!!!!
-   */
-  public static void flush() {
-    userCollection.drop();
-    pdfCollection.drop();
-    queryCollection.drop();
-    snippetCollection.drop();
-  }
-
-  /**
    * Gets a user by ID.
    *
    * @param id User id.
