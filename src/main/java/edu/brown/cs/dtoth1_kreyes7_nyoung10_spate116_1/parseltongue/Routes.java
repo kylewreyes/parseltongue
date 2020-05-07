@@ -184,7 +184,7 @@ public final class Routes {
       if (pdf != null && pdf.getUser().equals(logged)) {
         try {
           res.header("Content-disposition",
-              String.format("attachment; filename=%s;", pdf.getFilename()));
+              String.format("attachment; filename=\"%s\";", pdf.getFilename()));
           OutputStream outputStream = res.raw().getOutputStream();
           outputStream.write(pdf.getData());
           outputStream.flush();
