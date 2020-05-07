@@ -9,6 +9,7 @@ import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseldb.ParselDB;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.utils.REPL;
 import joptsimple.OptionParser;
+import joptsimple.OptionSet;
 import spark.ExceptionHandler;
 import spark.Request;
 import spark.Response;
@@ -22,6 +23,7 @@ import freemarker.template.Configuration;
  */
 public final class Main {
   private static final int DEFAULT_PORT = 4567;
+  private String[] args;
 
   /**
    * The initial method called when execution begins.
@@ -33,6 +35,7 @@ public final class Main {
   }
 
   private Main(String[] args) {
+    this.args = args;
   }
 
   /**
@@ -44,15 +47,17 @@ public final class Main {
     parser.accepts("gui");
     parser.accepts("port").withRequiredArg().ofType(Integer.class)
         .defaultsTo(DEFAULT_PORT);
+    parser.accepts("test");
+    OptionSet options = parser.parse(args);
+    if (!options.has("test")) {
+      // Connect to database.
+      String uri = "mongodb+srv://n-young:IL5hkmuVnDfwsjqk@cluster0-dgi6r.mongodb"
+              + ".net/test?retryWrites=true&w=majority";
+      ParselDB.connect(uri);
 
-    // Connect to database.
-    String uri = "mongodb+srv://n-young:IL5hkmuVnDfwsjqk@cluster0-dgi6r.mongodb"
-            + ".net/test?retryWrites=true&w=majority";
-    ParselDB.connect(uri);
-
-    // Start webserver.
-    runSparkServer();
-
+      // Start webserver.
+      runSparkServer();
+    }
     // REPL Handling.
     REPL repl = new REPL();
     repl.addCommand("parse", ParselCommands.getParseArgumentPattern(),
