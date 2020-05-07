@@ -19,22 +19,6 @@ import static org.junit.Assert.*;
 
 public class RankGraphTest {
   @Test
-  public void testMultipleParagraphs() {
-    try (PDFParser parser = new PDFParser("data/test.pdf")) {
-      RankGraph g = new RankGraph(Snippet.parseText(parser.getText(), "test.pdf"), new CosineSimilarity(), new StatisticalKeywordExtractor(), new PorterStemming());
-      g.populateEdges(List.of("rocks", "rock", "the"));
-      Rankable ranker = new PageRank(g);
-      List<RankVertex> snippets = ranker.rank();
-       for (int i = 0; i < 5; i++) {
-          System.out.println(snippets.get(i).getValue().getSnippet().getOriginalText());
-          System.out.println();
-      }
-    } catch (IOException e) {
-      throw new IllegalArgumentException("ERROR: JUnit test failed");
-    }
-  }
-
-  @Test
   public void testCorrectNumberVertex() {
     List<Snippet> corpus = List.of(new Snippet("1"), new Snippet("2"), new Snippet("3"));
     RankGraph g = new RankGraph(corpus, new Jaccardish());

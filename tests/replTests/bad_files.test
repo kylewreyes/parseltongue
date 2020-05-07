@@ -1,0 +1,7 @@
+INPUT
+parse not_a_pdf.pdf "sheeppp"
+parse PorterStemmingTestVocabInput.txt "sheeppp"
+OUTPUT
+ERROR:
+ERROR:
+END

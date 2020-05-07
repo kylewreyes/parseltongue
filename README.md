@@ -8,7 +8,7 @@ Welcome to the ParselTongue project of Derick Toth, Shalin Patel, Kyle Reyes, an
 
 To build ParselTongue, first confirm that you have a compatible version of Java (Java 11+), and a compatible version of Maven (Maven 3). Next, navigate to the root directory and run `mvn package`. This will compile the code into an executable file, which you can run from the command line. To run Maps, navigate to the root directory and run `./run`. This will start a webserver alongside a CLI implementation of ParselTongue, which supports the following command:
 
-- `parsel <list of /path/to/pdfs> <list of keywords>` which will output the snippets extracted from the PDFs and display them in decreasing score as determined by our algorithm.
+- `parse <list of /path/to/pdfs> <list of keywords>` which will output the snippets extracted from the PDFs and display them in decreasing score as determined by our algorithm.
 
 The solution is deployed at https://parseltongue-cs32.herokuapp.com/ as well. Note that both a local deployment and the Heroku deployment will access the same database.
 
@@ -82,7 +82,7 @@ JUnit tests were written to consider all edge cases for each class written. For 
 
 System tests were written to consider a variety of input, both well formed and malformed, as well as a variety of interesting edge cases. Note that there is no way to test for correctness of a given output, but we can consider its properties. A (non-exhaustive) list per command is as follows:
 
-- `parsel`: improper REPL input, improper input into parsel
+- `parse`: improper REPL input, improper input into parsel
 
 ## Checkstyle
 
