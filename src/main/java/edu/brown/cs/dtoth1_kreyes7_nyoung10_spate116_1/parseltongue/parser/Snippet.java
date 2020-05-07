@@ -265,6 +265,7 @@ public class Snippet implements Serializable {
       StringBuilder currentSnippet = new StringBuilder();
       if (!previousSnippet.isEmpty()) {
         currentSnippet = previousSnippet.get();
+        currentSnippet.append(System.lineSeparator());
       }
       boolean foundStartOfContent = false, foundEnding = false, foundCaption = false,
           usedPreviousSnippet = false;
@@ -275,7 +276,8 @@ public class Snippet implements Serializable {
 
         // Not all documents contain an abstract. But if they do, only everything starting from
         // the abstract is wanted. So, if an abstract is found, everything before it is removed.
-        if (!foundStartOfContent && matchesAbstract(nextLine)) {
+        if (!foundStartOfContent && matchesAbstract(nextLine) && !pageNum.isEmpty()
+            && pageNum.get() <= 2) {
           foundStartOfContent = true;
           snippets = new ArrayList<>();
           currentSnippet.setLength(0);

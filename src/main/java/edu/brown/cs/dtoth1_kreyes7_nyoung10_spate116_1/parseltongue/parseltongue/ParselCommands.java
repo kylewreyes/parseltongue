@@ -52,6 +52,12 @@ public final class ParselCommands {
         sb.append(s.getOriginalText());
         sb.append(System.lineSeparator());
       }
+      if (sb.charAt(sb.length() - 1) == '\n') {
+        sb.setLength(sb.length() - 1);
+        if (sb.charAt(sb.length() - 1) == '\r') {
+          sb.setLength(sb.length() - 1);
+        }
+      }
       return sb.toString();
     }
   };

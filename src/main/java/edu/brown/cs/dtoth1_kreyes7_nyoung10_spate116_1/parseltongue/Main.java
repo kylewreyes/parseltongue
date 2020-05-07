@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.logging.LogManager;
 
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseltongue.ParselCommands;
 import edu.brown.cs.dtoth1_kreyes7_nyoung10_spate116_1.parseltongue.parseldb.ParselDB;
@@ -58,6 +59,8 @@ public final class Main {
       // Start webserver.
       runSparkServer();
     }
+    // Disables logging from Apache PDFBox
+    LogManager.getLogManager().reset();
     // REPL Handling.
     REPL repl = new REPL();
     repl.addCommand("parse", ParselCommands.getParseArgumentPattern(),
