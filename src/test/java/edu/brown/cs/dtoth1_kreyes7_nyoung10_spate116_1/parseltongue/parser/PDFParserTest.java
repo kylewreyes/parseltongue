@@ -145,7 +145,7 @@ public class PDFParserTest {
         " everything" + System.lineSeparator() +
         "that was needed. He continued to wait for Marta to appear with the pets, but she still " +
         "was nowhere to" + System.lineSeparator() +
-        "be seen." + System.lineSeparator();
+        "be seen." + System.lineSeparator() + System.lineSeparator();
     try (SourceParser parser = new PDFParser("data/test_multiple_paragraphs.pdf")) {
       assertEquals(multipleParagraphs, processRawInput(parser.getText()));
     } catch (IOException e) {
