@@ -156,7 +156,7 @@ class Test:
         input.seek(0)
 
         try:
-          cp = subprocess.call(["sh", "-c", self.command], timeout=timeout,
+          cp = subprocess.call(["sh", "-c", self.command + "--test"], timeout=timeout,
                             stdin=input, stdout=temp, stderr=subprocess.STDOUT)
         except subprocess.TimeoutExpired:
           print("%s timed out after %f seconds" % (self.name, timeout))
