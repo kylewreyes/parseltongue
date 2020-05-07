@@ -314,7 +314,7 @@ public class Snippet implements Serializable {
 
         // Checks if next line contains actual characters
         if (nextLine != "" && !nextLine.matches("\\p{javaWhitespace}*")) {
-          // If a caption is found, everything is ignored until a paragraph ender is found.
+          // If a caption is found, everything is ignored until a paragraph ending is found.
           if (!foundCaption) {
             currentSnippet.append(nextLine);
           }
@@ -351,7 +351,14 @@ public class Snippet implements Serializable {
       if (currentSnippet.length() == 0) {
         return new SnippetObject(foundStartOfContent, snippets, foundEnding, Optional.empty(),
             Optional.empty());
-      } else {
+      } else { // There is a pending Snippet to be constructed.
+        // Removes the extra line separator appended before, if necessary
+        if (currentSnippet.charAt(currentSnippet.length() - 1) == '\n') {
+          currentSnippet.setLength(currentSnippet.length() - 1);
+          if (currentSnippet.charAt(currentSnippet.length() - 1) == '\r') {
+            currentSnippet.setLength(currentSnippet.length() - 1);
+          }
+        }
         if (pageNum.isEmpty()) {
           snippets.add(new Snippet(currentSnippet.toString(), file));
           return new SnippetObject(foundStartOfContent, snippets, foundEnding, Optional.empty(),

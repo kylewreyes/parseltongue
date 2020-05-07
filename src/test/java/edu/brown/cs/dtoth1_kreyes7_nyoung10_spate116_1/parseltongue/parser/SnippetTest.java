@@ -58,7 +58,7 @@ public class SnippetTest {
           "https://about.jstor.org/terms" + System.lineSeparator() +
           "Pan American Institute of Geography and History is collaborating with JSTOR to " +
           "digitize," + System.lineSeparator() +
-          "preserve and extend access to Revista Geográfica" + System.lineSeparator());
+          "preserve and extend access to Revista Geográfica");
 
       List<String> snippetStrings = new ArrayList<>();
       for (Snippet s : Snippet.parseText(pages, f.getName())) {
