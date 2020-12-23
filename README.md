@@ -2,7 +2,7 @@
 
 ## ParselTongue
 
-Welcome to the ParselTongue project of Derick Toth, Shalin Patel, Kyle Reyes, and Nick Young! We hope you enjoy your stay.
+This is Derick Toth, Shalin Patel, Kyle Reyes, and Nick Young's final project for CSCI 0320 - Intro to Software Engineering at Brown University. ParselTongue is a smart PageRank-based research paper parsing tool. It allows you to easily skim through multiple research papers by finding relevant sections based on your given search phrases.
 
 ## Getting Started
 
